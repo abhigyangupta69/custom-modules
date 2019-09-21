@@ -1,0 +1,1511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+<!--=========================================[[ Form 15G Report ]]================================================== -->
+	
+	<template id="report_employee_form15g_report">
+		<t t-set="data_report_margin_bottom" t-value="100"/>
+	    <t t-call="report.html_container">
+		   <t t-foreach="docs" t-as="o">
+		    <t t-foreach="o.employee_no" t-as="l">
+		    	<div class="page" > 
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="center" colspan="6">
+		    							<b>FORM NO. 15G <br/>
+								[ See section 197A(1), 197A(1A) and rule 29C ] </b>
+		    				</td>
+		    			</tr>	
+		    		</table>
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="center" colspan="6">
+		    					<b>Declaration under section 197A(1) and section 197A(1A) of the Income‐tax Act, 1961 to be made by <br/>
+		    					 individual or a person (not being a company or firm) claiming certain receipts without deduction of tax
+		    					 <br/><br/> 
+		    					 	PART 1
+								 </b>
+		    				</td>
+		    			</tr>	
+		    		</table>
+		    		<table width="100%">
+		    			<tr width="100%" >
+		    				<td width="50%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> 1. Name of Assessee (Declarant) </b>
+		    				</td>
+		    				<td width="25%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>2. PAN of the Assessee  </b>
+		    				</td>
+		    				<td width="25%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <span t-foreach="l.verf_id" t-as="t">
+     										<span t-if="t.proof_id == 'PAN_Card' ">
+     											<span t-field="t.id_no"/>
+     										</span>
+										</span> </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="50%" align="center" colspan="2" STYLE="font-size:14px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					 	<span t-field="l.name"/>  
+		    				</td>
+		    				<td width="25%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>3. Assessment Year  </b>
+		    				</td>
+		    				<td width="25%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  none; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    			</tr>	
+		    			<tr width="100%" >
+		    				<td width="50%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  </b>
+		    				</td>
+		    				<td width="40%" align="left" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> ( for which declaration is being made)   </b>
+		    				</td>
+		    				<td width="10%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="25%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  4. Flat/Door/Block No. </b>
+		    				</td> 
+		    				<td width="25%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  none; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 5. Name of Premises  </b>
+		    				</td>
+		    				<td width="25%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  6. Status   </b>
+		    				</td>
+		    				<td width="25%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="25%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>   </b>
+		    				</td> 
+		    				<td width="25%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="25%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 7. Assessed in which Ward/Circle   </b>
+		    				</td>
+		    				<td width="25%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="25%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  8. Road/Street/Lane  </b>
+		    				</td> 
+		    				<td width="25%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 9. Area/Locality </b>
+		    				</td>
+		    				<td width="25%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 10. AO Code (under whom
+ 									assessed last time    </b>
+		    				</td>
+		    				<td width="25%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="50%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					 <span t-field="l.permanent_add"/>  
+		    				</td> 
+		    				
+		    				<td width="13%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Area Code </b>
+		    				</td>
+		    				<td width="12%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> AO Type </b>
+		    				</td>
+		    				<td width="13%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Range Code    </b>
+		    				</td>
+		    				<td width="12%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> AO No. </b>
+		    				</td>
+		    			</tr>
+		    			
+		    			<tr width="100%" >
+		    				<td width="17%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  11. Town/City/District </b>
+		    				</td> 
+		    				<td width="17%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 12. State </b>
+		    				</td>
+		    				<td width="16%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>13. PIN  </b>
+		    				</td>
+		    				<td width="50%" align="center" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>14. Last Assessment Year in which assessed  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="17%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> <![CDATA[&nbsp;]]>  </b>
+		    				</td> 
+		    				<td width="17%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="16%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="50%" align="center" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b></b>
+		    				</td>
+		    			</tr>
+		    			
+		    			<tr width="100%" >
+		    				<td width="20%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  15. Email  </b>
+		    				</td> 
+		    				<td width="30%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 16. Telephone No. (with STD Code) and Mobile No.</b>
+		    				</td>
+		    				<td width="30%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 17. Present Ward/Circle</b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    			</tr>	
+		    			<tr width="100%" >
+		    				<td width="20%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>   </b>
+		    				</td> 
+		    				<td width="30%" align="center" colspan="1" STYLE="font-size:14px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					   <span t-field="l.mobile_phone"/> 
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>18. Residential Status ( within the
+										 meaning of Section 6 of the Income
+ 										Tax Act,1961) </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:14px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					   INDIAN 
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="30%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>   19. Name of Business/Occupation  </b>
+		    				</td> 
+		    				<td width="20%" align="CENTER" colspan="1" STYLE="font-size:14px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					      SERVICE 
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 20. Present AO Code (if not same
+ 											as above)</b>
+		    				</td>
+		    				<td width="20%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					 	 <b> </b>
+		    				</td>
+		    			</tr>	    			
+		    			<tr width="100%" >
+		    				<td width="50%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>    21. Jurisdictional Chief Commissioner of Income‐tax or Commissioner of
+ 										Income‐tax (if not assessed to Income‐tax earlier)tion  </b>
+		    				</td>
+		    				<td width="13%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Area Code </b>
+		    				</td>
+		    				<td width="12%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> AO Type </b>
+		    				</td>
+		    				<td width="13%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Range Code    </b>
+		    				</td>
+		    				<td width="12%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> AO No. </b>
+		    				</td> 
+		    			</tr>
+		    			
+		    			<tr width="100%" >
+		    				<td width="80%" align="left" colspan="4" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> 22. Estimated total income from the sources mentioned below: </b>
+		    				</td>
+		    			
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="60%" align="left" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> 22. Estimated total income from the sources mentioned below: </b>
+		    				</td>
+		    			
+		    				<td width="40%" align="center" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> (Please tick the relevant box)    </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="70%" align="right" colspan="5" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> Dividend from shares referred to in Schedule (I)  </b>
+		    				</td>
+		    			
+		    				<td width="30%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="70%" align="right" colspan="5" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> Interest on securities referred to in Schedule (II)  </b>
+		    				</td>
+		    			
+		    				<td width="30%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="70%" align="right" colspan="5" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> Interest on sums referred to in Schedule (III)   </b>
+		    				</td>
+		    			
+		    				<td width="30%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="70%" align="right" colspan="5" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> Income form units referred to in Schedule (IV)    </b>
+		    				</td>
+		    			
+		    				<td width="30%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="70%" align="right" colspan="5" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> The amount of withdrawal referred to in section 80CCA(2)(a) from National Savings Scheme referred to in Schedule (V)     </b>
+		    				</td>
+		    			
+		    				<td width="30%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td> 
+		    			</tr> 
+		    			<tr width="100%" >
+		    				<td width="60%" align="left" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>23. Estimated total income of the previous year in which income mentioned in Column 22 is to be included    </b>
+		    				</td>
+		    				<td width="40%" align="center" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>24. Details of investments in respect of which the declaration is being made:    </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> <u> SCHEDULE‐I </u>   </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>(Details of shares, which stand in the name of the declarant and beneficially owned by him)    </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> No. of shares    </b>
+										
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Class of shares &amp; face value of each share  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>Total value of shares </b>
+											 
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  Distinctive numbers of  the  shares   </b>
+															
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Date(s) on which the shares were acquired  by the declarant (dd/mm/yyyy) </b>
+ 										
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					   <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  <u> SCHEDULE‐II  </u>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>(Details of the securities held in the name of declarant and beneficially owned by him)    </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Description of securities    </b>
+										
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Number of securities  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>Amount of securities </b>
+											 
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  Date(s) of securities (dd/mm/yyyy)   </b>
+															
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Date(s) on which the securities were acquired by the declarant (dd/mm/yyyy) </b>
+ 										
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					   <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  <u> SCHEDULE‐III  </u>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>(Details of the sums given by the declarant on interest)   </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Name and address of the person to whom the sums are given on interest    </b>
+										
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Amount of sums given on interest  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>Date on which the sums were given on interest(dd/mm/yyyy) </b>
+											 
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  Period for which sums were given on interest   </b>
+															
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Rate of interest </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					   <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  <u> SCHEDULE‐IV  </u>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>(Details of the mutual fund units held in the name of declarant and beneficially owned by him)   </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Name and address of the mutual fund    </b>
+										
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Number of units  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Class of units and face value  of each unit </b>
+											 
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  Distinctive number of units   </b>
+															
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Income in respect of units </b>
+ 										
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					   <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  <u> SCHEDULE‐V  </u>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>(Details of the withdrawal made from National Savings Scheme)   </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="60%" align="center" colspan="4" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Particulars of the Post Office where the account under the National Savings Scheme is maintained and the account number    </b>
+										
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Number of units  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>Class of units and face value  of each unit </b>
+											 
+		    				</td>
+		    				
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="60%" align="center" colspan="4" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]></b>
+											 
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="60%" align="center" colspan="4" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b><![CDATA[&nbsp;]]>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b><![CDATA[&nbsp;]]> </b>
+											 
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="right" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>    </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="right" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>   </b>
+		    				</td>
+		    			</tr>
+		    			
+		    			<tr width="100%" >
+		    				<td width="100%" align="right" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  <u> ______________________  </u>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="right" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>**Signature of the Declarant   </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  <u> Declaration/Verification  </u>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>      </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: None; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    				<b> 1/We  _____	<span t-field="l.name"/> ______________  do hereby declare that to the best of *my/our knowledge and belief 
+ 								 what is stated above is correct, complete and is truly stated. *I/We declare that the incomes referred to in this form are not																								 
+		    					  includible in the total income of any other person u/s 60 to 64 of the Income‐tax Act, 1961. *I/We further, declare that the tax 
+		    					  *on my/our estimated total income, including *income/incomes referred to in Column 22 above, omputed in accordance with the 
+		    					   provisions of the Income‐tax Act, 1961, for the previous year ending on ___________________ relevant to the assessment year 
+		    				       	______________   will not exceed the maximum amount which is not chargeable to income‐tax. </b> 	
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> Place: Moradabad    </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="50%" align="left" colspan="3" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> Date: ______________    </b>
+		    				</td>
+		    				<td width="50%" align="right" colspan="3" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  none; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  __________________ <br/>
+		    					   Signature of the Declarant     </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  PART - II   </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="CENTER" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  [For use by the person to whom the declaration is furnished]    </b>
+		    				</td>
+		    			</tr>
+		    			
+		    			<tr width="100%" >
+		    				<td width="70%" align="left" colspan="4" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  1. Name of the person responsible for paying the income referred to in Column 22 of Part I  </b>
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>2. PAN of the person indicated in Column 1 of Part II </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="70%" align="left" colspan="4" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>   3. Complete Address  </b>
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>4. TAN of the person indicated in Column 1 of Part II </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  5. Email  </b>
+		    				</td>
+		    				<td width="40%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>6. Telephone No. (with STD Code) and Mobile No. </b>
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>7. Status </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> 8. Date on which Declaration is Furnished  (dd/mm/yyyy)  </b>
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> 9. Period in respect of which the dividend has been  declared or the income has been paid/credited. </b>
+		    				</td>
+		    				<td width="20%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>10. Amount of income paid </b>
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>11. Date on which the income has been paid/credited (dd/mm/yyyy) </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="50%" align="left" colspan="4" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  12. Date of declaration, distribution or payment of dividend/ withdrawal under the National Savingscheme(dd/mm/yyyy)  </b>
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> 13. Account Number of National Saving Scheme from which withdrawal has been made </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  Forwarded to the Chief Commissioner or Commissioner of Income‐tax   ________________________________________  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> Place: ___________________ </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  Date: ___________________ </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="right" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> _______________________ <br/>
+		    					 Signature of the person responsible for <br/>
+		    					 paying the income referred to in <br/>
+		    					 Column 22 of Part I </b>
+		    					 
+		    				</td>
+		    			</tr>
+		    			
+			
+		    		</table>
+		    	</div>   
+		    </t> 
+    	  </t>
+   		</t>
+  	</template>
+  	
+ <!-- ===================================[[  Contractor Format 15 g form  ]] =========================--> 	
+ 
+ <template id="report_contractor_form15g_report">
+		<t t-set="data_report_margin_bottom" t-value="100"/>
+	    <t t-call="report.html_container">
+		   <t t-foreach="docs" t-as="o">
+		    <t t-foreach="o.employee_no" t-as="l">
+		    	<div class="page" > 
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="center" colspan="6">
+		    							<b>FORM NO. 15G <br/>
+								[ See section 197A(1), 197A(1A) and rule 29C ] </b>
+		    				</td>
+		    			</tr>	
+		    		</table>
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="center" colspan="6">
+		    					<b>Declaration under section 197A(1) and section 197A(1A) of the Income‐tax Act, 1961 to be made by <br/>
+		    					 individual or a person (not being a company or firm) claiming certain receipts without deduction of tax
+		    					 <br/><br/> 
+		    					 	PART 1
+								 </b>
+		    				</td>
+		    			</tr>	
+		    		</table>
+		    		<table width="100%">
+		    			<tr width="100%" >
+		    				<td width="50%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> 1. Name of Assessee (Declarant) </b>
+		    				</td>
+		    				<td width="25%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>2. PAN of the Assessee  </b>
+		    				</td>
+		    				<td width="25%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <span t-foreach="l.verf_id" t-as="t">
+     										<span t-if="t.proof_id == 'PAN_Card' ">
+     											<span t-field="t.id_no"/>
+     										</span>
+										</span> </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="50%" align="center" colspan="2" STYLE="font-size:14px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					 	<span t-field="l.name"/>  
+		    				</td>
+		    				<td width="25%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>3. Assessment Year  </b>
+		    				</td>
+		    				<td width="25%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  none; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    			</tr>	
+		    			<tr width="100%" >
+		    				<td width="50%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  </b>
+		    				</td>
+		    				<td width="40%" align="left" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> ( for which declaration is being made)   </b>
+		    				</td>
+		    				<td width="10%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: none; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="25%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  4. Flat/Door/Block No. </b>
+		    				</td> 
+		    				<td width="25%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  none; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 5. Name of Premises  </b>
+		    				</td>
+		    				<td width="25%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  6. Status   </b>
+		    				</td>
+		    				<td width="25%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="25%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>   </b>
+		    				</td> 
+		    				<td width="25%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="25%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 7. Assessed in which Ward/Circle   </b>
+		    				</td>
+		    				<td width="25%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="25%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  8. Road/Street/Lane  </b>
+		    				</td> 
+		    				<td width="25%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 9. Area/Locality </b>
+		    				</td>
+		    				<td width="25%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 10. AO Code (under whom
+ 									assessed last time    </b>
+		    				</td>
+		    				<td width="25%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="50%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					 <span t-field="l.permanent_add"/>  
+		    				</td> 
+		    				
+		    				<td width="13%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Area Code </b>
+		    				</td>
+		    				<td width="12%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> AO Type </b>
+		    				</td>
+		    				<td width="13%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Range Code    </b>
+		    				</td>
+		    				<td width="12%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> AO No. </b>
+		    				</td>
+		    			</tr>
+		    			
+		    			<tr width="100%" >
+		    				<td width="17%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  11. Town/City/District </b>
+		    				</td> 
+		    				<td width="17%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 12. State </b>
+		    				</td>
+		    				<td width="16%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>13. PIN  </b>
+		    				</td>
+		    				<td width="50%" align="center" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>14. Last Assessment Year in which assessed  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="17%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> <![CDATA[&nbsp;]]>  </b>
+		    				</td> 
+		    				<td width="17%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="16%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="50%" align="center" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b></b>
+		    				</td>
+		    			</tr>
+		    			
+		    			<tr width="100%" >
+		    				<td width="20%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  15. Email  </b>
+		    				</td> 
+		    				<td width="30%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 16. Telephone No. (with STD Code) and Mobile No.</b>
+		    				</td>
+		    				<td width="30%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 17. Present Ward/Circle</b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    			</tr>	
+		    			<tr width="100%" >
+		    				<td width="20%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>   </b>
+		    				</td> 
+		    				<td width="30%" align="center" colspan="1" STYLE="font-size:14px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					   <span t-field="l.mobile_phone"/> 
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>18. Residential Status ( within the
+										 meaning of Section 6 of the Income
+ 										Tax Act,1961) </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:14px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					   INDIAN 
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="30%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>   19. Name of Business/Occupation  </b>
+		    				</td> 
+		    				<td width="20%" align="CENTER" colspan="1" STYLE="font-size:14px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					      SERVICE 
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> 20. Present AO Code (if not same
+ 											as above)</b>
+		    				</td>
+		    				<td width="20%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					 	 <b> </b>
+		    				</td>
+		    			</tr>	    			
+		    			<tr width="100%" >
+		    				<td width="50%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>    21. Jurisdictional Chief Commissioner of Income‐tax or Commissioner of
+ 										Income‐tax (if not assessed to Income‐tax earlier)tion  </b>
+		    				</td>
+		    				<td width="13%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Area Code </b>
+		    				</td>
+		    				<td width="12%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> AO Type </b>
+		    				</td>
+		    				<td width="13%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Range Code    </b>
+		    				</td>
+		    				<td width="12%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> AO No. </b>
+		    				</td> 
+		    			</tr>
+		    			
+		    			<tr width="100%" >
+		    				<td width="80%" align="left" colspan="4" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> 22. Estimated total income from the sources mentioned below: </b>
+		    				</td>
+		    			
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="60%" align="left" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> 22. Estimated total income from the sources mentioned below: </b>
+		    				</td>
+		    			
+		    				<td width="40%" align="center" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> (Please tick the relevant box)    </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="70%" align="right" colspan="5" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> Dividend from shares referred to in Schedule (I)  </b>
+		    				</td>
+		    			
+		    				<td width="30%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="70%" align="right" colspan="5" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> Interest on securities referred to in Schedule (II)  </b>
+		    				</td>
+		    			
+		    				<td width="30%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="70%" align="right" colspan="5" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> Interest on sums referred to in Schedule (III)   </b>
+		    				</td>
+		    			
+		    				<td width="30%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="70%" align="right" colspan="5" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> Income form units referred to in Schedule (IV)    </b>
+		    				</td>
+		    			
+		    				<td width="30%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="70%" align="right" colspan="5" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> The amount of withdrawal referred to in section 80CCA(2)(a) from National Savings Scheme referred to in Schedule (V)     </b>
+		    				</td>
+		    			
+		    				<td width="30%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td> 
+		    			</tr> 
+		    			<tr width="100%" >
+		    				<td width="60%" align="left" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>23. Estimated total income of the previous year in which income mentioned in Column 22 is to be included    </b>
+		    				</td>
+		    				<td width="40%" align="center" colspan="3" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>24. Details of investments in respect of which the declaration is being made:    </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> <u> SCHEDULE‐I </u>   </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>(Details of shares, which stand in the name of the declarant and beneficially owned by him)    </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> No. of shares    </b>
+										
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Class of shares &amp; face value of each share  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>Total value of shares </b>
+											 
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  Distinctive numbers of  the  shares   </b>
+															
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Date(s) on which the shares were acquired  by the declarant (dd/mm/yyyy) </b>
+ 										
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					   <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  <u> SCHEDULE‐II  </u>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>(Details of the securities held in the name of declarant and beneficially owned by him)    </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Description of securities    </b>
+										
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Number of securities  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>Amount of securities </b>
+											 
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  Date(s) of securities (dd/mm/yyyy)   </b>
+															
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Date(s) on which the securities were acquired by the declarant (dd/mm/yyyy) </b>
+ 										
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					   <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  <u> SCHEDULE‐III  </u>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>(Details of the sums given by the declarant on interest)   </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Name and address of the person to whom the sums are given on interest    </b>
+										
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Amount of sums given on interest  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>Date on which the sums were given on interest(dd/mm/yyyy) </b>
+											 
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  Period for which sums were given on interest   </b>
+															
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Rate of interest </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					   <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  <u> SCHEDULE‐IV  </u>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>(Details of the mutual fund units held in the name of declarant and beneficially owned by him)   </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Name and address of the mutual fund    </b>
+										
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Number of units  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Class of units and face value  of each unit </b>
+											 
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  Distinctive number of units   </b>
+															
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Income in respect of units </b>
+ 										
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					   <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="center" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>     </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]> </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  <u> SCHEDULE‐V  </u>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>(Details of the withdrawal made from National Savings Scheme)   </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="60%" align="center" colspan="4" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Particulars of the Post Office where the account under the National Savings Scheme is maintained and the account number    </b>
+										
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> Number of units  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b>Class of units and face value  of each unit </b>
+											 
+		    				</td>
+		    				
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="60%" align="center" colspan="4" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]></b>
+											 
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="60%" align="center" colspan="4" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b> <![CDATA[&nbsp;]]>    </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b><![CDATA[&nbsp;]]>  </b>
+		    				</td>
+		    				<td width="20%" align="center" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					  <b><![CDATA[&nbsp;]]> </b>
+											 
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="right" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>    </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="right" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>   </b>
+		    				</td>
+		    			</tr>
+		    			
+		    			<tr width="100%" >
+		    				<td width="100%" align="right" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  <u> ______________________  </u>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="right" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>**Signature of the Declarant   </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  <u> Declaration/Verification  </u>  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>      </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: None; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    				<b> 1/We  _____	<span t-field="l.name"/> ______________  do hereby declare that to the best of *my/our knowledge and belief 
+ 								 what is stated above is correct, complete and is truly stated. *I/We declare that the incomes referred to in this form are not																								 
+		    					  includible in the total income of any other person u/s 60 to 64 of the Income‐tax Act, 1961. *I/We further, declare that the tax 
+		    					  *on my/our estimated total income, including *income/incomes referred to in Column 22 above, omputed in accordance with the 
+		    					   provisions of the Income‐tax Act, 1961, for the previous year ending on ___________________ relevant to the assessment year 
+		    				       	______________   will not exceed the maximum amount which is not chargeable to income‐tax. </b> 	
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> Place: Moradabad    </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="50%" align="left" colspan="3" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> Date: ______________    </b>
+		    				</td>
+		    				<td width="50%" align="right" colspan="3" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  none; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  __________________ <br/>
+		    					   Signature of the Declarant     </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  PART - II   </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="CENTER" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  [For use by the person to whom the declaration is furnished]    </b>
+		    				</td>
+		    			</tr>
+		    			
+		    			<tr width="100%" >
+		    				<td width="70%" align="left" colspan="4" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  1. Name of the person responsible for paying the income referred to in Column 22 of Part I  </b>
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>2. PAN of the person indicated in Column 1 of Part II </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="70%" align="left" colspan="4" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>   3. Complete Address  </b>
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>4. TAN of the person indicated in Column 1 of Part II </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  5. Email  </b>
+		    				</td>
+		    				<td width="40%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>6. Telephone No. (with STD Code) and Mobile No. </b>
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>7. Status </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="20%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> 8. Date on which Declaration is Furnished  (dd/mm/yyyy)  </b>
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> 9. Period in respect of which the dividend has been  declared or the income has been paid/credited. </b>
+		    				</td>
+		    				<td width="20%" align="left" colspan="1" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>10. Amount of income paid </b>
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>11. Date on which the income has been paid/credited (dd/mm/yyyy) </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="50%" align="left" colspan="4" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  12. Date of declaration, distribution or payment of dividend/ withdrawal under the National Savingscheme(dd/mm/yyyy)  </b>
+		    				</td>
+		    				<td width="30%" align="left" colspan="2" STYLE="font-size:13px;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> 13. Account Number of National Saving Scheme from which withdrawal has been made </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  Forwarded to the Chief Commissioner or Commissioner of Income‐tax   ________________________________________  </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> Place: ___________________ </b>
+		    				</td>
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: none; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b>  Date: ___________________ </b>
+		    				</td> 
+		    			</tr>
+		    			<tr width="100%" >
+		    				<td width="100%" align="right" colspan="6" STYLE="font-size:13px;border-top: none; border-bottom: 1px solid #000000; border-left:  1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0.1cm">
+		    					<b> _______________________ <br/>
+		    					 Signature of the person responsible for <br/>
+		    					 paying the income referred to in <br/>
+		    					 Column 22 of Part I </b>
+		    					 
+		    				</td>
+		    			</tr>
+		    			
+			
+		    		</table>
+		    	</div>   
+		    </t> 
+    	  </t>
+   		</t>
+  	</template>
+  	
+  	
+  	
+  	
+  	
+	</data>
+</openerp>

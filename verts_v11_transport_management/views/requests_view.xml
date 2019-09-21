@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="vehicle_requests_form_view" model="ir.ui.view">
+            <field name="name">Requests</field>
+            <field name="model">requests</field>
+            <field name="arch" type="xml">
+                <form string="Vehicle Requests">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible = "confirm" />
+                        <button name="%(action_vehicle_report_form_view)d" string="Vehicle Excel Report" type="action" class="oe_highlight" icon="fa-pencil-square-o" />
+                        <button string="Send For Approval" name="action_approval" type="object" class="oe_highlight" icon="fa-pencil-square-o"/>
+                        <button string="Test button" name="action_test_button" type="object" class="oe_highlight" icon="fa-pencil-square-o"/>
+                        <button string="Print Report" name="print_report" type="object" class="oe_highlight" icon="fa-pencil-square-o"/>
+
+                     </header>
+                    <sheet>
+                        <group col="4" colspan="4">
+                            <field name="name" />
+                            <field name="req_desc" />
+                            <field name="vehicle_required" />
+                            <field name="vehicle_req" />
+                            <field name="erp_no" />
+                            <field name="requested_by" />
+                            <field name="project_type" />
+                            <field name="project_name" />
+                            <field name="source_location" />
+                            <field name="destination_location" />
+                            <field name="pickup_location" />
+                            <field name="destination_location_type" />
+                            <field name="supplier" />
+                            <field name="customer" />
+                            <field name="pickup_address" />
+                            <field name="confirm_on_date" />
+                            <field name="destination_address" />
+                            <field name="priority_from_date" />
+                            <field name="priority_to_date" />
+                            <field name="priority_id" />
+                            <field name="priority_day" />
+                            <button name="%(action_wiz_request_form_view)d" type="action" class="oe_highlight" icon="fa-pencil-square-o" string="Confirm Detail"/>
+                        </group>
+                        <notebook>
+                          <page name="cargo_detail" string="Cargo Details" >
+                              <group col="4" colspan="4">
+                                    <field name="item_desc"/>
+                                    <field name="remarks"/>
+                                    <field name="supplier_invoice_value" />
+                                    <field name="custom_invoice_no" />
+                                    <field name="vehicle_type" />
+                                    <field name="under_utilization_reason" />
+                              </group>
+
+                               <group col="4" colspan="4">
+                                  <field name="length_utilization" />
+                                  <field name="width_utilization" />
+                                  <field name="height_utilization" />
+                                  <field name="weight_utilization" />
+                              </group>
+                               <group string="Cargo Dimension" name="cargo_dimension" groups="base.group_no_one">
+                                    <field name="uom" groups="base.group_no_one"/>
+                                    <field name="length" groups="base.group_no_one"/>
+                                    <field name="width" groups="base.group_no_one"/>
+                                    <field name="height" groups="base.group_no_one"/>
+                                    <field name="weight_unit" groups="base.group_no_one"/>
+                                    <field name="material_weight" groups="base.group_no_one"/>
+                                    <field name="no_packages" groups="base.group_no_one"/>
+                             </group>
+                        </page>
+                            <page name="check_list" string="CheckList">
+                               <field name="checklist_line">
+                                 <tree editable="bottom">
+                                   <field name="s_no"/>
+                                   <field name="checklist"/>
+                                   <field name="status"/>
+                               </tree>
+                               </field>
+                            </page>
+                           <page name="history" string="History" >
+                                 <group col="4" colspan="4">
+                                    <field name="requested_by"/>
+                                    <field name="requested_on" />
+                              </group>
+                          </page>
+                    </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+         <record id="vehicle_requests_tree_view" model="ir.ui.view">
+            <field name="name">Requests</field>
+            <field name="model">requests</field>
+            <field name="arch" type="xml">
+                <tree string="Vehicle Requests">
+                    <field name="name" />
+                    <field name="requestor" />
+                    <field name="request_priority" />
+                    <field name="vehicle_type" />
+                    <field name="supplier" />
+                    <field name="project_name" />
+                    <field name="items" />
+                    <field name="stage" />
+                </tree>
+            </field>
+        </record>
+        <record id="action_vehicle_requests_view"  model="ir.actions.act_window">
+            <field name="name">Requests</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">requests</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="vehicle_requests_tree_view"/>
+        </record>
+    </data>
+</odoo>

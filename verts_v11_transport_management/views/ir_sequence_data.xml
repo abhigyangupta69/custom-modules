@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="seq_req_no_id" model="ir.sequence">
+            <field name="name">Requests</field>
+            <field name="code">requests</field>
+            <field name="prefix">N-</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+    <data>
+        <record id="s_no_id" model="ir.sequence">
+            <field name="name">Checklist</field>
+            <field name="code">checklist</field>
+            <field name="prefix">0</field>
+            <field name="padding">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+    <data>
+        <record id="request_execution_sn_id" model="ir.sequence">
+            <field name="name">RequestExecution</field>
+            <field name="code">request.execution</field>
+            <field name="prefix">EN</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

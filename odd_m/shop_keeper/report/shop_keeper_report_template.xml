@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="report_of_shop_keepers">
+        <t t-call="web.html_container">
+           <t t-call="web.internal_layout">
+			   <t t-set="doc" t-value="doc.with_context({'lang':English})" />
+				<div class="page"><h1>Product Full Report</h1></div>
+			   <div t-if="doc.product_type" class="col-xs-3">
+                    <strong>Product Type</strong>
+                    <p t-field="doc.product_type"/>
+                </div>
+
+			   <div t-if="doc.shipping_date" class="col-xs-3">
+                    <strong>Shipping Date</strong>
+                    <p t-field="doc.shipping_date"/>
+                </div>
+			    <div t-if="doc.ref_no" class="col-xs-3">
+                    <strong>Bill No.</strong>
+                    <p t-field="doc.ref_no"/>
+                </div>
+
+                <!--One2many class-->
+                <table class="table table-condensed">
+                    <thread>
+                        <tr>
+                            <th class="text-right">Shop Name</th>
+                            <th class="text-right">Gst No</th>
+							<th class="text-right">Product Type</th>
+                            <th class="text-right">Product Name</th>
+							<th class="text-right">Cost</th>
+                            <th class="text-right">Price(includes GST)</th>
+
+                        </tr>
+					</thread>
+					<!--expected_date is one2many field -->
+					<tbody>
+					<t t-foreach="doc.expected_date" t-as="tdetail">
+						<tr>
+						<td class="text-right">
+							<span t-field="tdetail.shop_name"/>
+
+						</td>
+							<td class="text-right">
+							<span t-field="tdetail.gst_no"/>
+
+						</td>
+							<td class="text-right">
+							<span t-field="tdetail.product_type"/>
+
+						</td>
+							<td class="text-right">
+							<span t-field="tdetail.product_name"/>
+
+						</td>
+							<td class="text-right">
+							<span t-field="tdetail.cost"/>
+						</td>
+                            <td class="text-right">
+							<span t-field="tdetail.total_price"/>
+						</td>
+					</tr>
+					</t>
+					</tbody>
+				</table>
+				</t>
+				</t>
+
+		</template>
+
+
+
+	<template id="report_of_customer_feedbacks">
+        <t t-call="web.html_container">
+           <t t-call="web.internal_layout">
+			   <t t-set="doc" t-value="doc.with_context({'lang':English})" />
+				<div class="page"><h1>Customer Feedback Report</h1></div>
+			   <div t-if="doc.name_customer" class="col-xs-3">
+                    <strong>Customer Name</strong>
+                    <p t-field="doc.name_customer"/>
+                </div>
+
+			   <div t-if="doc.customer_address" class="col-xs-3">
+                    <strong>Customer Address</strong>
+                    <p t-field="doc.customer_address"/>
+                </div>
+			    <div t-if="doc.product_payment" class="col-xs-3">
+                    <strong>Product Payment</strong>
+                    <p t-field="doc.product_payment"/>
+                </div>
+			   <div t-if="doc.delivery_time" class="col-xs-3">
+                    <strong>Delivery Time</strong>
+                    <p t-field="doc.delivery_time"/>
+                </div>
+
+                <!--One2many class-->
+                <table class="table table-condensed">
+                    <thread>
+                        <tr>
+							<th class="text-right">Bill No:</th>
+                            <th class="text-right">Your Experience</th>
+                            <th class="text-right">Product Rating</th>
+                        </tr>
+					</thread>
+					<!--feed is one2many field -->
+					<tbody>
+					<t t-foreach="doc.feed" t-as="tdetail">
+						<tr>
+							<td class="text-right">
+							<span t-field="tdetail.ref_no"/>
+
+						</td>
+						<td class="text-right">
+							<span t-field="tdetail.experience"/>
+
+						</td>
+							<td class="text-right">
+							<span t-field="tdetail.rating"/>
+						</td>
+					</tr>
+					</t>
+					</tbody>
+				</table>
+				</t>
+				</t>
+
+		</template>
+      <template id="report_of_shop_keeper">
+		  <t t-call="web.html_container">
+         <t t-foreach="docs" t-as="doc">
+            <t t-call="shop_keeper.report_of_shop_keepers"/>
+        </t>
+         </t>
+      </template>
+	 <template id="report_of_customer_feedback">
+		  <t t-call="web.html_container">
+         <t t-foreach="docs" t-as="doc">
+            <t t-call="shop_keeper.report_of_customer_feedbacks"/>
+        </t>
+         </t>
+      </template>
+</odoo>

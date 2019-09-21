@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="location_types_form_view" model="ir.ui.view">
+            <field name="name">LocationTypes</field>
+            <field name="model">location_types</field>
+            <field name="arch" type="xml">
+                <form string="Location Type">
+                    <sheet>
+                        <group col="2" colspan="2">
+                            <field name="name" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="location_types_tree_view" model="ir.ui.view">
+            <field name="name">LocationTypes</field>
+            <field name="model">location_types</field>
+            <field name="arch" type="xml">
+                <tree string="Location Type">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        <record id="action_location_types_view"  model="ir.actions.act_window">
+            <field name="name">LocationTypes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">location_types</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="location_types_tree_view"/>
+
+        </record>
+    </data>
+</odoo>

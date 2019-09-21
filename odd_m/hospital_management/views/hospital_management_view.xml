@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <!-- Top menu item -->
+
+
+   <!-- Top menu item -->
+        <menuitem name="Hospital Management" id="menu_hospital_management_parent_root_id" sequence="50"/>
+        <menuitem id="menu_hospital_management_root_id" name="Hospital Facility" parent="menu_hospital_management_parent_root_id" sequence="1" />
+
+        <record id="hospital_management_form_view" model="ir.ui.view">
+            <field name="name">DoctorDetails</field>
+            <field name="model">doctor.details</field>
+            <field name="arch" type="xml">
+               <form string="Medical Data">
+                   <header>
+                    <button name="create_duplicate" string="Duplicate" type="object" class="oe_highlight"/>
+                       <button name='print_report' string="Print Report" type="object" class="oe_highlight" icon="fa-pencil-square-o" groups="base.group_user"/> />
+                       <button name= "%(action_wiz_hospital_management_view)d" string="Open Wizard" type="action" class="oe_highlight" icon="fa-pencil-square-o"/>
+
+                </header>
+                <sheet>
+                    <group col="1">
+                        <group col="5" colspan="4" >
+                            <group col="4" colspan="4" >
+                                   <field name="name_doc"/>
+                                   <field name="doc_id"/>
+                                   <field name="qualification"/>
+                                   <field name="department"/>
+                                   <field name="specialization"/>
+                                   <field name="op_d"/>
+                                   <field name="mob_no"/>
+                                   <field name="create_date"/>
+                                   <field name="mp"/>
+                                   <field name="age"/>
+                                <field name="partner_id"/>
+                            </group>
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hospital_management_tree_view" model="ir.ui.view">
+            <field name="name">DoctorDetails</field>
+            <field name="model">doctor.details</field>
+            <field name="arch" type="xml">
+                <tree string="Medical Scheme">
+                     <field name="name_doc"/>
+                     <field name="doc_id"/>
+                     <field name="qualification"/>
+                     <field name="department"/>
+                     <field name="specialization"/>
+                     <field name="op_d"/>
+                     <field name="mob_no"/>
+                     <field name="create_date"/>
+                     <field name="mp"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_hospital_management" model="ir.actions.act_window">
+            <field name="name">DoctorDetails</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">doctor.details</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem action="action_hospital_management" id="menu_hospital_management_sub_root_id" name="Hospital Facility" parent="menu_hospital_management_root_id" sequence="1"/>
+
+
+
+
+       <record id="pat_master_form_view" model="ir.ui.view">
+            <field name="name">PatientDetails</field>
+            <field name="model">patientdetails</field>
+            <field name="arch" type="xml">
+             <form string="Quali">
+                 <header>
+                    <button name="create_duplicate" string="Duplicate" type="object" class="oe_highlight"/>
+                </header>
+                      <sheet>
+                            <group col="4" colspan="4" >
+                                <field name="name_pat"/>
+                                <field name="first_pat"/>
+                                <field name="last_pat"/>
+                                <field name="age"/>
+                                <field name="relation_name"/>
+                                <field name="dicease"/>
+                                <field name="who_m"/>
+                                <field name="patient_image"/>
+                                 <field name="partner_id"/>
+
+
+                            </group>
+                            <notebook>
+                        <page string="please Add Details ">
+                        <field name="sp" colspan="4"  nolabel="1" >
+                            <tree editable="bottom">
+                                    <field name="mp" invisible="1"/>
+                                   <field name="name_doc"/>
+                                   <field name="doc_id"/>
+                                   <field name="qualification"/>
+                                   <field name="department"/>
+                                   <field name="specialization"/>
+                                   <field name="op_d"/>
+                                   <field name="mob_no"/>
+                                   <field name="create_date"/>
+
+
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                        <field name="mp" invisible="1"/>
+                                        <field name="name_doc"/>
+                                        <field name="doc_id"/>
+                                        <field name="qualification"/>
+                                        <field name="department"/>
+                                        <field name="specialization"/>
+                                        <field name="op_d"/>
+                                        <field name="mob_no"/>
+                                        <field name="create_date"/>
+
+
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+
+                        </page>
+                         <page string="Patient Details History">
+                        <field name="one_many" colspan="4"  nolabel="1" >
+                            <tree editable="bottom">
+                                    <field name="many_one" invisible="1"/>
+                                    <field name="first_pat"/>
+                                    <field name="new_name"/>
+                                    <field name="relation_name"/>
+                                    <field name="new_relation"/>
+                                    <field name="dicease"/>
+                                    <field name="new_dicease"/>
+                                    <field name="who_m"/>
+                                    <field name="new_meet"/>
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                       <field name="many_one" invisible="1"/>
+                                        <field name="first_pat"/>
+                                        <field name="new_name"/>
+                                        <field name="relation_name"/>
+                                        <field name="new_relation"/>
+                                        <field name="dicease"/>
+                                        <field name="new_dicease"/>
+                                        <field name="who_m"/>
+                                        <field name="new_meet"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="pat_tree_view" model="ir.ui.view">
+            <field name="name">PatientDetails</field>
+            <field name="model">patientdetails</field>
+            <field name="arch" type="xml">
+                <tree string="Qualific">
+                   <field name="name_pat"/>
+                    <field name="first_pat"/>
+                    <field name="last_pat"/>
+                    <field name="age"/>
+                    <field name="relation_name"/>
+                    <field name="dicease"/>
+                    <field name="who_m"/>
+                    <field name="partner_id" required="1"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_pat_master_view" model="ir.actions.act_window">
+            <field name="name">PatientDetails</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">patientdetails</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<menuitem action="action_pat_master_view" id="menu_pat_master_id" parent="menu_hospital_management_root_id" sequence="2"/>
+
+
+
+
+
+       <record id="admit_form_view" model="ir.ui.view">
+            <field name="name">Admit</field>
+            <field name="model">admit</field>
+            <field name="arch" type="xml">
+             <form string="history">
+                <sheet>
+                    <group col="1">
+                        <group col="5" colspan="4" >
+                            <group col="4" colspan="4" >
+                                <field name="name_pat" required="1"/>
+                                <field name="bad_no"/>
+                                <field name="dicease"/>
+                                <field name="who_m"/>
+                                <field name="pat_relation"/>
+                                <field name="em_no" attrs="{'readonly':[('dicease','=','hp')], 'required':[('dicease','=','cv')]}"/>
+                                <field name="partner_id"/>
+
+                              </group>
+                             <group col="1" colspan="1">
+                                <field name="image" widget="image"  height="140" width="125" nolabel="1"/>
+                                <newline/>
+                                <button name="%(action_wiz_hospital_image_view)d" string="Upload Photo" type="action" class="oe_highlight" icon="fa-pencil-square-o" />
+                            </group>
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="admit_tree_view" model="ir.ui.view">
+            <field name="name">Admit</field>
+            <field name="model">admit</field>
+            <field name="arch" type="xml">
+                <tree string="Story">
+                    <field name="name_pat"/>
+                    <field name="bad_no"/>
+                    <field name="dicease"/>
+                    <field name="who_m"/>
+                    <field name="pat_relation"/>
+                    <field name="em_no"/>
+                     <field name="image_url" invisible="1"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_admit_view" model="ir.actions.act_window">
+            <field name="name">Admit</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">admit</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<menuitem action="action_admit_view" id="menu_admit_id" parent="menu_hospital_management_root_id" sequence="3"/>
+
+
+
+
+
+
+
+
+
+       <record id="vehicle_form_view" model="ir.ui.view">
+            <field name="name">VehicleMaster</field>
+            <field name="model">vehicle.master</field>
+            <field name="arch" type="xml">
+             <form string="history">
+                <sheet>
+
+                            <group col="4" colspan="4" >
+                                <field name="vehicle_no" required="1"/>
+                                <field name="vehicle_model" required="1"/>
+                                <field name="vehicle_type" required="1"/>
+                                <field name="vehicle_avg" required="1"/>
+                                <field name="vehicle_driver" required="1"/>
+                                <field name="driver_mob" attrs="{'readonly':[('vehicle_type','=','van')], 'required':[('vehicle_type','=','car')]}"/>
+                              </group>
+                                <notebook>
+                          <page string="Details Are" >
+                          <field name="rel_no" domain="[('vehicle_driver','=','Abhigyan')]" >
+                               <tree editable="bottom">
+                                    <field name="ambulance_no"/>
+                                    <field name="vehicle_driver"/>
+                                   <field name="driver_mob"/>
+
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                       <field name="ambulance_no"/>
+                                       <field name="vehicle_driver"/>
+                                       <field name="driver_mob"/>
+
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+
+                        </page>
+                    </notebook>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="vehicle_tree_view" model="ir.ui.view">
+            <field name="name">VehicleMaster</field>
+            <field name="model">vehicle.master</field>
+            <field name="arch" type="xml">
+                <tree string="Story">
+                    <field name="vehicle_no" required="1"/>
+                    <field name="vehicle_model" required="1"/>
+                    <field name="vehicle_type" required="1"/>
+                    <field name="vehicle_avg" required="1"/>
+                    <field name="vehicle_driver" required="1"/>
+                    <field name="driver_mob" required="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_vehicle_view" model="ir.actions.act_window">
+            <field name="name">VehicleMaster</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vehicle.master</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<menuitem action="action_vehicle_view" id="menu_vehicle_id" parent="menu_hospital_management_root_id" sequence="4"/>
+
+
+
+
+
+
+
+
+
+        <record id="ambulance_search_view" model="ir.ui.view">
+            <field name="name">AmbulanceDetail</field>
+            <field name="model">ambulance.detail</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="ambulance_no"/>
+                    <field name="vehicle_driver"/>
+                    <field name="driver_mob"/>
+                </search>
+            </field>
+        </record>
+
+       <record id="ambulance_kanban_view" model="ir.ui.view">
+                 <field name="name">AmbulanceDetail</field>
+                 <field name="model">ambulance.detail</field>
+                 <field name="arch" type="xml">
+                     <kanban default_group_by="ambulance_no">
+                         <field name="ambulance_no"/>
+                         <templates>
+                              <t t-name="kanban-box">
+                                  <div class="oe_dropdown_kanban">
+                                    <!-- dropdown menu -->
+                                    <div class="oe_dropdown_toggle">
+                                        <i class="fa fa-bars fa-lg"/>
+                                        <ul class="oe_dropdown_menu">
+                                            <li>
+                                                <a type="delete">Delete</a>
+                                            </li>
+                                            <li>
+                                                <ul class="oe_kanban_colorpicker"
+                                                    data-field="color"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                 <div class="oe_clear"></div>
+                                </div>
+                                <div t-attf-class="oe_kanban_content">
+                                    <!-- title -->
+                                     Ambulance No:
+                                    <field name="ambulance_no"/>
+                                    <br/>
+                                    Driver Name:
+                                    <field name="vehicle_driver"/>
+                                    <br/>
+                                    Mob No:
+                                    <field name="driver_mob"/>
+                                    <br/>
+                                </div>
+                              </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="ambulance_tree_view" model="ir.ui.view">
+            <field name="name">AmbulanceDetail</field>
+            <field name="model">ambulance.detail</field>
+            <field name="arch" type="xml">
+                <tree string="Story">
+                    <field name="ambulance_no"/>
+                    <field name="vehicle_driver"/>
+                    <field name="driver_mob"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="ambulance_detail_form_view" model="ir.ui.view">
+            <field name="name">Ambulance Detail</field>
+            <field name="model">ambulance.detail</field>
+            <field name="arch" type="xml">
+                <form string="Detail">
+                    <sheet>
+                        <group col="1">
+                            <group col="5" colspan="4">
+                                <group col="4" colspan="4" >
+                                    <field name="ambulance_no"/>
+                                    <field name="vehicle_driver"/>
+                                    <field name="driver_mob"/>
+                                </group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Vehical">
+                                <field name="destination_distance" domain="[('vehicle_type','=','car')]">
+                                    <tree editable="top">
+                                        <field name="vehicle_no"/>
+                                        <field name="vehicle_model"/>
+                                        <field name="vehicle_type"/>
+                                        <field name="driver_mob"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_ambulance_view" model="ir.actions.act_window">
+            <field name="name">AmbulanceDetail</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ambulance.detail</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+<menuitem action="action_ambulance_view" id="menu_ambulance_id" parent="menu_hospital_management_root_id" sequence="5"/>
+
+
+
+
+
+
+
+       <record id="patienthistory_form_view" model="ir.ui.view">
+            <field name="name">PatientDetailHistory</field>
+            <field name="model">patient.detail.history</field>
+            <field name="arch" type="xml">
+             <form string="history">
+                <sheet>
+
+                            <group col="4" colspan="4" >
+                                <field name="first_pat"/>
+                                <field name="new_name"/>
+                                <field name="relation_name"/>
+                                <field name="new_relation"/>
+                                <field name="dicease"/>
+                                <field name="new_dicease"/>
+                                <field name="who_m"/>
+                                <field name="new_meet"/>
+                              </group>
+                                <notebook>
+                          <page string="Record Details" >
+                          <field name="many_one">
+                               <tree editable="bottom">
+                                    <field name="name_pat"/>
+                                    <field name="first_pat"/>
+                                   <field name="relation_name"/>
+                                   <field name="dicease"/>
+                                   <field name="who_m"/>
+                                   <field name="partner_id"/>
+
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                        <field name="name_pat"/>
+                                       <field name="first_pat"/>
+                                     <field name="relation_name"/>
+                                     <field name="dicease"/>
+                                     <field name="who_m"/>
+                                     <field name="partner_id"/>
+
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+
+                        </page>
+                    </notebook>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="patienthistory_tree_view" model="ir.ui.view">
+            <field name="name">PatientDetailHistory</field>
+            <field name="model">patient.detail.history</field>
+            <field name="arch" type="xml">
+                <tree string="Story">
+                    <field name="first_pat"/>
+                    <field name="new_name"/>
+                    <field name="relation_name"/>
+                    <field name="new_relation"/>
+                    <field name="dicease"/>
+                    <field name="new_dicease"/>
+                    <field name="who_m"/>
+                    <field name="new_meet"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_patienthistory_view" model="ir.actions.act_window">
+            <field name="name">PatientDetailHistory</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">patient.detail.history</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

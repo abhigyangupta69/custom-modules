@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		
+		<!--	======================= Template for Bond Report ==================	-->
+										
+		<template id="report_pf_contribution_temp_id">
+			<t t-call="report.html_container">
+				<t t-foreach="docs" t-as="o">
+					<div class="page">
+						<table width="100%">
+							<tr>
+								<td>
+									<p ALIGN="CENTER" style="font-size:14px;"><strong><span t-field="o.company_id.name"/></strong></p>
+								</td>
+							</tr>
+						</table>
+						
+						<table width="100%">
+							<tr>
+								<td>
+									<p ALIGN="CENTER" style="font-size:14px;"><b> PF Contribution For The Month Of <span t-field="o.month.name"/></b></p>
+								</td>
+							</tr>
+						</table>
+						
+						<table width="100%" cellpadding="4" cellspacing="0">
+							<thead>
+							<tr valign="top">
+								<th width="4%" class="text-center" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p><b>S. No.</b></p>
+								</th>
+								<th width="13%" class="text-center" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p><b>Emp Code</b></p>
+								</th>
+								<th width="13%" class="text-center" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p><b>PF No.</b></p>
+								</th>
+								<th width="30%" class="text-center" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p><b>Member Name</b></p>
+								</th>
+								<th width="10%" class="text-center" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p><b>EPF Wages</b></p>
+								</th>
+								<th width="10%" class="text-center" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p><b>EPF Contribution</b></p>
+								</th>
+								<th width="10%" class="text-center" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p><b>EPS Contribution</b></p>
+								</th>
+								<th width="10%" class="text-center" style="font-size:12px; border: 1px solid #000000; padding: 0.1cm">
+									<p><b>EPS Contribution</b></p>
+								</th>
+							</tr>
+							</thead>
+							<tbody>
+								<tr t-foreach="get_data(o.month,o.company_id,o.department_id,o.employee_id)" t-as="line">
+									<td width="4%" ALIGN="CENTER" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p><span t-raw="get_sequence()"/></p>
+									</td>
+									<td width="13%" ALIGN="CENTER" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p><span t-raw="line[0]"/></p>
+									</td>
+									<td width="13%" ALIGN="CENTER" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p><span t-raw="line[1]"/></p>
+									</td>
+									<td width="30%" ALIGN="CENTER" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p><span t-raw="line[2]"/></p>
+									</td>
+									<td width="10%" ALIGN="CENTER" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p><span t-raw="line[3]"/></p>
+									</td>
+									<td width="10%" ALIGN="CENTER" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p><span t-raw="line[4]"/></p>
+									</td>
+									<td width="10%" ALIGN="CENTER" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p><span t-raw="line[5]"/></p>
+									</td>
+									<td width="10%" ALIGN="CENTER" style="font-size:12px; border: 1px solid #000000; padding: 0.1cm">
+										<p><span t-raw="line[6]"/></p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						
+						<table width="100%" cellpadding="4" cellspacing="0">
+							<tr valign="top">
+								<td width="4%" ALIGN="CENTER" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p></p>
+								</td>
+								<td width="13%" ALIGN="CENTER" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p></p>
+								</td>
+								<td width="13%" ALIGN="CENTER" style="font-size:12px; border-top: 1px solid #000000; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p></p>
+								</td>
+								<td width="30%" ALIGN="CENTER" style="font-size:15px; border-top: 1px solid #000000; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p><b>Total</b></p>
+								</td>
+								<td width="10%" ALIGN="CENTER" style="font-size:15px; border-top: 1px solid #000000; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p><b><span t-raw="get_epf_wages()"/></b></p>
+								</td>
+								<td width="10%" ALIGN="CENTER" style="font-size:15px; border-top: 1px solid #000000; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p><b><span t-raw="get_epf()"/></b></p>
+								</td>
+								<td width="10%" ALIGN="CENTER" style="font-size:15px; border-top: 1px solid #000000; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p><b><span t-raw="get_eps()"/></b></p>
+								</td>
+								<td width="10%" ALIGN="CENTER" style="font-size:15px; border-top: 1px solid #000000; border-bottom: 1px solid #ffffff; border-left: 1px solid #ffffff; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p><b><span t-raw="get_diff()"/></b></p>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</t>
+			</t>
+		</template>
+		
+	</data>
+</openerp>
+
+

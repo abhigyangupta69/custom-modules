@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		 
+         <report auto="False"  id="formf_id" model="wiz.employee.compliance" name="formf" 
+         rml="addons/hr_compliance/report/formf.rml" string="Employee Form F " menu="False" header="False"/>
+         
+         <report auto="False"  id="employee_verification_id" model="wiz.employee.compliance" name="employee_verification" 
+         rml="addons/hr_compliance/report/employee_verification.rml" string="Employee Verification" menu="False" header="False"/>
+         
+<!--         <report auto="False"  id="employee_service_record_id" model="wiz.employee.compliance" -->
+<!--         name="service.record" rml="addons/hr_compliance/report/service_record.rml" string="Employee Service Record " menu="False" header="False"/>-->
+   
+   	   	 <report auto="False"  id="form16_id" model="wiz.employee.compliance" name="form16" 
+   	   	 rml="addons/hr_compliance/report/form16.rml" string="Employee Form16 " menu="False" header="False"/>
+	
+
+<!--              CONTRACTOR VERIFICATION REPORT VIEW        -->
+
+         <report auto="False"  id="contractor_verification_id" model="wiz.contractor.compliance" name="contractor.verification" 
+         rml="addons/hr_compliance/report/contractor_verification.rml" string="Contractor Verification" menu="False" header="False"/>
+         
+         <report auto="False"  id="contractor_formf_id" model="wiz.contractor.compliance" name="contractor.formf" 
+         rml="addons/hr_compliance/report/contractor_formf.rml" string="Contractor Form F " menu="False" header="False"/>
+
+   	   	 <report auto="False"  id="contractor_form16_id" model="wiz.contractor.compliance" name="contractor.form16" 
+   	   	 rml="addons/hr_compliance/report/contractor_form16.rml" string="Contractor Form16 " menu="False" header="False"/>
+		 
+	</data>
+</openerp>

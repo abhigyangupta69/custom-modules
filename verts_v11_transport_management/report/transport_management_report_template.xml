@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="report_of_vehicle_unique">
+           <t t-call="web.internal_layout">
+        <t t-set="doc" t-value="doc.with_context({'lang':English})" />
+				<div class="page"><h1>Sale order report</h1></div>
+
+                   <div t-if="doc.name" class="col-xs-3">
+                    <strong>Request No</strong>
+                    <p t-field="doc.name"/>
+                   </div>
+                    <div t-if="doc.erp_no" class="col-xs-3">
+                    <strong>Erp No</strong>
+                    <p t-field="doc.erp_no"/>
+                   </div>
+
+        <table class="table table-condensed">
+            <thread>
+                <tr>
+                    <th class="text-right">S.No</th>
+                    <th class="text-right">CheckList</th>
+                    <th class="text-right">Status</th>
+                </tr>
+            </thread>
+					<tbody>
+					<t t-foreach="doc.checklist_line" t-as="line">
+						<td class="text-right">
+							<span t-field="line.s_no"/>
+
+						</td>
+							<td class="text-right">
+							<span t-field="line.checklist"/>
+
+						</td>
+							<td class="text-right">
+							<span t-field="line.status"/>
+						</td>
+					</t>
+                    </tbody>
+        </table>
+           </t>
+    </template>
+
+
+	<template id="report_of_vehiclerequest">
+           <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+            <t t-call="verts_v11_transport_management.report_of_vehicle_unique"/>
+
+        </t>
+    </t>
+      </template>
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="vehicle_type_form_view" model="ir.ui.view">
+            <field name="name">VehicleType</field>
+            <field name="model">vehicle.type</field>
+            <field name="arch" type="xml">
+                <form string="Vehicle TYpe">
+                    <sheet>
+                        <group col="2" colspan="2">
+                            <field name="name" />
+                            <field name="vehicle_weight" />
+                            <field name="dimensions_unit" />
+                            <field name="axles_no" />
+                        </group>
+                        <group col="4" colspan="3">
+                        <group string="Regular Size" name="regular_size">
+                            <field name="len_regular_size" />
+                            <field name="wid_regular_size" />
+                            <field name="height_regular_size" />
+                        </group>
+                        <group string="Min Size of Cargo" name="cargo_min_size">
+                            <field name="min_len_size" />
+                            <field name="min_wid_size" />
+                            <field name="min_height_size" />
+                        </group>
+                        <group string="Max Size of Cargo" name="cargo_max_size">
+                            <field name="max_len_size" />
+                            <field name="max_wid_size" />
+                            <field name="max_height_size" />
+                        </group>
+                        </group>
+                        <group string="Vehicle Capacity" name="vehicle_capacity" >
+                                <field name="capacity_uom" />
+                                <field name="reg_cap" />
+                                <field name="min_cap" />
+                               <field name="max_cap" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="vehicle_type_tree_view" model="ir.ui.view">
+            <field name="name">VehicleType</field>
+            <field name="model">vehicle.type</field>
+            <field name="arch" type="xml">
+                <tree string="Vehicle Type">
+                   <field name="name" />
+                    <field name="vehicle_weight" />
+                    <field name="dimensions_unit" />
+                    <field name="capacity_uom" />
+                    <field name="reg_cap" />
+                    <field name="min_cap" />
+                    <field name="max_cap" />
+                    <field name="axles_no" />
+
+
+                </tree>
+            </field>
+        </record>
+        <record id="action_vehicle_type_view"  model="ir.actions.act_window">
+            <field name="name">VehicleType</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vehicle.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="vehicle_type_tree_view"/>
+
+        </record>
+    </data>
+</odoo>

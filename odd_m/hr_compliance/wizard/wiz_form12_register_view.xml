@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="wiz_form12_register_form" model="ir.ui.view">
+			<field name="name">wiz.form12.register.form</field>
+			<field name="model">wiz.form12.register</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<group colspan="4" col="4">
+					<field name="month_id" required="1" on_change="onchange_month_id(month_id)" />
+					<field name="company_id" attrs="{'readonly':[('user_id','in',(28,10,12,14,16,18,20,22,26,24))]}"/>	
+					<field name="department_id"/>	
+					<field name="employee_id" domain="[('type','=','Employee')]"/>	
+				</group>
+				<field name="user_id" invisible="1"/>
+				<field name="from_date" required="1" invisible="1" />	
+				<field name="till_date" required="1" invisible="1" />
+				<group  col="2" colspan="2">
+					<button name="add_employee" string="ADD Employee" type="object" icon="gtk-ok"/>
+			        <button name="clear_employee" string="Clear" type="object" icon="gtk-cancel"/>
+				</group>
+				<group  col="2" colspan="4">
+	                <field name="employee_ids" domain="[('type','=','Employee')]" colspan="4" nolabel="1"/>
+				</group>
+				 <group  col="1" colspan="1">
+					<button string="Print Report" name="print_report" type="object"/> 
+				 </group> 
+			</field>
+		</record>
+		
+		<record id="action_wiz_form12_register" model="ir.actions.act_window">
+		   		<field name="name">Form12 Register Report</field>
+		   		<field name="res_model">wiz.form12.register</field>
+	            <field name="type">ir.actions.act_window</field>   
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="target">inline</field>
+	            <field name="view_id" ref="wiz_form12_register_form"/>  
+        </record>
+        
+		<menuitem  id="menu_wiz_form12_register" parent="menu_employee_complaince"  action="action_wiz_form12_register"  name="Form12 Register Report" />		        
+	
+	
+	
+<!--	                                   CONTRACTOR FORM12 REGISTER          -->
+	
+		<record id="wiz_contractor_form12_register_form" model="ir.ui.view">
+			<field name="name">wiz.contractor.form12.register</field>
+			<field name="model">wiz.contractor.form12.register</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<group colspan="4" col="4">
+					<field name="month_id" required="1" on_change="onchange_month_id(month_id)" />
+					<field name="partner_id" domain="[('supplier','=',1)]"/>	
+					<field name="employee_id" domain="[('type','=','Contractor')]"/>	
+				</group>
+				<field name="from_date" invisible="1" />	
+				<field name="till_date" invisible="1" />
+				<group  col="2" colspan="2">
+					<button name="add_employee" string="ADD Employee" type="object" icon="gtk-ok"/>
+			        <button name="clear_employee" string="Clear" type="object" icon="gtk-cancel"/>
+				</group>
+				<group  col="2" colspan="4">
+	                <field name="employee_ids" domain="[('type','=','Contractor')]" colspan="4" nolabel="1"/>
+				</group>
+				 <group  col="1" colspan="1">
+					<button string="Print Report" name="print_report" type="object"/> 
+				 </group> 
+			</field>
+		</record>
+		
+		<record id="action_wiz_contractor_form12_register" model="ir.actions.act_window">
+		   		<field name="name">Contractor Form12 Register Report</field>
+		   		<field name="res_model">wiz.contractor.form12.register</field>
+	            <field name="type">ir.actions.act_window</field>   
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="target">inline</field>
+	            <field name="view_id" ref="wiz_contractor_form12_register_form"/>  
+        </record>
+        
+		<menuitem  id="menu_wiz_contractor_form12_register" parent="sub_menu_contractor_icard"  action="action_wiz_contractor_form12_register"  name="Form12 Register" sequence="4"/>		        
+	
+	</data>
+</openerp>

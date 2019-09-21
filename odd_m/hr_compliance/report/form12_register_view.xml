@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		
+         <report id="form12_register_report_id" string="Form12 Register"
+            model="wiz.form12.register" report_type="qweb-pdf"
+            name="hr_compliance.report_form12_register" 
+            file="hr_compliance.report_form12_register"
+            menu="False" />
+
+         <report id="contractor_form12_register_report_id" string="Contractor Form12 Register"
+            model="wiz.contractor.form12.register" report_type="qweb-pdf"
+            name="hr_compliance.report_contractor_form12_register" 
+            file="hr_compliance.report_contractor_form12_register"
+            menu="False" />
+            
+	</data>
+</openerp>

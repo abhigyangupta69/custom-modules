@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="wiz_leave_register_form" model="ir.ui.view">
+			<field name="name">wiz.leave.register</field>
+			<field name="model">wiz.leave.register</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<group colspan="4" col="4">
+					<field name="from_month" required='1' />	
+					<field name="till_month" required='1' />
+					<field name="company_id" attrs="{'readonly':[('user_id','in',(28,10,12,14,16,18,20,22,26,24))]}"/>
+					<field name="employee_id" domain="[('type','=','Employee')]"/>
+					<field name="department_id"/>
+					<field name="user_id" invisible='1'/>
+				</group>
+				 <group  col="2" colspan="4">
+				 	<button special="cancel" string="Cancel" icon="gtk-cancel"/>
+					<button string="Print Report" name="print_report" type="object"/> 
+				</group> 
+			</field>
+		</record>
+		
+		<record id="action_wiz_leave_register" model="ir.actions.act_window">
+		   		<field name="name">Leave Register Form</field>
+		   		<field name="res_model">wiz.leave.register</field>
+	            <field name="type">ir.actions.act_window</field>   
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="target">inline</field>
+	            <field name="view_id" ref="wiz_leave_register_form"/>  
+        </record>
+        
+		<menuitem  id="menu_wiz_leave_register" parent="salary_payment_menu"  action="action_wiz_leave_register"  name="Leave Register"/>		 
+		
+		
+<!--		                       CONTRACTOR LEAVE REGISTER         -->
+
+		<record id="wiz_contractor_leave_register_form" model="ir.ui.view">
+			<field name="name">wiz.contractor.leave.register</field>
+			<field name="model">wiz.contractor.leave.register</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<group colspan="4" col="4">
+					<field name="from_month" required='1' />	
+					<field name="till_month" required='1' />
+					<field name="partner_id" domain="[('supplier','=',1)]"/>
+					<field name="employee_id" domain="[('type','=','Contractor')]"/>
+				</group>
+				 <group  col="2" colspan="4">
+				 	<button special="cancel" string="Cancel" icon="gtk-cancel"/>
+					<button string="Print Report" name="print_report" type="object"/> 
+				</group> 
+			</field>
+		</record>
+		
+		<record id="action_wiz_contractor_leave_register" model="ir.actions.act_window">
+		   		<field name="name">Leave Register</field>
+		   		<field name="res_model">wiz.contractor.leave.register</field>
+	            <field name="type">ir.actions.act_window</field>   
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="target">inline</field>
+	            <field name="view_id" ref="wiz_contractor_leave_register_form"/>  
+        </record>
+        
+		<menuitem  id="menu_wiz_contractor_leave_register" parent="salary_payment_sub_menu_contractor"  action="action_wiz_contractor_leave_register"  name="Leave Register" sequence="8"/>		        
+		       
+	</data>
+</openerp>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+			<report id="leave_register_report_id" string="Leave Register Report"
+		            model="wiz.leave.register" report_type="qweb-pdf"
+		            name="hr_compliance.report_leave_register" /> 
+
+
+<!--                CONTRACTOR LEAVE REGISTER           -->
+
+			<report id="report_contractor_leave_register_id" string="Leave Register"
+		            model="wiz.contractor.leave.register" report_type="qweb-pdf"
+		            name="hr_compliance.report_contractor_leave_register"/> 
+		            
+	</data>
+</openerp>
+	

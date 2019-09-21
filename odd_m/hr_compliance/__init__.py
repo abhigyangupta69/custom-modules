@@ -1,0 +1,8 @@
+import hr_employee
+import hr_employee_other
+import report
+import wizard
+import attendance_synchronize
+import holiday
+import salary_payment
+import loan_deduction

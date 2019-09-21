@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		
+		<!-- ========================= Employee Transfer Report ======================== -->
+		
+		<template id="report_employee_transfer_letter">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			    <t t-foreach="docs" t-as="o">
+			        <t t-foreach="o.employee_no" t-as="l">
+			        	<div class="page">
+							<table width="100%" >
+								<tr width="100%">
+									<td width="37%" STYLE="border: none; " >  </td>
+									<td width="40%" STYLE="border: none; " >
+										<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="220" height="100" align="center" /> 
+									</td>
+									<td width="23%" STYLE="border: none " > </td>
+								</tr>
+							</table>
+							<table width="100%" >
+								<tr width="100%">
+									<td width="30%" STYLE="border: none; " > </td>
+									<td width="40%" STYLE="border: none; " >
+										<p align="center"><font style="font-size:18px "> <b><span t-esc="get_company_check(l)"/></b> </font></p> 
+										<p align="center"><font style="font-size:18px "> <b><span t-field="l.company_id.street"/></b> </font></p> 
+										<p align="center"><font style="font-size:18px "> <b><span t-field="l.company_id.city"/></b> </font></p> 
+									</td>
+									
+									<td width="30%" STYLE="border: none " > </td>
+								</tr>
+							</table>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p><h1><u><center>स्थानांतरण   पत्र</center></u></h1></p> 
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<br/>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="65%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">सेवा में,</font></p>       
+									</td>
+									<td width="10%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">दिनांक:-</font></p> 
+									</td>
+									
+									<td width="25%" STYLE="border: none " >
+										<p align="left"><font style="font-size:18px "><b> <span t-esc="get_data(l)"/> </b></font></p>
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="18%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">कर्मचारी का नाम</font></p>       
+									</td>
+									<td width="42%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:18px "><b><span t-field="l.name"/></b></font></p>
+									</td>
+									<td width="40%" STYLE="border: none; " ></td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="25%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">कर्मचारी  का कार्ड नंबर</font></p>       
+									</td>
+									<td width="15%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:18px "><b><span t-field="l.sinid"/></b></font></p>
+									</td>
+									<td width="60%" STYLE="border: none; " ></td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">विषय:- <u>स्थानांतरण  के  संबंध  में</u></font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">महोदय,</font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="8%" STYLE="border: none; " ></td>
+									<td width="92%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">आपको <![CDATA[&nbsp;]]> अवगत <![CDATA[&nbsp;]]> कराना <![CDATA[&nbsp;]]>  है <![CDATA[&nbsp;]]>  कि <![CDATA[&nbsp;]]> आपकी <![CDATA[&nbsp;]]> कार्य <![CDATA[&nbsp;]]> कुशलता <![CDATA[&nbsp;]]> व <![CDATA[&nbsp;]]>  कार्य <![CDATA[&nbsp;]]>  के <![CDATA[&nbsp;]]>  महत्त्व <![CDATA[&nbsp;]]> को</font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="46%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">देखते <![CDATA[&nbsp;]]> हुए <![CDATA[&nbsp;]]> कंपनी <![CDATA[&nbsp;]]>  मैनेजमेन्ट <![CDATA[&nbsp;]]>  ने <![CDATA[&nbsp;]]> दिनांक  </font></p>       
+									</td>
+									<td width="24%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:18px "><b> <span t-esc="get_data(l)"/> </b></font></p>
+									</td>
+									<td width="30%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px "> <![CDATA[&nbsp;]]> से <![CDATA[&nbsp;]]> आपका <![CDATA[&nbsp;]]> स्थानांतरण  </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="35%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; "  >
+										<p align="center"><font style="font-size:18px "><b><span t-esc="get_company(l)[0]"/></b></font></p>
+									</td>
+									<td width="10%" STYLE="border: none; " >
+										<p align="center"><font style="font-size:25px "> <![CDATA[&nbsp;]]> से <![CDATA[&nbsp;]]> </font></p>       
+									</td>
+									<td width="35%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; "  >
+										<p align="center"><font style="font-size:18px "><b><span t-esc="get_company(l)[1]"/></b></font></p>
+									</td>
+									<td width="20%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px "> <![CDATA[&nbsp;]]> में  <![CDATA[&nbsp;]]> समान <![CDATA[&nbsp;]]> पद <![CDATA[&nbsp;]]> </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="5%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">पर <![CDATA[&nbsp;]]> </font></p>       
+									</td>
+									<td width="25%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:18px "><b><span t-field="l.department_id.name"/></b></font></p>
+									</td>
+									<td width="70%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px "> <![CDATA[&nbsp;]]> विभाग <![CDATA[&nbsp;]]> में <![CDATA[&nbsp;]]> किया <![CDATA[&nbsp;]]> जा <![CDATA[&nbsp;]]> रहा <![CDATA[&nbsp;]]>  है <![CDATA[&nbsp;]]> जिसके <![CDATA[&nbsp;]]>  फलस्वरुप <![CDATA[&nbsp;]]> आपके  </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">वेतन<![CDATA[&nbsp;]]> भत्ता<![CDATA[&nbsp;]]>  एवं <![CDATA[&nbsp;]]> सेवा<![CDATA[&nbsp;]]> शर्तों <![CDATA[&nbsp;]]> पर<![CDATA[&nbsp;]]>  कोई <![CDATA[&nbsp;]]>विपरीत <![CDATA[&nbsp;]]>  प्रभाव <![CDATA[&nbsp;]]>  नहीं <![CDATA[&nbsp;]]>  पडेगा |<![CDATA[&nbsp;]]> हम <![CDATA[&nbsp;]]> आपके <![CDATA[&nbsp;]]>  उज्जवल </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">भविष्य<![CDATA[&nbsp;]]> की<![CDATA[&nbsp;]]>  कामना <![CDATA[&nbsp;]]> करते<![CDATA[&nbsp;]]>  हैं | <![CDATA[&nbsp;]]> कृप्या<![CDATA[&nbsp;]]>  इस <![CDATA[&nbsp;]]>पत्र <![CDATA[&nbsp;]]>  पर <![CDATA[&nbsp;]]>  हस्ताक्षर <![CDATA[&nbsp;]]>  कर<![CDATA[&nbsp;]]> अपनी <![CDATA[&nbsp;]]> स्वीकृति <![CDATA[&nbsp;]]>  देने </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">की<![CDATA[&nbsp;]]> कृपा<![CDATA[&nbsp;]]>  करे | </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="15%" STYLE="border: none; " ></td>
+									<td width="55%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">भवदीय </font></p>       
+									</td>
+									<td width="30%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">पत्र <![CDATA[&nbsp;]]> प्राप्त <![CDATA[&nbsp;]]> किया | </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<br/>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="15%" STYLE="border: none; " ></td>
+									<td width="20%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">प्रबंधक  <![CDATA[&nbsp;]]> हस्ताक्षर </font></p>       
+										<p align="center"><font style="font-size:12px "> <b><span t-esc="get_company_check(l)"/></b> </font></p> 
+										<p align="center"><font style="font-size:12px "> <b><span t-field="l.company_id.street"/></b> </font></p> 
+										<p align="center"><font style="font-size:12px "> <b><span t-field="l.company_id.city"/></b> </font></p> 
+									</td>
+									<td width="35%" STYLE="border: none; " ></td>
+									<td width="30%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">हस्ताक्षर  <![CDATA[&nbsp;]]> कर्मचारी </font></p>       
+									</td>
+								</tr>
+							</table>
+						</div>
+					</t>
+				</t>
+			</t>
+		</template>
+
+
+		<!-- ========================= Employee Promotion Report ======================== -->
+		
+		<template id="report_employee_promotion">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			    <t t-foreach="docs" t-as="o">
+			        <t t-foreach="o.employee_no" t-as="l">
+			        	<div class="page">
+							<table width="100%" >
+								<tr width="100%">
+									<td width="37%" STYLE="border: none; " >  </td>
+									<td width="40%" STYLE="border: none; " >
+										<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="220" height="100" align="center" /> 
+									</td>
+									<td width="23%" STYLE="border: none " > </td>
+								</tr>
+							</table>
+							<table width="100%" >
+								<tr width="100%">
+									<td width="30%" STYLE="border: none; " > </td>
+									<td width="40%" STYLE="border: none; " >
+										<p align="center"><font style="font-size:18px "> <b><span t-field="l.company_id.name"/></b> </font></p> 
+										<p align="center"><font style="font-size:18px "> <b><span t-field="l.company_id.street"/></b> </font></p> 
+										<p align="center"><font style="font-size:18px "> <b><span t-field="l.company_id.city"/></b> </font></p> 
+									</td>
+									
+									<td width="30%" STYLE="border: none " > </td>
+								</tr>
+							</table>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p><h1><u><center>पदोन्नति   पत्र</center></u></h1></p> 
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<br/>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="65%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">सेवा में,</font></p>       
+									</td>
+									<td width="10%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">दिनांक :-</font></p> 
+									</td>
+									
+									<td width="25%" STYLE="border: none " >
+										<p align="left"><font style="font-size:16px "><b> <span t-esc="get_data(l)[0][0]"/> </b></font></p>
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="10%" STYLE="border: none; " ></td>
+									<td width="40%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:16px "><b> <span t-field="l.name"/> [ <span t-field="l.sinid"/> ]</b></font></p>
+									</td>
+									<td width="50%" STYLE="border: none; " ></td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="10%" STYLE="border: none; " ></td>
+									<td width="40%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:16px "><b> S/O <span t-esc="get_data1(l)"/> </b></font></p>
+									</td>
+									<td width="50%" STYLE="border: none; " ></td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">विषय:- <u>पदोन्नति  के  संबंध  में</u></font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">महोदय,</font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="8%" STYLE="border: none; " ></td>
+									<td width="92%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">आपको <![CDATA[&nbsp;]]> अवगत <![CDATA[&nbsp;]]> कराना <![CDATA[&nbsp;]]>  है <![CDATA[&nbsp;]]>  कि <![CDATA[&nbsp;]]> आपकी <![CDATA[&nbsp;]]> कार्य <![CDATA[&nbsp;]]> कुशलता <![CDATA[&nbsp;]]> को <![CDATA[&nbsp;]]>  देखते <![CDATA[&nbsp;]]> हुए <![CDATA[&nbsp;]]>  कंपनी <![CDATA[&nbsp;]]> मैनेजमेन्ट</font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="10%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">ने <![CDATA[&nbsp;]]> दिनांक  </font></p>       
+									</td>
+									<td width="15%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:16px "><b> <span t-esc="get_data(l)[0][0]"/> </b></font></p>
+									</td>
+									<td width="13%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px "> <![CDATA[&nbsp;]]> से <![CDATA[&nbsp;]]> आपका </font></p>       
+									</td>
+									<td width="20%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:16px "><b> <span t-esc="get_data(l)[0][1]"/> </b></font></p>
+									</td>
+									<td width="10%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px "> <![CDATA[&nbsp;]]> पद <![CDATA[&nbsp;]]> से </font></p>       
+									</td>
+									<td width="20%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:16px "><b> <span t-esc="get_data(l)[0][2]"/> </b></font></p>
+									</td>
+									<td width="12%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px "> <![CDATA[&nbsp;]]> पद <![CDATA[&nbsp;]]> पर </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">पदोन्नत <![CDATA[&nbsp;]]> कर <![CDATA[&nbsp;]]> दिया <![CDATA[&nbsp;]]>  हैं, <![CDATA[&nbsp;]]>  हम <![CDATA[&nbsp;]]> आपके <![CDATA[&nbsp;]]> उज्जवल <![CDATA[&nbsp;]]> भविष्य <![CDATA[&nbsp;]]> की <![CDATA[&nbsp;]]> कामना <![CDATA[&nbsp;]]> करते <![CDATA[&nbsp;]]> हैं | <![CDATA[&nbsp;]]>कृप्या <![CDATA[&nbsp;]]> इस <![CDATA[&nbsp;]]> पत्र <![CDATA[&nbsp;]]> पर</font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">हस्ताक्षर <![CDATA[&nbsp;]]> कर <![CDATA[&nbsp;]]> अपनी <![CDATA[&nbsp;]]>  स्वीकृति <![CDATA[&nbsp;]]>  देने <![CDATA[&nbsp;]]> की <![CDATA[&nbsp;]]> कृपा <![CDATA[&nbsp;]]> करे | </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<br/>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="15%" STYLE="border: none; " ></td>
+									<td width="50%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">पत्र <![CDATA[&nbsp;]]> प्राप्त <![CDATA[&nbsp;]]> किया | </font></p>       
+									</td>
+									<td width="35%" STYLE="border: none; " >
+										<p align="center"><font style="font-size:22px ">भवदीय </font></p>
+										<p align="center"><font style="font-size:12px "> <b><span t-field="l.company_id.name"/></b> </font></p> 
+										<p align="center"><font style="font-size:12px "> <b><span t-field="l.company_id.street"/></b> </font></p> 
+										<p align="center"><font style="font-size:12px "> <b><span t-field="l.company_id.city"/></b> </font></p>        
+									</td>
+								</tr>
+							</table>
+						
+							<table width="100%">
+								<tr width="100%">
+									<td width="15%" STYLE="border: none; " ></td>
+									<td width="50%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">हस्ताक्षर </font></p>       
+									</td>
+									<td width="35%" STYLE="border: none; " ></td>
+								</tr>
+							</table>
+						</div>
+					</t>
+				</t>
+			</t>
+		</template>
+
+
+
+
+
+		<!-- ========================= Contractor Promotion Report ======================== -->
+		
+		<template id="report_contractor_promotion">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			    <t t-foreach="docs" t-as="o">
+			        <t t-foreach="o.employee_no" t-as="l">
+			        	<div class="page">
+							<table width="100%" >
+								<tr width="100%">
+									<td width="20%" STYLE="border: none; " > </td>
+									<td width="60%" STYLE="border: none; " >
+										<p align="center"><font style="font-size:18px "> <b><span t-field="l.partner_id.name"/></b> </font></p> 
+										<p align="center"><font style="font-size:18px "> <b><span t-field="l.partner_id.street"/></b> </font></p> 
+										<p align="center"><font style="font-size:18px "> <b><span t-field="l.partner_id.city"/></b> </font></p> 
+									</td>
+									
+									<td width="20%" STYLE="border: none " > </td>
+								</tr>
+							</table>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p><h1><u><center>पदोन्नति   पत्र</center></u></h1></p> 
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<br/>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="65%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">सेवा में,</font></p>       
+									</td>
+									<td width="10%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">दिनांक :-</font></p> 
+									</td>
+									
+									<td width="25%" STYLE="border: none " >
+										<p align="left"><font style="font-size:16px "><b> <span t-esc="get_data(l)[0][0]"/> </b></font></p>
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="10%" STYLE="border: none; " ></td>
+									<td width="40%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:16px "><b> <span t-field="l.name"/> [ <span t-field="l.sinid"/> ]</b></font></p>
+									</td>
+									<td width="50%" STYLE="border: none; " ></td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="10%" STYLE="border: none; " ></td>
+									<td width="40%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:16px "><b> S/O <span t-esc="get_data1(l)"/> </b></font></p>
+									</td>
+									<td width="50%" STYLE="border: none; " ></td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">विषय:- <u>पदोन्नति  के  संबंध  में</u></font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">महोदय,</font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="8%" STYLE="border: none; " ></td>
+									<td width="92%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">आपको <![CDATA[&nbsp;]]> अवगत <![CDATA[&nbsp;]]> कराना <![CDATA[&nbsp;]]>  है <![CDATA[&nbsp;]]>  कि <![CDATA[&nbsp;]]> आपकी <![CDATA[&nbsp;]]> कार्य <![CDATA[&nbsp;]]> कुशलता <![CDATA[&nbsp;]]> को <![CDATA[&nbsp;]]>  देखते <![CDATA[&nbsp;]]> हुए <![CDATA[&nbsp;]]>  कंपनी <![CDATA[&nbsp;]]> मैनेजमेन्ट</font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="10%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">ने <![CDATA[&nbsp;]]> दिनांक  </font></p>       
+									</td>
+									<td width="15%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:16px "><b> <span t-esc="get_data(l)[0][0]"/> </b></font></p>
+									</td>
+									<td width="13%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px "> <![CDATA[&nbsp;]]> से <![CDATA[&nbsp;]]> आपका </font></p>       
+									</td>
+									<td width="20%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:16px "><b> <span t-esc="get_data(l)[0][1]"/> </b></font></p>
+									</td>
+									<td width="10%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px "> <![CDATA[&nbsp;]]> पद <![CDATA[&nbsp;]]> से </font></p>       
+									</td>
+									<td width="20%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:16px "><b> <span t-esc="get_data(l)[0][2]"/> </b></font></p>
+									</td>
+									<td width="12%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px "> <![CDATA[&nbsp;]]> पद <![CDATA[&nbsp;]]> पर </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">पदोन्नत <![CDATA[&nbsp;]]> कर <![CDATA[&nbsp;]]> दिया <![CDATA[&nbsp;]]>  हैं, <![CDATA[&nbsp;]]>  हम <![CDATA[&nbsp;]]> आपके <![CDATA[&nbsp;]]> उज्जवल <![CDATA[&nbsp;]]> भविष्य <![CDATA[&nbsp;]]> की <![CDATA[&nbsp;]]> कामना <![CDATA[&nbsp;]]> करते <![CDATA[&nbsp;]]> हैं | <![CDATA[&nbsp;]]>कृप्या <![CDATA[&nbsp;]]> इस <![CDATA[&nbsp;]]> पत्र <![CDATA[&nbsp;]]> पर</font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">हस्ताक्षर <![CDATA[&nbsp;]]> कर <![CDATA[&nbsp;]]> अपनी <![CDATA[&nbsp;]]>  स्वीकृति <![CDATA[&nbsp;]]>  देने <![CDATA[&nbsp;]]> की <![CDATA[&nbsp;]]> कृपा <![CDATA[&nbsp;]]> करे | </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<br/>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="15%" STYLE="border: none; " ></td>
+									<td width="50%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">पत्र <![CDATA[&nbsp;]]> प्राप्त <![CDATA[&nbsp;]]> किया | </font></p>       
+									</td>
+									<td width="35%" STYLE="border: none; " >
+										<p align="center"><font style="font-size:22px ">भवदीय </font></p>
+										<p align="center"><font style="font-size:12px "> <b><span t-field="l.partner_id.name"/></b> </font></p> 
+										<p align="center"><font style="font-size:12px "> <b><span t-field="l.partner_id.street"/></b> </font></p> 
+										<p align="center"><font style="font-size:12px "> <b><span t-field="l.partner_id.city"/></b> </font></p> 
+									</td>
+								</tr>
+							</table>
+						
+							<table width="100%">
+								<tr width="100%">
+									<td width="15%" STYLE="border: none; " ></td>
+									<td width="50%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:22px ">हस्ताक्षर </font></p>       
+									</td>
+									<td width="35%" STYLE="border: none; " ></td>
+								</tr>
+							</table>
+						</div>
+					</t>
+				</t>
+			</t>
+		</template>
+		
+		<!-- ========================= Contractor Transfer Report ======================== -->
+		
+		<template id="report_contractor_transfer_letter">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			    <t t-foreach="docs" t-as="o">
+			        <t t-foreach="o.employee_no" t-as="l">
+			        	<div class="page">
+							<table width="100%" >
+								<tr width="100%">
+									<td width="37%" STYLE="border: none; " >  </td>
+									<td width="40%" STYLE="border: none; " >
+										<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="220" height="100" align="center" /> 
+									</td>
+									<td width="23%" STYLE="border: none " > </td>
+								</tr>
+							</table>
+							<table width="100%" >
+								<tr width="100%">
+									<td width="30%" STYLE="border: none; " > </td>
+									<td width="40%" STYLE="border: none; " >
+										<p align="center"><font style="font-size:18px "> <b><span t-esc="get_company_check(l)"/></b> </font></p> 
+										<p align="center"><font style="font-size:18px "> <b><span t-field="l.company_id.street"/></b> </font></p> 
+										<p align="center"><font style="font-size:18px "> <b><span t-field="l.company_id.city"/></b> </font></p> 
+									</td>
+									
+									<td width="30%" STYLE="border: none " > </td>
+								</tr>
+							</table>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p><h1><u><center>स्थानांतरण   पत्र</center></u></h1></p> 
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<br/>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="65%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">सेवा में,</font></p>       
+									</td>
+									<td width="10%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">दिनांक:-</font></p> 
+									</td>
+									
+									<td width="25%" STYLE="border: none " >
+										<p align="left"><font style="font-size:18px "><b> <span t-esc="get_data(l)"/> </b></font></p>
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="18%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">कर्मचारी का नाम</font></p>       
+									</td>
+									<td width="42%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:18px "><b><span t-field="l.name"/></b></font></p>
+									</td>
+									<td width="40%" STYLE="border: none; " ></td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="25%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">कर्मचारी  का कार्ड नंबर</font></p>       
+									</td>
+									<td width="15%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:18px "><b><span t-field="l.sinid"/></b></font></p>
+									</td>
+									<td width="60%" STYLE="border: none; " ></td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">विषय:- <u>स्थानांतरण  के  संबंध  में</u></font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">महोदय,</font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="8%" STYLE="border: none; " ></td>
+									<td width="92%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">आपको <![CDATA[&nbsp;]]> अवगत <![CDATA[&nbsp;]]> कराना <![CDATA[&nbsp;]]>  है <![CDATA[&nbsp;]]>  कि <![CDATA[&nbsp;]]> आपकी <![CDATA[&nbsp;]]> कार्य <![CDATA[&nbsp;]]> कुशलता <![CDATA[&nbsp;]]> व <![CDATA[&nbsp;]]>  कार्य <![CDATA[&nbsp;]]>  के <![CDATA[&nbsp;]]>  महत्त्व <![CDATA[&nbsp;]]> को</font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="46%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">देखते <![CDATA[&nbsp;]]> हुए <![CDATA[&nbsp;]]> कंपनी <![CDATA[&nbsp;]]>  मैनेजमेन्ट <![CDATA[&nbsp;]]>  ने <![CDATA[&nbsp;]]> दिनांक  </font></p>       
+									</td>
+									<td width="24%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:18px "><b> <span t-esc="get_data(l)"/> </b></font></p>
+									</td>
+									<td width="30%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px "> <![CDATA[&nbsp;]]> से <![CDATA[&nbsp;]]> आपका <![CDATA[&nbsp;]]> स्थानांतरण  </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="35%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; "  >
+										<p align="center"><font style="font-size:18px "><b><span t-esc="get_company(l)[0]"/></b></font></p>
+									</td>
+									<td width="10%" STYLE="border: none; " >
+										<p align="center"><font style="font-size:25px "> <![CDATA[&nbsp;]]> से <![CDATA[&nbsp;]]> </font></p>       
+									</td>
+									<td width="35%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; "  >
+										<p align="center"><font style="font-size:18px "><b><span t-esc="get_company(l)[1]"/></b></font></p>
+									</td>
+									<td width="20%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px "> <![CDATA[&nbsp;]]> में  <![CDATA[&nbsp;]]> समान <![CDATA[&nbsp;]]> पद <![CDATA[&nbsp;]]> </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="5%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">पर <![CDATA[&nbsp;]]> </font></p>       
+									</td>
+									<td width="25%" STYLE="border-top: none; border-bottom: 2px dotted; border-left:  none; border-right: none; " >
+										<p align="center"><font style="font-size:18px "><b><span t-field="l.department_id.name"/></b></font></p>
+									</td>
+									<td width="70%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px "> <![CDATA[&nbsp;]]> विभाग <![CDATA[&nbsp;]]> में <![CDATA[&nbsp;]]> किया <![CDATA[&nbsp;]]> जा <![CDATA[&nbsp;]]> रहा <![CDATA[&nbsp;]]>  है <![CDATA[&nbsp;]]> जिसके <![CDATA[&nbsp;]]>  फलस्वरुप <![CDATA[&nbsp;]]> आपके  </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">वेतन<![CDATA[&nbsp;]]> भत्ता<![CDATA[&nbsp;]]>  एवं <![CDATA[&nbsp;]]> सेवा<![CDATA[&nbsp;]]> शर्तों <![CDATA[&nbsp;]]> पर<![CDATA[&nbsp;]]>  कोई <![CDATA[&nbsp;]]>विपरीत <![CDATA[&nbsp;]]>  प्रभाव <![CDATA[&nbsp;]]>  नहीं <![CDATA[&nbsp;]]>  पडेगा |<![CDATA[&nbsp;]]> हम <![CDATA[&nbsp;]]> आपके <![CDATA[&nbsp;]]>  उज्जवल </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">भविष्य<![CDATA[&nbsp;]]> की<![CDATA[&nbsp;]]>  कामना <![CDATA[&nbsp;]]> करते<![CDATA[&nbsp;]]>  हैं | <![CDATA[&nbsp;]]> कृप्या<![CDATA[&nbsp;]]>  इस <![CDATA[&nbsp;]]>पत्र <![CDATA[&nbsp;]]>  पर <![CDATA[&nbsp;]]>  हस्ताक्षर <![CDATA[&nbsp;]]>  कर<![CDATA[&nbsp;]]> अपनी <![CDATA[&nbsp;]]> स्वीकृति <![CDATA[&nbsp;]]>  देने </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="100%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">की<![CDATA[&nbsp;]]> कृपा<![CDATA[&nbsp;]]>  करे | </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="15%" STYLE="border: none; " ></td>
+									<td width="55%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">भवदीय </font></p>       
+									</td>
+									<td width="30%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">पत्र <![CDATA[&nbsp;]]> प्राप्त <![CDATA[&nbsp;]]> किया | </font></p>       
+									</td>
+								</tr>
+							</table>
+							<br/>
+							<br/>
+							<br/>
+							<table width="100%">
+								<tr width="100%">
+									<td width="15%" STYLE="border: none; " ></td>
+									<td width="20%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">प्रबंधक  <![CDATA[&nbsp;]]> हस्ताक्षर </font></p>       
+<!--										<p align="center"><font style="font-size:12px "> <b><span t-esc="get_company_check(l)"/></b> </font></p> -->
+										<p align="center"><font style="font-size:12px "> <b><span t-field="l.partner_id.name"/></b> </font></p> 
+										<p align="center"><font style="font-size:12px "> <b><span t-field="l.partner_id.street"/></b> </font></p> 
+										<p align="center"><font style="font-size:12px "> <b><span t-field="l.partner_id.city"/></b> </font></p> 
+									</td>
+									<td width="35%" STYLE="border: none; " ></td>
+									<td width="30%" STYLE="border: none; " >
+										<p align="left"><font style="font-size:25px ">हस्ताक्षर  <![CDATA[&nbsp;]]> कर्मचारी </font></p>       
+									</td>
+								</tr>
+							</table>
+						</div>
+					</t>
+				</t>
+			</t>
+		</template>
+
+	</data>
+</openerp>

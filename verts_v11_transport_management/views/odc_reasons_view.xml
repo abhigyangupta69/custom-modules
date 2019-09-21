@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="odc_reasons_form_view" model="ir.ui.view">
+            <field name="name">odc.reasons.form</field>
+            <field name="model">odc.reasons</field>
+            <field name="arch" type="xml">
+                <form string="ODC reasons">
+                    <sheet>
+                        <group col="2" colspan="2">
+                            <field name="name" required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="odc_reasons_tree_view" model="ir.ui.view">
+            <field name="name">odc.reasons.tree</field>
+            <field name="model">odc.reasons</field>
+            <field name="arch" type="xml">
+                <tree string="ODC reasons">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        <record id="action_odc_reasons_view"  model="ir.actions.act_window">
+            <field name="name">Odc Reasons</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">odc.reasons</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="odc_reasons_tree_view"/>
+
+        </record>
+    </data>
+</odoo>

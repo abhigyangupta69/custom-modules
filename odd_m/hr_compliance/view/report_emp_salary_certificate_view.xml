@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+<!--=========================================[[ Employee Salary Certificate First ]]================================================== -->
+
+
+	<template id="report_employee_salary_certificate">
+		<t t-set="data_report_margin_bottom" t-value="100"/>
+	    <t t-call="report.html_container">
+		   <t t-foreach="docs" t-as="o">
+		    <t t-foreach="o.employee_no" t-as="l">		
+    		
+    		<div class="page" > 
+		    		<br/>
+		    		<br/><br/>
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="right" colspan="6" STYLE="font-size:20px;">
+		    						<b>Dated: <u><span t-esc="get_my_date()"/></u></b>
+		    				</td>
+		    			</tr>
+		    		</table>
+		    		<br/>
+		    		<br/><br/>
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:22px;">
+		    						<b>Salary Certificate For the Year    <U><B><span t-esc="o.curr_year"/></B></U></b>
+		    				</td>
+		    			</tr>
+		    		</table>
+		    		<br/>
+		    		<br/><br/>
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:20px;">
+		    						<B><U>To Whom So Ever It May Concern</U></B>
+		    				</td>
+		    			</tr>
+		    		</table>
+		    		<br/>
+		    		<br/>
+		    		<br/><br/><br/>
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:17px;">
+		    				  This is to certify that Mr.   <b><span t-esc="l.name"/></b>  S/o Mr. <b><span t-foreach="l.family_id" t-as="t">
+					                             														<span t-if="t.relation=='Father' ">
+					     																						<span t-esc="t.name"/>
+																													</span>
+																				                             		</span></b> R/o <b><span t-esc="l.permanent_add"/></b>
+																				                             		
+																			                             			
+		    				   is working in our Firm 
+		    				   as <b> <span t-esc="l.job_id.name"/>  </b> and has drawn salary Rs  <b><span t-esc="get_total_salary(o.curr_year,l.id)"/> .</b>    
+		    				   <b>(<span t-esc="convert(o.curr_year,l.id)"/>)</b>   and P.F. deducted Rs. <B><span t-esc="get_total_pf(o.curr_year,l.id)"/></B> <b>(<span t-esc="convert1(o.curr_year,l.id)"/>)</b>
+		    				   during the Financial Year <B><span t-esc="o.curr_year"/> </B>.
+		    				</td> 
+		    			</tr>
+		    		</table>
+		    		<br/>
+		    		<br/><br/>
+		    		<br/><br/><br/><br/>
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:18px;">
+		    						<U><B>FOR _______________</B></U>
+		    				</td>
+		    			</tr>
+		    		</table>
+		    		<br/>
+		    		<br/><br/>
+		    		<br/><br/><br/>
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:20px;">
+		    						<B><U>Auth. Signatory</U></B>
+		    				</td>
+		    			</tr>
+		    		</table>	
+    			 </div>
+		    </t> 
+    	  </t>
+   		</t>
+  	</template>
+    			
+
+
+
+
+
+
+
+ <!--=========================================[[ Employee Salary Exp Certificate ]]================================================== -->   			
+
+
+
+
+
+    			
+    			
+    <template id="report_employee_salary_exp_certificate">
+		<t t-set="data_report_margin_bottom" t-value="100"/>
+	    <t t-call="report.html_container">
+		   <t t-foreach="docs" t-as="o">
+		    <t t-foreach="o.employee_no" t-as="l">
+		    	<div class="page" > 
+		    		<br/><br/><br/>
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="right" colspan="6" STYLE="font-size:20px;">
+		    						<b>Dated: <u><span t-esc="get_my_date()"/></u></b>
+		    				</td>
+		    			</tr>
+		    		</table>
+		    		<br/>
+		    		<br/>
+		    		<br/>
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="center" colspan="6" STYLE="font-size:20px;">
+		    						<B><U>To Whom So Ever It May Concern</U></B>
+		    				</td>
+		    			</tr>
+		    		</table>
+		    		<br/>
+		    		<br/>
+		    		<br/>
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:17px;">
+		    				  This is to certify that Mr.   <b><span t-esc="l.name"/></b>  S/o Mr. <b><span t-foreach="l.family_id" t-as="t">
+					                             															<span t-if="t.relation=='Father' ">
+					     																						<span t-esc="t.name"/>
+																													</span>
+																				                             		</span></b> R/o <b><span t-esc="l.permanent_add"/></b>
+																				                             		
+																		                             			
+		    				   is working in our Firm from <b> <span t-esc="formatLang(l.doj,date=True)"/></b>
+		    				   as <b> <span t-esc="l.job_id.name"/>  </b> and getting  monthly 
+		    				   salary <b><span t-esc="l.total_salary"/> .</b>
+		    				</td> 
+		    			</tr>
+		    		</table>
+		    		<br/>
+		    		<br/><br/>
+		    		<br/><br/><br/><br/>
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:18px;">
+		    						<U><B>FOR _______________</B></U>
+		    				</td>
+		    			</tr>
+		    		</table>
+		    		<br/>
+		    		<br/><br/>
+		    		<br/><br/><br/>
+		    		<table width="100%">
+		    			<tr width="100%">
+		    				<td width="100%" align="left" colspan="6" STYLE="font-size:20px;">
+		    						<B><U>Auth. Signatory</U></B>
+		    				</td>
+		    			</tr>
+		    		</table>
+    			</div> 
+    			  </t> 
+    	  </t>
+   		</t>
+  	</template>
+  	
+  	
+  	
+</data>
+</openerp> 

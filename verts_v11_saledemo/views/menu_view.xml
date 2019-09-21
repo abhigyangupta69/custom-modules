@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <menuitem id="menu_add_Payment" name="New Details" parent="sale.sale_menu_root" sequence="11"/>
+        <menuitem id="sub_menu_add_new_root_id" name="Pay" parent="menu_add_Payment" action="action_add_new_view" sequence="12"/>
+<!--        <menuitem id="menu_pay_role_root_id" name="Payment Details" parent="menu_add_Payment" action="action_pay_role_view" sequence="13"/>-->
+
+    </data>
+</odoo>
+
+
+
+

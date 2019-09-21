@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!-- Top menu item -->
+        <menuitem name="Transportation Tracking" id="menu_transportation_tracking_root_id" sequence="1"/>
+        <menuitem id="menu_transportation_tracking_sub_root_id" name="Transport Track Details" parent="menu_transportation_tracking_root_id" sequence="1" />
+          <record id="transportation_tracking_form_view" model="ir.ui.view">
+            <field name="name">TransportTrack</field>
+            <field name="model">transport.track</field>
+            <field name="arch" type="xml">
+                <form string="Data">
+                 <header>
+                    <field name="state" widget="statusbar" statusbar_visible="Draft,Done"/>
+                </header>
+                <sheet>
+                    <group col="4" colspan="4">
+                        <field name="vehicle_no"/>
+                        <field name="vehicle_model"/>
+                        <field name="vehicle_type"/>
+                        <field name="vehicle_avg"/>
+                        <field name="outside_avg"/>
+                        <field name="local_avg"/>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="transportation_tracking_tree_view" model="ir.ui.view">
+            <field name="name">TransportTrack</field>
+            <field name="model">transport.track</field>
+            <field name="arch" type="xml">
+                <tree string="Master">
+                        <field name="vehicle_no"/>
+                        <field name="vehicle_model"/>
+                        <field name="vehicle_type"/>
+                        <field name="vehicle_avg"/>
+                        <field name="outside_avg"/>
+                        <field name="local_avg"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_transportation_tracking_view" model="ir.actions.act_window">
+            <field name="name">TransportTrack</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">transport.track</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="action_transportation_tracking_view" id="menu_transportation_tracking_id"
+                  parent="menu_transportation_tracking_sub_root_id" sequence="1"/>
+
+
+
+
+    <record id="transportation_master_form_view" model="ir.ui.view">
+            <field name="name">TransportMaster</field>
+            <field name="model">transport.master</field>
+            <field name="arch" type="xml">
+                <form string="Data">
+                    <header>
+                         <field name="state" widget="statusbar" statusbar_visible="Draft,Done"/>
+                        <button name='print_report' string="Print Report" type="object" class="oe_highlight" icon="fa-pencil-square-o" groups="base.group_user"/>
+                        <button name="action_mail_send" string="Send mail" type="object" class="oe_highlight" icon="fa-pencil-square-o" />
+
+                    </header>
+
+                <sheet>
+                    <group col="4" colspan="4">
+                        <field name="create_date" readonly="1"/>
+                        <field name="ref_no" readonly="1"/>
+                        <field name="move_date" required="1"/>
+                        <field name="driver_name" required="1" groups="base.group_user"/>
+                        <button name="%(action_wiz_transportation_tracking_form_view)d" string="Fill Detail" type="action" class="oe_highlight" icon="fa-pencil-square-o" />
+                    </group>
+
+                    <notebook>
+                        <page string="Transport Detail">
+                        <field name="transport_line" colspan="4"  nolabel="1" >
+                            <tree editable="bottom">
+                                <field name="vehicle_no"/>
+                                <field name="vehicle_type"/>
+                                <field name="journey_type" required="1"/>
+                                <field name="destination" required="1"/>
+                                <field name="opening_reading" required="1"/>
+                                <field name="closing_reading" required="1"/>
+                                <field name="distance" required="1"/>
+                                <field name="cost" required="1"/>
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                         <field name="vehicle_no"/>
+                                         <field name="vehicle_type"/>
+                                         <field name="journey_type" required="1"/>
+                                         <field name="destination" required="1"/>
+                                         <field name="opening_reading" required="1"/>
+                                         <field name="closing_reading" required="1"/>
+                                        <field name="distance" required="1"/>
+                                         <field name="cost" required="1"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+
+                        </page>
+
+                         <page string="Transport Master History">
+                        <field name="history_detail" colspan="4"  nolabel="1" >
+                            <tree editable="bottom">
+                                <field name="move_date"/>
+                                <field name="new_move_date"/>
+                                <field name="driver_name"/>
+                                <field name="new_driver_name"/>
+                                <field name="user_id"/>
+
+
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                         <field name="move_date"/>
+                                         <field name="new_move_date"/>
+                                         <field name="driver_name"/>
+                                         <field name="new_driver_name"/>
+                                        <field name="user_id"/>
+
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+
+                        </page>
+
+
+                    </notebook>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="transportation_master_tree_view" model="ir.ui.view">
+            <field name="name">TransportMaster</field>
+            <field name="model">transport.master</field>
+            <field name="arch" type="xml">
+                <tree string="Master">
+                         <field name="create_date" readonly="1"/>
+                        <field name="ref_no" readonly="1"/>
+                        <field name="move_date" required="1"/>
+                        <field name="driver_name" required="1"/>
+                         <!--<field name="partner_id" readonly="1"/>-->
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_transportation_master_view" model="ir.actions.act_window">
+            <field name="name">TransportMaster</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">transport.master</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="action_transportation_master_view" id="menu_transportation_master_id"
+                  parent="menu_transportation_tracking_sub_root_id" sequence="2"/>
+
+
+
+
+
+        <record id="journey_detail_tree_view" model="ir.ui.view">
+            <field name="name">Journey Detail</field>
+            <field name="model">journey.detail</field>
+            <field name="arch" type="xml">
+                <tree string="Master">
+                    <field name="move_date" readonly="1"/>
+                    <field name="driver_name" readonly="1"/>
+                    <field name="vehicle_no" readonly="1"/>
+                    <field name="vehicle_type" readonly="1"/>
+                    <field name="journey_type" readonly="1"/>
+                    <field name="destination" readonly="1"/>
+                    <field name="opening_reading" readonly="1"/>
+                    <field name="closing_reading" readonly="1"/>
+                    <field name="distance" readonly="1"/>
+                    <field name="cost" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+        <record id="journey_detail_search_view" model="ir.ui.view">
+            <field name="name">Journey Detail</field>
+            <field name="model">journey.detail</field>
+            <field name="arch" type="xml">
+                <search>
+                   <field name="move_date" readonly="1"/>
+                    <field name="driver_name" readonly="1"/>
+                    <field name="vehicle_no" readonly="1"/>
+                    <field name="vehicle_type" readonly="1"/>
+                    <field name="journey_type" readonly="1"/>
+                    <field name="destination" readonly="1"/>
+                    <field name="opening_reading" readonly="1"/>
+                    <field name="closing_reading" readonly="1"/>
+                    <field name="distance" readonly="1"/>
+                    <field name="cost" readonly="1"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_journey_detail" model="ir.actions.act_window">
+            <field name="name">Transport Master Line</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">journey.detail</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <menuitem action="action_journey_detail" id="menu_journey_detail_id"
+                  parent="menu_transportation_tracking_sub_root_id" sequence="3"/>
+
+
+
+
+
+
+        <record id="transport_detail_history_form_view" model="ir.ui.view">
+            <field name="name">TransportDetailHistory</field>
+            <field name="model">transport.detail.history</field>
+            <field name="arch" type="xml">
+                <form string="Data">
+                <sheet>
+                    <group col="4" colspan="4">
+                        <field name="move_date"/>
+                       <field name="new_move_date"/>
+                       <field name="driver_name"/>
+                       <field name="new_driver_name"/>
+                        <field name="user_id"/>
+
+                    </group>
+                    <notebook>
+                        <page string="Transport Detail History">
+                        <field name="transport_history" colspan="4"  nolabel="1" >
+                            <tree editable="bottom">
+                                <field name="create_date"/>
+                                <field name="move_date"/>
+                                <field name="driver_name"/>
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                          <field name="create_date"/>
+                                          <field name="move_date"/>
+                                          <field name="driver_name"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+
+                        </page>
+                    </notebook>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="transport_detail_history_tree_view" model="ir.ui.view">
+            <field name="name">TransportDetailHistory</field>
+            <field name="model">transport.detail.history</field>
+            <field name="arch" type="xml">
+                <tree>
+                   <field name="move_date"/>
+                    <field name="new_move_date"/>
+                    <field name="driver_name"/>
+                    <field name="new_driver_name"/>
+                    <field name="user_id"/>
+
+                </tree>
+            </field>
+        </record>
+        <record id="action_transport_detail_history_detail" model="ir.actions.act_window">
+            <field name="name">TransportDetailHistory</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">transport.detail.history</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+    <!--open wizard by menu list-->
+    <record id="action_wiz_transportation_tracking_view" model="ir.actions.act_window">
+            <field name="name">Click Here(Wizard Open)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wiz.transportation.tracking</field>
+            <field name="view_mode">form</field>
+        </record>
+        <menuitem action="action_wiz_transportation_tracking_view" id="menu_transportation_trackings_id"
+                  parent="menu_transportation_tracking_sub_root_id" sequence="7"/>
+
+
+</odoo>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<template id="report_employee_leave_application">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o" t-as="l">
+			    	<div class="page">	
+				    	<table width="100%">
+			    			<tr width="100%">
+			    				<td width="100%" align="center" colspan="6" STYLE="font-size:40px;">
+			    						<b><u>अवकाश प्रार्थना पत्र </u></b>
+			    				</td>
+			    			</tr>
+			    		</table> <br/><br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="25%" align="left"  STYLE="font-size:18px;">
+			    						<b><u>कार्ड नंबर </u></b>
+			    				</td>
+			    				<td width="25%" align="left"  STYLE="font-size:18px;">
+			    					[ <span t-esc="l.employee_id.sinid"/> ]
+			    				</td>
+			    				<td width="25%" align="center" STYLE="font-size:18px;">
+			    						<b><u>दिनांक </u></b>
+			    				</td>
+			    				<td width="25%" align="left"  STYLE="font-size:18px;">
+			    					 <span t-esc="get_my_date()"/>
+			    				</td>
+			    			</tr>
+			    		</table>
+			    		<br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="40%" align="left"  STYLE="font-size:18px;">
+			    						<b>कर्मचारी का नाम </b> 
+			    				</td>
+			    				<td width="60%" align="left"  STYLE="font-size:18px;">
+			    						 <span t-esc="l.employee_id.name"/>
+			    				</td>
+			    			</tr>
+			    		</table>
+			    		<br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="40%" align="left"  STYLE="font-size:18px;">
+			    						<b>पद </b>
+			    				</td>
+			    				<td width="60%" align="left"  STYLE="font-size:18px;">
+			    						 <span t-esc="l.employee_id.job_id.name"/> 
+			    				</td>
+			    			</tr>
+			    		</table>
+			    		<br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="40%" align="left"  STYLE="font-size:18px;">
+			    						<b>विभाग </b>
+			    				</td>
+			    				<td width="60%" align="left"  STYLE="font-size:18px;">
+			    						 <span t-esc="l.employee_id.department_id.name"/> 
+			    				</td>
+			    			</tr>
+			    		</table>
+			    		<br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="100%" align="left"  STYLE="font-size:18px;">
+			    						<b>अवकाश  का प्रयोजन </b>
+			    				</td>
+			    			</tr>
+			    		</table>
+			    		<br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="40" align="left"  STYLE="font-size:18px;">
+			    						<b>दिनों की संख्या</b>
+			    				</td>
+			    				<td width="60%" align="left"  STYLE="font-size:18px;">
+			    						 <span t-esc="l.number_of_days_temp"/> 
+			    				</td>
+			    			</tr>
+			    		</table>
+			    		<br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="40%" align="left"  STYLE="font-size:18px;">
+			    						<b>अवकाश स्वीकृति दिनांक </b>
+			    				</td>
+			    				<td width="20%" align="left"  STYLE="font-size:18px;">
+			    						<b><span t-esc="get_from_date(l.from_date)"/></b><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+			    				</td>
+			    				<td width="10%" align="left"  STYLE="font-size:18px;">
+			    						<b>से </b>
+			    				</td>
+			    				<td width="20%" align="left"  STYLE="font-size:18px;">
+			    						<b><span t-esc="get_end_date(l.date_to)"/></b><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>
+			    				</td>
+			    				<td width="10%" align="left"  STYLE="font-size:18px;">
+			    						<b> तक़ </b>
+			    				</td>
+			    			</tr>
+			    		</table>
+			    		<br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="100%" align="left"  STYLE="font-size:18px;">
+			    						<b>अवकाश के समय मेरे कार्य का  संचलन</b>
+			    				</td>
+			    			</tr>
+			    		</table>
+			    		<br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="100%" align="left"  STYLE="font-size:18px;">
+			    						<b>श्री</b>
+			    				</td>
+			    			</tr>
+			    		</table>
+			    		<br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="100%" align="left"  STYLE="font-size:18px;">
+			    						<b>प्रस्तावित दिनांक कार्यभार ग्रहण करने की  </b>
+			    				</td>
+			    			</tr>
+			    		</table>
+			    		<br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="100%" align="left"  STYLE="font-size:18px;">
+			    						<b>विभाग इन्चार्ज  </b>
+			    				</td>
+			    			</tr>
+			    		</table><br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="100%" align="left"  STYLE="font-size:18px;">
+			    						<b>विभाग का नाम </b>
+			    				</td>
+			    			</tr>
+			    		</table><br/><br/><br/><br/><br/><br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="50%" align="left"  STYLE="font-size:18px;">
+			    						<b>अवकाश स्वीकृति /अस्वीकृति  </b>
+			    				</td>
+			    				<td width="50%" align="right"  STYLE="font-size:18px;">
+			    						<b>प्रार्थी के हस्ताक्षर  </b>
+			    				</td>
+			    			</tr>
+			    		</table><br/><br/><br/><br/><br/><br/><br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="100%" align="left"  STYLE="font-size:18px;">
+			    						<b>अधिकारिक अधिकारी </b>
+			    				</td>
+			    			</tr>
+			    		</table><br/><br/><br/><br/><br/>
+			    		<table width="100%">
+			    			<tr width="100%">
+			    				<td width="100%" align="center"  STYLE="font-size:18px;">
+			    						<b>नोट :- अवकाश प्रार्थना पत्र , अवकाश पर जाने के पहले  स्वीकार कराना  अनिवार्य  है ! </b>
+			    				</td>
+			    			</tr>
+			    		</table>
+			    		    
+			    	</div> 
+			</t>
+		</t>
+	</t>
+   </template>  
+</data>
+</openerp>	

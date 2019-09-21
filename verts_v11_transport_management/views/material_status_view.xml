@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="material_status_form_view" model="ir.ui.view">
+            <field name="name">MaterialStatus</field>
+            <field name="model">material.status</field>
+            <field name="arch" type="xml">
+                <form string="Material Status">
+                    <sheet>
+                        <group col="2" colspan="2">
+                            <field name="name" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="material_status_tree_view" model="ir.ui.view">
+            <field name="name">MaterialStatus</field>
+            <field name="model">material.status</field>
+            <field name="arch" type="xml">
+                <tree string="Material Status">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        <record id="action_material_status_view"  model="ir.actions.act_window">
+            <field name="name">MaterialStatus</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">material.status</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="material_status_tree_view"/>
+
+        </record>
+    </data>
+</odoo>

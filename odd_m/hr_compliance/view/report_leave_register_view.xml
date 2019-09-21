@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<template id="report_leave_register">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		     <t t-call="report.html_container">
+			    <t t-foreach="docs" t-as="o">
+			    <t t-foreach="get_data(o.from_month,o.till_month,o.company_id,o.employee_id,o.department_id)" t-as="line">
+					<div class="page">		
+					    <table width="100%">
+							<TR style="height:5px," width="100%">
+								 <TD WIDTH="33%" ALIGN= "LEFT" STYLE=" border-width:5px;  border-top: none; border-bottom: 3px dotted; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 	<B>	NO :- <span t-esc="get_sequence()"/>  </B>
+								  </TD>	
+								 <TD WIDTH="33%" ALIGN= "LEFT" STYLE="border-top: none; border-bottom: none; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm"> 
+								  </TD>	
+								<TD WIDTH="33%" ALIGN= "LEFT" STYLE="border-top: none; border-bottom:  3px dotted; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 		<B>Emp Code :- <span t-esc="line[3]"/> </B>
+								  </TD>	
+							</TR>
+							<TR style="height:5px," width="100%">
+								<TD WIDTH="33%" ALIGN= "LEFT" STYLE="border-top: none; border-bottom: 3px dotted; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<B> Department:- <span t-esc="line[0]"/> </B>
+								  </TD>	
+								 <TD WIDTH="33%" ALIGN= "LEFT" STYLE=" letter-spacing:3px; border-top: none; border-bottom:  none; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 <P align="center" style="font-size:23px;">	<B>Form No 14 </B> </P> 
+								  </TD>	
+								  <TD WIDTH="33%" ALIGN= "LEFT" STYLE="border-top: none; border-bottom: 3px dotted; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 	<B>	Name :- <span t-esc="line[4]"/>  </B>
+								  </TD>	
+							</TR>
+							<TR style="height:5px," width="100%">
+								 <TD WIDTH="33%" ALIGN= "LEFT" STYLE="border-top: none; border-bottom:  none; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<B> 	Serial No. in the Register of adult/child Workers :-   <span t-esc="get_sequence1()"/>  </B>
+								  </TD>	
+								  <TD WIDTH="33%" ALIGN= "RIGHT" STYLE="letter-spacing:3px border-top: none; border-bottom:  none; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									 <P align="center" style="font-size:16px;">	<B>	(RULE NO 102)	</B> </P> 
+								  </TD>	
+								 <TD WIDTH="33%" ALIGN= "LEFT" STYLE="border-top: none; border-bottom: 3px dotted; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<B> Father's Name : <span t-esc="line[5]"/></B>
+								  </TD>	
+							</TR>
+							<TR style="height:5px," width="100%">
+								 <TD WIDTH="33%" ALIGN= "LEFT" STYLE=" border-width:5px;  border-top: none; border-bottom: NONE; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<B> Date of Entry into Service : <span t-esc="formatLang(line[1],date=True)"/> </B>	
+								  </TD>	
+								  <TD WIDTH="33%" ALIGN= "center" STYLE=" letter-spacing:2px word-spacing:5px; border-top: none; border-bottom:  none; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<P align="left" style="font-size:20px; letter-spacing:4px"> <B>    LEAVE WITH WAGES REGISTER </B> </P> 
+								  </TD>	
+								  <TD WIDTH="33%" ALIGN= "LEFT" STYLE="border-top: none; border-bottom: NONE; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<B>	Date and Amount of Payment made Lieu of Leave Due </B>
+								  </TD>	
+							</TR>
+							<TR style="height:5px," width="100%">
+							<TD WIDTH="33%" ALIGN= "LEFT" STYLE=" border-width:5px;  border-top: none; border-bottom: NONE; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">  
+									 <B> Date Of Discharge :- <span t-esc="line[6]"/>  </B>
+								  </TD>	
+								  <TD WIDTH="33%" ALIGN= "left" STYLE="border-top: none; border-bottom:none; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 <p style="font-size:12px">		<b> NAME OF FACTORY :-  <span t-esc="o.company_id.name"/>(<span t-esc="o.company_id.street"/>) </b></p>
+								  </TD>	
+								  <TD WIDTH="33%" ALIGN= "left" STYLE="border-top: none; border-bottom:  NONE; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								  </TD>	
+							</TR>
+					  </table>
+				<TABLE WIDTH="100%" height="10%">
+					<TR style="height:3px"   height="10%" WIDTH="100%">
+								<TD WIDTH="4%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="5%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="5%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="20%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px" align="center"> <b> No. of days worked 
+															during the calender year </b>	 </p>	
+							    </TD>
+							    <TD WIDTH="4%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="9%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px" align="center"> <b> Leave To Credit
+															 </b>	 </p>		
+							    </TD>
+							    <TD WIDTH="4%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="5%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="11%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="4%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="5%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="5%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="5%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="4%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="4%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="6%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+						 </TR>	    
+					</TABLE>	  
+					  <table width="100%">
+							<TR style="height:3px" width="100%">
+								<TD WIDTH="4%" align="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<p style="font-size:12px">	<b>Calender<br/> 									
+										Year <br/>									
+										 Of <br/> 
+										 service  </b> </p>
+							    </TD>			
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px">	<b>Wage<br/>Period<br/>To<br/>From<br/></b> </p>
+			  						</TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px"><b> WAGES EARNED DURING THE WAGE PERIOD </b> </p>
+								  </TD>
+								 	<TD WIDTH="5%"  ALIGN= "center" STYLE=" word-spacing:6px; border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.0cm; padding-left: 0.1cm; padding-right: 0cm">
+							 		<p style="font-size:12px">	<b>No of
+							 			<br/>
+							 			days<br/> 
+							 			work<br/> 
+							 			perfo-<br/>
+							 			-rmed </b> </p>
+					  				</TD>
+									 <TD  WIDTH="5%" ALIGN= "center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.0cm; padding-left: 0.1cm; padding-right: 0cm">
+									 	<p style="font-size:12px"> <b>No of<br/>days<br/>lay<br/>off </b> </p>
+								  	 </TD>
+								   <TD WIDTH="5%"  ALIGN= "center" STYLE="border-style: solid;  border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.0cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px"><b>No of<br/>days<br/>mater-<br/>-nity<br/>leave</b>  </p>
+								  </TD>
+								   <TD  WIDTH="5%" ALIGN= "center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.0cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px">	<b>No<br/>of<br/>days<br/>leave<br/>enjo-<br/>-yed<br/>E/L</b>	</p> 
+								  </TD>
+								  <TD WIDTH="4%" ALIGN= "CENTER" STYLE=" border-style: solid; border: 5px solid red; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px"><b>Total<br/>of<br/>column<br/>(4 to 7)</b> </p>
+								  </TD>
+								 	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="word-spacing:3px;border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px"><b>Balance<br/>to<br/>leave<br/>from<br/>preced-<br/>-ing<br/>year </b> </p>
+					  				</TD>
+								  <TD WIDTH="4%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px"><b>Leave<br/>earned<br/>during<br/>the<br/>year<br/>mentio-<br/>-ned in<br/>column<br/>1</b> </p>
+								  </TD>
+								  <TD WIDTH="4%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px"><b>Total<br/>of<br/>column<br/>(9 to 10)</b> </p>
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px"><b>Wheather<br/>leave<br/>in<br/>accor-<br/>-dance<br/>with<br/>scheme<br/>under<br/> sec-79(8) was refused </b> </p>
+								  </TD>
+								  <TD WIDTH="11%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px"><b>Leave<br/>Enjoyed<br/>From<br/>To</b> </p>
+								  </TD>
+								  <TD WIDTH="4%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px"><b>Balance<br/>of<br/>Leave<br/>to<br/>credit</b> </p>
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px"><b>Normal<br/>rate<br/>of<br/>wages<br/>per<br/>month/per<br/>working<br/>day</b> </p>
+								  </TD>
+								 <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px"><b>Cash<br/>equivalent<br/>of<br/>advantage<br/>accruring<br/>through<br/>conces-<br/>-sional<br/>sale<br/>of food<br/>grain<br/>and other<br/>articles</b> </p>
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px"><b>Rate<br/>of<br/>wages<br/>for the <br/>leave<br/>period<br/>total<br/>of<br/>column<br/>(15 and 16) ) </b> </p>
+								  </TD>
+								  <TD WIDTH="4%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 	<p style="font-size:12px"><b>Casual<br/>leave</b> </p>
+								  </TD>
+								  <TD WIDTH="4%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px"><b>Medical<br/>ESI<br/>LEAVE<br/>IF<br/>ANY</b></p>
+								  </TD>
+								  <TD WIDTH="6%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px"><b>Remarks </b></p>
+								  </TD>
+							</TR>
+							</table>	
+								<table width="100%">
+								<TR style="height:3px" ALIGN= "CENTER" height="10%" width="100%" >
+										<TD height="10%"  WIDTH="4%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>01</b>
+										  </TD>	
+										  <TD height="10%"  WIDTH="5%" align="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000 padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										 		<b>02</b>
+										  </TD>
+										  <TD height="10%"   WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>03</b>
+										  </TD>
+										  <TD height="10%"  WIDTH="5%" ALIGN= "CENTER"  STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>04</b>
+												</TD>
+										   <TD height="10%"  WIDTH="5%" ALIGN= "CENTER"  STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>05</b>
+										  </TD>
+										   <TD height="10%"  WIDTH="5%"  ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>06</b>
+										  </TD>
+										   <TD height="10%"  WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<b>07 </b>
+										  </TD>
+										  <TD height="10%"  WIDTH="4%" ALIGN= "CENTER" STYLE=" border-style: solid; border: 5px solid red; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<b> 08 </b>
+										  </TD>
+										   <TD height="10%"  WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<b> 09 </b>
+										  </TD>
+										  <TD height="10%" WIDTH="4%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<b> 10 </b>
+										  </TD>
+										  <TD height="10%" WIDTH="4%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b> 11 </b>
+										  </TD>
+										  <TD height="10%" WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b> 12 </b>
+										  </TD>
+										  <TD height="10%" WIDTH="11%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>13</b>
+										  </TD>
+										  <TD height="10%" WIDTH="4%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>14 </b>
+										  </TD>
+										 <TD height="10%" WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+											<b>15 </b>
+										  </TD>
+										  <TD height="10%" WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b> 16</b>
+										  </TD>
+										  <TD height="10%" WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										 		<b> 17</b>
+										  </TD>
+										  <TD height="10%" WIDTH="4%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>18 </b>
+										  </TD>
+										  <TD height="10%" WIDTH="4%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b> 19 </b>
+										  </TD>
+										  <TD  height="10%" WIDTH="6%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+											 	<b>20 </b>
+										  </TD>
+								</TR>
+							</table>		
+							<table width="100%" >
+								<TR style="height:3px" height="10%" width="100%" t-foreach="line[7]" t-as="line1" >
+										<TD WIDTH="4%" height="10%" align="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"> <b><span t-esc="line1[0]"/>   </b> </p>
+										  </TD>	
+										  <TD WIDTH="5%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000 padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										 		<p style="font-size:12px"><b><span t-esc="line1[1]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="5%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"><b> <span t-esc="line1[2]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="5%"  height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"> <b><span t-esc="line1[3]"/> </b></p>
+										  </TD>
+										   <TD WIDTH="5%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px">	-	</p>
+										  </TD>
+										   <TD WIDTH="5%" height="10%"  ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px">- </p>
+										  </TD>
+										   <TD WIDTH="5%"  height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<p style="font-size:12px"><b><span t-esc="line1[4]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="4%" height="10%" ALIGN= "CENTER" STYLE=" border-style: solid; border: 5px solid red; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<p style="font-size:12px"><b> <span t-esc="line1[5]"/> </b></p>
+										  </TD>
+										   <TD WIDTH="5%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<p style="font-size:12px"><b> <span t-esc="line1[6]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="4%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<p style="font-size:12px"><b> <span t-esc="line1[7]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="4%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"><b> - </b></p>
+										  </TD>
+										  <TD WIDTH="5%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"><b> - </b></p>
+										  </TD>
+										  <TD WIDTH="11%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:10px"><b><span t-esc="line1[8][0:26]"/> </b></p>
+												<p style="font-size:10px"><b><span t-esc="line1[8][26:53]"/></b> </p>
+												<p style="font-size:10px"><b><span t-esc="line1[8][53:80]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="4%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"><b><span t-esc="line1[9]"/> </b></p>
+										  </TD>
+										 <TD WIDTH="5%" height="10%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+											 <p style="font-size:12px"><b><span t-esc="line1[10]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="5%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"><b> - </b></p>
+										  </TD>
+										  <TD WIDTH="5%"  height="10%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										 		<p style="font-size:12px"><b> <span t-esc="line1[10]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="4%" height="10%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"><b> <span t-esc="line1[11]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="4%" height="10%"  ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"><b> <span t-esc="line1[12]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="6%" height="10%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:10px"><b><span t-esc="line1[13][0:14]"/> </b></p>
+												<p style="font-size:10px"><b><span t-esc="line1[13][14:29]"/></b> </p>
+												<p style="font-size:10px"><b><span t-esc="line1[13][29:44]"/> </b></p>
+												<p style="font-size:10px"><b><span t-esc="line1[13][44:59]"/> </b></p>
+												<p style="font-size:10px"><b><span t-esc="line1[13][59:74]"/></b> </p>
+										  </TD>
+								</TR>
+							</table>
+							<table width="100%">
+							<TR style="height:5px," height="10%" width="100%">
+								<TD WIDTH="50%" height="10%" algn="LEFT" STYLE=" border-top:NONE; border-bottom: NONE; border-left: NONE; border-right: NONE; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>SIGNATURE OF EMPLOYEE RECEIVED LEAVE BOOK</b>
+								  </TD>	
+								  <TD WIDTH="50%"  height="10%" ALIGN= "RIGHT" STYLE="border-top:NONE; border-bottom: NONE; border-left: NONE; border-right: NONE; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>	NOTE : SEPARATE PAGE WILL BE ALLOTED TO EACH WORKER </b>
+								  </TD>
+								 
+								</TR>
+							</table>
+						</div>
+				</t>
+			</t>
+			</t>
+		</template>
+		
+		
+		
+		
+		
+		
+<!--		                     CONTRACTOR LEAVE REGISTER VIEW          -->
+		
+
+		<template id="report_contractor_leave_register">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		     <t t-call="report.html_container">
+			    <t t-foreach="docs" t-as="o">
+			    <t t-foreach="get_data(o.from_month,o.till_month,o.partner_id,o.employee_id)" t-as="line">
+					<div class="page">		
+					    <table width="100%">
+							<TR style="height:5px," width="100%">
+								 <TD WIDTH="33%" ALIGN= "LEFT" STYLE=" border-width:5px;  border-top: none; border-bottom: 3px dotted; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 	<B>	NO :- <span t-esc="get_sequence()"/>  </B>
+								  </TD>	
+								 <TD WIDTH="33%" ALIGN= "LEFT" STYLE="border-top: none; border-bottom: none; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm"> 
+								  </TD>	
+								<TD WIDTH="33%" ALIGN= "LEFT" STYLE="border-top: none; border-bottom:  3px dotted; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 		<B>Emp Code :- <span t-esc="line[3]"/> </B>
+								  </TD>	
+							</TR>
+							<TR style="height:5px," width="100%">
+								<TD WIDTH="33%" ALIGN= "LEFT" STYLE="border-top: none; border-bottom: 3px dotted; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<B> Department:- <span t-esc="line[0]"/> </B>
+								  </TD>	
+								 <TD WIDTH="33%" ALIGN= "LEFT" STYLE=" letter-spacing:3px; border-top: none; border-bottom:  none; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 <P align="center" style="font-size:23px;">	<B>Form No 14 </B> </P> 
+								  </TD>	
+								  <TD WIDTH="33%" ALIGN= "LEFT" STYLE="border-top: none; border-bottom: 3px dotted; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 	<B>	Name :- <span t-esc="line[4]"/>  </B>
+								  </TD>	
+							</TR>
+							<TR style="height:5px," width="100%">
+								 <TD WIDTH="33%" ALIGN= "LEFT" STYLE="border-top: none; border-bottom:  none; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<B> 	Serial No. in the Register of adult/child Workers :-   <span t-esc="get_sequence1()"/>  </B>
+								  </TD>	
+								  <TD WIDTH="33%" ALIGN= "RIGHT" STYLE="letter-spacing:3px border-top: none; border-bottom:  none; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									 <P align="center" style="font-size:16px;">	<B>	(RULE NO 102)	</B> </P> 
+								  </TD>	
+								 <TD WIDTH="33%" ALIGN= "LEFT" STYLE="border-top: none; border-bottom: 3px dotted; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<B> Father's Name : <span t-esc="line[5]"/></B>
+								  </TD>	
+							</TR>
+							<TR style="height:5px," width="100%">
+								 <TD WIDTH="33%" ALIGN= "LEFT" STYLE=" border-width:5px;  border-top: none; border-bottom: NONE; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<B> Date of Entry into Service : <span t-esc="formatLang(line[1],date=True)"/> </B>	
+								  </TD>	
+								  <TD WIDTH="33%" ALIGN= "center" STYLE=" letter-spacing:2px word-spacing:5px; border-top: none; border-bottom:  none; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<P align="left" style="font-size:20px; letter-spacing:4px"> <B>    LEAVE WITH WAGES REGISTER </B> </P> 
+								  </TD>	
+								  <TD WIDTH="33%" ALIGN= "LEFT" STYLE="border-top: none; border-bottom: NONE; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<B>	Date and Amount of Payment made Lieu of Leave Due </B>
+								  </TD>	
+							</TR>
+							<TR style="height:5px," width="100%">
+							<TD WIDTH="33%" ALIGN= "LEFT" STYLE=" border-width:5px;  border-top: none; border-bottom: NONE; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">  
+									 <B> Date Of Discharge :- <span t-esc="line[6]"/>  </B>
+								  </TD>	
+								  <TD WIDTH="33%" ALIGN= "left" STYLE="border-top: none; border-bottom:none; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 <p style="font-size:12px">		<b> NAME OF CONTRACTOR :-  <span t-esc="o.partner_id.name"/>(<span t-esc="o.partner_id.street"/>) </b></p>
+								  </TD>	
+								  <TD WIDTH="33%" ALIGN= "left" STYLE="border-top: none; border-bottom:  NONE; border-left:  none; border-right: none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								  </TD>	
+							</TR>
+					  </table>
+				<TABLE WIDTH="100%" height="10%">
+					<TR style="height:3px"   height="10%" WIDTH="100%">
+								<TD WIDTH="4%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="5%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="5%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="20%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px" align="center"> <b> No. of days worked 
+															during the calender year </b>	 </p>	
+							    </TD>
+							    <TD WIDTH="4%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="9%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px" align="center"> <b> Leave To Credit
+															 </b>	 </p>		
+							    </TD>
+							    <TD WIDTH="4%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="5%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="11%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="4%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="5%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="5%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="5%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="4%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="4%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+							    <TD WIDTH="6%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    </TD>
+						 </TR>	    
+					</TABLE>	  
+					  <table width="100%">
+							<TR style="height:3px" width="100%">
+								<TD WIDTH="4%" align="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<p style="font-size:12px">	<b>Calender<br/> 									
+										Year <br/>									
+										 Of <br/> 
+										 service  </b> </p>
+							    </TD>			
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px">	<b>Wage<br/>Period<br/>To<br/>From<br/></b> </p>
+			  						</TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px"><b> WAGES EARNED DURING THE WAGE PERIOD </b> </p>
+								  </TD>
+								 	<TD WIDTH="5%"  ALIGN= "center" STYLE=" word-spacing:6px; border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.0cm; padding-left: 0.1cm; padding-right: 0cm">
+							 		<p style="font-size:12px">	<b>No of
+							 			<br/>
+							 			days<br/> 
+							 			work<br/> 
+							 			perfo-<br/>
+							 			-rmed </b> </p>
+					  				</TD>
+									 <TD  WIDTH="5%" ALIGN= "center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.0cm; padding-left: 0.1cm; padding-right: 0cm">
+									 	<p style="font-size:12px"> <b>No of<br/>days<br/>lay<br/>off </b> </p>
+								  	 </TD>
+								   <TD WIDTH="5%"  ALIGN= "center" STYLE="border-style: solid;  border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.0cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px"><b>No of<br/>days<br/>mater-<br/>-nity<br/>leave</b>  </p>
+								  </TD>
+								   <TD  WIDTH="5%" ALIGN= "center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.0cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px">	<b>No<br/>of<br/>days<br/>leave<br/>enjo-<br/>-yed<br/>E/L</b>	</p> 
+								  </TD>
+								  <TD WIDTH="4%" ALIGN= "CENTER" STYLE=" border-style: solid; border: 5px solid red; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px"><b>Total<br/>of<br/>column<br/>(4 to 7)</b> </p>
+								  </TD>
+								 	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="word-spacing:3px;border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px"><b>Balance<br/>to<br/>leave<br/>from<br/>preced-<br/>-ing<br/>year </b> </p>
+					  				</TD>
+								  <TD WIDTH="4%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px"><b>Leave<br/>earned<br/>during<br/>the<br/>year<br/>mentio-<br/>-ned in<br/>column<br/>1</b> </p>
+								  </TD>
+								  <TD WIDTH="4%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px"><b>Total<br/>of<br/>column<br/>(9 to 10)</b> </p>
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px"><b>Wheather<br/>leave<br/>in<br/>accor-<br/>-dance<br/>with<br/>scheme<br/>under<br/> sec-79(8) was refused </b> </p>
+								  </TD>
+								  <TD WIDTH="11%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px"><b>Leave<br/>Enjoyed<br/>From<br/>To</b> </p>
+								  </TD>
+								  <TD WIDTH="4%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px"><b>Balance<br/>of<br/>Leave<br/>to<br/>credit</b> </p>
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										<p style="font-size:12px"><b>Normal<br/>rate<br/>of<br/>wages<br/>per<br/>month/per<br/>working<br/>day</b> </p>
+								  </TD>
+								 <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px"><b>Cash<br/>equivalent<br/>of<br/>advantage<br/>accruring<br/>through<br/>conces-<br/>-sional<br/>sale<br/>of food<br/>grain<br/>and other<br/>articles</b> </p>
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px"><b>Rate<br/>of<br/>wages<br/>for the <br/>leave<br/>period<br/>total<br/>of<br/>column<br/>(15 and 16) ) </b> </p>
+								  </TD>
+								  <TD WIDTH="4%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 	<p style="font-size:12px"><b>Casual<br/>leave</b> </p>
+								  </TD>
+								  <TD WIDTH="4%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px"><b>Medical<br/>ESI<br/>LEAVE<br/>IF<br/>ANY</b></p>
+								  </TD>
+								  <TD WIDTH="6%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<p style="font-size:12px"><b>Remarks </b></p>
+								  </TD>
+							</TR>
+							</table>	
+								<table width="100%">
+								<TR style="height:3px" ALIGN= "CENTER" height="10%" width="100%" >
+										<TD height="10%"  WIDTH="4%" algn="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>01</b>
+										  </TD>	
+										  <TD height="10%"  WIDTH="5%" align="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000 padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										 		<b>02</b>
+										  </TD>
+										  <TD height="10%"   WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>03</b>
+										  </TD>
+										  <TD height="10%"  WIDTH="5%" ALIGN= "CENTER"  STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>04</b>
+												</TD>
+										   <TD height="10%"  WIDTH="5%" ALIGN= "CENTER"  STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>05</b>
+										  </TD>
+										   <TD height="10%"  WIDTH="5%"  ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>06</b>
+										  </TD>
+										   <TD height="10%"  WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<b>07 </b>
+										  </TD>
+										  <TD height="10%"  WIDTH="4%" ALIGN= "CENTER" STYLE=" border-style: solid; border: 5px solid red; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<b> 08 </b>
+										  </TD>
+										   <TD height="10%"  WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<b> 09 </b>
+										  </TD>
+										  <TD height="10%" WIDTH="4%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<b> 10 </b>
+										  </TD>
+										  <TD height="10%" WIDTH="4%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b> 11 </b>
+										  </TD>
+										  <TD height="10%" WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b> 12 </b>
+										  </TD>
+										  <TD height="10%" WIDTH="11%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>13</b>
+										  </TD>
+										  <TD height="10%" WIDTH="4%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>14 </b>
+										  </TD>
+										 <TD height="10%" WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+											<b>15 </b>
+										  </TD>
+										  <TD height="10%" WIDTH="5%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b> 16</b>
+										  </TD>
+										  <TD height="10%" WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										 		<b> 17</b>
+										  </TD>
+										  <TD height="10%" WIDTH="4%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b>18 </b>
+										  </TD>
+										  <TD height="10%" WIDTH="4%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<b> 19 </b>
+										  </TD>
+										  <TD  height="10%" WIDTH="6%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+											 	<b>20 </b>
+										  </TD>
+								</TR>
+							</table>		
+							<table width="100%" >
+								<TR style="height:3px" height="10%" width="100%" t-foreach="line[7]" t-as="line1" >
+										<TD WIDTH="4%" height="10%" align="center" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left:1px solid #000000; border-right:1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"> <b><span t-esc="line1[0]"/>   </b> </p>
+										  </TD>	
+										  <TD WIDTH="5%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000 padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										 		<p style="font-size:12px"><b><span t-esc="line1[1]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="5%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"><b> <span t-esc="line1[2]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="5%"  height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"> <b><span t-esc="line1[3]"/> </b></p>
+										  </TD>
+										   <TD WIDTH="5%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px">	-	</p>
+										  </TD>
+										   <TD WIDTH="5%" height="10%"  ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px">- </p>
+										  </TD>
+										   <TD WIDTH="5%"  height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<p style="font-size:12px"><b><span t-esc="line1[4]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="4%" height="10%" ALIGN= "CENTER" STYLE=" border-style: solid; border: 5px solid red; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<p style="font-size:12px"><b> <span t-esc="line1[5]"/> </b></p>
+										  </TD>
+										   <TD WIDTH="5%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<p style="font-size:12px"><b> <span t-esc="line1[6]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="4%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+													<p style="font-size:12px"><b> <span t-esc="line1[7]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="4%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"><b> - </b></p>
+										  </TD>
+										  <TD WIDTH="5%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"><b> - </b></p>
+										  </TD>
+										  <TD WIDTH="11%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:10px"><b><span t-esc="line1[8][0:26]"/> </b></p>
+												<p style="font-size:10px"><b><span t-esc="line1[8][26:53]"/></b> </p>
+												<p style="font-size:10px"><b><span t-esc="line1[8][53:80]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="4%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"><b><span t-esc="line1[9]"/> </b></p>
+										  </TD>
+										 <TD WIDTH="5%" height="10%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+											 <p style="font-size:12px"><b><span t-esc="line1[10]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="5%" height="10%" ALIGN= "CENTER" STYLE="border-style: solid; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"><b> - </b></p>
+										  </TD>
+										  <TD WIDTH="5%"  height="10%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										 		<p style="font-size:12px"><b> <span t-esc="line1[10]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="4%" height="10%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"><b> <span t-esc="line1[11]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="4%" height="10%"  ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:12px"><b> <span t-esc="line1[12]"/> </b></p>
+										  </TD>
+										  <TD WIDTH="6%" height="10%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+												<p style="font-size:10px"><b><span t-esc="line1[13][0:14]"/> </b></p>
+												<p style="font-size:10px"><b><span t-esc="line1[13][14:29]"/></b> </p>
+												<p style="font-size:10px"><b><span t-esc="line1[13][29:44]"/> </b></p>
+												<p style="font-size:10px"><b><span t-esc="line1[13][44:59]"/> </b></p>
+												<p style="font-size:10px"><b><span t-esc="line1[13][59:74]"/></b> </p>
+										  </TD>
+								</TR>
+							</table>
+							<table width="100%">
+							<TR style="height:5px," height="10%" width="100%">
+								<TD WIDTH="50%" height="10%" algn="LEFT" STYLE=" border-top:NONE; border-bottom: NONE; border-left: NONE; border-right: NONE; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>SIGNATURE OF EMPLOYEE RECEIVED LEAVE BOOK</b>
+								  </TD>	
+								  <TD WIDTH="50%"  height="10%" ALIGN= "RIGHT" STYLE="border-top:NONE; border-bottom: NONE; border-left: NONE; border-right: NONE; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>	NOTE : SEPARATE PAGE WILL BE ALLOTED TO EACH WORKER </b>
+								  </TD>
+								 
+								</TR>
+							</table>
+						</div>
+				</t>
+			</t>
+			</t>
+		</template>
+		
+ </data>
+</openerp>	

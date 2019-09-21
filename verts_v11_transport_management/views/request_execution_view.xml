@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="request_execution_form_view" model="ir.ui.view">
+            <field name="name">RequestExecution</field>
+            <field name="model">request.execution</field>
+            <field name="arch" type="xml">
+                <form string="Request Excution">
+                    <sheet>
+                        <group col="4" colspan="4">
+                            <field name="name" />
+                            <field name="execution_reason" />
+                            <field name="transporter" />
+                            <field name="vehicle_placed_on" />
+                            <field name="vehicle_type" />
+                            <field name="vehicle_no" />
+                            <field name="weight" />
+                            <field name="rate_per_kg" />
+                            <field name="amount" />
+                            <field name="remarks" />
+                        </group>
+                        <notebook>
+                                <page name="vehicle requests" string="Vehicle Requests" >
+                                 <group col="4" colspan="4">
+
+                              </group>
+                          </page>
+                    </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="request_execution_tree_view" model="ir.ui.view">
+            <field name="name">RequestExecution</field>
+            <field name="model">request.execution</field>
+            <field name="arch" type="xml">
+                <tree string="Request Excution">
+                    <field name="name" />
+                    <field name="execution_reason" />
+                    <field name="transporter" />
+                    <field name="vehicle_placed_on" />
+                    <field name="vehicle_type" />
+                    <field name="vehicle_no" />
+                    <field name="weight" />
+                    <field name="rate_per_kg" />
+                    <field name="amount" />
+                    <field name="remarks" />
+                </tree>
+            </field>
+        </record>
+        <record id="action_request_execution_view" model="ir.actions.act_window">
+            <field name="name">RequestExecution</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">request.execution</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="request_execution_tree_view"/>
+
+        </record>
+    </data>
+</odoo>

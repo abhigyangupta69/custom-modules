@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="wiz_student_image_form_view" model="ir.ui.view">
+            <field name="name">wiz.student.image.form</field>
+            <field name="model">wiz.student.image</field>
+            <field name="arch" type="xml">
+                <form string="Image">
+                <sheet>
+                    <group col="4" colspan="4">
+                        <group col="4" colspan="4"><field name="image" widget="image" class="oe_avatar" height="140" width="125" nolabel="1"/>
+                        </group>
+                        <group col="4" colspan="1">
+                            <field name="name" readonly="1"/>
+                        </group>
+                        <newline/>
+                        <group col="3" colspan="6">
+                            <button class="oe_highlight" icon="fa-check-circle" name="create_image"
+                                    string="Confirm Image" type="object"/>
+                            <button class="oe_highlight" icon="fa-times-circle" name="clear_image"
+                                    string="Remove Image" type="object"/>
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wiz_student_image_view" model="ir.actions.act_window">
+            <field name="name">Inner Detail</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wiz.student.image</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+</odoo>

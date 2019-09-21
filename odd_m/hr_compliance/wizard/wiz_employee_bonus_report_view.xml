@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="wiz_employee_bonus_report_form_view" model="ir.ui.view">
+			<field name="name">wiz.employee.bonus.report</field>
+			<field name="model">wiz.employee.bonus.report</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<group colspan="4" col="4">
+					<field name="from_date"/>	
+					<field name="till_date"/>	
+					<field name="company_id"/>	
+					<field name="employee_id" domain="[('type','=','Employee')]"/>	
+				    <field name="filename" invisible="1"/>
+		   		    <field name="export_data" filename="filename" attrs="{'invisible':[('export_data','=',False)]}"/> 
+				</group>
+				 <group  col="4" colspan="4">
+					<button string="Print Report" name="performance_register_report" type="object" icon="gtk-print"/> 
+				</group> 
+			</field>
+		</record>
+		
+		<record id="action_wiz_employee_bonus_report" model="ir.actions.act_window">
+		   		<field name="name">Employee Bonus Report</field>
+		   		<field name="res_model">wiz.employee.bonus.report</field>
+	            <field name="type">ir.actions.act_window</field>   
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="target">inline</field>
+	            <field name="view_id" ref="wiz_employee_bonus_report_form_view"/>  
+        </record>
+        
+		<menuitem  id="menu_wiz_employee_bonus_report" parent="salary_payment_menu"  action="action_wiz_employee_bonus_report"  name="Employee Bonus Report" sequence="30"/>		        
+
+<!--											CONTRACTOR BONUS REPORT             -->
+
+		<record id="wiz_contractor_bonus_report_form" model="ir.ui.view">
+			<field name="name">wiz.contractor.bonus.report</field>
+			<field name="model">wiz.contractor.bonus.report</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<group colspan="4" col="4">
+					<field name="from_date"/>	
+					<field name="till_date"/>	
+					<field name="partner_id" domain="[('supplier','=',1)]"/>	
+					<field name="employee_id" domain="[('type','=','Contractor')]"/>
+					<field name="company_id"/>	
+				    <field name="filename" invisible="1"/>
+		   		    <field name="export_data" filename="filename" attrs="{'invisible':[('export_data','=',False)]}"/> 
+				</group>
+				 <group  col="4" colspan="4">
+					<button string="Print Report" name="performance_register_report" type="object" icon="gtk-print"/> 
+				</group> 
+			</field>
+		</record>
+		
+		<record id="action_wiz_contractor_bonus_report" model="ir.actions.act_window">
+		   		<field name="name">Contractor Bonus Report</field>
+		   		<field name="res_model">wiz.contractor.bonus.report</field>
+	            <field name="type">ir.actions.act_window</field>   
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="target">inline</field>
+	            <field name="view_id" ref="wiz_contractor_bonus_report_form"/>  
+        </record>
+        
+		<menuitem  id="menu_wiz_contractor_bonus_report" parent="salary_payment_sub_menu_contractor"  action="action_wiz_contractor_bonus_report"  name="Contractor Bonus Report" sequence="6"/>		        
+
+	</data>
+</openerp>

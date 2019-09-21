@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>		
+		   	<record id="wiz_employee_icard_form" model="ir.ui.view">
+		            <field name="name">Employee ICARD Report</field>
+		            <field name="model">wiz.employee.icard</field>
+		            <field name="type">form</field>
+		            <field name="arch" type="xml">
+		                <form string="Employee ICARD Report">
+	                        <group colspan="4" col="4">
+	                        	<field name="department_id" on_change="on_change_company_id(company_id,department_id,)"/>
+	                            <field name="company_id" on_change="on_change_company_id(company_id,department_id)"/>
+	                            <field name="employee_id" domain="[('type','=','Employee')]"/>
+	                        	<button string="ADD Employee" name="add_employee" type="object" icon="gtk-ok"/>
+	                            <newline/>
+	                      		<field name="employee_no" domain="[('type','=','Employee')]" colspan="4" nolabel="1"/>
+	                        </group>
+	                        <group colspan="4" col="4">
+	                        	<field name="report_type" />
+			                    <button  name="get_report_id" string="Print" type="object" icon="gtk-print"/>
+			                    <button name="clear_employee" string="Clear" type="object" icon="gtk-cancel"/>
+		                    </group>
+		                </form>
+		            </field>
+		        </record>
+		        
+		        <record id="action_icard_report" model="ir.actions.act_window">
+		            <field name="name">Employee ICARD Report</field>
+		            <field name="res_model">wiz.employee.icard</field>
+		            <field name="type">ir.actions.act_window</field>
+		            <field name="view_mode">form</field>
+		            <field name="view_type">form</field>
+		            <field name="view_id" ref="wiz_employee_icard_form"/>
+		        </record>
+		        
+		  <menuitem  id="menu_sub_icard_report_hr" parent="menu_employee_complaince"  action="action_icard_report"  name="Employee ICARD" groups="base.group_compliance_user"/>	    
+		        
+<!--                                       CONTRACTOR ICARD VIEW              -->
+
+		   	<record id="wiz_contractor_icard_form" model="ir.ui.view">
+		            <field name="name">Contractor Icard</field>
+		            <field name="model">wiz.contractor.icard</field>
+		            <field name="type">form</field>
+		            <field name="arch" type="xml">
+		                <form string="ICard Report">
+	                        <group colspan="4" col="4">
+	                            <field name="partner_id" on_change="on_change_partner_id(partner_id)" domain="[('supplier','=',1)]"/>
+	                            <field name="employee_id" domain="[('type','=','Contractor')]"/>
+	                        	<button string="ADD Employee" name="add_employee" type="object" icon="gtk-ok"/>
+	                            <newline/>
+	                      		<field name="employee_no" domain="[('type','=','Contractor')]" colspan="4" nolabel="1"/>
+	                        </group>
+	                        <group colspan="4" col="4">
+	                        	<field name="report_type" />
+			                    <button  name="get_report_id" string="Print" type="object" icon="gtk-print"/>
+			                    <button name="clear_employee" string="Clear" type="object" icon="gtk-cancel"/>
+		                    </group>
+		                </form>
+		            </field>
+		        </record>
+		        
+		        <record id="action_wiz_contractor_icard" model="ir.actions.act_window">
+		            <field name="name">Contractor ICard Report</field>
+		            <field name="res_model">wiz.contractor.icard</field>
+		            <field name="type">ir.actions.act_window</field>
+		            <field name="view_mode">form</field>
+		            <field name="view_type">form</field>
+		            <field name="view_id" ref="wiz_contractor_icard_form"/>
+		        </record>
+		        
+          <menuitem  id="menu_contractor_icard"  parent="menu_view_employee_form_contarctor"  name="Contractor Complaince" sequence="5"/>
+          <menuitem  id="sub_menu_contractor_icard"  parent="menu_contractor_icard"  name="Contractor Complaince" sequence="1"/>
+		  <menuitem  id="sub_sub_menu_contractor_icard" parent="sub_menu_contractor_icard"  action="action_wiz_contractor_icard"  name="Contractor ICARD" sequence="2" groups="base.group_compliance_user"/>	    
+		        
+	</data>
+</openerp> 

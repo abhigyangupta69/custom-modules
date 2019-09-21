@@ -1,0 +1,700 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="view_hr_employee_form_inhrt" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+				<xpath expr="//field[@name='image_medium']" position="after">
+                	<button name="create_duplicate_employee" type="object" string="Duplicate" />
+                </xpath>
+                <xpath expr="//field[@name='work_email']" position="after">
+                		<label for="sinid"/>
+                		<field name="sinid" nolable="1" required='1'/>
+                		<label for="paycode"/>
+                		<field name="paycode" nolable="1" required='1'/>
+                		<label for="doj" />
+                		<field name="doj" on_change="onchange_birthday(birthday,doj)" nolable="1" required='0'/>
+                </xpath>
+                
+                  <xpath expr="//field[@name='company_id']" position="replace">
+                 	<field name="company_id" groups="base.group_multi_company" on_change="onchange_company(company_id)" attrs="{'readonly':[('state','=','Done')]}"/>
+                  </xpath>
+
+                  <xpath expr="//field[@name='company_id']" position="after">
+                  	<label for="partner_id" attrs="{'invisible':[('type','=','Employee')]}"/>
+                  	<field name="partner_id" domain="[('supplier','=',True)]" attrs="{'invisible':[('type','=','Employee')]}"/>
+                  </xpath>
+               
+                  <xpath expr="//field[@name='job_id']" position="replace">
+                 	<field name="job_id" attrs="{'readonly':[('state','=','Done')]}" on_change="onchange_job_id(job_id)"/>
+                  </xpath>	
+                  
+                  <xpath expr="//field[@name='department_id']" position="replace">
+                 	<field name="department_id" attrs="{'readonly':[('state','=','Done')]}"/>
+                  </xpath>
+                  
+                <xpath expr="//field[@name='address_home_id']" position="replace">
+                	<field name="permanent_add"/>
+                	<field name="copy_add" on_change="copy_address(permanent_add)"/>
+                	<field name="local_add"/>
+                	<field name="mark"/>
+                </xpath>
+                <xpath expr="//field[@name='job_id']" position="after">
+                	<field name="uan"/>
+                	<field name="pf_number"/>
+                	<field name="esi_number"/>
+                </xpath>
+                <xpath expr="//field[@name='work_phone']" position="replace"/>
+                <xpath expr="//field[@name='work_email']" position="replace"/>
+                <xpath expr="//field[@name='category_ids']" position="replace"/>
+                <xpath expr="//field[@name='passport_id']" position="replace"/>
+                <xpath expr="//field[@name='bank_account_id']" position="replace"/>
+                <xpath expr="//field[@name='identification_id']" position="replace"/>
+	            <xpath expr="//field[@name='otherid']" position="replace">
+                	<field name="religion"/>
+                	<field name="blood"/>
+                	<field name="height"/>
+			        <field name="weight"/>
+			        <!-- <button type='object' name='roger' string='roger'/>  -->
+			        <!-- <button type='object' name='roger1' string='roger1'/>  -->
+                </xpath>
+                <xpath expr="//field[@name='address_id']" position="replace"/>
+                <xpath expr="//field[@name='birthday']" position="replace">
+                	<field name="birthday" on_change="onchange_birthday(birthday,doj)"/>
+                	<field name="age"/>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="replace">
+                	<field name="user_id" invisible="1"/>
+                	<field name="comp_user_id" invisible="1" />
+                	<field name="admin_user_id" invisible="1" />
+                </xpath>
+                <xpath expr="//field[@name='notes']" position="replace">
+                	<separator string="Verification Details"/>
+                	<field name="verf_id" nolable="1">
+            			<tree editable="bottom">
+	                		<field name="proof_id"/>
+		                	<field name="id_no"/>
+		                	<field name="ifsc_code" on_change="onchange_ifsc_code(ifsc_code)"  attrs="{'invisible':[('proof_id','!=','Bank_ Account_ No')]}"/>
+		                	<field name="bank_name" attrs="{'invisible':[('proof_id','!=','Bank_ Account_ No')]}"/>
+		                	<field  name="bank_address" attrs="{'invisible':[('proof_id','!=','Bank_ Account_ No')]}"/>
+		                	<field name="copy_name" on_change="onchange_copy(copy_name,parent.name)"/>
+		                	<field name="name"/>
+		                	<field name="remark"/>
+		                	 <field name="verify"/>
+		                	<!-- <field name="user_id"/> -->
+		                </tree>
+				    </field>
+                </xpath>
+                <xpath expr="//field[@name='work_location']" position="replace">
+                	<field name="category"/>
+                	<field name="employee_type"/>
+                	<field name="employment_type"/>
+                	<field name="type" required="1"/>
+                </xpath>
+                
+<!--                <xpath expr="//field[@name='birthday']" position="replace">-->
+<!--                	<field name="birthday" on_change='calculate_age(birthday)'/>        -->
+<!--                </xpath>-->
+               
+                <xpath expr="//page[@string='Personal Information']" position="after">
+	                	<page string="Family Information">
+	                	
+	                	<!--  	<separator string="Nominee Details"/>
+	                		<field name="employee_nominee_ids" nolable="1">
+	                			<tree editable="bottom">
+	                				<field name="name"/>
+	                				<field name="nominee_father"/>
+	                				<field name="address"/>
+	                				<field name="relation"/>
+	                				<field name="age"/>
+	                				<field name="share"/>
+	                			</tree>
+	                		</field>   -->	
+	                		<separator string="Family/Nominee Details"/>
+	                		<field name="family_id" nolable="1">
+	                			<tree editable="bottom">
+	                				<field name="name"/>
+	                				<field name="relation"/>
+	                				<field name="age"/>
+	                				<field name="reside"/>
+	                				<field name="nom_tick"/>
+	                				<field name="nominee_father" attrs="{'invisible':[('nom_tick','=',False)]}"/>
+	                				<field name="share" attrs="{'invisible':[('nom_tick','=',False)]}"/>
+	                				<field name="user_id"/>
+	                			</tree>
+	                		</field>
+	                	</page>
+	                	<page string="Qualification">
+	                		<separator string="Education and Qualification"/>
+	                		<field name="education_id" nolable="1">
+                				<tree string="Qualification" editable="bottom">
+	                				<field name="college"/>
+	                				<field name="name"/>
+	                				<field name="grade"/>
+	                				<field name="year11"/>
+	                				<field name="user_id"/>
+                				</tree>
+	                		</field>
+	                		<separator string="Experience"/>
+                			<field name="experience_id" nolable="1">
+	                			<tree string="Experience" editable="bottom">
+	                				<field name="name"/>
+	                				<field name="address"/>
+	                				<field name="desg"/>
+	                				<field name="reporting_employee"/>
+	                				<field name="contact_no"/>
+	                				<field name="year11"/>
+	                				<field name="year12"/>
+	                				<field name="noy" invisible="1"/>
+	                				<field name="leaving_salary"/>
+	                				<field name="user_id"/>
+	                			</tree>
+                			</field>
+                			<label for="gap"/>
+                			<field name="gap"/> 
+	                	</page>
+	                	<page string="Salary and Wages">
+	                		<group col="4">
+	                			<field name="joining_salary"/>
+	                			<field name="total_salary"/>
+	                			<field name="current_salary"/>
+	                			<field name="other_salary"/>
+	                			<field name="hra" invisible="1"/>
+	                			<field name="conveyance" invisible="1"/>
+	                			<field name="medical" invisible="1"/>
+	                			<field name="special_allowance" invisible="1"/>
+	                		</group>
+	                			<separator string="Increment Status" />
+	                			<field name="increment_id" nolable="1">
+		                			<tree string="Increment" editable="bottom">
+										<field name="employee_id"/>
+										<field name="inc_date" />
+										<field name="old_salary" />
+										<field name="salary_category"/>
+										<field name="amount" />
+		                				<field name="create_date"/>
+		                				<field name="user_id"/>
+		                			</tree>
+                				</field>
+                				<separator string="Promotion" />
+	                			<field name="promotion_id" nolable="1">
+		                			<tree string="Promotion" editable="bottom">
+		                				<field name="create_date"/>
+		                				<field name="pro_date"/>
+		                				<field name="desgn_id"/>
+		                				<field name="user_id"/>
+		                			</tree>
+                				</field>  
+	                	</page>
+	                	<page string="References">
+	                		<group col="4">
+			                	<field name="doa" on_change="onchange_doa(doa)"/>
+			                	<field name="doc" on_change="onchange_doc(doc)"/>
+			                	<field name="app_review_by"/>
+			                	<field name="ref_check_by"/>
+			                	<field name="app_review_contractor" attrs="{'invisible':[('type','=','Employee')]}"/>
+			                	<field name="app_review" domain="[('type','=','Employee')]" invisible="1"/>
+			                	<field name="ref_check1" domain="[('type','=','Employee')]" attrs="{'invisible':[('type','=','Contractor')]}" invisible="1"/>
+			                	<field name="app_review_cont" domain="[('supplier','=',True)]" attrs="{'invisible':[('type','=','Employee')]}" invisible="1"/>
+			                	<field name="ref_check1_cont" domain="[('type','=','Employee')]" attrs="{'invisible':[('type','=','Employee')]}" invisible="1"/>
+		                	</group>
+		                	<separator string="Reference Details" />
+		                	<field name="reference_id" nolable="1">
+	                			<tree editable="bottom">
+	                				<field name="name"/>
+	                				<field name="occupation"/>
+	                				<field name="address"/>
+	                				<field name="contact"/>
+	                				<field name="ref_date"/>
+	                				<field name="user_id"/>
+	                			</tree>
+	                		</field>
+		                </page>
+		                <page string="History">
+		                	<separator  string="Company Transfer" colspan="4" />
+						    <group colspan="4">
+					             <field name="comp_transfer_ids"  context="{'employee_id':id}" nolabel="1" mode="tree">
+					             	<tree string="Company Transfer Record" editable="top">
+					             		<field name="employee_id"  invisible="1" string='Name'/>
+					                    <field name="create_date"/>
+					                    <field name="transfer_date"/>
+			                        	<field name="old_company_id"/>
+			                        	<field name="new_company_id"/>
+			                        	<field name="old_department_id"/>
+			                        	<field name="new_department_id"/>
+			                        	<field name="user_id"/>
+					             	</tree>
+					             </field>
+					        </group>
+			            <separator  string="History record" colspan="4" />
+						    <group colspan="4">
+					             <field name="history_act_ids" nolabel="1" mode="tree">
+					             	<tree string="History Record">
+					                    <field name="name"/>
+					                    <field name="employee_id" invisible="1" string='Name'/>
+			                        	<field name="previous_id"/>
+			                        	<field name="current_id"/>
+			                        	<field name="previous_designtation"/>
+			                        	<field name="current_designation"/>
+			                        	<field name="previous_dept"/>
+			                        	<field name="current_dept"/>
+			                        	<field name="date"/>
+			                        	<field name="user_id"/>
+					             	</tree>
+					             </field>
+					        </group>
+					        <separator  string="Earned Leave History" colspan="4" />
+						    <group colspan="4">
+					             <field name="history_earn_ids" nolabel="1" mode="tree">
+					             	<tree string="Earned History">
+					                    <field name="name"/>
+					                    <field name="employee_id" invisible="1" string='Name'/>
+			                        	<field name="prev_earn"/>
+			                        	<field name="curr_earn"/>
+			                        	<field name="user_id"/>
+					             	</tree>
+					             </field>
+					        </group>
+					        
+					      <separator  string="HR TICK History" colspan="4" /> 
+					      <field name="tick_history_ids" nolable="1"> 
+					             	<tree string="HR TICK History">
+					                    <field name="create_date"/>
+					                    <field name="employee_id" invisible="1" string='Name'/>
+			                        	<field name="ot_tick_rec"/>
+			                        	<field name="epf_tick_rec"/>
+			                        	<field name="esi_tick_rec"/>
+			                        	<field name="user_id"/>
+					             	</tree>
+					             </field>
+					      	
+					      
+					      
+					      <separator  string="Icard History" colspan="4" />
+	                		<field name="icard_history" nolable="1">
+	                			<tree editable="bottom">
+			                		<field name="date"/>
+				                	<field name="card_name"/>
+				                	<field name="user_id"/>
+				                </tree>
+				            </field>   
+		                </page>
+		                <page string="Shift Master">
+	                		<field name="shift_lines" nolable="1">
+	                			<tree editable="bottom">
+			                		<field name="name" required='1'/>
+				                	<field name="shift_id" required='1'/>
+<!--				                	<button name="update_shift" string="Update Shift" type="object" icon="gtk-go-forward"/>-->
+				                </tree>
+				            </field>
+				            <group colspan="4">
+					            <field name="week"/>
+					            <field name="shift_id"/>
+				            </group>
+		                </page>
+		                <page string="Employee Leave Allocation">
+		                 <group col="4" colspan="1">
+		                	<field name="earn_leave"/>
+	                		<field name="earn_date" readonly="0"/>
+		                	<field name="earn_open"/>
+		                	<label for="remaining_leaves"/>
+		                	<div>
+		                		<field name="remaining_leaves" class="oe_inline" /> days
+		                 	</div>
+		                 </group> 	
+		                	 <separator  string="Employee Leave Allocation" colspan="4" />
+	                		  <field name="holiday_status_ids" nolabel="1" mode="tree">
+	                			<tree string="Employee Leave Allocation" editable="bottom">
+	                				<field name="create_date"/>
+	                				<field name= "holiday_status_id"/>
+			                		<field name= "leave_days"/>
+			                		<field name="user_id"/>			                		
+			                   	</tree>
+			                  </field>	
+		                </page>
+	            </xpath>
+                <xpath expr="//field[@name='parent_id']" position="replace"/>
+                <xpath expr="//field[@name='coach_id']" position="replace"/>
+                <xpath expr="//field[@name='active']" position="after"> 
+                 	<field name="ot_tick"/>
+                 	<field name="epf_tick" on_change="onchange_epf_tick(epf_tick,doj)"/>
+                 	<field name="esi_tick"/>
+                 	<field name="uan_tick"/>
+                 	<field name="epf_end_date" attrs="{'invisible':[('active', '=', True)], 'required':[('active','=',False)]}"/>
+                 	<field name="leaving_reason" attrs="{'invisible':[('active', '=', True)], 'required':[('active','=',False)]}"/>
+                 	<field name="epf_start_date" attrs="{'invisible':[('epf_tick', '=', False)], 'required':[('epf_tick','=',True)]}"/>
+                </xpath>	
+            </field>
+        </record>
+ 
+        ==========================   HR EMPLOYEE SEARCH VIEW =================================
+        
+        <record id="view_hr_employee_search_inhrt" model="ir.ui.view">
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_filter"/>
+            <field name="arch" type="xml">
+                <search string="Employees">
+                    <field name="name" string="Employees" filter_domain="['|',('work_email','ilike',self),('name','ilike',self)]"/>
+                    <field name="department_id"/>
+                    <field name="sinid"/>
+                    <field name="paycode"/>
+                    <field name="job_id"/>
+                    <field name="category_ids" groups="base.group_hr_user"/>
+                    <field name="job_id"/>
+                    <field name="doj"/>
+		    		<field name="shift_lines"/>
+		    		<field name="religion"/>
+		    		<field name="uan_tick"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Manager" icon="terp-personal" domain="[]" context="{'group_by':'parent_id'}"/>
+                        <filter string="Coach" icon="terp-personal" domain="[]" context="{'group_by':'coach_id'}"/>
+                        <filter string="Department" icon="terp-personal+" domain="[]" context="{'group_by':'department_id'}"/>
+                        <filter string="Job" icon="terp-gtk-select-all" domain="[]" context="{'group_by':'job_id'}"/>
+                        <filter string="Tags" icon="terp-gtk-select-all" domain="[]" context="{'group_by':'category_ids'}"/>
+                        <filter string="Company" icon="terp-go-home" domain="[]" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
+                        <filter string="UAN Tick" icon="terp-go-home" domain="[]" context="{'group_by':'uan_tick'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        ==========================   HR EMPLOYEE TREE VIEW =================================
+        
+        <record id="view_hr_employee_tree_inhrt" model="ir.ui.view">
+            <field name="name">hr.employee.tree</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                        <field name="image_medium" widget="image"  string="Employee Images" height="42px"/>   
+                	<field name="sinid"/>
+                	<field name="paycode"/>
+                </xpath>
+                <xpath expr="//field[@name='work_phone']" position="replace">
+                	<field name="doj"/>
+                	<field name="birthday"/>
+                </xpath>
+                <xpath expr="//field[@name='work_email']" position="replace"/>
+                <xpath expr="//field[@name='parent_id']" position="replace">
+                	<field name="current_salary"/>
+                	<field name="shift_id"/>
+                </xpath>
+            </field>
+       </record>
+       
+        <record id="view_res_company_form_inhrt" model="ir.ui.view">
+            <field name="name">res.company.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//field[@name='company_registry']" position="after">
+                	<field name="regional_code"/>
+                	<field name="office_code"/>
+                	<field name="estab_id"/>
+                	<field name="extension_id"/>
+                </xpath>
+                <xpath expr="//field[@name='website']" position="after"> 
+               			 <field name="iec"/>
+            			<field name="tin_no"/> 
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr.open_view_employee_list_my" model="ir.actions.act_window">
+            <field name="name">Employees</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="domain">[('type','=','Employee')]</field>
+            <field name="context">{'search_default_type':'Employee','default_type':'Employee'}</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="hr.view_employee_filter"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new employee.
+              </p><p>
+                With just a quick glance on the Odoo employee screen, you
+                can easily find all the information you need for each person;
+                contact data, job position, availability, etc.
+              </p>
+            </field>
+        </record>
+
+
+<!--                                       CONTRACTOR MENU    -->
+        <record model="ir.actions.act_window" id="action_view_employee_form_contarctor">
+	            <field name="name">Contractors</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">hr.employee</field>
+	            <field name="view_type">form</field>
+	            <field name="view_mode">kanban,tree,form</field>
+	            <field name="view_id" ref="hr.view_employee_tree"/>
+	            <field name="domain">[('type','=','Contractor')]</field>
+	            <field name="search_view_id" ref="hr.view_employee_filter"/>
+	            <field name="context">{'search_default_type':'Contractor','default_type':'Contractor'}</field>               
+     </record>	
+     
+	<menuitem id="menu_view_employee_form_contarctor" name="Contractors" sequence="91"/>
+	<menuitem id="sub_menu_view_employee_form_contarctor" parent="menu_view_employee_form_contarctor" name="Contractor" sequence="1" />	
+    <menuitem id="sub_sub_menu_view_employee_form_contarctor" parent="sub_menu_view_employee_form_contarctor" name="Contractor" action="action_view_employee_form_contarctor"  sequence="1"/>
+
+        
+<record id="view_res_bank_form_inherit" model="ir.ui.view">
+            <field name="name">res.bank.form</field>
+            <field name="model">res.bank</field>
+            <field name="inherit_id" ref="base.view_res_bank_form"/>
+            <field name="arch" type="xml"> 
+	            <form>
+	            	
+	            </form>	
+            </field>
+        </record>	
+        
+    <record id="view_res_bank_tree_inherit" model="ir.ui.view">
+            <field name="name">res.bank.tree</field>
+            <field name="model">res.bank</field>
+            <field name="inherit_id" ref="base.view_res_bank_tree"/>
+            <field name="arch" type="xml">
+	            <tree>
+	            
+	            </tree>	
+            	 
+            </field>
+        </record>	 
+        
+        
+  <record id="action_res_bank_employee_id" model="ir.actions.act_window">
+            <field name="name">Banks</field>
+            <field name="res_model">res.bank</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+             <field name="view_id" ref="view_res_bank_tree_inherit"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to create a new bank.
+              </p><p>
+                Manage bank records you want to be used in the system.
+              </p>
+            </field>
+        </record>          
+            
+        
+ <menuitem action="action_res_bank_employee_id" id="menu_action_res_bank_id" parent="hr.menu_hr_configuration" name="Bank Master" sequence="11"/>        
+          
+
+                                     <!--	          ANNUAL SALARY INCREMENT VIEW        -->
+
+		<record id="annual_salary_increment_form" model="ir.ui.view">
+			<field name="name">Annual Salary Increment</field>
+			<field name="model">annual.salary.increment</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+			<form string="Salary Increment">
+			  <group col="4" colspan="4">
+					<field name="name"/>
+					<field name="category"/>	
+					<field name="company_id" domain="[('id','not in',company_ids[0][2])]"/>	
+					<field name="employee_id"/>
+					<field name="monthly_amount_limit"/>
+					<field name="monthly_amount"/>
+				</group>	
+				<button name="get_employees" string="Get Employees" type="object"/>	
+				<newline/>
+				<notebook>
+					<page string="Company" invisible="0">
+						<field name="company_ids" nolabel="1" readonly="1"/>
+					</page>
+					<page string="Employees">
+						<field name="employee_ids" nolabel="1" readonly="1">
+							<tree string="Employees">
+							    <field name="sinid"/>
+								<field name="name"/>
+								<field name="company_id"/>
+								<field name="category"/>	
+								<field name="doj"/>	
+								<field name="current_salary"/>	
+							</tree>
+						</field>	
+					</page>	
+					<page string="Increment">
+						<field name="increment_line" nolabel="1" readonly="1" >
+							<tree string="Salary">
+								<field name="increment_id"/>
+								<field name="employee_id"/>
+								<field name="inc_date" />
+								<field name="old_salary" />
+								<field name="amount" />
+								<field name="month"/>
+								<field name="year_id"/>
+								<field name="user_id"/>
+							</tree>
+						</field>	
+					</page>
+				</notebook>
+				<group col="6" colspan="4">
+					<button string="Company Done" name="company_done" type="object"/> 
+					<button special="cancel" string="Cancel" icon="gtk-cancel"/>
+					<button string="Salary Increment" name="create_increment" type="object"/> 
+				</group>
+				<newline/>
+				<field name="state" widget="statusbar"/>
+				</form>
+			</field>
+		</record>
+		
+		<record id="annual_salary_increment_tree" model="ir.ui.view">
+			<field name="name">Annual Salary Increment</field>
+			<field name="model">annual.salary.increment</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>	
+					<field name="category"/>	
+					<field name="company_id"/>	
+					<field name="employee_id"/>	
+					<field name="monthly_amount"/>	
+				</tree>
+			</field>
+		</record>
+		
+		<record id="annual_salary_increment_action" model="ir.actions.act_window">
+	   		<field name="name">Annual Salary Increment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">annual.salary.increment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="annual_salary_increment_tree"/>  
+        </record>
+        
+	    <menuitem id="annual_salary_increment_menu" parent="salary_payment_menu" name="Annual Increment" action="annual_salary_increment_action" sequence="32"/>
+
+<!--                                                      HR JOB FORM VIEW INHERIT                          -->
+
+        <record id="view_hr_job_form_inherit" model="ir.ui.view">
+            <field name="name">hr.job.form</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_form"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//field[@name='department_id']" position="after">
+                	<field name="category"/>
+                	<field name="employee_type"/>
+                </xpath>
+            </field>
+        </record>
+        
+         <record id="view_hr_job_tree_inherit" model="ir.ui.view">
+            <field name="name">hr.job.tree</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='department_id']" position="after">
+                	<field name="category"/>
+                	<field name="employee_type"/>
+                </xpath>
+                <xpath expr="//field[@name='no_of_recruitment']" position="replace"/>
+                <xpath expr="//field[@name='expected_employees']" position="replace"/>
+                <xpath expr="//field[@name='no_of_hired_employee']" position="replace"/>
+                <xpath expr="//field[@name='state']" position="replace"/>
+            </field>
+        </record>
+        
+        
+    <menuitem id="menu_hr_job_id" parent="hr.menu_hr_configuration" action="hr.action_hr_job" name="Designation" sequence="23"/>       
+
+<!--                                        RES PARTNER VIEW                          -->
+       <record id="view_res_partner_form_inherit" model="ir.ui.view">
+            <field name="name">Res Partner</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page[3]/group/group/field[@name='company_id']" position="attributes">
+                	<attribute name="required">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_partner_supplier_form11" model="ir.actions.act_window">
+            <field name="name">Contractor</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_type">form</field>
+            <field name="domain">[]</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{'search_default_supplier': 1,'default_customer': 0,'default_supplier': 1}</field>
+            <field name="filter" eval="True"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a contact in your address book.
+              </p><p>
+                Odoo helps you easily track all activities related to
+                a supplier: discussions, history of purchases,
+                documents, etc.
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_res_partner_contractor" parent="menu_view_employee_form_contarctor" name="Configuration" sequence="6"/>
+        <menuitem id="sub_menu_res_partner_contractor" parent="menu_res_partner_contractor" name="Configuration" sequence="1"/>
+		<menuitem id="menu_res_partner_form11" name="Contractor" parent="sub_menu_res_partner_contractor" action="action_partner_supplier_form11" sequence="3"/>
+
+
+<!--                                        UPDATE EMPLOYEE MASTER VIEW                          -->
+
+		   	<record id="wiz_update_employee_master_view_form" model="ir.ui.view">
+		            <field name="name">Update Employee Master</field>
+		            <field name="model">wiz.update.employee.master</field>
+		            <field name="type">form</field>
+		            <field name="arch" type="xml">
+		                <form string="Update Employee Master">
+	                        <group colspan="4" col="4">
+	                        	<field name="sinid"/>
+	                            <button  name="update_employee_master" string="Update Employee Master" type="object" icon="gtk-ok"/>
+	                        </group>
+		                </form>
+		            </field>
+		        </record>
+		        
+		        <record id="action_wiz_update_employee_master" model="ir.actions.act_window">
+		            <field name="name">Update Employee Master</field>
+		            <field name="res_model">wiz.update.employee.master</field>
+		            <field name="type">ir.actions.act_window</field>
+		            <field name="view_mode">form</field>
+		            <field name="view_type">form</field>
+		            <field name="view_id" ref="wiz_update_employee_master_view_form"/>
+		        </record>
+		        
+		  <menuitem id="menu_wiz_update_employee_master" parent="hr.menu_hr_main" action="action_wiz_update_employee_master" name="Update Employee Master" sequence="5"/>	    
+
+
+
+<!--                                        UPDATE CONTRACTOR MASTER VIEW                          -->
+
+		   	<record id="wiz_update_employee_master_view_form11" model="ir.ui.view">
+		            <field name="name">Update Employee Master</field>
+		            <field name="model">wiz.update.employee.master</field>
+		            <field name="type">form</field>
+		            <field name="arch" type="xml">
+		                <form string="Update Employee Master">
+	                        <group colspan="4" col="4">
+	                        	<field name="sinid"/>
+	                            <button  name="update_contractor_master" string="Update Contractor Master" type="object" icon="gtk-ok"/>
+	                        </group>
+		                </form>
+		            </field>
+		        </record>
+		        
+		        <record id="action_wiz_update_employee_master11" model="ir.actions.act_window">
+		            <field name="name">Update Employee Master</field>
+		            <field name="res_model">wiz.update.employee.master</field>
+		            <field name="type">ir.actions.act_window</field>
+		            <field name="view_mode">form</field>
+		            <field name="view_type">form</field>
+		            <field name="view_id" ref="wiz_update_employee_master_view_form11"/>
+		        </record>
+		        
+		  <menuitem id="menu_wiz_update_employee_master11" parent="sub_menu_view_employee_form_contarctor" action="action_wiz_update_employee_master11" name="Update Contractor Master" sequence="2"/>	    
+		
+	</data>
+</openerp>

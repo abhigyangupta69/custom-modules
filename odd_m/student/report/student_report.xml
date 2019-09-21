@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+        <report
+			id="action_report_feesubmission"
+			string="Print Student Report"
+			model="feesubmission"
+			report_type="qweb-pdf"
+			name="student.report_of_studentdetail"
+			file="student.report_of_studentdetail"
+			print_report_name="'Student'"
+            />
+	</data>
+</odoo>
+
+

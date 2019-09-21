@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>		
+
+				
+		   		<record id="wiz_employee_compliance_form" model="ir.ui.view">
+		            <field name="name">Compliance Form</field>
+		            <field name="model">wiz.employee.compliance</field>
+		            <field name="type">form</field>
+		            <field name="arch" type="xml">
+		                <form string="Employee Compliance Report">
+	                        <group colspan="4" col="4">
+	                            <field name="employee_no" domain="[('type','=','Employee')]" colspan="4" nolabel="1"/>
+	                            <field name="report_type" />
+	                         
+	                        </group>
+	                        <group colspan="4" col="4">
+	                        	<separator string="" colspan="4"/>
+ 	                        	<label string="" colspan="2"/>
+		                        <button icon='gtk-cancel' special="cancel" string="_Cancel" />
+			                    <button name="print_report" string="Print" type="object" icon="gtk-print"/>
+		                    </group>
+		                </form>
+		            </field>
+		        </record>
+		        
+		        <record id="action_employee_compliance_report" model="ir.actions.act_window">
+		            <field name="name">Employee Compliance Report</field>
+		            <field name="res_model">wiz.employee.compliance</field>
+		            <field name="type">ir.actions.act_window</field>
+		            <field name="view_type">form</field>
+		            <field name="view_mode">form</field>
+		            <field name="target">inline</field>
+		            <field name="view_id" ref="wiz_employee_compliance_form"/>
+		        </record>
+		        
+		        <menuitem  id="menu_employee_complaince1"  parent="hr.menu_hr_root"  name="Employee Complaince" />
+		        <menuitem  id="menu_employee_complaince"  parent="menu_employee_complaince1"  name="Employee Complaince" />
+				<menuitem  id="menu_sub_employee_complaince" parent="menu_employee_complaince"  action="action_employee_compliance_report"  name="Employee Reports" sequence="2"/>			        
+
+
+
+<!--									CONTRACTOR MASTER REPORTS VIEW-->
+
+		   		<record id="wiz_contractor_compliance_form" model="ir.ui.view">
+		            <field name="name">Compliance Form</field>
+		            <field name="model">wiz.contractor.compliance</field>
+		            <field name="type">form</field>
+		            <field name="arch" type="xml">
+		                <form string="Employee Compliance Report">
+	                        <group colspan="4" col="4">
+	                            <field name="employee_no" domain="[('type','=','Contractor')]" colspan="4" nolabel="1"/>
+	                            <field name="report_type" />
+	                        </group>
+	                        <group colspan="4" col="4">
+	                        	<separator string="" colspan="4"/>
+ 	                        	<label string="" colspan="2"/>
+		                        <button icon='gtk-cancel' special="cancel" string="_Cancel" />
+			                    <button name="print_report" string="Print" type="object" icon="gtk-print"/>
+		                    </group>
+		                </form>
+		            </field>
+		        </record>
+		        
+		        <record id="action_wiz_contractor_compliance" model="ir.actions.act_window">
+		            <field name="name">Compliance Report</field>
+		            <field name="res_model">wiz.contractor.compliance</field>
+		            <field name="type">ir.actions.act_window</field>
+		            <field name="view_type">form</field>
+		            <field name="view_mode">form</field>
+		            <field name="target">inline</field>
+		            <field name="view_id" ref="wiz_contractor_compliance_form"/>
+		        </record>
+
+			<menuitem  id="menu_wiz_contractor_compliance" parent="sub_menu_contractor_icard"  action="action_wiz_contractor_compliance"  name="Contractor Reports" sequence="3"/>
+
+</data>
+</openerp>

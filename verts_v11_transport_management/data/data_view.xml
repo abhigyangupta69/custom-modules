@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+<!--        *******Charge Type date**********-->
+        <record id="standard_charges_id" model="charges.type">
+            <field name="name">Standard Charges</field>
+        </record>
+        <record id="extraordinary_charges_id" model="charges.type">
+            <field name="name">Extraordinary Charges</field>
+        </record>
+        <record id="escort_charges_id" model="charges.type">
+            <field name="name">Escort Charges</field>
+        </record>
+        <record id="extra_driver_charge_id" model="charges.type">
+            <field name="name">Extra Driver Charges</field>
+        </record>
+        <record id="driver_incentives_charges_id" model="charges.type">
+            <field name="name">Driver Incentives</field>
+        </record>
+
+
+<!--        ******************Charges Data*****************-->
+                    <!--##########Standard Charges########## -->
+        <record id="basic_freight_charges_id" model="charge">
+            <field name="name">Basic Freight Charges</field>
+            <field name="charge_type_id" ref="standard_charges_id" />
+        </record>
+         <record id="odc_variable_charges_id" model="charge">
+            <field name="name">ODC Variable Charges</field>
+            <field name="charge_type_id" ref="standard_charges_id" />
+        </record>
+         <record id="odc_fixed_charges_id" model="charge">
+            <field name="name">ODC Fixed Charges</field>
+            <field name="charge_type_id" ref="standard_charges_id" />
+        </record>
+         <record id="tarpaulin_charges_id" model="charge">
+            <field name="name">Tarpaulin Charges</field>
+            <field name="charge_type_id" ref="standard_charges_id" />
+        </record>
+         <record id="wooden_sleeper_charges_id" model="charge">
+            <field name="name">Wooden Sleeper Charge</field>
+            <field name="charge_type_id" ref="standard_charges_id" />
+        </record>
+
+                  <!--############Extraordinary Charges###########-->
+       <record id="detention_charges_id" model="charge">
+            <field name="name">Detention Charges at Works</field>
+            <field name="charge_type_id" ref="extraordinary_charges_id" />
+        </record>
+        <record id="detention_charges_supplier_charges_id" model="charge">
+            <field name="name">Detention Charges at At Suppliers</field>
+            <field name="charge_type_id" ref="extraordinary_charges_id" />
+        </record>
+        <record id="detention_charges_site_id" model="charge">
+            <field name="name">Detention Charges at At Sites</field>
+            <field name="charge_type_id" ref="extraordinary_charges_id" />
+        </record>
+        <record id="detention_charges_port_id" model="charge">
+            <field name="name">Detention Charges at At Port/ CFS/ ICD </field>
+            <field name="charge_type_id" ref="extraordinary_charges_id" />
+        </record>
+        <record id="empty_return_charges_id" model="charge">
+            <field name="name">Empty return charges At Works</field>
+            <field name="charge_type_id" ref="extraordinary_charges_id" />
+        </record>
+        <record id="empty_return_charges_supplier_id" model="charge">
+            <field name="name">Empty return charges At Suppliers</field>
+            <field name="charge_type_id" ref="extraordinary_charges_id" />
+        </record>
+        <record id="escort_charges_id" model="charge">
+            <field name="name"> Escort Charges</field>
+            <field name="charge_type_id" ref="extraordinary_charges_id" />
+        </record>
+        <record id="extra_driver_charges_id" model="charge">
+            <field name="name"> Extra Driver Charges</field>
+            <field name="charge_type_id" ref="extraordinary_charges_id" />
+        </record>
+        <record id="driver_incentive_id" model="charge">
+            <field name="name"> Driver Incentives</field>
+            <field name="charge_type_id" ref="extraordinary_charges_id" />
+        </record>
+
+        <!--###############FuelTypes################-->
+        <record id="diesel_id" model="fuel.types">
+            <field name="name">Diesel</field>
+        </record>
+         <record id="petrol_id" model="fuel.types">
+            <field name="name">Petrol</field>
+
+        </record>
+         <record id="electric_id" model="fuel.types">
+            <field name="name">Electric</field>
+        </record>
+         <record id="cng_id" model="fuel.types">
+            <field name="name">CNG </field>
+        </record>
+                   <!--###############ODC Reasons################-->
+        <record id="odc_consignment_id" model="odc.reasons">
+            <field name="name">ODC consignment as per the packing list</field>
+        </record>
+        <record id="odc_due_id" model="odc.reasons">
+            <field name="name">ODC Due to packing support</field>
+        </record>
+        <record id="right_vehicle_id" model="odc.reasons">
+            <field name="name">Right vehicle not available</field>
+        </record>
+        <record id="volumetric_material_id" model="odc.reasons">
+            <field name="name">Volumetric Material</field>
+        </record>
+        <record id="urgent_site_id" model="odc.reasons">
+            <field name="name">Urgent Site Requirement</field>
+        </record>
+        <record id="cost_comparatively_id" model="odc.reasons">
+            <field name="name">Cost Comparatively lower than other option</field>
+        </record>
+
+        <!--###############Request Priority###############-->
+        <record id="normal_id" model="request.priority">
+            <field name="name">Normal</field>
+            <field name="days_required">3</field>
+        </record>
+        <record id="urgent_id" model="request.priority">
+            <field name="name">Urgent</field>
+            <field name="days_required">2</field>
+
+        </record>
+        <record id="emergency_id" model="request.priority">
+            <field name="name">Emergency</field>
+            <field name="days_required">1</field>
+        </record>
+        <record id="advance_id" model="request.priority">
+            <field name="name">Advance</field>
+            <field name="days_required">10</field>
+
+        </record>
+                 <!--###############Location Types###############-->
+        <record id="export_id" model="location_types">
+            <field name="name">Overseas (Export)</field>
+        </record>
+        <record id="site_id" model="location_types">
+            <field name="name">Site</field>
+        </record>
+
+        <record id="work_id" model="location_types">
+            <field name="name">Works</field>
+        </record>
+
+        <record id="port_id" model="location_types">
+            <field name="name">Port/CFS/ICDs</field>
+        </record>
+
+        <record id="supplier_id" model="location_types">
+            <field name="name">Supplier</field>
+        </record>
+        <!--###############CheckList Type###############-->
+
+
+
+
+
+        <!--###############MAterial States###############-->
+        <record id="no_issue_id" model="material.status">
+            <field name="name">Good (No Issues)</field>
+        </record>
+        <record id="damaged_id" model="material.status">
+            <field name="name">Damaged</field>
+        </record>
+        <record id="shortage_id" model="material.status">
+            <field name="name">Shortage</field>
+        </record>
+        <!--############e###Executor Reasons###############-->
+        <record id="vehicle_not_placed_id" model="executor.reasons">
+            <field name="name">Vehicle Not Placed by the transporter</field>
+        </record>
+        <record id="supplier_not_confirm_id" model="executor.reasons">
+            <field name="name"> Supplier didn’t confirm to place the vehicle</field>
+        </record>
+        <record id="vehicle_not_placed_document_id" model="executor.reasons">
+            <field name="name">Vehicle Not Placed by the Documents Issue</field>
+
+        </record>
+        <record id="micn_awaited_id" model="executor.reasons">
+            <field name="name">MICN Awaited</field>
+
+        </record>
+        <record id="po_id" model="executor.reasons">
+            <field name="name">PO Amendment Awaited</field>
+        </record>
+        <record id="supplier_payment_id" model="executor.reasons">
+            <field name="name">Supplier Payment Awaited</field>
+        </record>
+        <record id="contract_not_finalized_id" model="executor.reasons">
+            <field name="name">Contract Not Finalized</field>
+        </record>
+
+
+    </data>
+</odoo>

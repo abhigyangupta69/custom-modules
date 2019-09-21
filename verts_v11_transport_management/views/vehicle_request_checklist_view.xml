@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="vehicle_request_checklist_form_view" model="ir.ui.view">
+            <field name="name">VehicleRequestChecklist</field>
+            <field name="model">vehicle.request.checklist</field>
+            <field name="arch" type="xml">
+                <form string="CheckList">
+                    <sheet>
+                        <group col="2" colspan="2">
+                            <field name="name" />
+                            <field name="default" />
+                            <field name="active" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="vehicle_request_checklist_tree_view" model="ir.ui.view">
+            <field name="name">VehicleRequestChecklist</field>
+            <field name="model">vehicle.request.checklist</field>
+            <field name="arch" type="xml">
+                <tree string="CheckList">
+                    <field name="name" />
+                    <field name="default" />
+                    <field name="active" />
+                </tree>
+            </field>
+        </record>
+        <record id="action_vehicle_request_checklist_view"  model="ir.actions.act_window">
+            <field name="name">VehicleRequestChecklist</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vehicle.request.checklist</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="vehicle_request_checklist_tree_view"/>
+
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<odoo>
+	<data>
+
+		<record id="sale_wizard_report_form_view" model="ir.ui.view">
+			<field name="name">SaleWizardReport</field>
+			<field name="model">sale.wizard.report</field>
+			<field name="arch" type="xml">
+				<form string="Sale Report">
+					<group colspan="2" col="2">
+                   <field name="sale_order_ids" widget="many2many_tags" domain="[('state','=','sale')]" />
+
+    				</group>
+					<footer>
+						<button name="button_print_sale_report" string="Excel Sheet"
+							type="object" class="oe_highlight" />
+						or
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_sale_wizard_report_form_view" model="ir.actions.act_window">
+			<field name="name">SaleWizardReport</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">sale.wizard.report</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="sale_wizard_report_form_view" />
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+
+		<record id="excel_form_view3" model="ir.ui.view">
+			<field name="name">Vehicle Report Sale Wizard</field>
+			<field name="model">view.report.sale.wizard</field>
+			<field name="arch" type="xml">
+				<form string="popup" create="false" edit="false">
+					<sheet>
+						<field filename="datas_fname" name="file_name" />
+						<field name="datas_fname" invisible="1" />
+					</sheet>
+				</form>
+			</field>
+		</record>
+	</data>
+</odoo>
+

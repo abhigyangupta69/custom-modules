@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openerp>
+	<data>
+       <record id="raw_attendance_search" model="ir.ui.view">
+			<field name="name">raw.attendance.search</field>
+			<field name="model">raw.attendance</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Raw Attendnace">
+					<filter string="January" name="January" icon="terp-personal" domain="[('month','=','1')]"  help="January Payment"/>
+					<filter string="February" name="February" icon="terp-personal" domain="[('month','=','2')]"  help="February Payment"/>
+					<filter string="March" name="March" icon="terp-personal" domain="[('month','=','3')]"  help="March Payment"/>
+					<filter string="April" name="April" icon="terp-personal" domain="[('month','=','4')]"  help="April Payment"/>
+					<filter string="May" name="May" icon="terp-personal" domain="[('month','=','5')]"  help="May Payment"/>
+					<filter string="June" name="June" icon="terp-personal" domain="[('month','=','6')]"  help="June Payment"/>
+					<filter string="July" name="July" icon="terp-personal" domain="[('month','=','7')]"  help="July Payment"/>
+					<filter string="August" name="August" icon="terp-personal" domain="[('month','=','8')]"  help="August Payment"/>
+					<filter string="September" name="September" icon="terp-personal" domain="[('month','=','9')]" help="September Payment"/>
+					<filter string="October" name="October" icon="terp-personal" domain="[('month','=','10')]" help="October Payment"/>
+					<filter string="November" name="November" icon="terp-personal" domain="[('month','=','11')]" help="November Payment"/>
+					<filter string="December" name="December" icon="terp-personal" domain="[('month','=','12')]" help="December Payment"/>
+					<newline/>
+					<group>
+						<field name="employee_id" string='Employee'/>
+						<field name="search_date" string="Search Date"/>
+						<field name="department_id"/>
+						<field name="job_id"/>
+						<field name="company_id"/>
+						<field name="year_id"/>
+						<field name="year"/>
+						</group>
+							<group expand="0" string="Group By...">
+	                        <filter string="Company" icon="terp-personal" domain="[]" context="{'group_by':'company_id'}"/>
+	                        <filter string="Name" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+	                        <separator orientation="vertical"/>
+	                        <filter string="Year" name="year_id" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'year_id'}"/>
+	                        <separator orientation="vertical"/>
+	                    </group>
+				</search>
+			</field>
+		</record> 
+
+  
+        <record id="raw_attendance_tree" model="ir.ui.view">
+			<field name="name">raw.attendance.tree</field>
+			<field name="model">raw.attendance</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Raw Attendnace" editable="top">
+					<field name="employee_id" string='Name'/>
+					<field name="name"/>
+					<field name="real_name" invisible="1"/>
+					<field name="department_id" />
+					<field name="job_id"/>
+					<field name="company_id"/>
+					<field name="emp_category" invisible="1"/>
+					<field name="month"/>
+					<field name="year_id"/>
+					<field name="year"/>
+					<field name="m_id"/>
+					<field name="search_date" invisible="0"/>
+					<field name="type" readonly="1"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="raw_attendance_form" model="ir.ui.view">
+			<field name="name">raw.attendance.form</field>
+			<field name="model">raw.attendance</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Raw Attendnace">
+					<field name="employee_id" string='Name'/>
+					<field name="name"/>
+					<field name="company_id"/>
+					<field name="m_id" invisible="1"/>
+				</form>
+			</field>
+		</record>
+
+		<record id="raw_attendance_action" model="ir.actions.act_window">
+            <field name="name">Raw Attendance</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">raw.attendance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+           <field name="search_view_id" ref="raw_attendance_search"/>
+           <field name="domain">[('type','=','Employee')]</field>
+           <field name="context">{'search_default_year':time.strftime('%Y'),'search_default_January':time.strftime('%m') == '1' and 1,'search_default_February':time.strftime('%m') == '2' and 1,'search_default_March':time.strftime('%m') == '3' and 1,'search_default_April':time.strftime('%m') == '4' and 1,'search_default_May':time.strftime('%m') == '5' and 1,'search_default_June':time.strftime('%m') == '6' and 1,'search_default_July':time.strftime('%m') == '7' and 1,'search_default_August':time.strftime('%m') == '8' and 1,'search_default_September':time.strftime('%m') == '9' and 1,'search_default_October':time.strftime('%m') == '10' and 1,'search_default_November':time.strftime('%m') == '11' and 1,'search_default_December':time.strftime('%m') == '12' and 1}</field>
+            <field name="view_id" ref="raw_attendance_tree"/>
+        </record>
+        
+        <menuitem action="raw_attendance_action" id="menu_open_raw_attendance" parent="hr_attendance_main_menu" sequence="3" />
+        
+		<record id="raw_attendance_action_contarctor" model="ir.actions.act_window">
+            <field name="name">Raw Attendance</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">raw.attendance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+           <field name="search_view_id" ref="raw_attendance_search"/>
+           <field name="domain">[('type','=','Contractor')]</field>
+           <field name="context">{'search_default_year':time.strftime('%Y'),'search_default_January':time.strftime('%m') == '1' and 1,'search_default_February':time.strftime('%m') == '2' and 1,'search_default_March':time.strftime('%m') == '3' and 1,'search_default_April':time.strftime('%m') == '4' and 1,'search_default_May':time.strftime('%m') == '5' and 1,'search_default_June':time.strftime('%m') == '6' and 1,'search_default_July':time.strftime('%m') == '7' and 1,'search_default_August':time.strftime('%m') == '8' and 1,'search_default_September':time.strftime('%m') == '9' and 1,'search_default_October':time.strftime('%m') == '10' and 1,'search_default_November':time.strftime('%m') == '11' and 1,'search_default_December':time.strftime('%m') == '12' and 1}</field>
+            <field name="view_id" ref="raw_attendance_tree"/>
+        </record>
+        
+        <menuitem action="raw_attendance_action_contarctor" id="menu_open_raw_attendance_contarctor" parent="hr_attendance_main_menu_contarctor" sequence="1"/>
+        
+      ======================================= HR ATTENDANCE ===========================================
+      
+      <record model="ir.ui.view" id="view_hr_attendance_filter">
+			<field name="name">view_hr_attendance_filter</field>
+			<field name="model">hr.attendance</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+			<search string="Employee Attendance">
+					<filter string="January" name="January" icon="terp-personal" domain="[('month','=','1')]"  help="January Payment"/>
+					<filter string="February" name="February" icon="terp-personal" domain="[('month','=','2')]"  help="February Payment"/>
+					<filter string="March" name="March" icon="terp-personal" domain="[('month','=','3')]"  help="March Payment"/>
+					<filter string="April" name="April" icon="terp-personal" domain="[('month','=','4')]"  help="April Payment"/>
+					<filter string="May" name="May" icon="terp-personal" domain="[('month','=','5')]"  help="May Payment"/>
+					<filter string="June" name="June" icon="terp-personal" domain="[('month','=','6')]"  help="June Payment"/>
+					<filter string="July" name="July" icon="terp-personal" domain="[('month','=','7')]"  help="July Payment"/>
+					<filter string="August" name="August" icon="terp-personal" domain="[('month','=','8')]"  help="August Payment"/>
+					<filter string="September" name="September" icon="terp-personal" domain="[('month','=','9')]" help="September Payment"/>
+					<filter string="October" name="October" icon="terp-personal" domain="[('month','=','10')]" help="October Payment"/>
+					<filter string="November" name="November" icon="terp-personal" domain="[('month','=','11')]" help="November Payment"/>
+					<filter string="December" name="December" icon="terp-personal" domain="[('month','=','12')]" help="December Payment"/>
+					
+					<newline/>
+					<field name="employee_id" string='Name'/>
+					<field name="search_date"/>
+					<field name="department_id"/>
+					<field name="name"/>
+					<field name="company_name"/>
+					<newline/>
+					<field name="year_id"/>
+					<field name="year"/>
+					<newline/>
+					<group expand="0" string="Group By...">
+	                    <filter string="Creation Date" icon="terp-personal" domain="[]" context="{'group_by':'day'}"/>
+	                    <separator orientation="vertical"/>
+	                    <filter string="Name" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+	                     <separator orientation="vertical"/>
+	                    <filter string="Company Name" icon="terp-personal" domain="[]" context="{'group_by':'company_name'}"/>
+	                    <separator orientation="vertical"/>
+	                    <filter string="Month" name="month" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'month'}"/>
+	                    <separator orientation="vertical"/>
+	                    <filter string="Year" name="year_id" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'year_id'}"/>
+	                    <separator orientation="vertical"/>
+	                    <filter string="Company" name="company_id" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'company_id'}"/>
+	                    <separator orientation="vertical"/>
+		            </group>
+			</search>
+			</field>
+			</record>
+
+
+			<record id="hr_attendance.view_attendance_who" model="ir.ui.view">
+            <field name="name">hr.attendance.tree</field>
+            <field name="model">hr.attendance</field>
+            <field name="type">tree</field>
+            <field eval="3" name="priority"/>
+            <field name="arch" type="xml">
+            	<tree string="Artisans attendances">
+                    <field name="employee_id" string='Name'/>
+                    <field name="department_id"/>
+                    <field name="name"/>
+                    <field name="search_date"/>
+					<field name="company_name"/>
+                    <field name="shift_id" widget="selection" invisible="1"/>
+                    <field name="year_id" invisible="1"/>
+                    <field name="month" invisible="1"/>
+                    <field name="method" invisible="1"/>
+                    <field name="type" readonly="1"/>
+                    <field name="year"/>
+                </tree>
+            </field>
+        	</record>
+        	
+        	<record id="view_attendance_form_inherit_att" model="ir.ui.view">
+            <field name="name">hr.attendance.form</field>
+            <field name="model">hr.attendance</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_form"/>
+            <field name="arch" type="xml">
+            	<xpath expr="/form/sheet/group/field[@name='employee_id']" position="after">
+                 	<field name="department_id"/>
+                 </xpath>
+            
+	            <xpath expr="/form/sheet/group/field[@name='action']" position="replace">
+	                 	<field name="shift_id" widget="selection"  />
+	            </xpath>
+            </field>
+        	</record>
+	       	
+	       	
+	       	<record id="open_view_attendance" model="ir.actions.act_window">
+	           <field name="name">Employee Attendance</field>
+	           <field name="res_model">hr.attendance</field>
+	           <field name="view_type">form</field>
+	           <field name="view_mode">tree,form</field>
+	           <field name="search_view_id" ref="hr_compliance.view_hr_attendance_filter" />
+	           <field name="domain">[('type','=','Employee')]</field>
+	           <field name="context">{'search_default_year':time.strftime('%Y'),'search_default_January':time.strftime('%m') == '1' and 1,'search_default_February':time.strftime('%m') == '2' and 1,'search_default_March':time.strftime('%m') == '3' and 1,'search_default_April':time.strftime('%m') == '4' and 1,'search_default_May':time.strftime('%m') == '5' and 1,'search_default_June':time.strftime('%m') == '6' and 1,'search_default_July':time.strftime('%m') == '7' and 1,'search_default_August':time.strftime('%m') == '8' and 1,'search_default_September':time.strftime('%m') == '9' and 1,'search_default_October':time.strftime('%m') == '10' and 1,'search_default_November':time.strftime('%m') == '11' and 1,'search_default_December':time.strftime('%m') == '12' and 1}</field>
+	           <field name="help">The Time Tracking functionality aims to manage artisans attendances from Sign in/Sign out actions. You can also link this feature to an attendance device using OpenERP's web service features.</field>
+	       	</record>
+      <menuitem action="open_view_attendance" id="menu_hr_attendance_id" parent="hr_attendance_main_menu" sequence="6" /> 	  
+
+	       	<record id="open_view_attendance_contractor" model="ir.actions.act_window">
+	           <field name="name">Contractor Attendance</field>
+	           <field name="res_model">hr.attendance</field>
+	           <field name="view_type">form</field>
+	           <field name="view_mode">tree,form</field>
+	           <field name="search_view_id" ref="hr_compliance.view_hr_attendance_filter" />
+	           <field name="domain">[('type','=','Contractor')]</field>
+	           <field name="context">{'search_default_year':time.strftime('%Y'),'search_default_January':time.strftime('%m') == '1' and 1,'search_default_February':time.strftime('%m') == '2' and 1,'search_default_March':time.strftime('%m') == '3' and 1,'search_default_April':time.strftime('%m') == '4' and 1,'search_default_May':time.strftime('%m') == '5' and 1,'search_default_June':time.strftime('%m') == '6' and 1,'search_default_July':time.strftime('%m') == '7' and 1,'search_default_August':time.strftime('%m') == '8' and 1,'search_default_September':time.strftime('%m') == '9' and 1,'search_default_October':time.strftime('%m') == '10' and 1,'search_default_November':time.strftime('%m') == '11' and 1,'search_default_December':time.strftime('%m') == '12' and 1}</field>
+	           <field name="help">The Time Tracking functionality aims to manage artisans attendances from Sign in/Sign out actions. You can also link this feature to an attendance device using OpenERP's web service features.</field>
+	       	</record>
+      <menuitem action="open_view_attendance_contractor" id="menu_hr_attendance_id_contractor" parent="hr_attendance_main_menu_contarctor" sequence="2"/> 	  
+      
+<!--			                                          ATTENDANCE SUNCHRONIZE VIEW                                     -->
+		
+	      
+		<record id="synchronization_wizard_tree" model="ir.ui.view">
+			<field name="name">synchronization.tree</field>
+			<field name="model">synchronization</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="port"/>
+					<field name="user"/>
+					<field name="database"/>					
+				</tree>
+			</field>
+		</record>		
+		<record id="synchronization_wizard_form" model="ir.ui.view">
+			<field name="name">synchronization.form</field>
+			<field name="model">synchronization</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<group col="4" colspan="4"> 
+						<field name="name" readonly="1" invisible="0"/>
+						<field name="port" readonly="1" invisible="0"/>
+						<field name="user" readonly="1" invisible="0"/>
+						<field name="password" password="True" readonly="1" invisible="0"/>
+						<field name="database" readonly="1" invisible="0"/>
+						<field name="employee_id" string='Name' invisible="0"/>
+						<field name="date"/>
+						<field name="end_date"/>
+						<field name="state" invisible="1"/> 
+					</group>
+					<group col="4" colspan="4"> 
+						<separator colspan="4"/>
+						<group col="2" colspan="2">
+							<label string="" colspan="2"/>
+						</group>
+						<group col="4" colspan="4">
+							<button name="run_attendance_141" string="Synchronize 1" attrs="{'invisible':[('name','=','172.20.1.92')]}" type="object" icon="gtk-ok" colspan="1"/>
+							<button name="run_attendance_contractor" string="Synchronize 2" attrs="{'invisible':[('name','=','172.20.1.92')]}" type="object" icon="gtk-ok" colspan="1"/>
+							<button name="run_attendance_matrix" string="Turnstile Synchronize" type="object" icon="gtk-ok" colspan="1" attrs="{'invisible':[('name','!=','172.20.1.92')]}"/>
+						</group>
+						
+					</group>
+					
+				</form>
+			</field>
+		</record>
+
+		<record id="synchronization_action" model="ir.actions.act_window">
+            <field name="name">Synchronization</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">synchronization</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="view_id" ref="synchronization_wizard_tree"/>
+        </record>
+       
+   <menuitem action="synchronization_action" id="synchronization_menu_id" parent="hr_attendance_main_menu" sequence="2"/> 
+      
+
+<!-- .......................Punch Card View........................... -->
+
+			<record id="punch_card_search_view" model="ir.ui.view">
+				<field name="name">attendance.timing.search</field>
+				<field name="model">attendance.timing</field>
+				<field name="type">search</field>
+				<field name="arch" type="xml">
+					<search>
+						
+						<filter string="January" name="January" icon="terp-personal" domain="[('month','=','1')]"  help="January Payment"/>
+						<filter string="February" name="February" icon="terp-personal" domain="[('month','=','2')]"  help="February Payment"/>
+						<filter string="March" name="March" icon="terp-personal" domain="[('month','=','3')]"  help="March Payment"/>
+						<filter string="April" name="April" icon="terp-personal" domain="[('month','=','4')]"  help="April Payment"/>
+						<filter string="May" name="May" icon="terp-personal" domain="[('month','=','5')]"  help="May Payment"/>
+						<filter string="June" name="June" icon="terp-personal" domain="[('month','=','6')]"  help="June Payment"/>
+						<filter string="July" name="July" icon="terp-personal" domain="[('month','=','7')]"  help="July Payment"/>
+						<filter string="August" name="August" icon="terp-personal" domain="[('month','=','8')]"  help="August Payment"/>
+						<filter string="September" name="September" icon="terp-personal" domain="[('month','=','9')]" help="September Payment"/>
+						<filter string="October" name="October" icon="terp-personal" domain="[('month','=','10')]" help="October Payment"/>
+						<filter string="November" name="November" icon="terp-personal" domain="[('month','=','11')]" help="November Payment"/>
+						<filter string="December" name="December" icon="terp-personal" domain="[('month','=','12')]" help="December Payment"/>
+						
+						<newline/>
+						<field name="employee_id" string='Name'/>
+						<field name="name"/>
+						<field name="department_id"/>
+						<field name="working"/>
+						<field name="year_id"/>
+						<field name="company_id"/>
+						<newline/>
+						<field name="sunday" />
+						<field name="method"/>
+						<field name="status"/>
+						<field name="dept_status" />
+						<field name="user_id"/>
+						<field name="year"/>
+						<newline/>
+						 <group expand="0" string="Group By...">
+	                        <filter string="Creation Date" icon="terp-personal" domain="[]" context="{'group_by':'name'}"/>
+	                        <filter string="Name" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+	                        <separator orientation="vertical"/>
+	                        <filter string="Month" name="month" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'month'}"/>
+	                        <separator orientation="vertical"/>
+	                        <filter string="Year" name="year_id" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'year_id'}"/>
+	                        <separator orientation="vertical"/>
+	                    </group>
+					</search>
+				</field>
+			</record>
+        
+	        <record id="punch_card_tree_view" model="ir.ui.view">
+				<field name="name">attendance.timing.tree</field>
+				<field name="model">attendance.timing</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+					<tree string="Employee Punch Card" colors="red:sunday==True;green:missing > 0 and working != 'A';brown:working=='HD';blue:working=='A';purple:over_time >= 120 " editable="top">
+						<field name="name" />
+						<field name="employee_id" string='Name'/>
+						<field name="working" sum="Days" required="1" />
+						<field name="penalty" sum="Penalty" invisible="1"  />
+						<field name="over_time" sum="Over" required="1" />
+						<field name="outside_time" sum="Outside" invisible="1" />
+						<field name="sunday" invisible="1" />
+						<field name="present" invisible="1" />
+						<field name="missing" invisible="1"  />
+						<field name="month" invisible="1" />
+						<field name="year_id" invisible="1" />
+						<field name="method" invisible="1" />
+						<field name="state" invisible="1" />
+						<field name="status" invisible="1" />
+						<field name="dept_status" invisible="1" />
+						<field name="department_id" />
+						<field name="user_id"/>
+						<field name="creation_date"/>
+						<field name="company_id"/>
+						<field name="type" readonly="1"/>
+						<field name="year" invisible="1"/>
+					</tree>
+				</field>
+			</record>
+		
+			<record id="punch_card_form_view" model="ir.ui.view">
+				<field name="name">attendance.timing.form</field>
+				<field name="model">attendance.timing</field>
+				<field name="type">form</field>
+				<field name="arch" type="xml">
+					<form string="Employee Punch Card">
+						<field name="name" select="1"/>
+						<field name="employee_id" select="1" string='Name'/>
+						<field name="department_id" select="1"/>
+						<field name="working" select="1"/>
+						<field name="over_time" widget="float_time" select="1"/>
+						<field name="outside_time" widget="float_time" select="1"/>
+						<field name="sunday" select="1"/>
+						<field name="present" />
+						<field name="note" colspan="4"/>
+						<field name="year" invisible="1"/>
+					</form>
+				</field>
+			</record>
+
+			<record id="punch_card_action" model="ir.actions.act_window">
+	            <field name="name">Employee Punch</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">attendance.timing</field>
+	            <field name="view_type">form</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="search_view_id" ref="punch_card_search_view"/>
+	            <field name="domain">[('type','=','Employee')]</field>
+	            <field name="context">{'search_default_year':time.strftime('%Y'),'search_default_January':time.strftime('%m') == '1' and 1,'search_default_February':time.strftime('%m') == '2' and 1,'search_default_March':time.strftime('%m') == '3' and 1,'search_default_April':time.strftime('%m') == '4' and 1,'search_default_May':time.strftime('%m') == '5' and 1,'search_default_June':time.strftime('%m') == '6' and 1,'search_default_July':time.strftime('%m') == '7' and 1,'search_default_August':time.strftime('%m') == '8' and 1,'search_default_September':time.strftime('%m') == '9' and 1,'search_default_October':time.strftime('%m') == '10' and 1,'search_default_November':time.strftime('%m') == '11' and 1,'search_default_December':time.strftime('%m') == '12' and 1}</field>
+        	</record>
+	        
+	        <record id="punch_card_tree_view_action" model="ir.actions.act_window.view">
+		       <field eval="1" name="sequence"/>
+		       <field name="view_mode">tree</field>
+		       <field name="view_id" ref="punch_card_tree_view"/>
+		       <field name="act_window_id" ref="punch_card_action"/>
+	        </record>
+
+        	<menuitem action="punch_card_action" id="menu_punch_card" parent="hr_attendance_main_menu" sequence="7"/>
+
+
+			<record id="punch_card_action_contractor" model="ir.actions.act_window">
+	            <field name="name">Contractor Punch</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">attendance.timing</field>
+	            <field name="view_type">form</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="search_view_id" ref="punch_card_search_view"/>
+	            <field name="domain">[('type','=','Contractor')]</field>
+	            <field name="context">{'search_default_year':time.strftime('%Y'),'search_default_January':time.strftime('%m') == '1' and 1,'search_default_February':time.strftime('%m') == '2' and 1,'search_default_March':time.strftime('%m') == '3' and 1,'search_default_April':time.strftime('%m') == '4' and 1,'search_default_May':time.strftime('%m') == '5' and 1,'search_default_June':time.strftime('%m') == '6' and 1,'search_default_July':time.strftime('%m') == '7' and 1,'search_default_August':time.strftime('%m') == '8' and 1,'search_default_September':time.strftime('%m') == '9' and 1,'search_default_October':time.strftime('%m') == '10' and 1,'search_default_November':time.strftime('%m') == '11' and 1,'search_default_December':time.strftime('%m') == '12' and 1}</field>
+        	</record>
+	        
+	        <record id="punch_card_tree_view_action_contractor" model="ir.actions.act_window.view">
+		       <field eval="1" name="sequence"/>
+		       <field name="view_mode">tree</field>
+		       <field name="view_id" ref="punch_card_tree_view"/>
+		       <field name="act_window_id" ref="punch_card_action_contractor"/>
+	        </record>
+
+        	<menuitem action="punch_card_action_contractor" id="menu_punch_card_contractor" parent="hr_attendance_main_menu_contarctor" sequence="3"/>
+
+<!--		Manual Punch Card View-->
+
+		<record id="manual_attendance_timing_tree" model="ir.ui.view">
+			<field name="name">attendance.timing.tree</field>
+			<field name="model">attendance.timing</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree colors="red:sunday==True;green:missing > 0 and working != 'A';brown:working=='HD';blue:working=='A';purple:over_time >= 120" editable="top">
+					<field name="name"/>
+					<field name="employee_id" string='Name'/>
+					<field name="in_time"  required="1"/>
+					<field name="out_time" required="1"/>
+					<button name="calculate_work_time" string="Artisans Punch" type="object" icon="gtk-go-forward"/>
+					<field name="department_id" invisible="1"/>
+					<field name="working" sum="Days" readonly="1"/>
+					<field name="penalty" sum="Penalty" invisible="1"/>
+					<field name="over_time" sum="Over" readonly="1"/>
+					<field name="outside_time" sum="Outside" invisible="1"/>
+					<field name="sunday" invisible="1"/>
+					<field name="present" invisible="1"/>
+					<field name="missing" invisible="1"/>
+					<field name="note" />
+					<field name="month" invisible="1"/>
+					<field name="year_id" invisible="1"/>
+					<field name="method" invisible="1"/>
+					<field name="state" invisible="1"/>
+					<field name="status" invisible="1"/>
+					<field name="dept_status" invisible="1"/>
+					<field name="user_id"/>
+					<field name="creation_date"/>
+					<field name="type"/>
+					<field name="year" invisible="1"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="manual_attendance_timing_form" model="ir.ui.view">
+			<field name="name">attendance.timing.form</field>
+			<field name="model">attendance.timing</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<group colspan="2" col="4">
+						<field name="name" select="1"/>
+						<field name="employee_id" select="1" string='Name'/>
+						<field name="department_id" select="1"/>
+						<field name="working" select="1"/>
+						<field name="over_time" widget="float_time" select="1"/>
+						<field name="outside_time" widget="float_time" select="1"/>
+						<field name="sunday" select="1"/>
+						<field name="present" />
+						<field name="note" colspan="4"/>
+					</group>
+				</form>
+			</field>
+		</record>
+        <record id="manual_attendance_timing_action" model="ir.actions.act_window">
+            <field name="name">Manual Punch</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">attendance.timing</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="view_id" ref="manual_attendance_timing_tree"/>
+            <field name="domain">[('method','=','Manual')]</field>
+            <field name="context">{'search_default_year':time.strftime('%Y'),'search_default_January':time.strftime('%m') == '1' and 1,'search_default_February':time.strftime('%m') == '2' and 1,'search_default_March':time.strftime('%m') == '3' and 1,'search_default_April':time.strftime('%m') == '4' and 1,'search_default_May':time.strftime('%m') == '5' and 1,'search_default_June':time.strftime('%m') == '6' and 1,'search_default_July':time.strftime('%m') == '7' and 1,'search_default_August':time.strftime('%m') == '8' and 1,'search_default_September':time.strftime('%m') == '9' and 1,'search_default_October':time.strftime('%m') == '10' and 1,'search_default_November':time.strftime('%m') == '11' and 1,'search_default_December':time.strftime('%m') == '12' and 1}</field>
+        </record>
+        
+<!--       <menuitem action="manual_attendance_timing_action" id="menu_manual_punch_card" parent="hr_attendance_main_menu" groups="base.group_compliance_user" sequence="8"/>-->
+   
+<!-- ======================================= Update Employee OT view =================== -->
+
+			<record id="employee_department_form" model="ir.ui.view">
+				<field name="name">Employee Department</field>
+				<field name="model">employee.department</field>
+				<field name="type">form</field>
+				<field name="arch" type="xml">
+				<form string="Employee">
+					<sheet>
+	                        <group colspan="4" col="4">
+	                            <field name="department_id" on_change="on_change_department_id(department_id,emp_id,company_id)"/>
+	                            <field name="emp_id" on_change="on_change_department_id(department_id,emp_id,company_id)"/>
+	                            <field name="company_id" on_change="on_change_department_id(department_id,emp_id,company_id)" />
+	                            <newline/>
+	                         	<field name="employee_id" colspan="4" col="4"  nolabel="1" widget="one2many_list" mode="tree">
+	                         		<tree string="Employee" editable="top">
+	                         			<field name="sinid"/>
+	                         			<field name="name"/>
+	                         			<field name="department_id"/>
+	                         			<field name="ot_tick"/>
+	                         			<field name="epf_tick"/>
+	                         			<field name="esi_tick"/>
+	                         		</tree>
+	                         	</field>
+	                        </group>
+	                        <group colspan="2" col="12">
+		                        <button name="update_ot" string="Update OT" type="object" icon="gtk-go-forward"/>
+		                        <button name="reset_ot" string="Reset OT" type="object" icon="gtk-go-forward"/>
+		                   		<button name="update_epf" string="Update EPF" type="object" icon="gtk-go-forward"/>
+		                        <button name="reset_epf" string="Reset EPF" type="object" icon="gtk-go-forward"/>
+		                        <button name="update_esi" string="Update ESI" type="object" icon="gtk-go-forward"/>
+		                        <button name="reset_esi" string="Reset ESI" type="object" icon="gtk-go-forward"/>
+		                    </group>
+					</sheet>
+				</form>
+				</field>
+			</record>
+			
+			<record id="employee_department_action" model="ir.actions.act_window">
+		   		<field name="name">Employee Department</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">employee.department</field>
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="employee_department_form"/>  
+            </record>
+	   		<menuitem id="menu_employee_department" parent="menu_employee_complaince" name="Update OT Tick" action="employee_department_action" sequence="3" />
+
+
+<!-- ======================================= Update Employee EPF view =================== -->
+
+			<record id="employee_department_epf_form" model="ir.ui.view">
+				<field name="name">Employee Epf</field>
+				<field name="model">employee.department.epf</field>
+				<field name="type">form</field>
+				<field name="arch" type="xml">
+				<form string="Employee">
+					<sheet>
+	                        <group colspan="4" col="4">
+	                            <field name="department_id" on_change="on_change_department_id(department_id,emp_id,company_id)"/>
+	                            <field name="emp_id" on_change="on_change_department_id(department_id,emp_id,company_id)"/>
+	                            <field name="company_id" on_change="on_change_department_id(department_id,emp_id,company_id)"/>
+	                            <newline/>
+	                         	<field name="employee_id" colspan="4" col="4"  nolabel="1" widget="one2many_list" mode="tree">
+	                         		<tree string="Employee" editable="top">
+	                         			<field name="sinid"/>
+	                         			<field name="name"/>
+	                         			<field name="department_id"/>
+	                         			<field name="epf_tick"/>
+	                         		</tree>
+	                         	</field>
+	                        </group>
+	                        <group colspan="4" col="4">
+		                        <button name="update_epf" string="Update EPF Tick" type="object" icon="gtk-go-forward"/>
+		                        <button name="reset_epf" string="Reset EPF Tick" type="object" icon="gtk-go-forward"/>
+		                    </group>
+					</sheet>
+				</form>
+				</field>
+			</record>
+			
+			<record id="employee_department_epf_action" model="ir.actions.act_window">
+		   		<field name="name">Employee Epf</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">employee.department.epf</field>
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="employee_department_epf_form"/>  
+            </record>
+<!--	   		<menuitem id="menu_employee_department_epf" parent="menu_employee_complaince" name="Update EPF Tick" action="employee_department_epf_action" sequence="4" />-->
+
+<!-- ======================================= Update Employee ESI view =================== -->
+
+			<record id="employee_department_esi_form" model="ir.ui.view">
+				<field name="name">Employee Esi</field>
+				<field name="model">employee.department.esi</field>
+				<field name="type">form</field>
+				<field name="arch" type="xml">
+				<form string="Employee">
+					<sheet>
+	                        <group colspan="4" col="4">
+	                            <field name="department_id" on_change="on_change_department_id(department_id,emp_id,company_id)"/>
+	                            <field name="emp_id" on_change="on_change_department_id(department_id,emp_id,company_id)"/>
+	                            <field name="company_id" on_change="on_change_department_id(department_id,emp_id,company_id)"/>
+	                            <newline/>
+	                         	<field name="employee_id" colspan="4" col="4"  nolabel="1" widget="one2many_list" mode="tree">
+	                         		<tree string="Employee" editable="top">
+	                         			<field name="sinid"/>
+	                         			<field name="name"/>
+	                         			<field name="department_id"/>
+	                         			<field name="esi_tick"/>
+	                         		</tree>
+	                         	</field>
+	                        </group>
+	                        <group colspan="4" col="4">
+		                        <button name="update_esi" string="Update ESI Tick" type="object" icon="gtk-go-forward"/>
+		                        <button name="reset_esi" string="Reset ESI Tick" type="object" icon="gtk-go-forward"/>
+		                    </group>
+					</sheet>
+				</form>
+				</field>
+			</record>
+			
+			<record id="employee_department_esi_action" model="ir.actions.act_window">
+		   		<field name="name">Employee Esi</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">employee.department.esi</field>
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="employee_department_esi_form"/>  
+            </record>
+<!--	   		<menuitem id="menu_employee_department_esi" parent="menu_employee_complaince" name="Update ESI Tick" action="employee_department_esi_action" sequence="5" />-->
+
+
+   
+   </data>
+ </openerp>

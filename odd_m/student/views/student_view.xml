@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!-- Top menu item -->
+        <menuitem name="Student" id="menu_student_root_id" sequence="1"/>
+        <menuitem id="menu_student_sub_root_id" name="Student Record" parent="menu_student_root_id" sequence="1" />
+          <record id="student_form_view" model="ir.ui.view">
+            <field name="name">STUDENT</field>
+            <field name="model">student</field>
+            <field name="arch" type="xml">
+                <form string="Student Data">
+                <sheet>
+                    <group col="4" colspan="4" >
+                        <field name="name" required="1"/>
+                        <field name="middle_name" required="1"/>
+                        <field name="last_name" required="1"/>
+                        <field name="section" required="1"/>
+                        <field name="class_id" required="1"/>
+                        <field name="payment_date" required="1"/>
+                        <field name="father_name" required="1"/>
+                        <field name="mother_name" required="1"/>
+                        <field name="gender" required="1"/>
+                        <field name="mob_no" required="1"/>
+                        <field name="acadmic_payment" required="1"/>
+                    </group>
+                    <notebook>
+                        <page string="INFORMATION">
+                        <field name="college_line" colspan="4"  nolabel="1" >
+                            <tree editable="bottom">
+                                <field name="last_name"/>
+                                <field name="father_name"/>
+                                <field name="section"/>
+                                <field name="class_id"/>
+                                <field name="mob_no"/>
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                        <field name="last_name"/>
+                                        <field name="father_name"/>
+                                        <field name="section"/>
+                                        <field name="class_id"/>
+                                        <field name="gender"/>
+                                        <field name="mob_no"/>
+                                        <field name="acadmic_payment"/>
+
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+
+                        </page>
+                    </notebook>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="student_tree_view" model="ir.ui.view">
+            <field name="name">STUDENT</field>
+            <field name="model">student</field>
+            <field name="arch" type="xml">
+                <tree string="Master">
+                    <field name="name" readonly="1"/>
+                    <field name="middle_name" readonly="1"/>
+                    <field name="last_name" readonly="1"/>
+                    <field name="section" required="1"/>
+                    <field name="class_id" required="1"/>
+                    <field name="payment_date" readonly="1"/>
+                    <field name="father_name" readonly="1"/>
+                    <field name="mother_name" readonly="1"/>
+                    <field name="gender" readonly="1"/>
+                    <field name="mob_no" readonly="1"/>
+                    <field name="acadmic_payment" readonly="1"/>
+
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_student_view" model="ir.actions.act_window">
+            <field name="name">STUDENT</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">student</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="action_student_view" id="menu_student_id"
+                  parent="menu_student_sub_root_id" sequence="3"/>
+
+
+
+
+
+
+
+
+
+
+
+        <record id="collegedetail_form_view" model="ir.ui.view">
+            <field name="name">COLLEGEDETAIL</field>
+            <field name="model">college.detail</field>
+            <field name="arch" type="xml">
+               <form string="College Detail Data">
+                <sheet>
+                    <group col="1">
+                        <group col="5" colspan="4" >
+                            <group col="4" colspan="4" >
+                                <field name="name_clg"/>
+                                <field name="name_p" required="1"/>
+                                <field name="last_name"/>
+                                <field name="father_name"/>
+                                <field name="section"/>
+                                <field name="class_id"/>
+                                <field name="gender"/>
+                                <field name="mob_no"/>
+                                <field name="acadmic_payment"/>
+                                <field name="student_id"/>
+                            </group>
+                             <group col="1" colspan="1">
+                                <field name="image" widget="image"  height="140" width="125" nolabel="1"/>
+                                <newline/>
+                                <button name="%(action_wiz_student_image_view)d" string="Upload Photo" type="action" class="oe_highlight" icon="fa-pencil-square-o" />
+                            </group>
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="collegedetail_tree_view" model="ir.ui.view">
+            <field name="name">College Record</field>
+            <field name="model">college.detail</field>
+            <field name="arch" type="xml">
+                <tree string="College Record">
+                 <field name="name_clg"/>
+                                <field name="name_p" required="1"/>
+                                 <field name="last_name"/>
+                                 <field name="father_name"/>
+                                <field name="section"/>
+                                <field name="class_id"/>
+                                <field name="gender"/>
+                                <field name="mob_no"/>
+                                <field name="acadmic_payment"/>
+                                <field name="student_id"/>
+                               <field name="image_url" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_college_detail_view" model="ir.actions.act_window">
+            <field name="name">College Detail Data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">college.detail</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem action="action_college_detail_view" id="menu_college_detail_id" parent="menu_student_sub_root_id" sequence="2"/>
+
+
+
+
+
+
+
+
+ <record id="bookissued_form_view" model="ir.ui.view">
+            <field name="name">Book ISSUED</field>
+            <field name="model">bookissuedetail</field>
+            <field name="arch" type="xml">
+             <form string="Book Issued Data">
+                <sheet>
+                    <group col="1">
+                        <group col="5" colspan="4" >
+                            <group col="4" colspan="4" >
+                                <field name="name_book"/>
+                                <field name="issue_date"/>
+                                <field name="section_book"/>
+                                <field name="stu_id"/>
+                                <field name="stu_gender"/>
+                                <field name="mob_no"/>
+                                <field name="book_payment"/>
+                            </group>
+                        </group>
+                    </group>
+
+                    <notebook>
+                         <page string="Fill details here">
+                        <field name="re_s" colspan="4"  nolabel="1" >
+                            <tree editable="bottom">
+
+                                <field name="select_state"/>
+                                <field name="stu_db"/>
+                                <field name="stu_gender"/>
+                                 <field name="mob_no"/>
+                                <field name="e_payment"/>
+
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                    <field name="select_state"/>
+                                    <field name="stu_db"/>
+                                     <field name="stu_gender"/>
+                                     <field name="mob_no"/>
+                                     <field name="e_payment"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+
+                        </page>
+                    </notebook>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="bookissued_tree_view" model="ir.ui.view">
+            <field name="name">Library Record</field>
+            <field name="model">bookissuedetail</field> 
+            <field name="arch" type="xml">
+                <tree string="Library Record">
+                    <field name="name_book"/>
+                    <field name="issue_date"/>
+                    <field name="section_book"/>
+                    <field name="stu_id"/>
+                    <field name="stu_gender"/>
+                    <field name="mob_no"/>
+                    <field name="book_payment"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_bookissued_view" model="ir.actions.act_window">
+            <field name="name">Book Issued Data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bookissuedetail</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+<menuitem action="action_bookissued_view" id="menu_book_issued_id" parent="menu_student_sub_root_id" sequence="3"/>
+
+
+
+
+
+
+
+       <record id="exam_form_view" model="ir.ui.view">
+            <field name="name">ACADMIC DETAIL</field>
+            <field name="model">acadmicdetail</field>
+            <field name="arch" type="xml">
+             <form string="Acadmic Data">
+                <sheet>
+                    <group col="1">
+                        <group col="5" colspan="4" >
+                            <group col="4" colspan="4" >
+                                <field name="g_m"/>
+                                <field name="g_b"/>
+                                <field name="h_m"/>
+                                <field name="h_b"/>
+                                <field name="select_state"/>
+                                <field name="stu_db"/>
+                                <field name="stu_gender"/>
+                                 <field name="mob_no"/>
+                                <field name="e_payment"/>
+                                <field name="l_s"/>
+                            </group>
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="exam_tree_view" model="ir.ui.view">
+            <field name="name">Basic Record</field>
+            <field name="model">acadmicdetail</field>  
+            <field name="arch" type="xml">
+                <tree string="Basic Record">
+                	<field name="g_m"/>
+                    <field name="g_b"/>
+                    <field name="h_m"/>
+                    <field name="h_b"/>
+                    <field name="select_state"/>
+                    <field name="stu_db"/>
+                    <field name="stu_gender"/>
+                    <field name="mob_no"/>
+                    <field name="e_payment"/>
+                    <field name="l_s"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_exam_view" model="ir.actions.act_window">
+            <field name="name">Acadmic Data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">acadmicdetail</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<menuitem action="action_exam_view" id="menu_exam_id" parent="menu_student_sub_root_id" sequence="4"/>
+
+
+
+
+
+
+
+
+
+       <record id="fee_form_view" model="ir.ui.view">
+            <field name="name">Fee Submission</field>
+            <field name="model">feesubmission</field>
+            <field name="arch" type="xml">
+             <form string="Fee Sub">
+                <sheet>
+                    <group col="1">
+                        <group col="5" colspan="4" >
+                            <group col="4" colspan="4" >
+                                <field name="name"/>
+                                <field name="create_date"/>
+                                <field name="active_payment"/>
+                                <field name="old_sequence"/>
+                                <field name="new_sequence"/>
+
+                            </group>
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="fee_tree_view" model="ir.ui.view">
+            <field name="name">Fee Submission</field>
+            <field name="model">feesubmission</field>
+            <field name="arch" type="xml">
+                <tree string="Fee Payment">
+                    <field name="name"/>
+                    <field name="create_date"/>
+                    <field name="active_payment"/>
+                    <field name="old_sequence"/>
+                    <field name="new_sequence"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_fee_view" model="ir.actions.act_window">
+            <field name="name">Fee Submission</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">feesubmission</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<menuitem action="action_fee_view" id="menu_fee_id" parent="menu_student_sub_root_id" sequence="5"/>
+
+
+
+
+
+
+
+       <record id="detail_form_view" model="ir.ui.view">
+            <field name="name">Exam Detail</field>
+            <field name="model">exam.detail</field>
+            <field name="arch" type="xml">
+             <form string="Exam Detail">
+                <sheet>
+                    <group col="1">
+                        <group col="5" colspan="4" >
+                            <group col="4" colspan="4" >
+                                <field name="exam_time"/>
+                                <field name="slot_name"/>
+                                <field name="stu_db"/>
+                                <field name="stu_gender"/>
+                                <field name="mob_no"/>
+                                <field name="select_state"/>
+                                 <field name="exam_payment"/>
+
+                            </group>
+                             <group col="1" colspan="1">
+                                <newline/>
+                                <button name="%(action_wiz_student_form_view)d" string="Fill Detail" type="action" class="oe_highlight" icon="fa-pencil-square-o" />
+                            </group>
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="detail_tree_view" model="ir.ui.view">
+            <field name="name">Exam Detail</field>
+            <field name="model">exam.detail</field>
+            <field name="arch" type="xml">
+                <tree string="Exam Schedule">
+           	                    <field name="exam_time"/>
+                                <field name="slot_name"/>
+                                <field name="stu_db"/>
+                                <field name="stu_gender"/>
+                                <field name="mob_no"/>
+                                <field name="select_state"/>
+                                <field name="exam_payment"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_detail_view" model="ir.actions.act_window">
+            <field name="name">Exam Detail</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">exam.detail</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<menuitem action="action_detail_view" id="menu_detail_id" parent="menu_student_sub_root_id" sequence="6"/>
+
+
+
+
+
+
+
+
+       <record id="quali_form_view" model="ir.ui.view">
+            <field name="name">Qualify</field>
+            <field name="model">qualify</field>
+            <field name="arch" type="xml">
+             <form string="Qualification">
+                <sheet>
+                    <group col="1">
+                        <group col="5" colspan="4" >
+                            <group col="4" colspan="4" >
+                                <field name="q_b"/>
+                                <field name="sl_name"/>
+                                <field name="select_state"/>
+                                <field name="stu_db"/>
+                                <field name="st_gender"/>
+                                <field name="mobile_no"/>
+                                <field name="e_payment"/>
+                                <field name="rel_ation"/>
+
+                            </group>
+                        </group>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="quali_tree_view" model="ir.ui.view">
+            <field name="name">Qualify</field>
+            <field name="model">qualify</field>
+            <field name="arch" type="xml">
+                <tree string="Qualificate">
+                    <field name="q_b"/>
+                    <field name="sl_name"/>
+                    <field name="select_state"/>
+                    <field name="stu_db"/>
+                    <field name="st_gender"/>
+                    <field name="mobile_no"/>
+                    <field name="e_payment"/>
+                    <field name="rel_ation"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_quali_view" model="ir.actions.act_window">
+            <field name="name">Qualify</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">qualify</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<menuitem action="action_quali_view" id="menu_quali_id" parent="menu_student_sub_root_id" sequence="7"/>
+
+
+
+
+
+
+
+
+
+
+
+       <record id="emp_form_view" model="ir.ui.view">
+            <field name="name">Employement</field>
+            <field name="model">employement</field>
+            <field name="arch" type="xml">
+             <form string="Employee">
+                <sheet>
+                    <group col="1">
+                        <group col="5" colspan="4" >
+                            <group col="4" colspan="4" >
+                               <field name="no_j"/>
+                                <field name="Ty_j"/>
+                                <field name="ex_p"/>
+                                <field name="notice_p"/>
+
+
+                            </group>
+                        </group>
+                    </group>
+
+
+                    <notebook>
+                         <page string="Add Details">
+
+                                <tree editable="bottom">
+
+                                    <field name="applied_job" required="1"/>
+                                </tree>
+                        </page>
+
+
+
+                    </notebook>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="emp_tree_view" model="ir.ui.view">
+            <field name="name">Employement</field>
+            <field name="model">employement</field>
+            <field name="arch" type="xml">
+                <tree string="Employee">
+                    <field name="no_j"/>
+                    <field name="Ty_j"/>
+                    <field name="ex_p"/>
+                    <field name="notice_p"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_emp_view" model="ir.actions.act_window">
+            <field name="name">Employement</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">employement</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+<menuitem action="action_emp_view" id="menu_emp_id" parent="menu_student_sub_root_id" sequence="8"/>
+
+
+
+
+
+
+
+
+
+
+
+</odoo>

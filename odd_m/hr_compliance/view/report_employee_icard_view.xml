@@ -1,0 +1,1912 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+<!--=========================================[[Employee Designco Yellow Icard For Only Designco Unit ]]================================================== -->
+	
+		<template id="report_employee_icard_designco">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page" style="background-color:ffdb00;">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    	<table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="100"/>
+						    				<p STYLE="color:blue; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				<p STYLE="color:blue; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				<p STYLE="color:blue; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+						    				
+						    				<table><tr><td><p></p></td></tr></table>
+						    				<table><tr><td><p></p></td></tr></table>
+						    				<table><tr><td><p></p></td></tr></table>
+						    				<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="300px" height="350px"/><br/>
+										</TD>
+									</tr>
+						</table>
+						<table width="100%" height="100%">	
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+											<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+												<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"> <B>ID # :</B> </p>
+											</TD>
+											<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom:none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:0.4cm; padding-right: 0cm">
+													<p style="font-size:35px;color:blue; margin-bottom:2px; margin-top:2px"><B><span t-esc="l.sinid"/> </B> </p>
+											</TD>
+										</TR>
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"> <B>NAME :</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:35px; margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.name"/> </b> </p>
+												</TD>
+										</TR>
+										<TR width="100%" style="margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px" > <B>DEPARTMENT:</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.department_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+												<p style="font-size:35px;  margin-bottom:2px; margin-top:2px">	 <B>D.O.J. :</B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:35px;margin-bottom:2px; margin-top:2px;"><b><span t-esc="formatLang(l.doj,date=True)"/> </b></p>
+												</TD>
+										</TR>	
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"> <B>DESIGNATION:</B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="LEFT" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.job_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										
+										<TR width="100%" style="margin-bottom:2px; margin-top:2px;">
+										
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													
+												</TD>
+												
+												<TD width="85%" ALIGN="center" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+															
+														<img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="70"/> <br/>
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+												</TD>
+										</TR>	
+							    	</table>
+							    </TD>
+							    </tr>
+					   </table>	
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>
+	  	
+			<!--  [[ ===================================[  Report view Lohia I card ]=======================================]] --> 
+			 
+	<template id="report_employee_icard_lohia">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    	<table width="100%">
+					    		<tr width="100%" >
+					    			<TD width="30%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+					    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="180" height="180"/>
+					    			</TD>
+					    			<TD width="70%" ALIGN="left" STYLE="margin-bottom:0px; margin-top:0px;border-top:none; border-bottom: none; border-left:none; border-right:none; padding-top: 0.0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">	
+					    				<p  align="center" STYLE="color:black;background-color:orange; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>		
+					    				<p align="center" STYLE="color:black;background-color:orange; font-size:30px;margin-bottom:0px; margin-top:0px;"><b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>	
+					    				<p align="center" STYLE="color:black;background-color:orange; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+					    			</TD>
+					    		</tr>
+							</table>
+						 <table>  
+				    			    <tr>
+					    			    <td width="60%" ALIGN="left">
+					    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="350px" height="350px"/><br/>
+					    				</td>
+					    				<td width="40%">
+					    					<p style="font-size:90px;color:black; margin-bottom:2px; margin-top:2px"><B><span t-esc="l.sinid"/> </B> </p>
+					    				</td>
+				    				</tr>
+		    				</table>	
+							
+					  
+						<table width="100%" height="100%">	
+
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Name </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.name"/> </b> </p>
+												</TD>
+										</TR>
+										<!-- <TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom:none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<P style="font-size:25px;  margin-bottom:2px; margin-top:2px" > <B>S/O  </B> </P>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;margin-bottom:2px; margin-top:2px"><b><span t-esc="get_father(l.id)"/></b></p>   
+											</TD> 
+										</TR> -->
+										
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px" > <B>Department</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.department_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+												<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	 <B>D.O.J. </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;margin-bottom:2px; margin-top:2px;"><b><span t-esc="formatLang(l.doj,date=True)"/> </b></p>
+												</TD>
+										</TR>
+										
+										<!-- <TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+													<TD  width="25%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+															 <B> <p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>D.O.B.  </B> </p>
+													</TD>
+													<TD  width="85%" ALIGN="LEFT" STYLE="border-top: none; border-bottom: none; border-left:none; none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+															<B> <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="formatLang(l.birthday,date=True)"/> </b></p>
+													</TD>
+										      </TR>   -->
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B> Designation </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="LEFT" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B> <span t-esc="l.job_id.name"/> </B>   </p>
+												</TD>
+										</TR>
+													
+							    	</table>
+							    	<table width="100%">    
+							    			<tr width="100%" style=" margin-bottom:2px; margin-top:2px;">		
+											    <td width="100%">
+											    	<p style="font-size:30px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+													<p style="font-size:25px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+													<p style="font-size:25px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+											    </td>			
+											</tr>
+									      <tr width="100%">
+												<td width="100%" align="right">
+													 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="60"/>
+													 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+												</td>		
+									   	 </tr>		
+								     </table>	
+							    	
+							    	</TD>
+							    	</tr>
+							  </table>
+							    	
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>
+	  	
+	<!--=========================================[[Employee Access I CARD PACKING ]]================================================== -->  	
+	  	
+	<template id="report_employee_access_icard">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page" style="background-color:009900;">
+			    		<table width="100%" >
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										    		
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="90"/>
+						    				 <!-- <p STYLE="color:white; font-size:40px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p> --> 
+						    				<p align="center" STYLE="color:white; font-size:40px;"><b>Access Card ( For Packing,Warehouse &amp; Loading Area )</b> </p>	
+										</TD>
+									</tr>
+						</table>  	
+	  				   <table width="100%">
+					    		<tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+					    			<TD width="30%" ALIGN="left" STYLE="margin-bottom:0px; margin-top:0px;border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+					    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="300" height="300"/><br/>
+									</TD>
+									<TD width="70%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+										<p style="font-size:70px;color:white;" align="left"> <B>Card No.</B><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> <B><span t-esc="l.sinid"/> </B> </p>
+										<br/>
+								    	<p style="font-size:60px;color:white;">  <B><span t-esc="l.name"/> </B> </p>
+									</TD>
+								</tr>
+						</table> <br/>
+						<table width="100%">    
+					    <tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+						    <td width="100%">
+							    	<p style="font-size:45px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+							    	<p style="font-size:35px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> यह कार्ड केवल पैकिंग,वेयरहाउस  व लोडिंग  एरिया में प्रवेश  करने  के लिए अनुमति पास  है |</b> </p>
+									<p style="font-size:35px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+									<p style="font-size:35px;" align="left"><b>(3)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+						    </td>			
+						</tr>
+							<tr width="100%">
+								<td width="100%" align="right">
+										 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="70"/>
+										 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+								</td>		
+							   </tr>		
+						</table>
+						
+						
+							</TD>			
+						</tr>
+					</table>
+	  	
+			    	</div>   						    			
+			    	
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>
+	  	
+<!--=========================================[[ Employee Access I CARD PAINT ]]================================================== -->  	
+	  	
+<template id="report_employee_access_icard_paint">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page" style="background-color:CC9900;">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										    		
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="90"/>
+						    				<!-- <p STYLE="color:blue; font-size:40px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p> -->
+						    				<p align="center" STYLE="color:blue; font-size:40px;"><b>Access Card ( For Packing &amp; Paint Area )</b> </p>	
+										</TD>
+									</tr>
+						</table>  	
+	  				   <table width="100%">
+					    		<tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+					    			<TD width="30%" ALIGN="left" STYLE="  margin-bottom:0px; margin-top:0px;border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+					    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="300" height="300"/><br/>
+									</TD>
+									<TD width="70%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+										<p style="font-size:70px;color:blue;" align="left"> <B>Card No.</B><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> <B><span t-esc="l.sinid"/> </B> </p>
+										<br/>
+								    	<p style="font-size:60px;color:blue;">  <B><span t-esc="l.name"/> </B> </p>
+									</TD>
+								</tr>
+						</table> 
+						 <br/>
+						<table width="100%">    
+					    <tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+						    <td width="100%">
+						    	<p style="font-size:45px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+						    	<p style="font-size:35px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> यह कार्ड केवल पैकिंग  व  पेंट एरिया में प्रवेश  करने  के लिए अनुमति पास  है |</b> </p>
+								<p style="font-size:35px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+								<p style="font-size:35px;" align="left"><b>(3)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+						    </td>			
+						</tr>
+							<tr width="100%">
+								<td width="100%" align="right">
+									 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="70"/> 
+									 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+								</td>		
+							   </tr>		
+						    </table>
+							</TD>			
+						</tr>
+					</table>
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>	  	
+
+<!--=========================================[[Employee Access I CARD LACQUER ]]================================================== -->  	
+	  	
+	<template id="report_employee_access_icard_lacquer">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page" style="background-color:CC9900;">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										    		
+					    <table width="100%" height="100%" >
+					    		<tr width="100%">
+					    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+					    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="90"/>
+					    				<!-- <p STYLE="color:blue; font-size:40px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p> -->
+					    				<p align="center" STYLE="color:blue; font-size:40px;"><b>Access Card ( For Packing &amp; Lacquer Area )</b></p>	
+									</TD>
+								</tr>
+						</table>  	
+	  				   <table width="100%">
+				    		<tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+				    			<TD width="30%" ALIGN="left" STYLE="  margin-bottom:0px; margin-top:0px;border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+				    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="300" height="300"/><br/>
+								</TD>
+								<TD width="70%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+									<p style="font-size:70px;color:blue;" align="left"> <B>Card No.</B><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> <B><span t-esc="l.sinid"/> </B> </p>
+									<br/>
+							    <p style="font-size:60px;color:blue;">  <B><span t-esc="l.name"/> </B> </p>
+								</TD>
+							</tr>
+						</table> <br/>
+						<table width="100%">    
+					    <tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+						    <td width="100%">
+						    	<p style="font-size:45px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+						    	<p style="font-size:35px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> यह कार्ड केवल पैकिंग  व लैकर  एरिया में प्रवेश  करने  के लिए अनुमति पास  है |</b> </p>
+								<p style="font-size:35px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+								<p style="font-size:35px;" align="left"><b>(3)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+						    </td>			
+						</tr>
+						<tr width="100%">
+							<td width="100%" align="right">
+								 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="70"/>
+								 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+							</td>		
+						   </tr>		
+						     </table>
+							</TD>			
+						</tr>
+					</table>
+			    </div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>	  	
+	  	  		
+
+<!--=============================================================================[[ Designco ICARD ]]================================================== ]] -->  
+
+		<template id="report_employee_icard_designco_all">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="100"/>
+						    				 <p t-if="l.company_id.name =='Designco'">
+						    				 	<p STYLE="color:black;background-color:yellow; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='Designco Unit-III'">
+                                              	<p STYLE="color:white;background-color:purple; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>  
+                                             <p t-if="l.company_id.name =='Designco Unit-IV'">
+                                              	<p STYLE="color:black;background-color:red; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='DESIGNCO PRIVATE LIMITED'">
+                                              	<p STYLE="color:black;background-color:#D2691E; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+						    				
+						    				<table>  
+							    			    <tr>
+								    			    <td width="60%" ALIGN="left">
+								    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="350px" height="350px"/><br/>
+								    				</td>
+								    				<td width="40%">
+								    					<p style="font-size:90px;color:black; margin-bottom:2px; margin-top:2px"><B><span t-esc="l.sinid"/> </B> </p>
+								    				</td>
+							    				</tr>
+						    				</table>
+						    				
+										</TD>
+									</tr>
+						</table>
+						<table width="100%" height="100%">	
+						
+									
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"> <B>NAME :</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.name"/> </b> </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px" > <B>DEPARTMENT:</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.department_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+												<p style="font-size:35px;  margin-bottom:2px; margin-top:2px">	 <B>D.O.J. :</B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:35px;margin-bottom:2px; margin-top:2px;"><b><span t-esc="formatLang(l.doj,date=True)"/> </b></p>
+												</TD>
+										</TR>	
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"> <B>DESIGNATION:</B></p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.job_id.name"/></b>  </p>
+												</TD>
+										</TR>										
+							    	</table>
+
+							    	<table width="100%">    
+							    			<tr width="100%" style=" margin-bottom:2px; margin-top:2px;">		
+											    <td width="100%">
+											    	<p style="font-size:30px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+													<p style="font-size:25px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+													<p style="font-size:25px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+											    </td>			
+											</tr>
+									      <tr width="100%">
+												<td width="100%" align="right">
+													 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="70"/>
+													 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+												</td>		
+									   	 </tr>		
+								     </table>	
+							    </TD>
+							    </tr>
+							    </table>	
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>
+	  	
+<!--=========================================[[Employee Access I CARD WAREHOUSE ]]================================================== -->  	
+	
+	
+	<!-- <template id="report_employee_access_icard_warehouse">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page" style="background-color:006600;">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+										    		
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="100"/>	
+						    				<p STYLE="color:blue; font-size:50px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>				    				
+						    				<p align="center" STYLE="color:blue; font-size:50px;"><b>Access Card ( For Warehouse &amp; Loading Area )</b> </p>	
+										</TD>
+									</tr>
+						</table>  	
+	  				   <table width="100%">
+					    		<tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+					    			<TD width="30%" ALIGN="left" STYLE="  margin-bottom:0px; margin-top:0px;border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+					    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="300" height="300"/><br/>
+									</TD>
+									<TD width="70%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+										<p style="font-size:70px;color:blue;" align="left"> <B>Card No.</B><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> <B><span t-esc="l.sinid"/> </B> </p>
+										<br/>
+								    <p style="font-size:60px;color:blue;">  <B><span t-esc="l.name"/> </B> </p>
+
+									</TD>
+								</tr>
+						</table> <br/>
+						<table width="100%">    
+					    <tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+						    <td width="100%">
+						    	<p style="font-size:45px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+						    	<p style="font-size:35px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> यह कार्ड केवल वेयरहाउस  व लोडिंग  एरिया में प्रवेश  करने  के लिए अनुमति पास  है |</b> </p>
+								<p style="font-size:35px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+								<p style="font-size:35px;" align="left"><b>(3)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+						    </td>			
+						</tr>
+							<tr width="100%">
+								<td width="100%" align="right">
+									 <img src="/hr_compliance/static/src/Salry_slip_images/mohit3.jpg" width="200" height="70"/> 
+									  <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+								</td>		
+							   </tr>		
+						</table>
+						
+						
+							</TD>			
+						</tr>
+					</table>
+	  	
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>	  	 -->
+
+
+
+<!--                                       ALL CONTRACTOR ICARD REPORT VIEW                -->
+
+<!--          [[ ===================================  Report View Contractor Designco Icard =======================================]]      -->
+
+		<template id="report_contractor_icard_designco">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="100"/>
+						    				<p t-if="l.company_id.name =='Designco'">
+						    				 	<p STYLE="color:black;background-color:yellow; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='Designco Unit-III'">
+                                              	<p STYLE="color:white;background-color:purple; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>  
+                                             <p t-if="l.company_id.name =='Designco Unit-IV'">
+                                              	<p STYLE="color:black;background-color:red; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='DESIGNCO PRIVATE LIMITED'">
+                                              	<p STYLE="color:black;background-color:#D2691E; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+						    				
+						    				<table>  
+							    			    <tr>
+								    			    <td width="60%" ALIGN="left">
+								    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="350px" height="350px"/><br/>
+								    				</td>
+								    				<td width="40%">
+								    					<p style="font-size:90px;color:black; margin-bottom:2px; margin-top:2px"><B><span t-esc="l.sinid"/> </B> </p>
+								    				</td>
+							    				</tr>
+						    				</table>
+										</TD>
+									</tr>
+						</table>
+						<table width="100%" height="100%">	
+									
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Name </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.name"/> </b> </p>
+												</TD>
+										</TR>
+
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Contractor </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.partner_id.name"/> </b> </p>
+												</TD>
+										</TR>
+
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px" > <B>Department</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.department_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+												<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	 <B>D.O.J. </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;margin-bottom:2px; margin-top:2px;"><b><span t-esc="formatLang(l.doj,date=True)"/> </b></p>
+												</TD>
+										</TR>	
+
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Designation  </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="LEFT" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.job_id.name"/></b>  </p>
+												</TD>
+										</TR>
+								
+							    	</table>
+							    	<table width="100%">    
+							    			<tr width="100%" style=" margin-bottom:2px; margin-top:2px;">		
+											    <td width="100%">
+											    	<p style="font-size:30px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+													<p style="font-size:25px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+													<p style="font-size:25px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+											    </td>			
+											</tr>
+									      <tr width="100%">
+												<td width="100%" align="right">
+													 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="70"/>
+													 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+												</td>		
+									   	 </tr>		
+								     </table>	
+							    </TD>
+							    </tr>
+							    </table>	
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>
+
+	<!--  [[ ===================================  Report View Contractor Lohia Icard =======================================]] -->  
+	
+	
+	<template id="report_contractor_icard_lohia">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    	<table width="100%">
+					    		<tr width="100%" >
+					    			<TD width="30%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+					    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="180" height="180"/>
+					    			</TD>
+					    			<TD width="70%" ALIGN="left" STYLE="  margin-bottom:0px; margin-top:0px;border-top:none; border-bottom: none; border-left:none; border-right:none; padding-top: 0.0cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">	
+					    				<p  align="center" STYLE="color:blue; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>		
+					    				<p align="center" STYLE="color:blue; font-size:30px;"><b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>	
+					    				<p align="center" STYLE="color:blue; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+					    			</TD>
+					    			</tr>
+							</table>
+					    	<table width="100%">
+					    		<tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+					    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+					    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="300" height="300"/><br/>
+									</TD>
+							</tr>
+						</table>
+						<table width="100%" height="100%">	
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+											<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+												<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"> <B>ID NO  </B> </p>
+											</TD>
+											<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom:none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:0.4cm; padding-right: 0cm">
+													<p style="font-size:35px;color:blue; margin-bottom:2px; margin-top:2px"><B><span t-esc="l.sinid"/> </B> </p>
+											</TD>
+										</TR>
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Name </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.name"/> </b> </p>
+												</TD>
+										</TR>
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Contractor </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.partner_id.name"/> </b> </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px" > <B>Department</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.department_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+												<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	 <B>D.O.J. </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;margin-bottom:2px; margin-top:2px;"><b><span t-esc="formatLang(l.doj,date=True)"/> </b></p>
+												</TD>
+										</TR>	
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Designation  </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="LEFT" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.job_id.name"/></b>  </p>
+												</TD>
+										</TR>
+									
+							    	</table>
+							    	<table width="100%">    
+							    			<tr width="100%" style=" margin-bottom:2px; margin-top:2px;">		
+											    <td width="100%">
+											    	<p style="font-size:30px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+													<p style="font-size:25px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+													<p style="font-size:25px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+											    </td>			
+											</tr>
+									      <tr width="100%">
+												<td width="100%" align="right">
+													 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="70"/>
+													 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+												</td>		
+									   	 </tr>		
+								     </table>	
+							    	</TD>
+							    	</tr>
+							  </table>
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>
+	  	
+	<!--[[ ===================================  Report View Contractor Packing Icard =======================================]] -->  	
+	  	
+	<template id="report_contractor_access_icard_packing">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page" style="background-color:009900;">
+			    		<table width="100%" >
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="90"/>
+						    				<!-- <p STYLE="color:white; font-size:40px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p> -->
+						    				<p align="center" STYLE="color:white; font-size:40px;"><b>Access Card ( For Packing,Warehouse &amp; Loading Area )</b> </p>	
+										</TD>
+									</tr>
+						</table>  	
+	  				   <table width="100%">
+					    		<tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+					    			<TD width="30%" ALIGN="left" STYLE="  margin-bottom:0px; margin-top:0px;border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+					    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="250" height="250"/><br/>
+									</TD>
+									<TD width="70%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+										<p style="font-size:42px;color:blue;" align="left"> <B>Card No.</B><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> <B><span t-esc="l.sinid"/> </B> </p>
+										<br/>
+								    <p style="font-size:42px;color:blue;">  <B><span t-esc="l.name"/> </B> </p>
+								    <p style="font-size:42px;color:blue;">  <B><span t-esc="l.partner_id.name"/> </B> </p>
+									</TD>
+								</tr>
+						</table> <br/>
+						<table width="100%">    
+					    <tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+						    <td width="100%">
+						    	<p style="font-size:45px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+						    	<p style="font-size:35px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> यह कार्ड केवल पैकिंग,वेयरहाउस  व लोडिंग  एरिया में प्रवेश  करने  के लिए अनुमति पास  है |</b> </p>
+								<p style="font-size:35px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+								<p style="font-size:35px;" align="left"><b>(3)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+						    </td>			
+						</tr>
+							<tr width="100%">
+								<td width="100%" align="right">
+								 <img  src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="70"/> 
+								 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+								</td>		
+							   </tr>		
+						</table>
+							</TD>			
+						</tr>
+					</table>
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>
+	  	
+<!--[[ ===================================  Report View Contractor Paint Icard =======================================]]= -->  	
+	  	
+<template id="report_contractor_access_icard_paint">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page" style="background-color:CC9900;">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="90"/>
+						    				<!-- <p STYLE="color:blue; font-size:40px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p> -->
+						    				<p align="center" STYLE="color:blue; font-size:40px;"><b>Access Card ( For Packing &amp; Paint Area )</b> </p>	
+										</TD>
+									</tr>
+						</table>  	
+	  				   <table width="100%">
+					    		<tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+					    			<TD width="30%" ALIGN="left" STYLE="  margin-bottom:0px; margin-top:0px;border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+					    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="300" height="300"/><br/>
+									</TD>
+									<TD width="70%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+										<p style="font-size:42px;color:blue;" align="left"> <B>Card No.</B><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> <B><span t-esc="l.sinid"/> </B> </p>
+										<br/>
+								    <p style="font-size:42px;color:blue;">  <B><span t-esc="l.name"/> </B> </p>
+									<p style="font-size:42px;color:blue;">  <B><span t-esc="l.partner_id.name"/> </B> </p>
+									</TD>
+								</tr>
+						</table> <br/>
+						<table width="100%">    
+					    <tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+						    <td width="100%">
+						    	<p style="font-size:45px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+						    	<p style="font-size:35px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> यह कार्ड केवल पैकिंग  व  पेंट एरिया में प्रवेश  करने  के लिए अनुमति पास  है |</b> </p>
+								<p style="font-size:35px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+								<p style="font-size:35px;" align="left"><b>(3)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+						    </td>			
+						</tr>
+							<tr width="100%">
+								<td width="100%" align="right">
+									 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="70"/>
+									 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+								</td>		
+							   </tr>		
+						</table>
+							</TD>			
+						</tr>
+					</table>
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>	  	
+	  	
+	  	
+	  	
+<!--[[ ===================================  Report View Contractor Lacquer Icard =======================================]] -->  	
+	  	
+	<template id="report_contractor_access_icard_lacquer">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page" style="background-color:CC9900;">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="90"/>
+						    				<!-- <p STYLE="color:blue; font-size:40px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p> -->
+						    				<p align="center" STYLE="color:blue; font-size:40px;"><b>Access Card ( For Packing &amp; Lacquer Area )</b> </p>	
+										</TD>
+									</tr>
+						</table>  	
+	  				   <table width="100%">
+					    		<tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+					    			<TD width="30%" ALIGN="left" STYLE="  margin-bottom:0px; margin-top:0px;border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+					    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="300" height="300"/><br/>
+									</TD>
+									<TD width="70%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+										<p style="font-size:42px;color:blue;" align="left"> <B>Card No.</B><![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> <B><span t-esc="l.sinid"/> </B> </p>
+										<br/>
+									    <p style="font-size:42px;color:blue;">  <B><span t-esc="l.name"/> </B> </p>
+									    <p style="font-size:42px;color:blue;">  <B><span t-esc="l.partner_id.name"/> </B> </p>
+									</TD>
+								</tr>
+						</table> <br/>
+						<table width="100%">    
+					    <tr width="100%" style=" margin-bottom:0px; margin-top:0px;">		
+						    <td width="100%">
+						    	<p style="font-size:45px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+						    	<p style="font-size:35px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> यह कार्ड केवल पैकिंग  व लैकर  एरिया में प्रवेश  करने  के लिए अनुमति पास  है |</b> </p>
+								<p style="font-size:35px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+								<p style="font-size:35px;" align="left"><b>(3)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+						    </td>			
+						</tr>
+							<tr width="100%">
+								<td width="100%" align="right">
+								 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="70"/> 
+									 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+								</td>		
+							   </tr>		
+						</table>
+							</TD>			
+						</tr>
+					</table>
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>	  	
+
+<!--=========================================[[Contractor Yellow  Designco Icard For Designco Unit ]]================================================== -->
+	
+		<template id="report_contractor_icard_designco_all">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page" style="background-color:ffdb00;">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="100"/>
+						    				<p STYLE="color:blue; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				<p STYLE="color:blue; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				<p STYLE="color:blue; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+						    				<table><tr><td><p></p></td></tr></table>
+						    				<table><tr><td><p></p></td></tr></table>
+						    				<table><tr><td><p></p></td></tr></table>
+						    				<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="300px" height="300px"/><br/>
+										</TD>
+									</tr>
+						</table>
+						<table width="100%" height="100%">	
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+											<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+												<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"> <B>ID NO  </B> </p>
+											</TD>
+											<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom:none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:0.4cm; padding-right: 0cm">
+													<p style="font-size:35px;color:blue; margin-bottom:2px; margin-top:2px"><B><span t-esc="l.sinid"/> </B> </p>
+											</TD>
+										</TR>
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Name </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.name"/> </b> </p>
+												</TD>
+										</TR>
+
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Contractor </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.partner_id.name"/> </b> </p>
+												</TD>
+										</TR>
+
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px" > <B>Department</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.department_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+												<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	 <B>D.O.J. </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;margin-bottom:2px; margin-top:2px;"><b><span t-esc="formatLang(l.doj,date=True)"/> </b></p>
+												</TD>
+										</TR>	
+
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Designation  </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="LEFT" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.job_id.name"/></b>  </p>
+												</TD>
+										</TR>
+								
+							    	</table>
+							    	<table width="100%">    
+							    			<tr width="100%" style=" margin-bottom:2px; margin-top:2px;">		
+											    <td width="100%">
+											    	<p style="font-size:30px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+													<p style="font-size:25px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+													<p style="font-size:25px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+											    </td>			
+											</tr>
+									      <tr width="100%">
+												<td width="100%" align="right">
+													 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="70"/>
+													 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+												</td>		
+									   	 </tr>		
+								     </table>	
+							    </TD>
+							    </tr>
+							    </table>	
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>
+	  	
+
+
+
+<!--=========================================[[ Neem Trainee Icard ]]================================================== -->
+	
+		<template id="report_neem_trainee_icard">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    	<table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				
+						    				<p t-if="l.company_id.name =='Designco'">
+						    				    <p STYLE="color:black;background-color:yellow; font-size:50px; margin-bottom:0px; margin-top:0px;"> <b>NEEM TRAINEE</b></p>
+						    				 	<p STYLE="color:black;background-color:yellow; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='Designco Unit-III'">
+                                                <p STYLE="color:black;background-color:purple; font-size:50px; margin-bottom:0px; margin-top:0px;"> <b>NEEM TRAINEE</b></p>
+                                              	<p STYLE="color:white;background-color:purple; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>  
+                                             <p t-if="l.company_id.name =='Designco Unit-IV'">
+                                                <p STYLE="color:black;background-color:red; font-size:50px; margin-bottom:0px; margin-top:0px;"> <b>NEEM TRAINEE</b></p>
+                                              	<p STYLE="color:black;background-color:red; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='DESIGNCO PRIVATE LIMITED'">
+                                                <p STYLE="color:black;background-color:#D2691E; font-size:50px; margin-bottom:0px; margin-top:0px;"> <b>NEEM TRAINEE</b></p>
+                                              	<p STYLE="color:black;background-color:#D2691E; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+		
+						    			
+						    				<table>  
+							    			    <tr>
+								    			    <td width="60%" ALIGN="left">
+								    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="350px" height="350px"/><br/>
+								    				</td>
+								    				<td width="40%">
+								    					<p style="font-size:90px;color:black; margin-bottom:2px; margin-top:2px"><B><span t-esc="l.sinid"/> </B> </p>
+								    				</td>
+							    				</tr>
+						    				</table>
+										</TD>
+									</tr>
+						</table>
+						<table width="100%" height="100%">	
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Name </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.name"/> </b> </p>
+												</TD>
+										</TR>
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Facilitator </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>AISECT - All India Society For Electronics &amp; Computer Technology</b> </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="40%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>NEEM Coordinator</B> </p>
+												</TD>
+												<TD  width="60%" ALIGN="LEFT" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b>Shree Ganesh HR Solutions</b>  </p>
+												</TD>
+										</TR>
+
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px" > <B>Department</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.department_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+												<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	 <B>D.O.J. </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;margin-bottom:2px; margin-top:2px;"><b><span t-esc="formatLang(l.doj,date=True)"/> </b></p>
+												</TD>
+										</TR>	
+
+										<TR width="100%" style="margin-bottom:0px; margin-top:0px;">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom:3px solid #000000; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Designation</B> </p>
+													
+												</TD>
+												<TD width="85%" ALIGN="LEFT" STYLE="border-top: none; border-bottom:3px solid #000000 ; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;"><b><span t-esc="l.job_id.name"/></b></p>
+														
+												</TD>
+										</TR>
+							    	</table>
+							    	<table width="100%">    
+							    			<tr width="100%" style=" margin-bottom:2px; margin-top:2px;">		
+											    <td width="100%">
+											    	<p style="font-size:30px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+													<p style="font-size:25px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+													<p style="font-size:25px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+											    </td>			
+											</tr>
+									      <tr width="100%">
+												<td width="100%" align="right">
+													 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="40"/>
+													 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+												</td>		
+									   	 </tr>		
+								     </table>	
+							    </TD>
+							    </tr>
+							    </table>	
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>
+	  	
+	  	
+<!-- ==============================================[[  Green Card ]] ======================================================== -->
+	<template id="report_green_access_icard_designco">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="100"/>
+						    				 <p t-if="l.company_id.name =='Designco'">
+						    				 	<p STYLE="color:black;background-color:yellow; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='Designco Unit-III'">
+                                              	<p STYLE="color:white;background-color:purple; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>  
+                                             <p t-if="l.company_id.name =='Designco Unit-IV'">
+                                              	<p STYLE="color:black;background-color:red; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='DESIGNCO PRIVATE LIMITED'">
+                                              	<p STYLE="color:black;background-color:#D2691E; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+						    				
+						    				<table>  
+							    			    <tr>
+								    			    <td width="60%" ALIGN="left">
+								    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="350px" height="350px"/><br/>
+								    				</td>
+								    				<td width="40%">
+								    					<p style="font-size:90px;color:black; margin-bottom:2px; margin-top:2px"><B><span t-esc="l.sinid"/> </B> </p>
+								    				</td>
+							    				</tr>
+						    				</table>
+						    				
+										</TD>
+									</tr>
+						</table>
+						<table width="100%" height="100%">	
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"> <B>NAME :</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.name"/> </b> </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px" > <B>DEPARTMENT:</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.department_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+												<p style="font-size:35px;  margin-bottom:2px; margin-top:2px">	 <B>D.O.J. :</B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:35px;margin-bottom:2px; margin-top:2px;"><b><span t-esc="formatLang(l.doj,date=True)"/> </b></p>
+												</TD>
+										</TR>	
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"> <B>DESIGNATION:</B></p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.job_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										
+							    	</table>
+							    	<table width="100%" style="background-color:#009900;" >    
+						    			<tr width="100%" style=" margin-bottom:2px; margin-top:2px;background-color:#009900;">		
+										    <td width="100%" style="background-color:#009900;">
+										    	<p style="font-size:25px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+										    	<p style="font-size:20px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> यह कार्ड केवल पैकिंग,वेयरहाउस  व लोडिंग  एरिया में प्रवेश  करने  के लिए अनुमति पास  है |</b> </p>
+												<p style="font-size:20px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+												<p style="font-size:20px;" align="left"><b>(3)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+										    </td>			
+										</tr>
+								      <tr width="100%">
+											<td width="100%" align="right">
+												 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="60"/>
+												 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+											</td>		
+								   	 </tr>		
+								</table>
+							    </TD>
+							    </tr>
+							    </table>	
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>
+
+	  <!-- ================================================= [[ ORANGE I CARD ]] ================================= -->	
+	  
+	  <template id="report_orange_access_icard_designco">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="100"/>
+						    				 <p t-if="l.company_id.name =='Designco'">
+						    				 	<p STYLE="color:black;background-color:yellow; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='Designco Unit-III'">
+                                              	<p STYLE="color:white;background-color:purple; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>  
+                                             <p t-if="l.company_id.name =='Designco Unit-IV'">
+                                              	<p STYLE="color:black;background-color:red; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='DESIGNCO PRIVATE LIMITED'">
+                                              	<p STYLE="color:black;background-color:#D2691E; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+						    				<table>  
+							    			    <tr>
+								    			    <td width="60%" ALIGN="left">
+								    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="350px" height="350px"/><br/>
+								    				</td>
+								    				<td width="40%">
+								    					<p style="font-size:90px;color:black; margin-bottom:2px; margin-top:2px"><B><span t-esc="l.sinid"/> </B> </p>
+								    				</td>
+							    				</tr>
+						    				</table>
+						    				
+										</TD>
+									</tr>
+						</table>
+						<table width="100%" height="100%">	
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"> <B>NAME :</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.name"/> </b> </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px" > <B>DEPARTMENT:</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.department_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+												<p style="font-size:35px;  margin-bottom:2px; margin-top:2px">	 <B>D.O.J. :</B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:35px;margin-bottom:2px; margin-top:2px;"><b><span t-esc="formatLang(l.doj,date=True)"/> </b></p>
+												</TD>
+										</TR>	
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"> <B>DESIGNATION:</B></p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:35px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.job_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										
+							    	</table>
+							    	<table width="100%" style="background-color:#FF8C00;">    
+						    			<tr width="100%" style=" margin-bottom:2px; margin-top:2px;background-color:009900;">		
+										    <td width="100%" style="background-color:#FF8C00;">
+										    	<p style="font-size:25px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+										    	<p style="font-size:20px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> यह कार्ड केवल पैकिंग  व  <b><span t-esc="l.department_id.name"/></b>  एरिया में प्रवेश  करने  के लिए अनुमति पास  है |</b> </p>
+												<p style="font-size:20px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+												<p style="font-size:20px;" align="left"><b>(3)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+										    </td>			
+										</tr>
+								      <tr width="100%">
+											<td width="100%" align="right">
+												 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="60"/>
+												 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+											</td>		
+								   	 </tr>		
+								</table>
+							    </TD>
+							    </tr>
+							    </table>	
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>
+	  	
+	  	
+<!--          [[ ===================================  Report View Contractor Green Icard =======================================]]      -->
+
+		<template id="report_contractor_green_access_icard_designco">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="100"/>
+						    				<p t-if="l.company_id.name =='Designco'">
+						    				 	<p STYLE="color:black;background-color:yellow; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='Designco Unit-III'">
+                                              	<p STYLE="color:white;background-color:purple; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>  
+                                             <p t-if="l.company_id.name =='Designco Unit-IV'">
+                                              	<p STYLE="color:black;background-color:red; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='DESIGNCO PRIVATE LIMITED'">
+                                              	<p STYLE="color:black;background-color:#D2691E; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+						    				
+						    				<table>  
+							    			    <tr>
+								    			    <td width="60%" ALIGN="left">
+								    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="350px" height="350px"/><br/>
+								    				</td>
+								    				<td width="40%">
+								    					<p style="font-size:90px;color:black; margin-bottom:2px; margin-top:2px"><B><span t-esc="l.sinid"/> </B> </p>
+								    				</td>
+							    				</tr>
+						    				</table>
+										</TD>
+									</tr>
+						</table>
+						<table width="100%" height="100%">	
+									
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Name </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.name"/> </b> </p>
+												</TD>
+										</TR>
+
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Contractor </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.partner_id.name"/> </b> </p>
+												</TD>
+										</TR>
+
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px" > <B>Department</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.department_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+												<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	 <B>D.O.J. </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;margin-bottom:2px; margin-top:2px;"><b><span t-esc="formatLang(l.doj,date=True)"/> </b></p>
+												</TD>
+										</TR>	
+
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Designation  </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="LEFT" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.job_id.name"/></b>  </p>
+												</TD>
+										</TR>	
+							    	</table>
+							    	<table width="100%" style="background-color:#009900;" >    
+						    			<tr width="100%" style=" margin-bottom:2px; margin-top:2px;background-color:#009900;">		
+										    <td width="100%" style="background-color:#009900;">
+										    	<p style="font-size:25px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+										    	<p style="font-size:20px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> यह कार्ड केवल पैकिंग,वेयरहाउस  व लोडिंग  एरिया में प्रवेश  करने  के लिए अनुमति पास  है |</b> </p>
+												<p style="font-size:20px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+												<p style="font-size:20px;" align="left"><b>(3)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+										    </td>			
+										</tr>
+								      <tr width="100%">
+											<td width="100%" align="right">
+												 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="50"/>
+												 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+											</td>		
+								   	 </tr>		
+								</table>
+							    </TD>
+							    </tr>
+							    </table>	
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>	  
+	  	
+	  	
+	  	<!--          [[ ===================================  Report View Contractor Orange Icard =======================================]]      -->
+
+		<template id="report_contractor_orange_access_icard_designco">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="100"/>
+						    				<p t-if="l.company_id.name =='Designco'">
+						    				 	<p STYLE="color:black;background-color:yellow; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='Designco Unit-III'">
+                                              	<p STYLE="color:white;background-color:purple; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>  
+                                             <p t-if="l.company_id.name =='Designco Unit-IV'">
+                                              	<p STYLE="color:black;background-color:red; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='DESIGNCO PRIVATE LIMITED'">
+                                              	<p STYLE="color:black;background-color:#D2691E; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+						    			
+						    				<table>  
+							    			    <tr>
+								    			    <td width="60%" ALIGN="left">
+								    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="350px" height="350px"/><br/>
+								    				</td>
+								    				<td width="40%">
+								    					<p style="font-size:90px;color:black; margin-bottom:2px; margin-top:2px"><B><span t-esc="l.sinid"/> </B> </p>
+								    				</td>
+							    				</tr>
+						    				</table>
+										</TD>
+									</tr>
+						</table>
+						<table width="100%" height="100%">	
+									
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Name </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.name"/> </b> </p>
+												</TD>
+										</TR>
+
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Contractor </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.partner_id.name"/> </b> </p>
+												</TD>
+										</TR>
+
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px" > <B>Department</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.department_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+												<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	 <B>D.O.J. </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;margin-bottom:2px; margin-top:2px;"><b><span t-esc="formatLang(l.doj,date=True)"/> </b></p>
+												</TD>
+										</TR>	
+
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Designation  </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="LEFT" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.job_id.name"/></b>  </p>
+												</TD>
+										</TR>
+							    	</table>
+							    	<table width="100%" style="background-color:#FF8C00;">    
+						    			<tr width="100%" style=" margin-bottom:2px; margin-top:2px;background-color:009900;">		
+										    <td width="100%" style="background-color:#FF8C00;">
+										    	<p style="font-size:25px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+										    	<p style="font-size:20px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> यह कार्ड केवल पैकिंग  व  <b><span t-esc="l.department_id.name"/></b>  एरिया में प्रवेश  करने  के लिए अनुमति पास  है |</b> </p>
+												<p style="font-size:20px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+												<p style="font-size:20px;" align="left"><b>(3)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+										    </td>			
+										</tr>
+								      <tr width="100%">
+											<td width="100%" align="right">
+												 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="50"/>
+												 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+											</td>		
+								   	 </tr>		
+								</table>
+							    </TD>
+							    </tr>
+							    </table>	
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>	
+	  	
+	  	<!--         [[ ===================================  Report View Neem Green Icard =======================================]]      -->
+
+		<template id="report_neem_green_access_icard_designco">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="100"/>
+						    				<p t-if="l.company_id.name =='Designco'">
+						    				 	<p STYLE="color:black;background-color:yellow; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='Designco Unit-III'">
+                                              	<p STYLE="color:white;background-color:purple; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>  
+                                             <p t-if="l.company_id.name =='Designco Unit-IV'">
+                                              	<p STYLE="color:black;background-color:red; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='DESIGNCO PRIVATE LIMITED'">
+                                              	<p STYLE="color:black;background-color:#D2691E; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+						    				
+						    				<table>  
+							    			    <tr>
+								    			    <td width="60%" ALIGN="left">
+								    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="350px" height="350px"/><br/>
+								    				</td>
+								    				<td width="40%">
+								    					<p style="font-size:90px;color:black; margin-bottom:2px; margin-top:2px"><B><span t-esc="l.sinid"/> </B> </p>
+								    				</td>
+							    				</tr>
+						    				</table>
+										</TD>
+									</tr>
+						</table>
+						<table width="100%" height="100%">	
+									
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Name </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.name"/> </b> </p>
+												</TD>
+										</TR>
+
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Contractor </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.partner_id.name"/> </b> </p>
+												</TD>
+										</TR>
+
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px" > <B>Department</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.department_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+												<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	 <B>D.O.J. </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;margin-bottom:2px; margin-top:2px;"><b><span t-esc="formatLang(l.doj,date=True)"/> </b></p>
+												</TD>
+										</TR>	
+
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Designation  </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="LEFT" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.job_id.name"/></b>  </p>
+												</TD>
+										</TR>	
+							    	</table>
+							    	<table width="100%" style="background-color:#009900;" >    
+						    			<tr width="100%" style=" margin-bottom:2px; margin-top:2px;background-color:#009900;">		
+										    <td width="100%" style="background-color:#009900;">
+										    	<p style="font-size:25px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+										    	<p style="font-size:20px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> यह कार्ड केवल पैकिंग,वेयरहाउस  व लोडिंग  एरिया में प्रवेश  करने  के लिए अनुमति पास  है |</b> </p>
+												<p style="font-size:20px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+												<p style="font-size:20px;" align="left"><b>(3)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+										    </td>			
+										</tr>
+								      <tr width="100%">
+											<td width="100%" align="right">
+												 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="50"/>
+												 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+											</td>		
+								   	 </tr>		
+								</table>
+							    </TD>
+							    </tr>
+							    </table>	
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>	  
+	  	
+	  	
+	  	<!--          [[ ===================================  Report View Neem Orange Icard =======================================]]      -->
+
+		<template id="report_neem_orange_access_icard_designco">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		    <t t-call="report.html_container">
+			   <t t-foreach="docs" t-as="o">
+			    <t t-foreach="o.employee_no" t-as="l">
+			    	<div class="page">
+			    		<table width="100%">
+			    			<tr width="100%">
+		    				<TD WIDTH="100%"  STYLE="border-top: 5px solid #000000; border-bottom: 5px solid #000000; border-left: 5px solid #000000; border-right: 5px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+					    <table width="100%" height="100%" >
+						    		<tr width="100%">
+						    			<TD width="100%" ALIGN="center" STYLE="  margin-bottom:0px; margin-top:0px;border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">		
+						    				<img t-att-src="'data:image/png;base64,%s' % l.company_id.logo" width="600" height="100"/>
+						    				<p t-if="l.company_id.name =='Designco'">
+						    				 	<p STYLE="color:black;background-color:yellow; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:yellow; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='Designco Unit-III'">
+                                              	<p STYLE="color:white;background-color:purple; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:white;background-color:purple; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>  
+                                             <p t-if="l.company_id.name =='Designco Unit-IV'">
+                                              	<p STYLE="color:black;background-color:red; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:red; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+                                             <p t-if="l.company_id.name =='DESIGNCO PRIVATE LIMITED'">
+                                              	<p STYLE="color:black;background-color:#D2691E; font-size:45px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.name"/> </b></p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b><span t-esc="l.company_id.street"/> <span t-esc="l.company_id.city"/>-<span t-esc="l.company_id.zip"/></b> </p>
+						    				    <p STYLE="color:black;background-color:#D2691E; font-size:30px; margin-bottom:0px; margin-top:0px;"> <b> Ph No: <span t-esc="l.company_id.phone"/></b> </p>
+                                             </p>
+						    			
+						    				<table>  
+							    			    <tr>
+								    			    <td width="60%" ALIGN="left">
+								    					<img t-att-src="'data:image/png;base64,%s' % l.image_medium" width="350px" height="350px"/><br/>
+								    				</td>
+								    				<td width="40%">
+								    					<p style="font-size:90px;color:black; margin-bottom:2px; margin-top:2px"><B><span t-esc="l.sinid"/> </B> </p>
+								    				</td>
+							    				</tr>
+						    				</table>
+										</TD>
+									</tr>
+						</table>
+						<table width="100%" height="100%">	
+									
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Name </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.name"/> </b> </p>
+												</TD>
+										</TR>
+
+										<TR width="100%">
+												<TD  width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Contractor </B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b><span t-esc="l.partner_id.name"/> </b> </p>
+												</TD>
+										</TR>
+
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left:1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px" > <B>Department</B> </p>
+												</TD>
+												<TD width="85%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.department_id.name"/></b>  </p>
+												</TD>
+										</TR>
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+												<p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	 <B>D.O.J. </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="left" STYLE="border-top:none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+														<p style="font-size:25px;margin-bottom:2px; margin-top:2px;"><b><span t-esc="formatLang(l.doj,date=True)"/> </b></p>
+												</TD>
+										</TR>	
+
+										<TR width="100%" style=" margin-bottom:0px; margin-top:0px;">
+												<TD width="15%" ALIGN="left" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 1.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"> <B>Designation  </B> </p>
+												</TD>
+												<TD  width="85%" ALIGN="LEFT" STYLE="border-top: none; border-bottom: none; border-left: none; border-right:none; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.4cm; padding-right: 0cm">
+													<p style="font-size:25px;  margin-bottom:2px; margin-top:2px"><b><span t-esc="l.job_id.name"/></b>  </p>
+												</TD>
+										</TR>
+							    	</table>
+							    	<table width="100%" style="background-color:#FF8C00;">    
+						    			<tr width="100%" style=" margin-bottom:2px; margin-top:2px;background-color:009900;">		
+										    <td width="100%" style="background-color:#FF8C00;">
+										    	<p style="font-size:25px;" align="left"><b> <u>आवश्यक निर्देश :- </u> </b> </p>
+										    	<p style="font-size:20px;" align="left"><b>(1)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> यह कार्ड केवल पैकिंग  व  <b><span t-esc="l.department_id.name"/></b>  एरिया में प्रवेश  करने  के लिए अनुमति पास  है |</b> </p>
+												<p style="font-size:20px;" align="left"><b>(2)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> कृप्या  मांगने पर कार्ड दिखाए |    </b> </p>
+												<p style="font-size:20px;" align="left"><b>(3)<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> फ़ैक्टरी  परीसर में कार्ड  पहनना अनिवार्य  है |  </b> </p>
+										    </td>			
+										</tr>
+								      <tr width="100%">
+											<td width="100%" align="right">
+												 <img src="/hr_compliance/static/src/Salry_slip_images/Signature.png" width="200" height="50"/>
+												 <p style="font-size:25px;  margin-bottom:2px; margin-top:2px">	<b>(Auth.Sign) </b> </p>
+											</td>		
+								   	 </tr>		
+								</table>
+							    </TD>
+							    </tr>
+							    </table>	
+			    	</div>   
+			    </t> 
+	    	  </t>
+	   		</t>
+	  	</template>	
+	  	
+
+	   </data>
+</openerp>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="0">
+	    <record id="base.group_compliance_manager" model="res.groups">
+	        <field name="name">Compliance Manager</field>
+	    </record>
+	    
+	    <record id="base.group_compliance_user" model="res.groups">
+	        <field name="name">Compliance User</field>
+	    </record>
+	    
+	    <record id="base.group_compliance_manager_scheduler" model="res.groups">
+	        <field name="name">Compliance Manager Scheduler</field>
+	    </record>
+	</data>
+</openerp>

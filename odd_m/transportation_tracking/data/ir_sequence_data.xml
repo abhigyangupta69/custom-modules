@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+                <!-- ========== Sequences for Precosting ========== -->
+        <record id="seq_transport_master" model="ir.sequence">
+            <field name="name">Transport Master</field>
+            <field name="code">transport.master</field>
+            <field name="prefix">TM-</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

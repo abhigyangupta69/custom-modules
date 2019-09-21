@@ -1,0 +1,5 @@
+<odoo>
+    <data>
+        <menuitem id="menu_dispatch_management" name="EXCEL Button" action="action_excel_button_view1" sequence="1"/>
+    </data>
+</odoo>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_order_form_inherit_sale_demo1" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+			<field name="arch" type="xml">
+                 <xpath expr="//field[@name='payment_term_id']" position="after">
+                     <field name="payment"/>
+                     <field name="payment_records"/>
+        		</xpath>
+            </field>
+        </record>
+
+        <!--Add New Class -->
+
+        <record id="add_new_form_view" model="ir.ui.view">
+            <field name="name">AddNew</field>
+            <field name="model">add.new</field>
+            <field name="arch" type="xml">
+                <form string="Data">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible = "Draft,Done"/>
+                     </header>
+                    <sheet>
+                        <group col="4" colspan="4">
+                            <field name="seq_name" readonly="1"/>
+                            <field name="payment" />
+                            <field name="payment_records" readonly="1"/>
+                            <field name="no_days"/>
+                            <field name="first_date"/>
+                            <field name="add_month"/>
+                            <field name="date_output"/>
+
+
+                            <button string="Confirm" name="action_confirm" type="object" class="oe_highlight" icon="fa-pencil-square-o" />
+                        </group>
+                          <notebook>
+                          <page name="details_are" string="Details Are" >
+                          <field name="pay_role_line">
+                               <tree editable="bottom">
+                                   <field name="name"/>
+                                   <field name="merchant_id" attrs="{'readonly':[('payment_type','=','phonepe')], 'required':[('payment_type','=','paytm')]}"/>
+                                   <field name="payment_type" />
+                                   <field name="mob_no" />
+                                   <field name="payment_date"/>
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                       <field name="name"/>
+                                       <field name="merchant_id"/>
+                                      <field name="payment_type"/>
+                                      <field name="mob_no"/>
+                                      <field name="payment_date"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+
+                        </page>
+                    </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="add_new_tree_view" model="ir.ui.view">
+            <field name="name">AddNew</field>
+            <field name="model">add.new</field>
+            <field name="arch" type="xml">
+                <tree string="AddNew">
+                    <field name="seq_name" readonly="1"/>
+                    <field name="payment"/>
+                    <field name="payment_records"/>
+                    <field name="no_days"/>
+                    <field name="first_date"/>
+                    <field name="add_month"/>
+                    <field name="date_output"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_add_new_view"  model="ir.actions.act_window">
+            <field name="name">ADD NEW</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">add.new</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="add_new_tree_view"/>
+
+        </record>
+
+
+        <!--PayRole class-->
+        <record id="pay_role_form_view" model="ir.ui.view">
+            <field name="name">PayRole</field>
+            <field name="model">pay.role</field>
+            <field name="arch" type="xml">
+                <form string="Data">
+                    <sheet>
+                        <group col="4" colspan="4">
+                            <field name="name"/>
+                            <field name="merchant_id"/>
+                            <field name="payment_type"/>
+                            <field name="mob_no"/>
+                            <field name="payment_date"/>
+                            <field name="partner_id"/>
+
+                        </group>
+
+                        <notebook>
+                          <page string="Details" >
+                          <field name="add_new_id" >
+                               <tree editable="bottom">
+                                    <field name="payment"/>
+                                    <field name="payment_records"/>
+                                    <field name="no_days"/>
+                                   <field name="first_date"/>
+                                   <field name="add_month"/>
+                                   <field name="date_output"/>
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                        <field name="payment"/>
+                                        <field name="payment_records"/>
+                                        <field name="no_days"/>
+                                        <field name="first_date"/>
+                                       <field name="add_month"/>
+                                        <field name="date_output"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+
+                        </page>
+                    </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="pay_role_tree_view" model="ir.ui.view">
+            <field name="name">PayRole</field>
+            <field name="model">pay.role</field>
+            <field name="arch" type="xml">
+                <tree string="AddNew">
+                    <field name="name"/>
+                            <field name="merchant_id"/>
+                            <field name="payment_type"/>
+                            <field name="mob_no"/>
+                            <field name="payment_date"/>
+                            <field name="partner_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_pay_role_view"  model="ir.actions.act_window">
+            <field name="name">Pay Role</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pay.role</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="pay_role_tree_view"/>
+
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+        <report
+			id="action_add_new_view7"
+			string="Print"
+			model="add.new"
+			report_type="qweb-pdf"
+			name="verts_v11_saledemo.report_of_sale_demo"
+			file="verts_v11_saledemo.report_of_sale_demo"
+			print_report_name="Report"
+            />
+	</data>
+</odoo>

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<template id="report_daily_performance_register">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		     <t t-call="report.html_container">
+			    <t t-foreach="docs" t-as="o">
+					<div class="page">
+					 <table width="100%">
+							<TR style="height:5px," width="100%">
+								 <TD WIDTH="100%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 <b> Company Name :<span t-esc="o.company_id.name"/> 
+								  		 				<span t-esc="o.company_id.street"/> </b>
+								  </TD>	
+							</TR>
+							<TR style="height:5px," width="100%">
+								 <TD WIDTH="100%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								  		<b>  Daily Performance Report For Date :<span t-esc="get_date(o.date)"/> </b>
+								  </TD>
+							</TR>
+					  </table>
+					  <table width="100%">
+							<thead>
+							<TR style="height:5px," width="100%">
+								<TD WIDTH="3%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<b>S.No</b>
+							  	</TD>	 
+							  	<TD WIDTH="6%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							   		<b>Paycode</b>
+							  	</TD>	
+							  	<TD WIDTH="6%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Card No</b>
+							  	</TD>	
+							  	<TD WIDTH="15%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Employee Name</b>
+							  	</TD>	
+							  	<TD WIDTH="11%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Department</b>
+							  	</TD>	
+							  	<TD WIDTH="9%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Designation</b>
+							  	</TD>	
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Shift</b>
+							  	</TD>	
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<b>Start Time</b>
+							    </TD>
+							    <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Finish Time</b>
+							    </TD>
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>In Time</b>
+							  	</TD>	
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Out Time</b>
+							  	</TD>	
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Hrs Work</b>
+							  	</TD>
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							   		<b>Status</b>
+							  	</TD>
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Early Arriv (min)</b>
+							  	</TD>
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Late Arriv (min)</b>
+							  	</TD>
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>OT (Hours)</b>
+							  	</TD>
+							</TR>
+							</thead>
+							<tbody>
+							<t t-foreach="get_data(o.date,o.company_id,o.department_id,o.status)" t-as="line">  
+							<TR style="height:5px," width="100%">
+							 	<TD WIDTH="3%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								  <span t-esc="get_sequence()"/> 
+								  </TD>	 
+								  <TD WIDTH="6%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								    <span t-esc="line[0]"/> 
+								  </TD>	
+								  <TD WIDTH="6%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								   <span t-esc="line[1]"/> 
+								  </TD>	
+								  <TD WIDTH="15%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								   <span t-esc="line[2][0:15]"/> 
+								   <br/>
+								   <span t-esc="line[2][15:30]"/> 
+								  </TD>	
+								  <TD WIDTH="11%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								   <span t-esc="line[3][0:10]"/> 
+								   <br/>
+								   <span t-esc="line[3][10:20]"/>
+								  </TD>	
+								  <TD WIDTH="9%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								   <span t-esc="line[4][0:10]"/>
+								   <br/>
+								   <span t-esc="line[4][10:20]"/>
+								  </TD>	
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<span t-esc="line[5]"/>
+								  </TD>	
+								   <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<span t-esc="line[6]"/>
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<span t-esc="line[7]"/>
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								   <span t-esc="line[8]"/> 
+								  </TD>	
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								  	 <span t-esc="line[9]"/>
+								  </TD>	
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								   <span t-esc="line[10]"/> 
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 <b>  <span t-esc="line[11]"/>  </b>
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<span t-esc="line[12]"/>
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								     <span t-esc="line[13]"/> 
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								     <span t-esc="line[14]"/>
+								  </TD>
+							</TR>
+				  	</t>
+				  	</tbody>
+				  	</table>				
+				</div>
+				</t>
+			</t>
+		</template>
+		
+		
+									<!--	Template for Daily Performance Register Contractor Report	-->
+									
+		<template id="report_daily_performance_register_contractor">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+		     <t t-call="report.html_container">
+			    <t t-foreach="docs" t-as="o">
+					<div class="page">
+					 <table width="100%">
+							<TR style="height:5px," width="100%">
+								 <TD WIDTH="100%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 <b> Contractor Name :<span t-esc="o.partner_id.name"/> 
+								  		 				<span t-esc="o.partner_id.street"/> </b>
+								  </TD>	
+							</TR>
+							<TR style="height:5px," width="100%">
+								 <TD WIDTH="100%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								  		<b>  Daily Performance Report For Date :<span t-esc="get_date(o.date)"/> </b>
+								  </TD>
+							</TR>
+					  </table>
+					  <table width="100%">
+							<thead>
+							<TR style="height:5px," width="100%">
+								<TD WIDTH="3%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<b>S.No</b>
+							  	</TD>	 
+							  	<TD WIDTH="6%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							   		<b>Paycode</b>
+							  	</TD>	
+							  	<TD WIDTH="6%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Card No</b>
+							  	</TD>	
+							  	<TD WIDTH="15%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Employee Name</b>
+							  	</TD>	
+							  	<TD WIDTH="11%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Department</b>
+							  	</TD>	
+							  	<TD WIDTH="9%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Designation</b>
+							  	</TD>	
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Shift</b>
+							  	</TD>	
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<b>Start Time</b>
+							    </TD>
+							    <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Finish Time</b>
+							    </TD>
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>In Time</b>
+							  	</TD>	
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Out Time</b>
+							  	</TD>	
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Hrs Work</b>
+							  	</TD>
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							   		<b>Status</b>
+							  	</TD>
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Early Arriv (min)</b>
+							  	</TD>
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>Late Arriv (min)</b>
+							  	</TD>
+							  	<TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							    	<b>OT (Hours)</b>
+							  	</TD>
+							</TR>
+							</thead>
+							<tbody>
+							<t t-foreach="get_data(o.date,o.employee_id,o.status,o.partner_id)" t-as="line">  
+							<TR style="height:5px," width="100%">
+							 	<TD WIDTH="3%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								  <span t-esc="get_sequence()"/> 
+								  </TD>	 
+								  <TD WIDTH="6%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								    <span t-esc="line[0]"/> 
+								  </TD>	
+								  <TD WIDTH="6%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								   <span t-esc="line[1]"/> 
+								  </TD>	
+								  <TD WIDTH="15%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								   <span t-esc="line[2][0:15]"/> 
+								   <br/>
+								   <span t-esc="line[2][15:30]"/> 
+								  </TD>	
+								  <TD WIDTH="11%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								   <span t-esc="line[3][0:10]"/> 
+								   <br/>
+								   <span t-esc="line[3][10:20]"/>
+								  </TD>	
+								  <TD WIDTH="9%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								   <span t-esc="line[4][0:10]"/>
+								   <br/>
+								   <span t-esc="line[4][10:20]"/>
+								  </TD>	
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<span t-esc="line[5]"/>
+								  </TD>	
+								   <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<span t-esc="line[6]"/>
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<span t-esc="line[7]"/>
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								   <span t-esc="line[8]"/> 
+								  </TD>	
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								  	 <span t-esc="line[9]"/>
+								  </TD>	
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								   <span t-esc="line[10]"/> 
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								 <b>  <span t-esc="line[11]"/>  </b>
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<span t-esc="line[12]"/>
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								     <span t-esc="line[13]"/> 
+								  </TD>
+								  <TD WIDTH="5%" ALIGN= "CENTER" STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								     <span t-esc="line[14]"/>
+								  </TD>
+							</TR>
+				  	</t>
+				  	</tbody>
+				  	</table>				
+				</div>
+				</t>
+			</t>
+		</template>
+		
+ </data>
+</openerp>	

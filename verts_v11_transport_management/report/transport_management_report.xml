@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+        <report
+			id="action_report_vehicle_request"
+			string="Vehicle Request Report"
+			model="requests"
+			report_type="qweb-pdf"
+			name="verts_v11_transport_management.report_of_vehiclerequest"
+			file="verts_v11_transport_management.report_of_vehiclerequest"
+            />
+    </data>
+</odoo>
+

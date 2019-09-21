@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+	
+<!-- =================== [[  Employee Reports ]] ====================--> 	
+
+		<report id="form11_report_id" string="Form11"
+            model="wiz.employee.compliance" report_type="qweb-pdf"
+            name="hr_compliance.report_employee_form11"
+            file="hr_compliance.report_employee_form11"
+            menu="False"/>		
+		
+         <report id="bond_report_id" string="Bond"
+            model="wiz.employee.compliance" report_type="qweb-pdf"
+            name="hr_compliance.report_employee_bond" 
+            file="hr_compliance.report_employee_bond"
+            menu="False" />
+   
+   		<report id="induction_report_id" string="Induction"
+            model="wiz.employee.compliance" report_type="qweb-pdf"
+            name="hr_compliance.report_employee_induction"
+            file = "hr_compliance.report_employee_induction"
+            menu="False"/>
+            
+        <report id="medical_report_id" string="Medical Certificate"
+        	model="wiz.employee.compliance" report_type="qweb-pdf"
+          	name="hr_compliance.report_employee_medical"
+        	file="hr_compliance.report_employee_medical"
+        	menu="False"/>
+   		
+   		<report id="conf_letter_report_id" string="Confirmation Letter"
+            model="wiz.employee.compliance" report_type="qweb-pdf"
+            name="hr_compliance.report_confirmation_letter"
+            file ="hr_compliance.report_confirmation_letter"
+            menu="False"/>
+            
+		<report id="appointment_letter_report_id" string="Appointment Letter"
+            model="wiz.employee.compliance" report_type="qweb-pdf"
+            name="hr_compliance.report_appointment_letter"
+            file="hr_compliance.report_appointment_letter"
+            menu="False"/> 
+         
+		<report id="pf_nomination_form_report_id" string="Nomination Form"
+            model="wiz.employee.compliance" report_type="qweb-pdf"
+            name="hr_compliance.report_pf_nomination_form"
+            file="hr_compliance.report_pf_nomination_form"
+            menu="False"/> 
+
+        <report id="all_master_report_id" string=" All Reports OF Employee"
+          model="wiz.employee.compliance" report_type="qweb-pdf"
+          name="hr_compliance.report_employee_master_report"
+          file="hr_compliance.report_employee_master_report"
+          menu="False"/>   
+          
+        <report id="employee_affedavit_report" string=" Employee Affedavit"
+          model="wiz.employee.compliance" report_type="qweb-pdf"
+          name="hr_compliance.report_affedavit"
+          file="hr_compliance.report_affedavit"
+          menu="False"/>  
+
+	    <report id="employee_transfer_letter_report_id" string="Employee Transfer"
+           model="wiz.employee.compliance" report_type="qweb-pdf"
+           name="hr_compliance.report_employee_transfer_letter"
+           file ="hr_compliance.report_employee_transfer_letter"
+           menu="False"/>   
+		            
+		<report id="employee_promotion_report_id" string="Employee Promotion "
+           model="wiz.employee.compliance" report_type="qweb-pdf"
+           name="hr_compliance.report_employee_promotion"
+           file ="hr_compliance.report_employee_promotion"
+           menu="False"/>          
+
+		<report id="employee_service_record_report_id" string="Employee Service Record"
+           model="wiz.employee.compliance" report_type="qweb-pdf"
+           name="hr_compliance.report_employee_service_record"
+           file="hr_compliance.report_employee_service_record"
+           menu="False"/>          
+
+  		<report id="employee_fire_training_id" string="Employee Fire Training"
+            model="wiz.employee.compliance" report_type="qweb-pdf"
+            name="hr_compliance.report_employee_fire_training"
+            file ="hr_compliance.report_employee_fire_training"
+            menu="False"/>
+          
+<!-- =================           [[ Employee Pf Reports ]]     ========================= -->   
+
+          <report id="final_employee_details_id" string="Employee FnF Details"
+            model="wiz.employee.pf.form" report_type="qweb-pdf"
+            name="hr_compliance.report_employee_details"
+            file ="hr_compliance.report_employee_details"
+            menu="False"  />   
+            
+          <report id="employee_pf_form19_form10_id" string="Employee PF Forms "
+            model="wiz.employee.pf.form" report_type="qweb-pdf"
+            name="hr_compliance.report_employee_pf_form19_form10"
+            file ="hr_compliance.report_employee_pf_form19_form10"
+            menu="False"  />
+            
+            <report id="wiz_employee_form15g_report_id" string="Form No. 15G"
+            model="wiz.employee.pf.form" report_type="qweb-pdf"
+            name="hr_compliance.report_employee_form15g_report"
+            file ="hr_compliance.report_employee_form15g_report"
+            menu="False"  /> 
+
+  		<report id="employee_salary_certificate_id" string="Employee Salary Certificate"
+            model="wiz.employee.pf.form" report_type="qweb-pdf"
+            name="hr_compliance.report_employee_salary_certificate"
+            file ="hr_compliance.report_employee_salary_certificate"
+            menu="False"  />
+            
+            
+  		<report id="employee_salary_exp_certificate_id" string="Employee Salary Exp Certificate"
+            model="wiz.employee.pf.form" report_type="qweb-pdf"
+            name="hr_compliance.report_employee_salary_exp_certificate"
+            file ="hr_compliance.report_employee_salary_exp_certificate"
+            menu="False"  />            
+            
+          <report id="employee_joint_declaration_form_id" string="Employee Joint Declaration Form"
+            model="wiz.employee.pf.form" report_type="qweb-pdf"
+            name="hr_compliance.report_employee_joint_declaration_form"
+            file="hr_compliance.report_employee_joint_declaration_form"
+            menu="False"  />
+            
+   <!-- =================== [[  Employee Leave Application Reports ]] ====================--> 	        
+            
+   <report id="emp_leave_app_id" string="Employee Leave Application "
+           model="hr.holidays" report_type="qweb-pdf"
+           name="hr_compliance.report_employee_leave_application"
+           file ="hr_compliance.report_employee_leave_application"
+           menu="True"/>                 
+
+
+
+
+
+
+<!-- =================== [[  Contractor Reports View Start ]] ====================--> 	
+
+
+
+ 
+<!-- =================== [[  Contractor Reports ]] ====================--> 	
+            
+        <report id="all_contractor_master_report_id" string=" All Reports OF Contractor"
+          model="wiz.contractor.compliance" report_type="qweb-pdf"
+          name="hr_compliance.report_contractor_master_report"
+          file="hr_compliance.report_contractor_master_report"
+          menu="False"/>   
+            
+		<report id="contractor_promotion_report_id" string="Contractor Promotion "
+           model="wiz.contractor.compliance" report_type="qweb-pdf"
+           name="hr_compliance.report_contractor_promotion"
+           file="hr_compliance.report_contractor_promotion"
+           menu="False"/>          
+
+        <report id="contractor_medical_report_id" string="Contractor Medical Certificate"
+        	model="wiz.contractor.compliance" report_type="qweb-pdf"
+          	name="hr_compliance.contractor_medical_report"
+        	file="hr_compliance.contractor_medical_report"
+        	menu="False"/>
+
+   		<report id="contractor_confirmation_letter_report_id" string="Contractor Confirmation Letter"
+            model="wiz.contractor.compliance" report_type="qweb-pdf"
+            name="hr_compliance.report_contractor_confirmation_letter"
+            file ="hr_compliance.report_contractor_confirmation_letter"
+            menu="False"/>
+
+        <report id="contractor_affedavit_report_id" string=" Contractor Affedavit"
+          model="wiz.contractor.compliance" report_type="qweb-pdf"
+          name="hr_compliance.report_contractor_affedavit"
+          file="hr_compliance.report_contractor_affedavit"
+          menu="False"/>  
+
+   		<report id="contractor_induction_report_id" string="Contractor Induction"
+            model="wiz.contractor.compliance" report_type="qweb-pdf"
+            name="hr_compliance.report_contractor_induction"
+            file="hr_compliance.report_contractor_induction"
+            menu="False"/>
+
+         <report id="contractor_bond_report_id" string="Contractor Bond"
+            model="wiz.contractor.compliance" report_type="qweb-pdf"
+            name="hr_compliance.report_contractor_bond" 
+            file="hr_compliance.report_contractor_bond"
+            menu="False" />
+
+		<report id="contractor_service_record_report_id" string="Contractor Service Record"
+           model="wiz.contractor.compliance" report_type="qweb-pdf"
+           name="hr_compliance.report_contractor_service_record"
+           file="hr_compliance.report_contractor_service_record"
+           menu="False"/>          
+
+		<report id="contractor_form11_report_id" string="Contractor Form11"
+            model="wiz.contractor.compliance" report_type="qweb-pdf"
+            name="hr_compliance.report_contractor_form11"
+            file="hr_compliance.report_contractor_form11"
+            menu="False"/>		
+
+  		<report id="contractor_fire_training_id" string="Contractor Fire Training"
+            model="wiz.contractor.compliance" report_type="qweb-pdf"
+            name="hr_compliance.report_contractor_fire_training"
+            file="hr_compliance.report_contractor_fire_training"
+            menu="False"/>
+
+		<report id="contractor_appointment_letter_report_id" string="Contractor Appointment Letter"
+            model="wiz.contractor.compliance" report_type="qweb-pdf"
+            name="hr_compliance.report_contractor_appointment_letter"
+            file="hr_compliance.report_contractor_appointment_letter"
+            menu="False"/> 
+         
+		<report id="contractor_pf_nomination_form_report_id" string="Contractor Nomination Form"
+            model="wiz.contractor.compliance" report_type="qweb-pdf"
+            name="hr_compliance.report_contractor_pf_nomination_form"
+            file="hr_compliance.report_contractor_pf_nomination_form"
+            menu="False"/> 
+            
+            
+         <report id="contractor_transfer_letter_report_id" string="Contractor Transfer"
+           model="wiz.contractor.compliance" report_type="qweb-pdf"
+           name="hr_compliance.report_contractor_transfer_letter"
+           file ="hr_compliance.report_contractor_transfer_letter"
+           menu="False"/>
+            
+<!-- =================           [[ Contractor PF Reports ]]     ========================= -->   
+
+          <report id="full_final_contractor_detail_id" string="Contractor FnF Details"
+            model="wiz.contractor.pf.form" report_type="qweb-pdf"
+            name="hr_compliance.report_contractor_details"
+            file ="hr_compliance.report_contractor_details"
+            menu="False"  />   
+            
+          <report id="contractor_pf_form19_form10_id" string="Contractor PF Forms "
+            model="wiz.contractor.pf.form" report_type="qweb-pdf"
+            name="hr_compliance.report_contractor_pf_form19_form10"
+            file ="hr_compliance.report_contractor_pf_form19_form10"
+            menu="False"  /> 
+            
+          <report id="wiz_contractor_form15g_report_id" string="Form No. 15G"
+            model="wiz.contractor.pf.form" report_type="qweb-pdf"
+            name="hr_compliance.report_contractor_form15g_report"
+            file ="hr_compliance.report_contractor_form15g_report"
+            menu="False"  />    
+        
+          <report id="contractor_joint_declaration_form_id" string="Contractor Joint Declaration Form"
+            model="wiz.contractor.pf.form" report_type="qweb-pdf"
+            name="hr_compliance.report_contractor_joint_declaration_form"
+            file="hr_compliance.report_contractor_joint_declaration_form"
+            menu="False"  />
+            
+            
+ <!-- =============================== [[ All Reports Of Neem Trainee ]] ====================================--> 
+ 
+ <report id="all_neem_trainee_master_report_id" string=" All Reports OF Neem Trainee "
+          model="wiz.contractor.compliance" report_type="qweb-pdf"
+          name="hr_compliance.report_neem_trainee_master_report"
+          file="hr_compliance.report_neem_trainee_master_report"
+          menu="False"/>          
+       
+
+	</data>
+</openerp>

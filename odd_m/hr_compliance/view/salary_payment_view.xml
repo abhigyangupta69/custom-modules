@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+                           <!--	Employee Payment View	-->
+                           
+		<record id="salary_payment_tree_view" model="ir.ui.view">
+				<field name="name">salary.payment.tree</field>
+				<field name="model">salary.payment</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+				<tree string="Salary">
+					<field name="name" />
+					<field name="salary_type" />
+					<field name="month" />
+					<field name="year_id" />
+				</tree>
+				</field>
+			</record>
+			
+			<record id="salary_payment_form_view" model="ir.ui.view">
+				<field name="name">salary.payment.form</field>
+				<field name="model">salary.payment</field>
+				<field name="type">form</field>
+				<field name="arch" type="xml">
+				<form string="Salary">
+					<sheet>
+							<group col="4" colspan="4">
+								<field name="name" invisible="1"/>
+								<field name="month" on_change="onchange_month(month)"/>
+								<field name="year_id" invisible="1"/>
+								<field name="user_id" invisible="1"/>
+								<field name="salary_type"/>
+								<field name="employee_id" string='Name'/>
+								<field name="company_id" attrs="{'readonly':[('user_id','in',(28,10,12,14,16,18,20,22,26,24))]}"/>
+								<field name="manual_sheet"/>
+								<field name="employment_type"/>
+								<field name="type" invisible="1"/>
+							</group>
+							<group col="4" colspan="4">
+								<button string="Calculate Salary" name="calculate_payment" type="object" icon="gtk-go-forward" confirm="--------REMEMBER TO POST LEAVES,ADD DEDUCTIONS BEFORE SALARY COMPUTATION----------"/>
+								<button string="Process Salary" name="get_paid_salary" type="object" icon="gtk-go-forward"/>
+<!--								<button string="Print Salary" name="%(wiz_salary_form_action)d" type="action" icon="gtk-go-forward"/>-->
+								<button string="Pay Loan EMI" name="calculate_loan_balance" type="object" icon="gtk-go-forward"/>
+							</group>
+							<field name="salary_payment_line" mode="tree" nolabel="1" colspan="4">
+								<tree string="Salary Line" editable="bottom">
+									<field name="employee_id" string='Name'/>
+									<field name="department_id" invisible="1"/>
+									<field name="job_id" invisible="1"/>
+									<field name="basic" sum="basic" string='Basic'/>
+									<field name="days" sum="days"/>
+									<field name="days_amount" sum="days_amount" string='Gross Amt'/>
+									<field name="over_time" sum="over_time"/>
+									<field name="overtime_amount" sum="overtime_amount"/>
+									<field name="holiday_leave" invisible="1"/>
+									<field name="sun_over_time" sum="sun_over_time"/>
+									<field name="sun_overtime_amount" sum="sun_overtime_amount"/>
+									<field name="factory_work" invisible="1"/>
+									<field name="casual_leave" invisible="1"/>
+									<field name="sick_leave" invisible="1"/>
+									<field name="compensatory_leave" invisible="1"/>
+									<field name="earned_leave" invisible="1"/>
+									<field name="week_leave" invisible="1"/>
+									<field name="total_amount" sum="total_amount"/>
+									<field name="epf" sum="epf"/>
+									<field name="epf1" sum="epf1" invisible="1"/>
+									<field name="epf2" sum="epf2" invisible="1"/>
+									<field name="esi" sum="esi"/> 
+									<field name="vpf" sum="vpf" invisible="1"/> 
+									<field name="kharcha" invisible="1"/>
+									<field name="tds" invisible="1"/>
+									<field name="grand_total" sum="grand_total"/>
+									<field name="rnd_grand_total" sum="rnd_grand_total" invisible="1"/>
+									<field name="month_days" invisible="1"/>
+									<field name="work_day" invisible="1"/>
+									<field name="gross" invisible="1"/>
+								</tree>
+							</field>
+							<field name="salary_payment_line_manual" mode="tree" nolabel="1" colspan="4" attrs="{'invisible':[('manual_sheet','=',False)]}">
+								<tree string="Salary Line Manual" editable="bottom">
+									<field name="employee_id" string='Name'/>
+									<field name="days" sum="days"/>
+									<field name="sunday_ot" sum="over_time"/>
+									<field name="working_ot" sum="overtime_amount" />
+									<field name="month" invisible="1"/>
+									<field name="year_id" invisible="1"/>
+									<field name="salary_type" invisible="1"/>
+								</tree>
+							</field>
+						</sheet>
+					</form>
+				</field>
+			</record>
+			
+			<record id="salary_payment_action" model="ir.actions.act_window">
+		   		<field name="name">Employee Payment</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">salary.payment</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="salary_payment_tree_view"/> 
+	            <field name="domain">[]</field>   
+            </record>
+            
+	   		<menuitem id="salary_payment_menu1" parent="hr.menu_hr_root" name="Salary Payment"  sequence="4"/>
+	   		<menuitem id="salary_payment_menu" parent="salary_payment_menu1" name="Salary Payment"  sequence="4"/>
+	   		<menuitem id="sub_salary_payment_menu" parent="salary_payment_menu" name="Salary Payment" action="salary_payment_action" sequence="1"/>
+
+                              <!--	Employee payment line view		-->
+                              
+			<record id="salary_payment_line_search_view" model="ir.ui.view">
+				<field name="name">salary.payment.line.search</field>
+				<field name="model">salary.payment.line</field>
+				<field name="type">search</field>
+				<field name="arch" type="xml">
+				<search string="Salary">
+					
+					<filter string="January" name="January" icon="terp-personal" domain="[('month','=','1')]"  help="January Payment"/>
+					<filter string="February" name="February" icon="terp-personal" domain="[('month','=','2')]"  help="February Payment"/>
+					<filter string="March" name="March" icon="terp-personal" domain="[('month','=','3')]"  help="March Payment"/>
+					<filter string="April" name="April" icon="terp-personal" domain="[('month','=','4')]"  help="April Payment"/>
+					<filter string="May" name="May" icon="terp-personal" domain="[('month','=','5')]"  help="May Payment"/>
+					<filter string="June" name="June" icon="terp-personal" domain="[('month','=','6')]"  help="June Payment"/>
+					<filter string="July" name="July" icon="terp-personal" domain="[('month','=','7')]"  help="July Payment"/>
+					<filter string="August" name="August" icon="terp-personal" domain="[('month','=','8')]"  help="August Payment"/>
+					<filter string="September" name="September" icon="terp-personal" domain="[('month','=','9')]" help="September Payment"/>
+					<filter string="October" name="October" icon="terp-personal" domain="[('month','=','10')]" help="October Payment"/>
+					<filter string="November" name="November" icon="terp-personal" domain="[('month','=','11')]" help="November Payment"/>
+					<filter string="December" name="December" icon="terp-personal" domain="[('month','=','12')]" help="December Payment"/>
+					<newline/>
+					<field name="employee_id" string='Name'/>
+					<field name="month" />
+					<field name="year_id" />
+					<field name="department_id" widget="selection" operator="child_of"/>
+					<field name="state" />
+					<newline/>
+				    <field name="salary_type"/>
+					<newline/>
+					 <group expand="0" string="Group By...">
+                        <filter string="Name" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Month" name="month" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'month'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Year" name="year_id" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'year_id'}"/>
+                      	<separator orientation="vertical"/>
+                        <filter string="State" name="state" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'state'}"/>
+                        
+                    </group>
+					
+				</search>
+				</field>
+			</record>
+
+	   		<record id="salary_payment_line_tree_view" model="ir.ui.view">
+				<field name="name">salary.payment.line.tree</field>
+				<field name="model">salary.payment.line</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+				<tree string="Salary" editable="top" colors="green:state == 'Paid';">
+					<field name="month" invisible="1"/>
+					<field name="year_id" invisible="1"/>
+					<field name="employee_id" string='Name'/>
+					<field name="employee_name" invisible="1"/>
+					<field name="sinid" invisible="1"/>
+					<field name="department_id" invisible="1"/>
+					<field name="department_name" invisible="1"/>
+					<field name="job_id" invisible="1"/>
+					<field name="job_name" invisible="1"/>
+					<field name="basic" sum="basic" string='Basic + DA'/>
+					<field name="other_salary" sum="other_salary"/>
+           			<field name="hra" sum="hra" invisible="1"/>
+           			<field name="conveyance" sum="conveyance" invisible="1"/>
+           			<field name="medical" sum="medical" invisible="1"/>
+           			<field name="special_allowance" sum="special_allowance" invisible="1"/>
+					<field name="holiday_leave"/>
+					<field name="week_leave"/>
+					<field name="factory_work"/>
+					<field name="casual_leave"/>
+					<field name="sick_leave"/>
+					<field name="compensatory_leave"/>
+					<field name="earned_leave"/>
+					<field name="days" sum="days"/>
+					<field name="days_amount" sum="days_amount" string='Basic+DA Amt.'/>
+					<field name="other_salary_amount" sum="other_salary_amount"/>
+           			<field name="hra_amount" sum="hra_amount" invisible="1"/>
+           			<field name="conveyance_amount" sum="conveyance_amount" invisible="1"/>
+           			<field name="medical_amount" sum="medical_amount" invisible="1"/>
+           			<field name="special_allowance_amount" sum="special_allowance_amount" invisible="1"/>
+					<field name="over_time" sum="over_time"/>
+					<field name="overtime_amount" sum="overtime_amount"/>
+					<field name="sun_over_time" sum="sun_over_time"/>
+					<field name="sun_overtime_amount" sum="sun_overtime_amount"/>
+					<field name="total_over_time" sum="total_over_time"/>
+					<field name="total_work_time" sum="total_work_time" invisible="1"/>
+					<field name="complete_work_time" sum="complete_work_time" invisible="1"/>
+					<field name="total_amount" sum="total_amount" />
+					<field name="epf" sum="epf"/>
+					<field name="epf1" sum="epf1" invisible="1"/>
+					<field name="epf2" sum="epf2" invisible="1"/>
+					<field name="total_amounts" invisible="1"/>
+					<field name="esi" sum="esi"/>
+					<field name="tds" sum="tds"/>
+					<field name="vpf" sum="vpf"/> 
+					<field name="pro_tax_amt" sum="pro_tax_amt" invisible="1"/>
+					<field name="kharcha" sum="advance"/>
+					<field name="current_loan" sum="current_loan"/>
+					<field name="loan" sum="loan"/>
+					<field name="grand_total" sum="grand_total"/>
+					<field name="rnd_grand_total" sum="rnd_grand_total" invisible="1"/>
+					<field name="state" invisible="1"/>
+					<field name="salary_type" invisible="1"/>
+					<field name="month_days" invisible="1"/>
+					<field name="work_day" invisible="1"/>
+					<field name="gross" invisible="1"/>
+					<field name="type" readonly="1"/>
+				</tree>
+				</field>
+			</record>
+			
+			
+			<record id="salary_payment_line_form_view" model="ir.ui.view">
+				<field name="name">salary.payment.line.form</field>
+				<field name="model">salary.payment.line</field>
+				<field name="type">form</field>
+				<field name="arch" type="xml">
+				<form string="Salary">
+					<field name="month" invisible="1" select="1"/>
+					<field name="year_id" invisible="1" select="1"/>
+					<field name="employee_id" select="1" string='Name'/>
+					<field name="department_id" invisible="1" select="1"/>
+					<field name="basic" sum="basic" invisible="1" string='Basic'/>
+					<field name="days" sum="days"/>
+					<field name="days_amount" sum="days_amount" string='Gross Amt'/>
+					<field name="over_time" sum="over_time"/>
+					<field name="overtime_amount" sum="overtime_amount"/>
+					<field name="total_amount" sum="total_amount"/>
+					<field name="kharcha" sum="advance"/>
+					<field name="tds" sum="tds"/>
+					<field name="grand_total" sum="grand_total"/>
+				</form>
+				</field>
+			</record>
+
+			<record id="salary_payment_line_action" model="ir.actions.act_window">
+		   		<field name="name">Employee Payment Line</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">salary.payment.line</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="salary_payment_line_tree_view"/>
+                <field name="domain">[('type','=','Employee')]</field>  
+            </record>
+            <menuitem id="salary_payment_line_sub_menu" parent="salary_payment_menu" name="Salary Payment Line" action="salary_payment_line_action" sequence="4"/>
+	   		
+	   		
+			<record id="salary_payment_line_action_contractor" model="ir.actions.act_window">
+		   		<field name="name">Contractor Payment Line</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">salary.payment.line</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="salary_payment_line_tree_view"/>
+                <field name="domain">[('type','=','Contractor')]</field>  
+            </record>
+ 
+ 	   		<menuitem id="salary_payment_menu_contractor" parent="menu_view_employee_form_contarctor" name="Salary Payment"  sequence="4"/>
+	   		<menuitem id="salary_payment_sub_menu_contractor" parent="salary_payment_menu_contractor" name="Salary Payment"  sequence="1"/>
+            <menuitem id="salary_payment_sub_sub_menu_contractor" parent="salary_payment_sub_menu_contractor" name="Salary Payment Line" action="salary_payment_line_action_contractor" sequence="1"/>
+	   		
+                          <!--	Employee Kharcha view	-->
+      
+      	   <record id="payment_mgmt_advance_search_view" model="ir.ui.view">
+				<field name="name">payment.management.search</field>
+				<field name="model">payment.management.advance</field>
+				<field name="type">search</field>
+				<field name="arch" type="xml">
+				<search string="Salary">
+					<filter string="January" name="January" icon="terp-personal" domain="[('month','=','1')]"  help="January Payment"/>
+					<filter string="February" name="February" icon="terp-personal" domain="[('month','=','2')]"  help="February Payment"/>
+					<filter string="March" name="March" icon="terp-personal" domain="[('month','=','3')]"  help="March Payment"/>
+					<filter string="April" name="April" icon="terp-personal" domain="[('month','=','4')]"  help="April Payment"/>
+					<filter string="May" name="May" icon="terp-personal" domain="[('month','=','5')]"  help="May Payment"/>
+					<filter string="June" name="June" icon="terp-personal" domain="[('month','=','6')]"  help="June Payment"/>
+					<filter string="July" name="July" icon="terp-personal" domain="[('month','=','7')]"  help="July Payment"/>
+					<filter string="August" name="August" icon="terp-personal" domain="[('month','=','8')]"  help="August Payment"/>
+					<filter string="September" name="September" icon="terp-personal" domain="[('month','=','9')]" help="September Payment"/>
+					<filter string="October" name="October" icon="terp-personal" domain="[('month','=','10')]" help="October Payment"/>
+					<filter string="November" name="November" icon="terp-personal" domain="[('month','=','11')]" help="November Payment"/>
+					<filter string="December" name="December" icon="terp-personal" domain="[('month','=','12')]" help="December Payment"/>
+					
+					<newline/>
+					<field name="name" />
+					<field name="advance_date" />
+					<field name="year_id" />
+					<field name="employee_id" string='Name'/>
+					<field name="user_id"/>
+					<newline/>
+					<group expand="0" string="Group By...">
+                        <filter string="Name" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Month" name="month" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'month'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Year" name="year_id" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'year_id'}"/>
+                      	<separator orientation="vertical"/>
+                      	<filter string="Created By" name="user_id" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'user_id'}"/>
+                        
+                    </group>
+				</search>
+				</field>
+			</record>
+	   
+	   		<record id="payment_mgmt_advance_tree_view" model="ir.ui.view">
+				<field name="name">payment.management.tree</field>
+				<field name="model">payment.management.advance</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+				<tree string="Salary" editable="top">
+					<field name="employee_id" on_change="onchange_employee(employee_id)" string='Name' domain="[('type','=','Employee')]"/>
+					<field name="total_amount" sum="total_amount"/>
+					<field name="advance_date" />
+					<field name="month" />
+					<field name="year_id"/>
+					<field name="name"/>
+					<field name="user_id"/>
+					<field name="state" invisible="1"/>
+					<field name="type"/>
+				</tree>
+				</field>
+			</record>
+			
+			<record id="payment_mgmt_advance_action" model="ir.actions.act_window">
+		   		<field name="name">Advance Payment</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">payment.management.advance</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="payment_mgmt_advance_tree_view"/>  
+	            <field name="search_view_id" ref="payment_mgmt_advance_search_view"/>
+                <field name="domain">[('type','=','Employee')]</field>   
+            </record>
+                          
+            <menuitem id="salary_deduction_menu1" parent="hr.menu_hr_root" name="Deduction" sequence="3"/>
+            <menuitem id="salary_deduction_menu" parent="salary_deduction_menu1" name="Salary Deduction" sequence="3"/>
+            <menuitem id="menu_payment_mgmt_advance" parent="salary_deduction_menu" name="Advance Amount" action="payment_mgmt_advance_action" sequence="2"/>
+
+	   		<record id="payment_mgmt_advance_tree_view_contractor" model="ir.ui.view">
+				<field name="name">payment.management.tree</field>
+				<field name="model">payment.management.advance</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+				<tree string="Salary" editable="top">
+					<field name="employee_id" on_change="onchange_employee(employee_id)" string='Name' domain="[('type','=','Contractor')]"/>
+					<field name="total_amount" sum="total_amount"/>
+					<field name="advance_date" />
+					<field name="month" />
+					<field name="year_id"/>
+					<field name="name"/>
+					<field name="user_id"/>
+					<field name="state" invisible="1"/>
+					<field name="type"/>
+				</tree>
+				</field>
+			</record>
+
+			<record id="payment_mgmt_advance_action_contractor" model="ir.actions.act_window">
+		   		<field name="name">Advance Payment</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">payment.management.advance</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="payment_mgmt_advance_tree_view_contractor"/>  
+	            <field name="search_view_id" ref="payment_mgmt_advance_search_view"/>
+                <field name="domain">[('type','=','Contractor')]</field>   
+            </record>
+
+            <menuitem id="menu_payment_mgmt_advance_contractor" parent="sub_menu_salary_deduction_menu_contractor" name="Advance Amount" action="payment_mgmt_advance_action_contractor" sequence="2"/>
+
+                                   <!--    Employee Tds view-->
+
+   <record id="payment_mgmt_tds_search_view" model="ir.ui.view">
+				<field name="name">payment.management.search</field>
+				<field name="model">payment.management.tds</field>
+				<field name="type">search</field>
+				<field name="arch" type="xml">
+				<search string="Salary TDS">
+					<filter string="January" name="January" icon="terp-personal" domain="[('month','=','1')]"  help="January Payment"/>
+					<filter string="February" name="February" icon="terp-personal" domain="[('month','=','2')]"  help="February Payment"/>
+					<filter string="March" name="March" icon="terp-personal" domain="[('month','=','3')]"  help="March Payment"/>
+					<filter string="April" name="April" icon="terp-personal" domain="[('month','=','4')]"  help="April Payment"/>
+					<filter string="May" name="May" icon="terp-personal" domain="[('month','=','5')]"  help="May Payment"/>
+					<filter string="June" name="June" icon="terp-personal" domain="[('month','=','6')]"  help="June Payment"/>
+					<filter string="July" name="July" icon="terp-personal" domain="[('month','=','7')]"  help="July Payment"/>
+					<filter string="August" name="August" icon="terp-personal" domain="[('month','=','8')]"  help="August Payment"/>
+					<filter string="September" name="September" icon="terp-personal" domain="[('month','=','9')]" help="September Payment"/>
+					<filter string="October" name="October" icon="terp-personal" domain="[('month','=','10')]" help="October Payment"/>
+					<filter string="November" name="November" icon="terp-personal" domain="[('month','=','11')]" help="November Payment"/>
+					<filter string="December" name="December" icon="terp-personal" domain="[('month','=','12')]" help="December Payment"/>
+					
+					<newline/>
+					<field name="name"/>
+					<field name="tds_date"/>
+					<field name="year_id" />
+					<field name="employee_id" string='Name'/>
+					<field name="user_id"/>
+					<newline/>
+					<group expand="0" string="Group By...">
+                        <filter string="Name" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Month" name="month" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'month'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Year" name="year_id" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'year_id'}"/>
+                      
+                    </group>
+				</search>
+				</field>
+			</record>
+            
+            <record id="payment_mgmt_tds_tree_view" model="ir.ui.view">
+				<field name="name">payment.management.tree</field>
+				<field name="model">payment.management.tds</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+				<tree string="Salary" editable="top">
+					<field name="employee_id" on_change="onchange_employee(employee_id)" string='Name' domain="[('type','=','Employee')]"/>
+					<field name="month" invisible="1"/>
+					<field name="year_id"   invisible="1"/>
+					<field name="tds" sum="tds"/>
+					<field name="tds_date"/>
+					<field name="name" />
+					<field name="user_id"/>
+					<field name="state" invisible="1"/>
+					<field name="year" invisible="1"/>
+					<field name="type"/>
+				</tree>
+				</field>
+			</record>
+			<record id="payment_mgmt_tds_action" model="ir.actions.act_window">
+		   		<field name="name">TDS Payment</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">payment.management.tds</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="payment_mgmt_tds_tree_view"/>  
+	            <field name="search_view_id" ref="payment_mgmt_tds_search_view"/>
+                <field name="domain">[('type','=','Employee')]</field>
+            </record>
+ 
+	   <menuitem id="menu_payment_mgmt_tds" parent="salary_deduction_menu" name="Employee TDS" action="payment_mgmt_tds_action" sequence="1"/>
+
+            <record id="payment_mgmt_tds_tree_view_contractor" model="ir.ui.view">
+				<field name="name">payment.management.tree</field>
+				<field name="model">payment.management.tds</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+				<tree string="Salary" editable="top">
+					<field name="employee_id" on_change="onchange_employee(employee_id)" string='Name' domain="[('type','=','Contractor')]"/>
+					<field name="month" invisible="1"/>
+					<field name="year_id"   invisible="1"/>
+					<field name="tds" sum="tds"/>
+					<field name="tds_date"/>
+					<field name="name" />
+					<field name="user_id"/>
+					<field name="state" invisible="1"/>
+					<field name="year" invisible="1"/>
+					<field name="type"/>
+				</tree>
+				</field>
+			</record>
+			
+			<record id="payment_mgmt_tds_action_contractor" model="ir.actions.act_window">
+		   		<field name="name">TDS Payment</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">payment.management.tds</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="payment_mgmt_tds_tree_view_contractor"/>  
+	            <field name="search_view_id" ref="payment_mgmt_tds_search_view"/>
+                <field name="domain">[('type','=','Contractor')]</field>
+            </record>
+
+       <menuitem id="menu_salary_deduction_menu_contractor" parent="menu_view_employee_form_contarctor" name="Deduction" sequence="3"/>
+       <menuitem id="sub_menu_salary_deduction_menu_contractor" parent="menu_salary_deduction_menu_contractor" name="Salary Deduction" sequence="1"/>
+	   <menuitem id="menu_payment_mgmt_tds_contractor" parent="sub_menu_salary_deduction_menu_contractor" name="Contractor TDS" action="payment_mgmt_tds_action_contractor" sequence="1"/>
+
+                                <!--  salary payment line view     -->
+
+                              
+			<record id="salary_payment_line_search_view1" model="ir.ui.view">
+				<field name="name">salary.payment.line.search</field>
+				<field name="model">salary.payment.line</field>
+				<field name="type">search</field>
+				<field name="arch" type="xml">
+				<search string="Salary">
+					<filter string="January" name="January" icon="terp-personal" domain="[('month','=','1')]"  help="January Payment"/>
+					<filter string="February" name="February" icon="terp-personal" domain="[('month','=','2')]"  help="February Payment"/>
+					<filter string="March" name="March" icon="terp-personal" domain="[('month','=','3')]"  help="March Payment"/>
+					<filter string="April" name="April" icon="terp-personal" domain="[('month','=','4')]"  help="April Payment"/>
+					<filter string="May" name="May" icon="terp-personal" domain="[('month','=','5')]"  help="May Payment"/>
+					<filter string="June" name="June" icon="terp-personal" domain="[('month','=','6')]"  help="June Payment"/>
+					<filter string="July" name="July" icon="terp-personal" domain="[('month','=','7')]"  help="July Payment"/>
+					<filter string="August" name="August" icon="terp-personal" domain="[('month','=','8')]"  help="August Payment"/>
+					<filter string="September" name="September" icon="terp-personal" domain="[('month','=','9')]" help="September Payment"/>
+					<filter string="October" name="October" icon="terp-personal" domain="[('month','=','10')]" help="October Payment"/>
+					<filter string="November" name="November" icon="terp-personal" domain="[('month','=','11')]" help="November Payment"/>
+					<filter string="December" name="December" icon="terp-personal" domain="[('month','=','12')]" help="December Payment"/>
+					<newline/>
+					<field name="employee_id" string='Name'/>
+					<field name="month" />
+					<field name="year_id" />
+					<field name="department_id" widget="selection" operator="child_of"/>
+					<field name="state" />
+					<newline/>
+				    <field name="salary_type"/>
+					<newline/>
+					 <group expand="0" string="Group By...">
+                        <filter string="Name" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Month" name="month" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'month'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Year" name="year_id" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'year_id'}"/>
+                      	<separator orientation="vertical"/>
+                        <filter string="State" name="state" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'state'}"/>
+                    </group>
+				</search>
+				</field>
+			</record>
+
+	   		<record id="salary_payment_line_tree_view1" model="ir.ui.view">
+				<field name="name">salary.payment.line.tree</field>
+				<field name="model">salary.payment.line</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+				<tree string="Salary" editable="top" colors="green:state == 'Paid';">
+					<field name="employee_id" invisible="1" string='Name'/>
+					<field name="employee_name"/>
+					<field name="sinid"/>
+					<field name="department_id" invisible="1"/>
+					<field name="department_name"/>
+					<field name="job_id" invisible="1"/>
+					<field name="job_name"/>
+					<field name="work_day" sum="work_day" string='Total Working Day'/>
+					<field name="days" sum="days" string='Total Working Day' invisible="1"/>
+					<field name="total_work_time" invisible="1"/>
+					<field name="total_over_time" string='Overtime Hours'/>
+					<field name="total_over_time1" string='Total OT Hours'/>
+					<field name="complete_work_time" invisible="1"/>
+					<field name="basic" sum="basic" string='Total Monthly Gross'/>
+					<field name="days_amount" sum="days_amount" string='Actual Monthly Payment (Basic + DA)'/>
+					<field name="days_amount1" sum="days_amount" string='Actual Total Gross Salary paid'/>
+					<field name="total_overtime_amount"/>
+					<field name="state" invisible="1"/>
+					<field name="type" readonly="1"/>
+				</tree>
+			  </field>
+			</record>
+			
+
+			<record id="salary_payment_line_action1" model="ir.actions.act_window">
+		   		<field name="name">Salary Payment Line</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">salary.payment.line</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="salary_payment_line_tree_view1"/>
+                <field name="domain">[('type','=','Employee')]</field>  
+            </record>
+            <menuitem id="salary_payment_line_sub_menu1" parent="salary_payment_menu" name="OT Register" action="salary_payment_line_action1" sequence="6"/>
+
+			<record id="salary_payment_line_action1_contractor" model="ir.actions.act_window">
+		   		<field name="name">Contractor Payment Line</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">salary.payment.line</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="salary_payment_line_tree_view1"/>
+                <field name="domain">[('type','=','Contractor')]</field>  
+            </record>
+            <menuitem id="salary_payment_line_sub_menu1_contractor" parent="salary_payment_sub_menu_contractor" name="OT Register" action="salary_payment_line_action1_contractor" sequence="3"/>
+	   		
+                           <!--  Payment Management Bonus View -->
+                           
+            <record id="payment_management_bonus_search_view" model="ir.ui.view">
+				<field name="name">payment.management.search</field>
+				<field name="model">payment.management.bonus</field>
+				<field name="type">search</field>
+				<field name="arch" type="xml">
+					<search string="Bonus">
+						<field name="company_id"/>
+						<field name="employee_id"/>
+						<group expand="0" string="Group By...">
+	                        <filter string="Company" icon="terp-personal" domain="[]" context="{'group_by':'company_id'}"/>
+	                        <filter string="Employee" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+                        </group>
+					</search>
+				</field>
+			</record>
+
+            <record id="payment_management_bonus_tree_view" model="ir.ui.view">
+				<field name="name">payment.management.tree</field>
+				<field name="model">payment.management.bonus</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+					<tree string="Bonus">
+						<field name="bonus_from"/>
+						<field name="bonus_till"/>
+						<field name="company_id"/>
+						<field name="employee_id"/>
+					</tree>
+				</field>
+			</record>
+			
+			<record id="payment_management_bonus_form_view" model="ir.ui.view">
+				<field name="name">payment.management.form</field>
+				<field name="model">payment.management.bonus</field>
+				<field name="type">form</field>
+				<field name="arch" type="xml">
+					<form string="Bonus">
+						<group col="4" colspan="4">
+							<field name="bonus_from"/>
+							<field name="bonus_till"/>
+							<field name="company_id"/>
+							<field name="employee_id"/>
+							<field name="employment_type"/>
+							<field name="user_id"/>
+							<field name="name" invisible="1"/>
+						</group>
+						<group col="4" colspan="4">
+							<button name="compute_bonus" icon="gtk-go-forward" string="Compute Bonus" type="object"/>
+							<button name="print_report" icon="gtk-print" string="Print Report" type="object"/>
+						</group>
+						<field name="export_data" filename="filename" attrs="{'invisible':[('export_data','=',False)]}"/>
+							<field name="bonus_line" mode="tree" nolabel="1" colspan="4">
+								<tree string="Bonus" editable="bottom">
+								    <field name="bonus_id" invisible="1"/>
+									<field name="employee_id"/>
+									<field name="joining_date"/>
+									<field name="company_id"/>
+									<field name="bonus_from"/>
+									<field name="bonus_till"/>
+									<field name="bonus_month"/>
+									<field name="bonus" sum="bonus"/>
+									<field name="basic" />
+									<field name="apr" />
+									<field name="apr_day" invisible="1"/>
+									<field name="apr_salary" invisible="1"/>
+									<field name="may" />
+									<field name="may_day" invisible="1"/>
+									<field name="may_salary" invisible="1"/>
+									<field name="june" />
+									<field name="june_day" invisible="1"/>
+									<field name="june_salary" invisible="1"/>
+									<field name="july" />
+									<field name="july_day" invisible="1"/>
+									<field name="july_salary" invisible="1"/>
+									<field name="aug" />
+									<field name="aug_day" invisible="1"/>
+									<field name="aug_salary" invisible="1"/>
+									<field name="sep" />
+									<field name="sep_day" invisible="1"/>
+									<field name="sep_salary" invisible="1"/>
+									<field name="oct" />
+									<field name="oct_day" invisible="1"/>
+									<field name="oct_salary" invisible="1"/>
+									<field name="nov" />
+									<field name="nov_day" invisible="1"/>
+									<field name="nov_salary" invisible="1"/>
+									<field name="dec" />
+									<field name="dec_day" invisible="1"/>
+									<field name="dec_salary" invisible="1"/>
+									<field name="jan" />
+									<field name="jan_day" invisible="1"/>
+									<field name="jan_salary" invisible="1"/>
+									<field name="feb" />
+									<field name="feb_day" invisible="1"/>
+									<field name="feb_salary" invisible="1"/>
+									<field name="mar" />
+									<field name="mar_day" invisible="1"/>
+									<field name="mar_salary" invisible="1"/>
+									<field name="total_day" />
+									<field name="total_month_day" invisible="1"/>
+									<field name="total_salary" invisible="1"/>		
+									<field name="user_id" invisible="1"/>
+									<field name="month" invisible="1"/>
+									<field name="year_id" invisible="1"/>
+								</tree>
+							</field>
+					</form>
+				</field>
+			</record>
+			
+			<record id="payment_management_bonus_action" model="ir.actions.act_window">
+		   		<field name="name">Payment Bonus</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">payment.management.bonus</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="payment_management_bonus_tree_view"/> 
+	            <field name="search_view_id" ref="payment_management_bonus_search_view"/> 
+           </record> 
+
+           <menuitem id="menu_payment_management_bonus" parent="salary_payment_menu" name="Employee Bonus" action="payment_management_bonus_action" sequence="10"/>
+
+            <record id="payment_management_bonus_line_search_view" model="ir.ui.view">
+				<field name="name">payment.management.bonus.line.search</field>
+				<field name="model">payment.management.bonus.line</field>
+				<field name="type">search</field>
+				<field name="arch" type="xml">
+					<search string="Bonus">
+						<field name="employee_id"/>
+						<field name="company_id"/>
+						<field name="month"/>
+						<field name="year_id"/>
+						<group expand="0" string="Group By...">
+	                        <filter string="Company" icon="terp-personal" domain="[]" context="{'group_by':'company_id'}"/>
+	                        <filter string="Employee" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+	                        <filter string="Month" icon="terp-personal" domain="[]" context="{'group_by':'month'}"/>
+	                        <filter string="Year" icon="terp-personal" domain="[]" context="{'group_by':'year_id'}"/>
+                        </group>
+					</search>
+				</field>
+			</record>
+
+			<record id="payment_management_bonus_line_tree_view" model="ir.ui.view">
+				<field name="name">payment.management.bonus.line.tree</field>
+				<field name="model">payment.management.bonus.line</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+				<tree string="Bonus" editable="bottom">
+				    <field name="bonus_id" invisible="1"/>
+					<field name="employee_id"/>
+					<field name="joining_date"/>
+					<field name="company_id"/>
+					<field name="bonus_from"/>
+					<field name="bonus_till"/>
+					<field name="bonus_month"/>
+					<field name="bonus" sum="bonus"/>
+					<field name="basic" />
+					<field name="apr" />
+					<field name="apr_day" invisible="1"/>
+					<field name="apr_salary" invisible="1"/>
+					<field name="may" />
+					<field name="may_day" invisible="1"/>
+					<field name="may_salary" invisible="1"/>
+					<field name="june" />
+					<field name="june_day" invisible="1"/>
+					<field name="june_salary" invisible="1"/>
+					<field name="july" />
+					<field name="july_day" invisible="1"/>
+					<field name="july_salary" invisible="1"/>
+					<field name="aug" />
+					<field name="aug_day" invisible="1"/>
+					<field name="aug_salary" invisible="1"/>
+					<field name="sep" />
+					<field name="sep_day" invisible="1"/>
+					<field name="sep_salary" invisible="1"/>
+					<field name="oct" />
+					<field name="oct_day" invisible="1"/>
+					<field name="oct_salary" invisible="1"/>
+					<field name="nov" />
+					<field name="nov_day" invisible="1"/>
+					<field name="nov_salary" invisible="1"/>
+					<field name="dec" />
+					<field name="dec_day" invisible="1"/>
+					<field name="dec_salary" invisible="1"/>
+					<field name="jan" />
+					<field name="jan_day" invisible="1"/>
+					<field name="jan_salary" invisible="1"/>
+					<field name="feb" />
+					<field name="feb_day" invisible="1"/>
+					<field name="feb_salary" invisible="1"/>
+					<field name="mar" />
+					<field name="mar_day" invisible="1"/>
+					<field name="mar_salary" invisible="1"/>
+					<field name="total_day" />	
+					<field name="total_month_day" invisible="1"/>
+					<field name="total_salary" invisible="1"/>	
+					<field name="user_id"/>
+					<field name="month" invisible="1"/>
+					<field name="year_id" invisible="1"/>
+					<field name="type" readonly="1"/>
+				</tree>
+				</field>
+			</record>
+			
+			<record id="action_payment_management_bonus_line" model="ir.actions.act_window">
+		   		<field name="name">Payment Bonus Line</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">payment.management.bonus.line</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="payment_management_bonus_line_tree_view"/>  
+	            <field name="search_view_id" ref="payment_management_bonus_line_search_view"/>
+	            <field name="domain">[('type','=','Employee')]</field>  
+           </record> 
+
+           <menuitem id="menu_payment_management_bonus_line" parent="salary_payment_menu" name="Employee Bonus Line" action="action_payment_management_bonus_line" sequence="20"/>
+
+			<record id="action_payment_management_bonus_line_contractor" model="ir.actions.act_window">
+		   		<field name="name">Payment Bonus Line</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">payment.management.bonus.line</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="payment_management_bonus_line_tree_view"/>  
+	            <field name="search_view_id" ref="payment_management_bonus_line_search_view"/>
+	            <field name="domain">[('type','=','Contractor')]</field>  
+           </record> 
+
+           <menuitem id="menu_payment_management_bonus_line_contractor" parent="salary_payment_sub_menu_contractor" name="Contractor Bonus Line" action="action_payment_management_bonus_line_contractor" sequence="5"/>
+
+                                   <!--    Employee Professional Tax view-->
+
+   <record id="professional_tax_search_view" model="ir.ui.view">
+				<field name="name">professional.tax.search</field>
+				<field name="model">professional.tax</field>
+				<field name="type">search</field>
+				<field name="arch" type="xml">
+				<search string="Salary TDS">
+					<filter string="January" name="January" icon="terp-personal" domain="[('month','=','1')]"  help="January Payment"/>
+					<filter string="February" name="February" icon="terp-personal" domain="[('month','=','2')]"  help="February Payment"/>
+					<filter string="March" name="March" icon="terp-personal" domain="[('month','=','3')]"  help="March Payment"/>
+					<filter string="April" name="April" icon="terp-personal" domain="[('month','=','4')]"  help="April Payment"/>
+					<filter string="May" name="May" icon="terp-personal" domain="[('month','=','5')]"  help="May Payment"/>
+					<filter string="June" name="June" icon="terp-personal" domain="[('month','=','6')]"  help="June Payment"/>
+					<filter string="July" name="July" icon="terp-personal" domain="[('month','=','7')]"  help="July Payment"/>
+					<filter string="August" name="August" icon="terp-personal" domain="[('month','=','8')]"  help="August Payment"/>
+					<filter string="September" name="September" icon="terp-personal" domain="[('month','=','9')]" help="September Payment"/>
+					<filter string="October" name="October" icon="terp-personal" domain="[('month','=','10')]" help="October Payment"/>
+					<filter string="November" name="November" icon="terp-personal" domain="[('month','=','11')]" help="November Payment"/>
+					<filter string="December" name="December" icon="terp-personal" domain="[('month','=','12')]" help="December Payment"/>
+					<newline/>
+					<field name="name"/>
+					<field name="tax_date"/>
+					<field name="year_id" />
+					<field name="employee_id" string='Name'/>
+					<field name="user_id"/>
+					<newline/>
+					<group expand="0" string="Group By...">
+                        <filter string="Name" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Month" name="month" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'month'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Year" name="year_id" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'year_id'}"/>
+                    </group>
+				</search>
+				</field>
+			</record>
+            
+            <record id="professional_tax_tree_view" model="ir.ui.view">
+				<field name="name">professional.tax.tree</field>
+				<field name="model">professional.tax</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+				<tree string="Salary" editable="top">
+					<field name="employee_id" on_change="onchange_employee(employee_id)" string='Name'/>
+					<field name="month" invisible="1"/>
+					<field name="year_id"   invisible="1"/>
+					<field name="tax" sum="tax"/>
+					<field name="tax_date"/>
+					<field name="name" />
+					<field name="user_id"/>
+					<field name="state" invisible="1"/>
+					<field name="year" invisible="1"/>
+				</tree>
+				</field>
+			</record>
+			<record id="action_professional_tax" model="ir.actions.act_window">
+		   		<field name="name">Tax Payment</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">professional.tax</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="professional_tax_tree_view"/>  
+	            <field name="search_view_id" ref="professional_tax_search_view"/>
+            </record>
+ 
+<!--	   <menuitem id="menu_professional_tax" parent="salary_deduction_menu" name="Professional Tax" action="action_professional_tax" sequence="10"/>-->
+
+
+                                   <!--    Employee VPF view-->
+
+   			<record id="payment_management_vpf_search_view" model="ir.ui.view">
+				<field name="name">payment.management.vpf.search</field>
+				<field name="model">payment.management.vpf</field>
+				<field name="type">search</field>
+				<field name="arch" type="xml">
+				<search string="Employee VPF">
+					<filter string="January" name="January" icon="terp-personal" domain="[('month','=','1')]"  help="January Payment"/>
+					<filter string="February" name="February" icon="terp-personal" domain="[('month','=','2')]"  help="February Payment"/>
+					<filter string="March" name="March" icon="terp-personal" domain="[('month','=','3')]"  help="March Payment"/>
+					<filter string="April" name="April" icon="terp-personal" domain="[('month','=','4')]"  help="April Payment"/>
+					<filter string="May" name="May" icon="terp-personal" domain="[('month','=','5')]"  help="May Payment"/>
+					<filter string="June" name="June" icon="terp-personal" domain="[('month','=','6')]"  help="June Payment"/>
+					<filter string="July" name="July" icon="terp-personal" domain="[('month','=','7')]"  help="July Payment"/>
+					<filter string="August" name="August" icon="terp-personal" domain="[('month','=','8')]"  help="August Payment"/>
+					<filter string="September" name="September" icon="terp-personal" domain="[('month','=','9')]" help="September Payment"/>
+					<filter string="October" name="October" icon="terp-personal" domain="[('month','=','10')]" help="October Payment"/>
+					<filter string="November" name="November" icon="terp-personal" domain="[('month','=','11')]" help="November Payment"/>
+					<filter string="December" name="December" icon="terp-personal" domain="[('month','=','12')]" help="December Payment"/>
+					<newline/>
+					<field name="name"/>
+					<field name="vpf_date"/>
+					<field name="year_id" />
+					<field name="employee_id" string='Name' domain="[('type','=','Employee')]"/>
+					<field name="user_id"/>
+					<newline/>
+					<group expand="0" string="Group By...">
+                        <filter string="Name" icon="terp-personal" domain="[]" context="{'group_by':'employee_id'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Month" name="month" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'month'}"/>
+                        <separator orientation="vertical"/>
+                        <filter string="Year" name="year_id" icon="terp-stock_effects-object-colorize" domain="[]" context="{'group_by':'year_id'}"/>
+                    </group>
+				</search>
+				</field>
+			</record>
+            
+            <record id="payment_management_vpf_tree_view" model="ir.ui.view">
+				<field name="name">payment.management.vpf.tree</field>
+				<field name="model">payment.management.vpf</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+				<tree string="Salary" editable="top">
+					<field name="employee_id" on_change="onchange_employee(employee_id)" string='Name' domain="[('type','=','Employee')]"/>
+					<field name="month" invisible="1"/>
+					<field name="year_id"   invisible="1"/>
+					<field name="vpf" sum="vpf"/>
+					<field name="vpf_date"/>
+					<field name="name" />
+					<field name="type"/>
+					<field name="user_id"/>
+					<field name="state" invisible="1"/>
+					<field name="year" invisible="1"/>
+				</tree>
+				</field>
+			</record>
+			<record id="action_payment_management_vpf" model="ir.actions.act_window">
+		   		<field name="name">VPF Payment</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">payment.management.vpf</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="payment_management_vpf_tree_view"/>  
+	            <field name="search_view_id" ref="payment_management_vpf_search_view"/>
+	            <field name="domain">[('type','=','Employee')]</field>  
+            </record>
+ 
+	   <menuitem id="menu_payment_management_vpf" parent="salary_deduction_menu" name="Employee VPF" action="action_payment_management_vpf" sequence="11"/>
+                           
+</data>
+</openerp>

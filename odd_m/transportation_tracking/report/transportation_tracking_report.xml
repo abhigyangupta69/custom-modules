@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+        <report
+			id="action_report_transportmaster"
+			string="Print Transport Report"
+			model="transport.master"
+			report_type="qweb-pdf"
+			name="transportation_tracking.report_pf_contribution"
+			file="transportation_tracking.report_pf_contribution"
+			print_report_name="'Transport Master'"
+            />
+	</data>
+</odoo>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="request_priority_form_view" model="ir.ui.view">
+            <field name="name">RequestPriority</field>
+            <field name="model">request.priority</field>
+            <field name="arch" type="xml">
+                <form string="Request Type">
+                    <sheet>
+                        <group col="4" colspan="4">
+                            <field name="name" />
+                            <field name="days_required" />
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="request_priority_tree_view" model="ir.ui.view">
+            <field name="name">RequestPriority</field>
+            <field name="model">request.priority</field>
+            <field name="arch" type="xml">
+                <tree string="Request Type">
+                          <field name="name" />
+                        <field name="days_required" />
+                </tree>
+            </field>
+        </record>
+        <record id="action_request_priority_view"  model="ir.actions.act_window">
+            <field name="name">RequestPriority</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">request.priority</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="request_priority_tree_view"/>
+
+        </record>
+    </data>
+</odoo>

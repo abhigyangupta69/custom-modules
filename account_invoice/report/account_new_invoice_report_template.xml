@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_verts_document_invoice">
+        <t t-call="web.external_layout">
+        <t t-set="doc" t-value="doc.with_context({'lang':English})" />
+        <div class="page">
+            <center><h1>TAX INVOICE</h1></center>
+        </div>
+            <table style="width:100%">
+                <tr>
+                    <th>BILLING DETAILS</th>
+                    <th>Shipping Details</th>
+                </tr>
+                <tr>
+                    <td>
+                        <span>
+                            <p t-field="doc.partner_id.name"/>
+                            <p t-field="doc.partner_id.street"/>
+                            <p t-field="doc.partner_id.phone"/>
+                            <p t-field="doc.partner_id.type"/>
+                            <p t-field="doc.partner_id.state_id"/>
+                            <p t-field="doc.partner_id.zip"/>
+
+                        </span>
+                    </td>
+                    <td>
+                        <span>
+                            <p t-field="doc.partner_id.name"/>
+                            <p t-field="doc.partner_id.street"/>
+                            <p t-field="doc.partner_id.phone"/>
+                            <p t-field="doc.partner_id.type"/>
+                            <p t-field="doc.partner_id.state_id"/>
+                            <p t-field="doc.partner_id.zip"/>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+            <table style="width:100%">
+                <tr>
+                    <th class="text-left" style="width:50%">Invoice Number: <span t-field="doc.number"/></th>
+                    <th class="text-right" style="width:25%">Date: <span t-field="doc.date_invoice"/></th>
+                </tr>
+            </table>
+            <table style="width:100%">
+                <tr>
+                    <th>SO Number:<span t-field="doc.origin"/></th>
+                    <th>Source:<span t-field="doc.team_id"/></th>
+                </tr>
+                <tr>
+                    <th>Order date:<span t-field="doc.date_invoice"/></th>
+                    <th>Transaction Id:<span t-field="doc.team_id"/></th>
+                    <th>Shipping Date:<span t-field="doc.date_due"/></th>
+                </tr>
+            </table>
+            <table class="table table-condensed" style="width:100%">
+                    <thread>
+                        <tr>
+							<th class="text-left">Description Of Goods</th>
+                            <th class="text-right">HSN Code</th>
+                            <th class="text-right">MRP</th>
+                            <th class="text-right">Tax</th>
+                            <th class="text-right">QTY</th>
+                            <th class="text-right">Taxable Value</th>
+                        </tr>
+					</thread>
+                      <tbody>
+                          <t t-foreach="doc.invoice_line_ids" t-as="t">
+                          <tr>
+                              <td class="text-left">
+                                  <span t-field="t.name"/>
+                                  <break>
+                                  <span t-field="t.product_id.name"/>
+                                  </break>
+                              </td>
+                              <td class="text-right">
+                                  <span t-field="t.product_id.l10n_in_hsn_code"/>
+                             </td>
+                              <td class="text-right">
+                                  <span t-field="t.price_unit"/>
+                              </td>
+                              <td class="text-right">
+                                  <span t-field="t.invoice_line_tax_ids.name"/>
+                              </td>
+                              <td class="text-right">
+                                  <span t-field="t.quantity"/>
+                              </td>
+                              <td class="text-right">
+                                  <span t-field="t.price_subtotal"/>
+                              </td>
+                          </tr>
+                          </t>
+                    </tbody>
+                           <tr>
+                              <td colspan="5">Amount Chargable(In words)</td>
+                              <td colspan="1">Grand Total = <span t-field="doc.amount_total"/></td>
+                           </tr>
+            </table>
+        </t>
+        </template>
+
+
+    <template id="report_verts_document">
+           <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+            <t t-call="account_invoice.report_verts_document_invoice"/>
+           </t>
+           </t>
+
+    </template>
+</odoo>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+        <report
+			id="action_report_doctordetail"
+			string="Doctor Contribution"
+			model="doctor.details"
+			report_type="qweb-pdf"
+			name="hospital_management.report_pf_contribution"
+			file="hospital_management.report_pf_contribution"
+			print_report_name="'Doctor Details'"
+            />
+
+		 <report
+			id="action_report_admit"
+			string="Admit Patient"
+			model="admit"
+			report_type="qweb-pdf"
+			name="hospital_management.report_pf_admit"
+			file="hospital_management.report_pf_admit"
+			print_report_name="'Admit'"
+            />
+
+		<report
+			id="action_report_patientdetail"
+			string="Patient Details"
+			model="patientdetails"
+			report_type="qweb-pdf"
+			name="hospital_management.report_pf_patientdetail"
+			file="hospital_management.report_pf_patientdetail"
+			print_report_name="'Patient Details'"
+            />
+
+	</data>
+</odoo>
+
+
+
+
+
+
+
+
+

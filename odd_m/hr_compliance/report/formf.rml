@@ -1,0 +1,837 @@
+<?xml version="1.0"?>
+<document filename="test.pdf">
+  <template pageSize="(850.0,1200.0)" title="Test" author="Martin Simon" allowSplitting="20">
+    <pageTemplate id="first">
+   <!-- <pageGraphics>
+      <setFont name="DejaVu Sans" size="8"/> 
+      <fill color="black"/> 
+      <stroke color="black"/> 
+     
+       <lines>0.5cm 3.8cm 20cm 3.8cm</lines> 
+      </pageGraphics>-->
+      <frame id="first" x1="28.0" y1="25.0" width="780" height="1150"/>
+    </pageTemplate>    
+  </template>
+  <stylesheet>
+    <blockTableStyle id="Standard_Outline">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table6">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table19">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="1,0" stop="1,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="2,0" stop="2,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="2,0" stop="2,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="3,0" stop="3,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="3,-1" stop="3,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table20">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="1,0" stop="1,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="2,0" stop="2,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="2,0" stop="2,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#000000" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#000000" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="3,0" stop="3,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="3,-1" stop="3,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table7">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#000000" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table21">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="1,0" stop="1,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,0" stop="2,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="2,0" stop="2,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="3,0" stop="3,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="4,0" stop="4,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="4,0" stop="4,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="4,0" stop="4,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="4,-1" stop="4,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,1" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="3,1" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="4,1" stop="4,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="4,1" stop="4,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="4,-1" stop="4,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,2" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,2" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,2" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="3,2" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="4,2" stop="4,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="4,2" stop="4,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="4,-1" stop="4,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,3" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,3" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,3" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="3,3" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="4,3" stop="4,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="4,3" stop="4,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="4,-1" stop="4,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,4" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,4" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,4" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="3,4" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="4,4" stop="4,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="4,4" stop="4,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="4,-1" stop="4,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,5" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,5" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,5" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="3,5" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="4,5" stop="4,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="4,5" stop="4,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="4,-1" stop="4,-1"/>
+    </blockTableStyle>
+     <blockTableStyle id="Table11">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="1,0" stop="1,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,0" stop="2,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="2,0" stop="2,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="3,0" stop="3,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="3,0" stop="3,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,1" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="3,1" stop="3,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="3,1" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,2" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,2" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,2" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="3,2" stop="3,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="3,2" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,3" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,3" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,3" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="3,3" stop="3,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="3,3" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,4" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,4" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,4" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="3,4" stop="3,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="3,4" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,5" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,5" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,5" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="3,5" stop="3,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="3,5" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,6" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,6" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,6" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="3,6" stop="3,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="3,6" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="3,-1" stop="3,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,7" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,7" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,7" stop="2,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="3,7" stop="3,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="3,7" stop="3,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="3,-1" stop="3,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table21">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="1,0" stop="1,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,1" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="1,1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table31">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table41">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="1,0" stop="1,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,1" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="1,1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,2" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,2" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="1,2" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,3" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,3" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="1,3" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,4" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,4" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="1,4" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,5" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,5" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="1,5" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table51">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table61">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="1,0" stop="1,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,1" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="1,1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,2" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,2" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="1,2" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table71">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="0,1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,2" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="0,2" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,2" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="1,2" stop="1,2"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="2,2" stop="2,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="2,2" stop="2,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="2,2" stop="2,2"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="2,-1" stop="2,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,3" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="0,3" stop="0,3"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,3" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="1,3" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="1,3" stop="1,3"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table141">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table81">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="0,0" stop="0,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="0,0" stop="0,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBEFORE" colorName="#ffffff" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEAFTER" colorName="#ffffff" start="1,0" stop="1,-1"/>
+      <lineStyle kind="LINEABOVE" colorName="#ffffff" start="1,0" stop="1,0"/>
+      <lineStyle kind="LINEBELOW" colorName="#ffffff" start="1,-1" stop="1,-1"/>
+    </blockTableStyle>
+    <initialize>
+      <paraStyle name="all" alignment="justify"/>
+    </initialize>
+    <paraStyle name="Standard" fontName="Times-Roman"/>
+    <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="Text body" fontName="Times-Roman" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="List" fontName="Times-Roman" spaceBefore="0.0" spaceAfter="6.0"/>
+    <paraStyle name="Caption" fontName="Times-Roman" fontSize="14.0" leading="15" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="Index" fontName="Times-Roman"/>
+    <paraStyle name="Table Contents" fontName="Times-Roman" fontSize="12.0"/>
+    <paraStyle name="Table Contentsn" fontName="Times-Roman" fontSize="9.0"/>
+    <paraStyle name="Table ContentsB" fontName="Helvetica-Bold" alignment="CENTER" fontSize="10.0"/>
+    <paraStyle name="Table ContentsL" fontName="Times-Roman" alignment="LEFT" fontSize="12.0"/>
+    <paraStyle name="Table ContentsB1" fontName="Helvetica-Bold"  fontSize="13.0" alignment="CENTER"/>
+    <paraStyle name="Table Contents1" fontName="Helvetica-Bold" fontSize="13.0"/>
+     
+    <images/>
+  </stylesheet>
+  <story>
+  <para>[[ repeatIn(objects,'o') ]]</para>
+  <section><para paraStyle="paraStyle">[[ repeatIn(o.employee_no,'eline') ]]</para>
+   <blockTable colWidths="784.0" style="Table6">
+            <tr>
+              <td>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table ContentsB1">Form 'F'</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table ContentsB1">[See-sub-rule(1)of 6 ]</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table ContentsB1">Nomination</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table Contents">To,</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table Contents">1. I,Shri/Shrimati/kumari <b>[[eline.name]]</b> Whose particulars are given in the statement below ,hereby nominate the person(s) </para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table Contents">mentioned below to receive the granity payable after my death as Also the granity standing to my credit in the event of my death before that amount has </para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table Contents">become Payable ,or having become payable has not been paid and direct that the said amount of granity shall be Paid in proportion indicated against the </para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table Contents">name(s) of the nominee(s).</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table Contents">2. I hereby certify that the person(s) mentioned is a/are members(s) of my family within the meaning of clause(h) of section 2 of the Payment of Granity </para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table Contents">Act,1972.</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table Contents">3. I, hereby declare that I have no family within the meaning of clause(h) of section 2 of the said Act.</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table Contents">4 (a) My father/mother/parents is/are not dependent on me.</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table Contents">(b) My husband's father/mother/parents is/are not depend on my husband.</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table Contents">5. I have excluded my husband from my family by a notice, dated the .................... to the Controlling authority in terms of the provision to clause(h) of </para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table Contents">section 2 of the Act.</para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table Contents">6. Nomination made herein invalidates my previous nomination. </para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="782.0" style="Table6">
+      <tr>
+        <td>
+          <para style="Table ContentsB"><u>NOMINEE</u></para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="265.0,160.0,107.0,251.0" style="Table19">
+      <tr>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold" alignment="CENTER">Name in full with full address of nominee(s)</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold" alignment="CENTER">Relationship with the employee</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold" alignment="CENTER">Age of nominee</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold" alignment="CENTER">Proportion by which the granity will be shared</para>
+        </td>
+      </tr>
+    </blockTable>
+    <section>
+  <para style="Table Contents">[[ repeatIn(get_data(eline.family_id,eline.id),'line') ]]</para>
+    <blockTable colWidths="265.0,160.0,107.0,251.0" style="Table20">
+      <tr>
+        <td>
+          <para style="Table Contents" fontSize="11" alignment="CENTER"><b>[[ line[0] ]]</b> , [[ eline.permanent_add ]]</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontSize="11" alignment="CENTER">[[ line[2].upper() ]]</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontSize="11" alignment="CENTER">[[ line[3] ]]</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontSize="11" alignment="CENTER">[[ line[4] ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+    </section>
+     <blockTable colWidths="782.0" style="Table7">
+      <tr>
+        <td>
+          <para style="Table ContentsB"></para>
+        </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable colWidths="782.0" style="Table141">
+      <tr>
+        <td>
+          <para style="Table ContentsB" fontSize="12"><u>STATEMENT</u></para>
+        </td>
+      </tr>
+    </blockTable>
+
+    <blockTable colWidths="33.0,310.0,29.0,360.0" style="Table11">
+      <tr>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">1</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">Name of the Employee in Full</para>
+        </td>
+        <td>
+          <para style="Table Contents">:</para>
+        </td>
+        <td>
+          <para style="Table Contents">[[ eline.name ]]</para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">2</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">Sex</para>
+        </td>
+        <td>
+          <para style="Table Contents">:</para>
+        </td>
+        <td>
+          <para style="Table Contents">[[ eline.gender.upper() ]]</para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">3</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">Religion</para>
+        </td>
+        <td>
+          <para style="Table Contents">:</para>
+        </td>
+        <td>
+          <para style="Table Contents">[[ eline.religion.upper() ]]</para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">4</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">Maritial Status</para>
+        </td>
+        <td>
+          <para style="Table Contents">:</para>
+        </td>
+        <td>
+          <para style="Table Contents">[[ eline.marital.upper() ]]</para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">5</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">Department/Branch/Section where Employed</para>
+        </td>
+        <td>
+          <para style="Table Contents">:</para>
+        </td>
+        <td>
+          <para style="Table Contents">[[ eline.department_id.name ]]</para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">6</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">Post held with Employee Code if and</para>
+        </td>
+        <td>
+          <para style="Table Contents">:</para>
+        </td>
+        <td>
+          <para style="Table Contents">[[ eline.job_id.name ]] ,  [[ eline.sinid ]]</para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">7</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">Date of Appointment</para>
+        </td>
+        <td>
+          <para style="Table Contents">:</para>
+        </td>
+        <td>
+          <para style="Table Contents">[[ formatLang(eline.doj,date=True) ]]</para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">8</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">Permanent Address</para>
+        </td>
+        <td>
+          <para style="Table Contents">:</para>
+        </td>
+        <td>
+          <para style="Table Contents">
+            [[ eline.permanent_add[0:39] ]]
+            [[ eline.permanent_add[40:79] ]]
+            [[ eline.permanent_add[79:] ]]
+          </para>
+        </td>
+      </tr>
+    </blockTable>
+    <blockTable colWidths="352.0,430.0" style="Table21">
+      <tr>
+        <td>
+          <para style="Table Contents"><b>PLACE:</b> MORADABAD</para>
+        </td>
+        <td>
+          <para style="Table Contents"></para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents"><b>DATE:</b>  [[ formatLang(eline.doj,date=True) ]]</para>
+        </td>
+        <td>
+          <para style="Table Contents" fontName="Times-Bold">(Signature/Thumb impression of the Employee) </para>
+        </td>
+      </tr>
+    </blockTable>
+    <spacer length="0.2cm"/>
+    <blockTable colWidths="782.0" style="Table31">
+      <tr>
+        <td>
+          <para style="Table ContentsB" fontSize="12"><u>DECLARATION BY WITNESSES</u></para>
+        </td>
+      </tr>
+    </blockTable>
+    
+    <blockTable colWidths="400.0,382.0" style="Table41">
+      <tr>
+        <td>
+          <para style="P5">Nomination signed/thumb impressed before me</para>
+        </td>
+        <td>
+          <para style="P3"></para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="P5"><b>Name in full with full address of witnesses</b></para>
+        </td>
+        <td>
+          <para style="Table Contents"><b>Signature of witnesses</b></para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents"><b>1.</b>[[ eline.app_review_by]]</para>
+        </td>
+        <td>
+          <para style="Table Contents"><b>1.</b></para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents"><b>2.</b>[[ eline.ref_check_by ]]</para>
+        </td>
+        <td>
+          <para style="Table Contents"><b>2.</b></para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents"><b>PLACE:</b>  MORADABAD</para>
+        </td>
+        <td>
+          <para style="Table Contents"><b>DATE:</b>  [[ formatLang(eline.doj,date=True) ]]
+          </para>
+        </td>
+      </tr>
+    </blockTable>
+	<spacer length="0.2cm"/>
+    <blockTable colWidths="782.0" style="Table51">
+      <tr>
+        <td>
+          <para style="Table ContentsB" fontSize="13"><u>CERTIFICATE BY THE EMPLOYER</u></para>
+          <spacer length="0.2cm"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="P7" fontSize="12">
+            Certified that the particulars of the above nomination have been verified and recorded in this establishment.
+          </para>
+        </td>
+      </tr>
+    </blockTable>
+    <spacer length="0.2cm"/>
+    <blockTable colWidths="391.0,391.0" style="Table61">
+      <tr>
+        <td>
+          <para style="P12"><b>Employer's Reference No. :</b></para>
+        </td>
+        <td>
+          <para style="P8" fontName="Times-Bold"></para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="P12"><b>Designation :</b></para>
+        </td>
+        <td>
+          <para style="P12"><b>Signature of the Employer/Officer authorised</b></para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="Table Contents"><b>Date:</b> [[ formatLang(eline.doj,date=True) ]]</para>
+        </td>
+        <td>
+           <para style="P12" align="center"><b>[[ eline.company_id.name ]]</b> </para>
+           <spacer length="0.2cm"/>
+           <para style="P12"><b>[[ eline.company_id.street]] </b></para>
+           <spacer length="0.2cm"/>
+           <para style="P1"> Name and address of the establishment or </para>
+           <spacer length="0.2cm"/>
+           <para style="P4">rubber stamp thereof</para>
+        </td>
+      </tr>
+    </blockTable>
+    <spacer length="0.5cm"/>
+    <blockTable colWidths="782.0" style="Table71">
+      <tr>
+        <td>
+          <para style="Table ContentsB" fontName="Times-Bold" fontSize="14"><u>ACKNOWLEDGEMENT BY THE EMPLOYEE</u></para>
+          <spacer length="0.5cm"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <para style="P8" fontSize="12">
+            Received the duplicate copy of nomination in Form 'F' filed by me and duly certified by the Employer
+          </para>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <spacer length="1.0cm"/>
+          <blockTable colWidths="388.0,388.0" style="Table81">
+            <tr>
+              <td>
+                <para style="Table Contents" fontSize="14"><b>DATE:</b>  [[ formatLang(eline.doj,date=True) ]]</para>
+              </td>
+              <td>
+                <para style="P9" fontName="Times-Bold" fontSize="14">( Signature/Thumb impression of the Employee )</para>
+                <spacer length="0.2cm"/>
+              </td>
+            </tr>
+          </blockTable>
+        </td>
+      </tr>
+    </blockTable>
+    </td>
+      </tr>
+    </blockTable>
+    </section>
+    
+  </story>
+</document>
+

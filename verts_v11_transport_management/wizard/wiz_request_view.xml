@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<odoo>
+	<data>
+
+		<record id="wiz_request_form_view" model="ir.ui.view">
+			<field name="name">WizRequest</field>
+			<field name="model">wiz.request</field>
+			<field name="arch" type="xml">
+				<form string="Request here">
+                    <sheet>
+                        <group col="2" colspan="2">
+                            <field name="erp_no" />
+                            <field name="vehicle_req" />
+							<field name="source_location" />
+                            <field name="destination_location" />
+							<field name="item_desc" />
+                            <field name="remarks" />
+                    <button class="oe_highlight" icon="fa-check-circle" name="update_form" string="Final" type="object"/>
+						</group>
+
+                    </sheet>
+                </form>
+			</field>
+		</record>
+
+		<record id="action_wiz_request_form_view" model="ir.actions.act_window">
+			<field name="name">WizRequest</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">wiz.request</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="wiz_request_form_view" />
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+    </data>
+</odoo>

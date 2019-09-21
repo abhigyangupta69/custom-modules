@@ -1,0 +1,42 @@
+<openerp>
+	<data>
+		
+		<record id="wiz_create_att_form" model="ir.ui.view">
+            <field name="name">Create Attendance</field>
+            <field name="model">wiz.create.att</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Create Attendance">
+                    <group colspan="4" col="4">
+                    	<field name="name" required="1"/>
+                        <field name="till_date"/>
+                    </group>
+                    <group colspan="4" col="4">
+                        <field name="employee_id" required='1'/>
+                        <field name="security"/>
+                    </group>
+                    <group colspan="6" col="4">
+                    	<separator string="" colspan="4"/>
+                        <button icon='gtk-cancel' special="cancel" string="_Cancel" />
+	                    <button name="compute_attendance" string="Compute Attendance" type="object" icon="gtk-ok"/>
+	                    <button name="compute_attendance11" string="Delete Attendance" type="object" icon="gtk-ok"/>
+                    </group>
+                </form>
+			</field>
+		</record>
+		        
+		<record id="action_create_att_form" model="ir.actions.act_window">
+            <field name="name">Create Attendance</field>
+            <field name="res_model">wiz.create.att</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="wiz_create_att_form"/>
+		</record>
+		        
+		<menuitem  id="menu_create_att_form" parent="hr_attendance_main_menu"  action="action_create_att_form"  groups="base.group_compliance_user" name="Management Attendance" sequence="25"/>		        
+		         
+	</data>
+</openerp>
+

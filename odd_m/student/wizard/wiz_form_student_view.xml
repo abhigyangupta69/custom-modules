@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="wiz_student_form_view" model="ir.ui.view">
+            <field name="name">wiz.student.form</field>
+            <field name="model">wiz.student.form</field>
+            <field name="arch" type="xml">
+                <form string="Form">
+                <sheet>
+                        <group col="4" colspan="1">
+                            <field name="exam_time"/>
+                            <field name="slot_name"/>
+                            <field name="select_state"/>
+                            <field name="stu_db"/>
+                            <field name="stu_gender"/>
+                            <field name="mob_no"/>
+                            <field name="exam_payment"/>
+                        </group>
+                        <group col="3" colspan="6">
+                            <button class="oe_highlight" icon="fa-check-circle" name="create_form"
+                                    string="Confirm Detail" type="object"/>
+                        </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="wiz_student_tree_view" model="ir.ui.view">
+            <field name="name">wiz.student.form</field>
+            <field name="model">wiz.student.form</field>
+            <field name="arch" type="xml">
+                <tree string="Master">
+                            <field name="exam_time"/>
+                            <field name="slot_name"/>
+                            <field name="select_state"/>
+                            <field name="stu_db"/>
+                            <field name="stu_gender"/>
+                            <field name="mob_no"/>
+                            <field name="exam_payment"/>
+
+                </tree>
+            </field>
+        </record>
+        <record id="action_wiz_student_form_view" model="ir.actions.act_window">
+            <field name="name">Inner Detail</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wiz.student.form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+</odoo>

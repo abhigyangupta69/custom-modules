@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="fuel_type_form_view" model="ir.ui.view">
+            <field name="name">FuelTypes</field>
+            <field name="model">fuel.types</field>
+            <field name="arch" type="xml">
+                <form string="Fuel Types">
+                    <sheet>
+                        <group col="2" colspan="2">
+                            <field name="name" required="1" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="fuel_type_tree_view" model="ir.ui.view">
+            <field name="name">FuelTypes</field>
+            <field name="model">fuel.types</field>
+            <field name="arch" type="xml">
+                <tree string="Fuel Types">
+                    <field name="name"  required="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_fuel_type_view"  model="ir.actions.act_window">
+            <field name="name">FuelTypes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">fuel.types</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="fuel_type_tree_view"/>
+
+        </record>
+    </data>
+</odoo>

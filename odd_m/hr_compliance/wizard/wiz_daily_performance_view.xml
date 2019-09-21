@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="wiz_daily_performance_register_form" model="ir.ui.view">
+			<field name="name">wiz.daily.performance</field>
+			<field name="model">wiz.daily.performance</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<group colspan="4" col="4">
+					<field name="name"/>
+					<field name="date" required='1' />	
+					<field name="company_id" attrs="{'readonly':[('user_id','in',(28,10,12,14,16,18,20,22,26,24))]}" />
+					<field name="department_id"/>
+					<field name="status"/>
+					<field name="user_id" invisible="1"/>
+				</group>
+				 <group  col="2" colspan="4">
+				 	<button special="cancel" string="Cancel" icon="gtk-cancel"/>
+					<button string="Print Report" name="print_report" type="object"/> 
+				</group> 
+			</field>
+		</record>
+		
+		<record id="action_wiz_daily_performance_register" model="ir.actions.act_window">
+		   		<field name="name">Daily Performance Register Form</field>
+		   		<field name="res_model">wiz.daily.performance</field>
+	            <field name="type">ir.actions.act_window</field>   
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="target">new</field>
+	            <field name="view_id" ref="wiz_daily_performance_register_form"/>  
+        </record>
+        
+		<menuitem  id="menu_wiz_daily_performance_register" parent="hr_attendance_main_menu"  action="action_wiz_daily_performance_register"  name="Daily Performance Report" sequence="11" />		        
+
+<!--                            Daily Performance Contractor Report View          -->
+
+		<record id="wiz_daily_performance_register_contractor_form" model="ir.ui.view">
+			<field name="name">wiz.daily.performance.contractor</field>
+			<field name="model">wiz.daily.performance.contractor</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<group colspan="4" col="4">
+					<field name="name"/>
+					<field name="date" required='1' />	
+					<field name="partner_id" required="1" domain="[('supplier','=',1)]"/>
+					<field name="employee_id"/>
+					<field name="status"/>
+					<field name="user_id" invisible="1"/>
+				</group>
+				 <group  col="4" colspan="4">
+				 	<button special="cancel" string="Cancel" icon="gtk-cancel"/>
+					<button string="Print Report" name="print_report" type="object"/> 
+				</group> 
+			</field>
+		</record>
+		
+		<record id="action_wiz_daily_performance_register_contractor" model="ir.actions.act_window">
+		   		<field name="name">Daily Performance Register Contractor</field>
+		   		<field name="res_model">wiz.daily.performance.contractor</field>
+	            <field name="type">ir.actions.act_window</field>   
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="target">new</field>
+	            <field name="view_id" ref="wiz_daily_performance_register_contractor_form"/>  
+        </record>
+        
+		<menuitem  id="menu_wiz_daily_performance_register_contractor" parent="hr_attendance_main_menu_contarctor"  action="action_wiz_daily_performance_register_contractor"  name="Daily Performance Report" sequence="4" />		        
+
+
+	</data>
+</openerp>

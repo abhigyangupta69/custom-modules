@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<report
+			id="action_report_verts_document"
+			string="New Invoice report"
+			model="account.invoice"
+			report_type="qweb-pdf"
+			name="account_invoice.report_verts_document"
+			file="account_invoice.report_verts_document"
+            />
+	</data>
+</odoo>
+

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+			<report id="salary_register_report_id" string="Salary Register Report"
+		            model="wiz.salary.report" report_type="qweb-pdf"
+		            name="hr_compliance.report_salary_register" /> 
+		            
+		            
+		     <report id="salary_slip_report_id" string="Salary Slip Report"
+		            model="wiz.salary.report" report_type="qweb-pdf"
+		            name="hr_compliance.report_salary_slip" /> 
+		            
+		            
+		      <report id="esi_contribution_id" string="ESI Contribution"
+		            model="wiz.salary.report" report_type="qweb-pdf"
+		            name="hr_compliance.report_esi_contribution" />  
+		            
+		            
+		      <report id="pf_contribution_report_id" string="PF Contribution"
+            		model="wiz.salary.report" report_type="qweb-pdf"
+            		name="hr_compliance.report_pf_contribution" 
+            		file="hr_compliance.report_pf_contribution"
+            		menu="False" />  
+            		
+              <report id="tds_contribution_report_id" string="TDS Contribution"
+            		model="wiz.salary.report" report_type="qweb-pdf"
+            		name="hr_compliance.report_tds_contribution" 
+            		file="hr_compliance.report_tds_contribution"
+            		menu="False" />    
+            		
+             <report id="loan_emi_report_id" string="Loan EMI"
+            		model="wiz.salary.report" report_type="qweb-pdf"
+            		name="hr_compliance.report_loan_contribution" 
+            		file="hr_compliance.report_loan_contribution"
+            		menu="False" />   		    
+            		
+             <report id="advance_amount_report_id" string="Salary Advance"
+            		model="wiz.salary.report" report_type="qweb-pdf"
+            		name="hr_compliance.report_advance_contribution" 
+            		file="hr_compliance.report_advance_contribution"
+            		menu="False" /> 		  
+		            
+       
+
+
+
+
+<!--								CONTRACTOR SALARY REPORTS                -->
+
+			<report id="contractor_salary_register_report_id" string="Contractor Salary Register Report"
+		            model="wiz.contractor.salary.report" report_type="qweb-pdf"
+		            name="hr_compliance.report_contractor_salary_register" /> 
+		            
+		            
+		     <report id="contractor_salary_slip_report_id" string="Contractor Salary Slip Report"
+		            model="wiz.contractor.salary.report" report_type="qweb-pdf"
+		            name="hr_compliance.report_contractor_salary_slip" /> 
+		            
+		            
+		      <report id="contractor_esi_contribution_id" string="Contractor ESI Contribution"
+		            model="wiz.contractor.salary.report" report_type="qweb-pdf"
+		            name="hr_compliance.report_contractor_esi_contribution" />  
+		            
+		            
+		      <report id="contractor_pf_contribution_report_id" string="Contractor PF Contribution"
+            		model="wiz.contractor.salary.report" report_type="qweb-pdf"
+            		name="hr_compliance.report_contractor_pf_contribution" 
+            		file="hr_compliance.report_contractor_pf_contribution"
+            		menu="False" />  
+            		
+              <report id="contractor_tds_contribution_report_id" string="Contractor TDS Contribution"
+            		model="wiz.contractor.salary.report" report_type="qweb-pdf"
+            		name="hr_compliance.report_contractor_tds_contribution" 
+            		file="hr_compliance.report_contractor_tds_contribution"
+            		menu="False" />    
+            		
+             <report id="contractor_loan_emi_report_id" string="Contractor Loan EMI"
+            		model="wiz.contractor.salary.report" report_type="qweb-pdf"
+            		name="hr_compliance.report_contractor_loan_contribution" 
+            		file="hr_compliance.report_contractor_loan_contribution"
+            		menu="False" />   		    
+            		
+             <report id="contractor_advance_amount_report_id" string="Contractor Salary Advance"
+            		model="wiz.contractor.salary.report" report_type="qweb-pdf"
+            		name="hr_compliance.report_contractor_advance_contribution" 
+            		file="hr_compliance.report_contractor_advance_contribution"
+            		menu="False" /> 		  
+
+	</data>
+</openerp>
+	

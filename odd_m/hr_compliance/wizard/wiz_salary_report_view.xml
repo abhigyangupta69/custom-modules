@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="wiz_salary_report_form" model="ir.ui.view">
+			<field name="name">wiz.salary.report</field>
+			<field name="model">wiz.salary.report</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<group colspan="4" col="4">	
+					<field name="user_id" invisible="1"/>
+					<field name="company_id" attrs="{'readonly':[('user_id','in',(28,10,12,14,16,18,20,22,26,24))]}"/>
+					<field name="month"/>	
+					<field name="department_id"/>
+					<field name="employee_id" domain="[('type','=','Employee')]"/>
+					<field name="report_type"/>
+				</group>
+				
+				 <group  col="2" colspan="4">
+				 	<button special="cancel" string="Cancel" icon="gtk-cancel"/>
+					<button string="Print Report" name="print_report" type="object"/> 
+				</group> 
+			</field>
+		</record>
+		
+		<record id="action_wiz_salary_report" model="ir.actions.act_window">
+		   		<field name="name">Salary Register Form</field>
+		   		<field name="res_model">wiz.salary.report</field>
+	            <field name="type">ir.actions.act_window</field>   
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="target">inline</field>
+	            <field name="view_id" ref="wiz_salary_report_form"/>  
+        </record>
+        
+		<menuitem  id="menu_wiz_performance_register_id" parent="salary_payment_menu"  action="action_wiz_salary_report"  name="Salary  Reports" />
+		
+		
+<!--		                                       CONTRACTOR SALARY REPORTS                              -->
+		
+		<record id="wiz_contractor_salary_report_from" model="ir.ui.view">
+			<field name="name">wiz.contractor.salary.report</field>
+			<field name="model">wiz.contractor.salary.report</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<group colspan="4" col="4">	
+					<field name="partner_id" domain="[('supplier','=',1)]"/>
+					<field name="month"/>	
+					<field name="employee_id" domain="[('type','=','Contractor')]"/>
+					<field name="report_type"/>
+				</group>
+				
+				 <group  col="2" colspan="4">
+				 	<button special="cancel" string="Cancel" icon="gtk-cancel"/>
+					<button string="Print Report" name="print_report" type="object"/> 
+				</group> 
+			</field>
+		</record>
+		
+		<record id="action_wiz_contractor_salary_report" model="ir.actions.act_window">
+		   		<field name="name">Salary Register</field>
+		   		<field name="res_model">wiz.contractor.salary.report</field>
+	            <field name="type">ir.actions.act_window</field>   
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="target">inline</field>
+	            <field name="view_id" ref="wiz_contractor_salary_report_from"/>  
+        </record>
+        
+		<menuitem  id="menu_wiz_contractor_salary_report" parent="salary_payment_sub_menu_contractor"  action="action_wiz_contractor_salary_report"  name="Salary  Reports" sequence="2"/>		        
+				        
+	</data>
+</openerp>

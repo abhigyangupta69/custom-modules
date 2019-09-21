@@ -1,0 +1,30 @@
+<odoo>
+    <record id="wiz_shop_keeper_form_viewss" model="ir.ui.view">
+        <field name="name">wiz.shop.keeper.form</field>
+        <field name="model">wiz.shop.keeper.form</field>
+        <field name="arch" type="xml">
+            <form string="Form">
+                <sheet>
+                    <group col="4" colspan="1">
+                        <field name="product_type" readonly="1"/>
+                        <field name="order_date" readonly="1"/>
+                         <field name="shipping_date" readonly="1"/>
+                        <field name="new_order_date" required="1"/>
+                        <field name="new_shipping_date" required="1"/>
+
+                    </group>
+                    <group col="3" colspan="6">
+                        <button class="oe_highlight" icon="fa-check-circle" name="create_form" string="Confirm Detail" type="object"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="action_wiz_shop_keeper_form_view" model="ir.actions.act_window">
+        <field name="name">Inner Detail</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">wiz.shop.keeper.form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="charges_type_form_view" model="ir.ui.view">
+            <field name="name">charges.type.form</field>
+            <field name="model">charges.type</field>
+            <field name="arch" type="xml">
+                <form string="Charges Type">
+                    <sheet>
+                        <group col="2" colspan="2">
+                            <field name="name" required="1" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="charges_type_tree_view" model="ir.ui.view">
+            <field name="name">charges.type.tree</field>
+            <field name="model">charges.type</field>
+            <field name="arch" type="xml">
+                <tree string="Charges Type">
+                   <field name="name" required="1" />
+                </tree>
+            </field>
+        </record>
+        <record id="action_charges_type_view"  model="ir.actions.act_window">
+            <field name="name">ChargesType</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">charges.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="charges_type_tree_view"/>
+
+        </record>
+    </data>
+</odoo>

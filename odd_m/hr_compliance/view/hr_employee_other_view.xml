@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		   <record model="ir.ui.view" id="qualification_tree_view_id">
+                <field name="name">qualification.list</field>
+                <field name="model">qualification.list</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Qualification">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="qualification_form_view_id">
+                <field name="name">qualification.list</field>
+                <field name="model">qualification.list</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Qualification">
+                    	<group col="4">
+	                    	<field name="name"/>
+                        </group>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_qualification_tree_view">
+                <field name="name">Qualification</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">qualification.list</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="qualification_tree_view_id"/>
+            </record>
+            
+			<menuitem id="hr_qualification_list_menu_id" name="Qualification List" parent="hr.menu_hr_configuration" action="action_qualification_tree_view" sequence="3"/>
+			
+			
+	<!--		<record model="ir.ui.view" id="attendance_shift_tree_view_id">
+                <field name="name">attendance.shift</field>
+                <field name="model">attendance.shift</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="Attendance Shifts">
+                        <field name="name"/>
+                        <field name="user_id"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="attendance_shift_form_view_id">
+                <field name="name">attendance.shift</field>
+                <field name="model">attendance.shift</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="Attendance Shift">
+                    	<group col="4">
+	                    	<field name="name"/>
+	                        <field name="date"/>
+	                        <field name="user_id"/>
+                        </group>
+                        
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_attendance_shift_tree_view">
+                <field name="name">Attendance Shift</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">attendance.shift</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="attendance_shift_tree_view_id"/>
+            </record>     -->
+        
+        
+            
+			<!--   HR Attendance Shift    -->
+			
+			
+			<record id="attendance_shift_tree" model="ir.ui.view">
+			<field name="name">attendance.shift.tree</field>
+			<field name="model">attendance.shift</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="shift_name"/>
+					<field name="date"/>
+					<field name="user_id"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="attendance_shift_form" model="ir.ui.view">
+			<field name="name">attendance.shift.form</field>
+			<field name="model">attendance.shift</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<group col="4" colspan="4">
+					<field name="name"/>
+					<field name="shift_name"/>
+					<field name="date"/>
+					<field name="active"/>
+					</group>
+					  <notebook>
+						<page string="Shift Line">
+							<group col="4" colspan="4">
+				     	   		<separator string="Shift Lines" colspan="4"/>
+								<field name="shift_line" nolabel="1" mode="tree" colspan="4">
+									<tree string="Shift Line" editable="bottom">
+										<field name="type"/>
+										<field name="from_time" widget="float_time"/>
+										<field name="to_time" widget="float_time"/>
+										<field name="case"/>
+										<field name="working_time"/>
+										<field name="lunch_start_time" widget="float_time"/>
+										<field name="lunch_end_time" widget="float_time"/>
+										<field name="lunch_time"/>
+										<field name="user_id"/>
+									</tree>
+						         </field>
+						         </group>
+					  	</page>
+					
+							<page string="Shift Active History">   
+								<group col="4" colspan="4"> 							
+								<separator string="Shift History" colspan="4"/>
+								<field name="shift_history_id" nolabel="1" mode="tree" colspan="4">
+									<tree string="Shift History">
+										<field name="name"/>
+										<field name="date"/>
+										<field name="user_id"/>
+									</tree>		
+								</field>
+								</group>
+					       </page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+		<record id="attendance_shift_action" model="ir.actions.act_window">
+            <field name="name">Attendance Shift</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">attendance.shift</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="view_id" ref="attendance_shift_tree"/>
+        </record>
+        
+        <menuitem id="hr_att_shift_list menu" name="Attendance Shift" parent="hr.menu_hr_configuration" action="attendance_shift_action" sequence="4"/> 
+		
+											<!-- EARNED LEAVE POSTING TREE VIEW -->
+		
+		<record id="earn_leave_tree_id" model="ir.ui.view">
+			<field name="name">hr.employee.tree</field>
+			<field name="model">hr.employee</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree editable="top">
+					<field name="sinid" readonly="1"/>
+					<field name="name" readonly="1"/>
+					<field name="earn_open" readonly="1"/>
+					<field name="earn_leave" readonly="1"/>
+					<field name="doj" readonly="1"/>
+					<field name="earn_date" readonly="1"/>
+					<field name="job_id" readonly="1"/>
+					<field name="department_id" readonly="1"/>
+					<field name="employment_type" invisible="1"/>
+					<field name="type" readonly="1"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record id="earn_leave_tree_action" model="ir.actions.act_window">
+            <field name="name">Earn leave</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="earn_leave_tree_id"/>
+            <field name="domain">[('type','=','Employee')]</field>
+        </record>
+        
+        <menuitem id="hr_earn_leave_menu" name="Earned leave" parent="hr.menu_hr_configuration" action="earn_leave_tree_action" sequence="7"/>   
+
+		<record id="earn_leave_tree_action_contractor" model="ir.actions.act_window">
+            <field name="name">Earn leave</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="earn_leave_tree_id"/>
+            <field name="domain">[('type','=','Contractor')]</field>
+        </record>
+        
+        <menuitem id="menu_earn_leave_contarctor" name="Earned leave" parent="sub_menu_res_partner_contractor" action="earn_leave_tree_action_contractor" sequence="1"/>   
+			
+                      <!--   Employee Salary Category View     -->
+
+		<record id="employee_salary_category_view_tree" model="ir.ui.view">
+			<field name="name">Employee Salary Category</field>
+			<field name="model">employee.salary.category</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="date"/>
+					<field name="category"/>
+					<field name="salary"/>
+					<field name="user_id"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="employee_salary_category_view_form" model="ir.ui.view">
+			<field name="name">Employee Salary Category</field>
+			<field name="model">employee.salary.category</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<group col="4" colspan="4">
+							<field name="date"/>
+							<field name="category"/>
+							<field name="salary"/>
+							<field name="bonus_limit"/>
+							<field name="user_id"/>
+							<field name= "name" invisible="1"/>
+					</group>
+				    <notebook>
+						<page string="Category History Line">
+							<group col="4" colspan="4">
+									 <field name="employee_salary_category_line_id" nolabel="1" mode="tree" colspan="4" readonly="1">
+											<tree string="Shift Line" editable="top">
+												<field name="employee_salary_category_id" invisible="1"/>
+												<field name="date"/>
+												<field name="salary"/>
+												<field name="user_id"/>
+											</tree>
+							         </field>
+						    </group>
+					  	</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_employee_salary_category" model="ir.actions.act_window">
+            <field name="name">Employee Salary Category</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">employee.salary.category</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form,tree</field>
+            <field name="view_id" ref="employee_salary_category_view_tree"/>
+        </record>
+        
+        <menuitem id="menu_employee_salary_category" name="Category" parent="hr.menu_hr_configuration" action="action_employee_salary_category" sequence="20"/> 
+
+
+
+                      <!--   Employee Shift Line View     -->
+	   		
+		<record id="hr_shift_line_view_search" model="ir.ui.view">
+			<field name="name">Employee Shift</field>
+			<field name="model">hr.shift.line</field>
+			<field name="type">search</field>
+			<field name="arch" type="xml">
+				<search string="Employee Shift">
+      				<field name="employee_id"/>
+      				<field name="sinid"/>
+      				<field name="employee_name"/>
+      				<field name="department_id"/>
+      				<field name="job_id"/>
+      				<field name="company_id"/>
+      				<field name="type"/>
+         			<field name="shift_id" readonly="1"/>
+				</search>
+			</field>
+		</record>
+
+		<record id="hr_shift_line_view_tree" model="ir.ui.view">
+			<field name="name">Employee Shift</field>
+			<field name="model">hr.shift.line</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Employee Shift" editable="top">
+					<field name="name" string="Shift Date"/>
+      				<field name="employee_id"/>
+      				<field name="department_id" invisible="1"/>
+      				<field name="shift_id"/>
+      				<field name="user_id"/>
+      				<field name="doj" invisible="1"/>
+      				<field name="sinid" invisible="1"/>
+      				<field name="employee_name" invisible="1"/>
+      				<field name="job_id" invisible="1"/>
+      				<field name="company_id" invisible="1"/>
+      				<field name="type" invisible="1"/>
+      				<field name="employment_type" invisible="1"/>
+         			<field name="active" invisible="1"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="hr_shift_line_view_form" model="ir.ui.view">
+			<field name="name">Employee Shift</field>
+			<field name="model">hr.shift.line</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Employee Shift" editable="top">
+      				<field name="employee_id"/>
+      				<field name="doj" readonly="1"/>
+      				<field name="sinid" invisible="1"/>
+      				<field name="employee_name" invisible="1"/>
+      				<field name="department_id"/>
+      				<field name="job_id"/>
+      				<field name="company_id"/>
+      				<field name="type"/>
+      				<field name="employment_type"/>
+        			<field name="name" string="Shift Date" readonly="1"/>
+         			<field name="shift_id" readonly="1"/>
+         			<field name="active" invisible="1"/>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_hr_shift_line" model="ir.actions.act_window">
+            <field name="name">Employee Shift</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.shift.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="hr_shift_line_view_search"/>
+            <field name="view_id" ref="hr_shift_line_view_tree"/>
+        </record>
+        
+        <menuitem id="menu_hr_shift_line_id" name="Employee Master Shift" parent="hr.menu_hr_main" action="action_hr_shift_line" sequence="11"/> 
+        
+        <record id="check_duplicacy_view_form" model="ir.ui.view">
+			<field name="name">AADHAAR CARD DUPLICACY FORM</field>
+			<field name="model">check.aadhaar.duplicacy</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="AADHAAR CARD DUPLICACY CHECK">
+				   <group colspan="4" col="4">	
+						<field name="name"/>
+						<button string="Check AADHAAR Duplicacy" name="check_duplicacy" type="object" icon="gtk-ok"/>
+					</group>
+					<newline/>
+				    <group colspan="4" col="4">	
+						<field name="uan_name"/>
+						<button string="Check UAN Duplicacy" name="check_uan_duplicacy" type="object" icon="gtk-ok"/>
+						<newline/>
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record id="action_check_duplicacy_action" model="ir.actions.act_window">
+            <field name="name">AADHAAR CARD DUPLICACY CHECK</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">check.aadhaar.duplicacy</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="check_duplicacy_view_form"/>
+        </record>
+
+        <menuitem id="menu_check_aadhaar_id" name="Check Aadhaar Duplicacy" parent="hr.menu_hr_configuration" action="action_check_duplicacy_action" sequence="22"/> 
+		
+		 <record id="check_duplicacy_history_view_tree" model="ir.ui.view">
+			<field name="name">AADHAAR CARD DUPLICACY HISTORY </field>
+			<field name="model">check.aadhaar.duplicacy.history</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="AADHAAR CHECK HISTORY">
+             	    <field name="aadhaar_id" />
+                    <field name="name"/>
+                    <field name="aadhaar_no"/>
+                    <field name="result"/>
+                    <field name="user_id"/>
+             	</tree>
+			</field>
+		</record>
+		
+		<record id="check_duplicacy_history_view_Form" model="ir.ui.view">
+			<field name="name">AADHAAR CARD DUPLICACY HISTORY Form</field>
+			<field name="model">check.aadhaar.duplicacy.history</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="AADHAAR CHECK HISTORY">
+				   <group colspan="4" col="4">
+	             	    <field name="aadhaar_id" invisible="1"/>
+	                    <field name="name" readonly="1"/>
+	                    <field name="aadhaar_no" readonly="1"/>
+	                    <field name="result" readonly="1"/>
+	                    <field name="user_id" readonly="1"/>
+                    </group>
+             	</form>
+			</field>
+		</record>
+		
+		
+	
+
+		<record id="action_check_duplicacy_history_action" model="ir.actions.act_window">
+            <field name="name">AADHAAR CARD DUPLICACY HISTORY</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">check.aadhaar.duplicacy.history</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="check_duplicacy_history_view_tree"/>
+        </record>
+
+<!--        <menuitem id="menu_check_aadhaar_history_id" name="AADHAAR Duplicacy History" parent="hr.menu_hr_configuration" action="action_check_duplicacy_history_action" sequence="23"/> -->
+
+
+
+
+		 <record id="uan_duplicacy_history_line_view_tree" model="ir.ui.view">
+			<field name="name">UAN DUPLICACY HISTORY </field>
+			<field name="model">uan.duplicacy.history.line</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="UAN CHECK HISTORY">
+             	    <field name="uan_id" invisible="1"/>
+                    <field name="name"/>
+                    <field name="uan"/>
+                    <field name="result"/>
+                    <field name="user_id"/>
+             	</tree>
+			</field>
+		</record>
+		
+		<record id="uan_duplicacy_history_line_view_form" model="ir.ui.view">
+			<field name="name">UAN DUPLICACY HISTORY Form</field>
+			<field name="model">uan.duplicacy.history.line</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="UAN CHECK HISTORY">
+				   <group colspan="4" col="4">
+	             	    <field name="uan_id" invisible="1"/>
+	                    <field name="name" readonly="1"/>
+	                    <field name="uan" readonly="1"/>
+	                    <field name="result" readonly="1"/>
+	                    <field name="user_id" readonly="1"/>
+                    </group>
+             	</form>
+			</field>
+		</record>
+		
+		
+	
+
+		<record id="action_uan_duplicacy_history_line" model="ir.actions.act_window">
+            <field name="name">UAN DUPLICACY HISTORY</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">uan.duplicacy.history.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="uan_duplicacy_history_line_view_tree"/>
+        </record>
+
+<!--        <menuitem id="menu_uan_duplicacy_history_id" name="UAN Duplicacy History" parent="hr.menu_hr_configuration" action="action_uan_duplicacy_history_line" sequence="24"/> -->
+
+<!-- ====================================[[ Import Employee Uan/PF Details ]]=================================    -->
+
+		<record id="import_emp_uan_details_form_view" model="ir.ui.view">
+			<field name="name">import.emp.uan.details</field>
+			<field name="model">import.emp.uan.details</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Import PF Details" >
+					<separator string="Upload File (.csv)" colspan="4"/>
+					<group colspan="4">
+						<field name="file"/>
+					</group>
+					<newline/>
+					<separator string="" colspan="4"/>
+            		<button name="file_upload"  string="Import UAN Script" type="object" icon="gtk-ok"/>
+				</form>
+			</field>
+		</record>
+		
+		<record id="action_import_emp_uan_details" model="ir.actions.act_window">
+			<field name="name">Import Data</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">import.emp.uan.details</field>
+			<field name="view_id" ref="import_emp_uan_details_form_view"/>
+			<field name="target">new</field>
+			<field name="view_type">form</field>
+		</record>
+		
+		<menuitem id="menu_import_emp_uan_details_id" name="Import UAN/PF Script" parent="hr.menu_hr_main" action="action_import_emp_uan_details" sequence="10" />
+
+	</data>
+</openerp>

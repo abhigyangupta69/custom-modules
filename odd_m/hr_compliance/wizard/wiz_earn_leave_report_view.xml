@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="wiz_earn_leave_report_form" model="ir.ui.view">
+			<field name="name">Earn Leave Report</field>
+			<field name="model">wiz.earn.leave.report</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<group colspan="4" col="4">
+					<field name="month" required="1"/>	
+					<field name="company_id" required="1"/>
+					<field name="employee_id" domain="[('type','=','Employee')]"/>
+					<field name="export_data" readonly="1" filename="filename" attrs="{'invisible':[('export_data','=',False)]}"/> 
+				    <field name="filename" invisible="1"/>
+				</group>
+				 <group  colspan="4" col="4">
+					<button string="Print Report" name="print_report" type="object" icon="gtk-print"/> 
+				</group> 
+			</field>
+		</record>
+		
+		<record id="action_wiz_earn_leave_report" model="ir.actions.act_window">
+		   		<field name="name">Earn Leave Report</field>
+		   		<field name="res_model">wiz.earn.leave.report</field>
+	            <field name="type">ir.actions.act_window</field>   
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="target">inline</field>
+	            <field name="view_id" ref="wiz_earn_leave_report_form"/>  
+        </record>
+        
+		<menuitem  id="menu_wiz_earn_leave_report" parent="salary_payment_menu"  action="action_wiz_earn_leave_report"  name="Earn Leave Report" sequence="33"/>
+		
+		
+
+<!--                                        CONTRACTOR EARN LEAVE REPORT               -->
+
+		<record id="wiz_contractor_earn_leave_report_form" model="ir.ui.view">
+			<field name="name">Earn Leave</field>
+			<field name="model">wiz.contractor.earn.leave.report</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<group colspan="4" col="4">
+					<field name="month" required="1"/>	
+					<field name="partner_id" domain="[('supplier','=',1)]" required="1"/>
+					<field name="employee_id" domain="[('type','=','Contractor')]"/>
+					<field name="export_data" readonly="1" filename="filename" attrs="{'invisible':[('export_data','=',False)]}"/> 
+				    <field name="filename" invisible="1"/>
+				</group>
+				 <group  colspan="4" col="4">
+					<button string="Print Report" name="print_report" type="object" icon="gtk-print"/> 
+				</group> 
+			</field>
+		</record>
+		
+		<record id="action_wiz_contractor_earn_leave_report" model="ir.actions.act_window">
+		   		<field name="name">Earn Leave Report</field>
+		   		<field name="res_model">wiz.contractor.earn.leave.report</field>
+	            <field name="type">ir.actions.act_window</field>   
+	            <field name="view_mode">form</field>
+	            <field name="view_type">form</field>
+	            <field name="target">inline</field>
+	            <field name="view_id" ref="wiz_contractor_earn_leave_report_form"/>  
+        </record>
+        
+		<menuitem  id="menu_wiz_contractor_earn_leave_report" parent="salary_payment_sub_menu_contractor"  action="action_wiz_contractor_earn_leave_report"  name="Earn Leave Report" sequence="9"/>		        
+				        
+	</data>
+</openerp>

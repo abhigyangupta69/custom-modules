@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <menuitem id="menu_transport_management" name="Transportation" sequence="1"/>
+        <menuitem id="sub_menu_masters_root_id" name="Masters" parent="menu_transport_management" sequence="2"/>
+        <menuitem id="menu_vehicle_brands_root_id" name="Vehicle Brands" parent="sub_menu_masters_root_id" action="action_vehicle_brands_view" sequence="3"/>
+        <menuitem id="menu_vehicle_models_root_id" name="Vehicle Models" parent="sub_menu_masters_root_id" action="action_vehicle_models_view" sequence="4"/>
+        <menuitem id="menu_charges_type_root_id" name="Charges Type" parent="sub_menu_masters_root_id" action="action_charges_type_view" sequence="5"/>
+        <menuitem id="menu_charge_root_id" name="Charge" parent="sub_menu_masters_root_id" action="action_charge_view" sequence="6"/>
+        <menuitem id="menu_fuel_types_root_id" name="Fuel Types" parent="sub_menu_masters_root_id" action="action_fuel_type_view" sequence="7"/>
+        <menuitem id="menu_fuel_price_list_root_id" name="Fuel Price List" parent="sub_menu_masters_root_id" action="action_fuel_price_list_view" sequence="8"/>
+        <menuitem id="menu_odc_reasons_root_id" name="ODC Reasons" parent="sub_menu_masters_root_id" action="action_odc_reasons_view" sequence="9"/>
+        <menuitem id="menu_request_priority_root_id" name="Request Priority" parent="sub_menu_masters_root_id" action="action_request_priority_view" sequence="10"/>
+        <menuitem id="menu_location_types_root_id" name="Location Types" parent="sub_menu_masters_root_id" action="action_location_types_view" sequence="11"/>
+        <menuitem id="menu_vehicle_request_checklist_root_id" name="Vehicle Request Checklist" parent="sub_menu_masters_root_id" action="action_vehicle_request_checklist_view" sequence="12"/>
+        <menuitem id="menu_vehicle_type_root_id" name="Vehicle Type" parent="sub_menu_masters_root_id" action="action_vehicle_type_view" sequence="13"/>
+        <menuitem id="menu_material_status_root_id" name="Material Status" parent="sub_menu_masters_root_id" action="action_material_status_view" sequence="15"/>
+        <menuitem id="menu_execute_reasons_root_id" name="Execute reasons" parent="sub_menu_masters_root_id" action="action_execute_reasons_view" sequence="16"/>
+        <menuitem id="menu_requests_root_id" name="Requests" parent="menu_transport_management" sequence="17"/>
+        <menuitem id="menu_vehicle_requests_root_id" name="Vehicle Requests" parent="menu_requests_root_id" action="action_vehicle_requests_view" sequence="18"/>
+        <menuitem id="menu_wizard_root_id" name="Wizard" parent="menu_transport_management" action="action_vehicle_report_form_view" sequence="19"/>
+        <menuitem id="menu_request_execution_root_id" name="Request Execution" parent="menu_requests_root_id" action="action_request_execution_view" sequence="20"/>
+        <menuitem id="menu_wizard_excel_root_id" name="Reporting" parent="menu_transport_management" action="action_sale_wizard_report_form_view" sequence="21"/>
+        <menuitem id="menu_wizard_excel_root_id" name="Reporting" parent="menu_transport_management" action="action_sale_wizard_report_form_view" sequence="21"/>
+
+
+    </data>
+</odoo>
+

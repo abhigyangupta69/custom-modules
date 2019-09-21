@@ -1,0 +1,12 @@
+<?xml version ="1.0"?>
+<openerp>
+  	<data>
+		<report auto="False"  
+		id="salary_sheet_report_id"
+		model="wiz.salary" 
+		name="salary.sheet.report" 
+		rml="hr_compliance/report/salary_sheet.rml" 
+		string="Salary sheet Report"/>
+		
+	</data>
+</openerp>

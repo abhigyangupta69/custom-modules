@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <template id="report_of_account_invoice_uni1111" inherit_id="account.report_invoice_document">
+        <xpath expr="//table[@name='invoice_line_table']//thead//tr//th[2]" position="after">
+            <th>
+                <span>Weight</span>
+            </th>
+        </xpath>
+        <xpath expr="//table[@name='invoice_line_table']//tbody//tr//td[2]" position="after">
+            <td><span t-field="l.product_id.product_tmpl_id.weight"/></td>
+        </xpath>
+        <xpath expr="//table[@name='invoice_line_table']//thead//tr//th[4]" position="after">
+           <th>
+                <span>Volume</span>
+            </th>
+        </xpath>
+          <xpath expr="//table[@name='invoice_line_table']//tbody//tr//td[4]" position="after">
+            <td><span t-field="l.product_id.product_tmpl_id.volume"/></td>
+        </xpath>
+        <xpath expr="//table[@name='invoice_line_table']//thead//tr//th[6]" position="after">
+           <th>
+                <span>Taxes</span>
+            </th>
+        </xpath>
+        <xpath expr="//table[@name='invoice_line_table']//tbody//tr//td[6]" position="after">
+            <td><span t-field="l.invoice_line_tax_ids"/></td>
+        </xpath>
+
+    </template>
+    </data>
+</odoo>
+
+
+

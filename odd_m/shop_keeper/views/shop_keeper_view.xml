@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!-- Top menu item -->
+        <menuitem name="Details of Shop" id="menu_shop_keeper_root_id" groups="" web_icon="" sequence="1"/>
+        <menuitem id="menu_shop_keeper_sub_root_id" name="Shop Basic Details" parent="menu_shop_keeper_root_id" sequence="1" />
+          <record id="shop_keeper_form_view" model="ir.ui.view">
+            <field name="name">ShopDetails</field>
+            <field name="model">shop.details</field>
+            <field name="arch" type="xml">
+                <form string="Data">
+                <sheet>
+                    <group col="4" colspan="4">
+                        <field name="shop_name"/>
+                        <field name="gst_no"/>
+                        <field name="shop_type"/>
+                        <field name="gst"/>
+                    </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="shop_keeper_tree_view" model="ir.ui.view">
+            <field name="name">ShopDetails</field>
+            <field name="model">shop.details</field>
+            <field name="arch" type="xml">
+                <tree string="Master">
+                         <field name="shop_name"/>
+                        <field name="gst_no"/>
+                        <field name="shop_type"/>
+                       <field name="gst"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_shop_keeper_view" model="ir.actions.act_window">
+            <field name="name">ShopDetails</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shop.details</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="action_shop_keeper_view" id="menu_shop_keeper_id"
+                  parent="menu_shop_keeper_sub_root_id" sequence="1"/>
+
+
+
+
+
+          <record id="shipping_details_form_view" model="ir.ui.view">
+            <field name="name">ShippingDetails</field>
+            <field name="model">shipping.details</field>
+            <field name="arch" type="xml">
+                <form string="Data">
+                <sheet>
+                    <group col="4" colspan="4">
+                        <field name="product_type"/>
+                        <field name="order_date"/>
+                        <field name="shipping_date"/>
+                        <field name="ref_no" invisible="1"/>
+
+                        <button name="%(action_wiz_shop_keeper_form_view)d" string="Check Detail" type="action" class="oe_highlight" icon="fa-pencil-square-o" />
+                    </group>
+                       <notebook>
+                        <page string="Shop Details">
+                        <field name="expected_date" colspan="4"  nolabel="1" >
+                            <tree editable="bottom">
+                                <field name="shop_name"/>
+                                <field name="gst_no"/>
+                                <field name="product_type"/>
+                                <field name="product_name"/>
+                                <field name="cost"/>
+                                <field name="total_price"/>
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                          <field name="shop_name"/>
+                                          <field name="gst_no"/>
+                                          <field name="product_type"/>
+                                          <field name="product_name"/>
+                                          <field name="cost"/>
+                                          <field name="total_price"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+                        </page>
+                           <page string="Order Shipment History">
+                        <field name="history_detail" colspan="4"  nolabel="1" >
+                            <tree editable="bottom">
+                                   <field name="shipping_date"/>
+                                   <field name="new_shipping_date"/>
+                                   <field name="order_date"/>
+                                   <field name="new_order_date"/>
+                                   <field name="user_id"/>
+
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                           <field name="shipping_date"/>
+                                          <field name="new_shipping_date"/>
+                                          <field name="order_date"/>
+                                          <field name="new_order_date"/>
+                                          <field name="user_id"/>
+
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="shipping_details_tree_view" model="ir.ui.view">
+            <field name="name">ShippingDetails</field>
+            <field name="model">shipping.details</field>
+            <field name="arch" type="xml">
+                <tree string="Master">
+                        <field name="product_type"/>
+                        <field name="order_date"/>
+                        <field name="shipping_date"/>
+                        <field name="ref_no" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_shipping_details_view" model="ir.actions.act_window">
+            <field name="name">ShippingDetails</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shipping.details</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="action_shipping_details_view" id="menu_shipping_details_id"
+                  parent="menu_shop_keeper_sub_root_id" sequence="2"/>
+
+
+
+
+
+          <record id="full_details_form_view" model="ir.ui.view">
+            <field name="name">FullDetails</field>
+            <field name="model">full.details</field>
+            <field name="arch" type="xml">
+                <form string="Data">
+                <sheet>
+                    <group col="4" colspan="4">
+                        <!--<field name="shop_name"/>-->
+                        <field name="gst_no"/>
+                        <field name="product_type"/>
+                        <field name="product_name"/>
+                        <field name="cost"/>
+                        <field name="total_price"/>
+                    </group>
+                    <notebook>
+                        <page string="FullDetails">
+                        <field name="product" colspan="4"  nolabel="1" >
+                            <tree editable="bottom">
+                                     <field name="product_type"/>
+                                     <field name="order_date"/>
+                                     <field name="shipping_date"/>
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                           <field name="product_type"/>
+                                           <field name="order_date"/>
+                                           <field name="shipping_date"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="full_details_tree_view" model="ir.ui.view">
+            <field name="name">FullDetails</field>
+            <field name="model">full.details</field>
+            <field name="arch" type="xml">
+                <tree string="Master">
+                         <field name="gst_no"/>
+                        <field name="product_type"/>
+                        <field name="product_name"/>
+                        <field name="cost"/>
+                        <field name="total_price"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_full_details_view" model="ir.actions.act_window">
+            <field name="name">FullDetails</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">full.details</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+
+
+
+
+
+      <record id="history_shop_form_view" model="ir.ui.view">
+            <field name="name">HistoryShop</field>
+            <field name="model">history.shop</field>
+            <field name="arch" type="xml">
+                <form string="Data">
+                <sheet>
+                    <group col="4" colspan="4">
+                        <field name="shipping_date"/>
+                        <field name="new_shipping_date"/>
+                        <field name="order_date"/>
+                        <field name="new_order_date"/>
+                         <field name="user_id"/>
+
+
+                    </group>
+                       <notebook>
+                        <page string="Details">
+                        <field name="shop_history" colspan="4"  nolabel="1" >
+                            <tree editable="bottom">
+                                <field name="product_type"/>
+                                <field name="order_date"/>
+                                <field name="shipping_date"/>
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                         <field name="product_type"/>
+                                         <field name="order_date"/>
+                                         <field name="shipping_date"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="history_shop_tree_view" model="ir.ui.view">
+            <field name="name">HistoryShop</field>
+            <field name="model">history.shop</field>
+            <field name="arch" type="xml">
+                <tree string="Master">
+                        <field name="shipping_date"/>
+                        <field name="new_shipping_date"/>
+                        <field name="order_date"/>
+                        <field name="new_order_date"/>
+                        <field name="user_id"/>
+
+                </tree>
+            </field>
+        </record>
+        <record id="action_history_shop_view" model="ir.actions.act_window">
+            <field name="name">HistoryShop</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">history.shop</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+
+
+                 <!--full order date tree view-->
+        <record id="full_order_tree_view" model="ir.ui.view">
+            <field name="name">FullDetails</field>
+            <field name="model">full.details</field>
+            <field name="arch" type="xml">
+                <tree string="Master">
+                    <field name="gst_no" readonly="1"/>
+                    <field name="product_type" readonly="1"/>
+                    <field name="product_name" readonly="1"/>
+                    <field name="cost" readonly="1"/>
+                    <field name="total_price" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="full_order_search_view" model="ir.ui.view">
+            <field name="name">FullDetails</field>
+            <field name="model">full.details</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="gst_no" readonly="1"/>
+                    <field name="product_type" readonly="1"/>
+                    <field name="product_name" readonly="1"/>
+                    <field name="cost" readonly="1"/>
+                    <field name="total_price" readonly="1"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_full_order" model="ir.actions.act_window">
+            <field name="name">Full Order Detail</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">full.details</field>
+            <field name="view_mode">tree</field>
+        </record>
+        <menuitem action="action_full_order" id="menu_full_order_id"
+                  parent="menu_shop_keeper_sub_root_id" sequence="7"/>
+
+         <!---full order date tree view-->
+
+
+
+
+
+
+
+
+
+
+          <record id="customer_detail_form_view" model="ir.ui.view">
+            <field name="name">CustomerDetail</field>
+            <field name="model">customer.detail</field>
+            <field name="arch" type="xml">
+                <form string="Data">
+                <sheet>
+                    <group col="4" colspan="4">
+                        <field name="name_customer"/>
+                        <field name="customer_address"/>
+                        <field name="product_payment"/>
+                        <field name="delivery_time"/>
+                    </group>
+                      <notebook>
+                        <page string="Details">
+                        <field name="feed" colspan="4"  nolabel="1" >
+                            <tree editable="bottom">
+                                <field name="ref_no" readonly="1"/>
+                                <field name="experience"/>
+                                <field name="rating"/>
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                           <field name="ref_no" readonly="1"/>
+                                          <field name="experience"/>
+                                          <field name="rating"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+                        </page>
+                         </notebook>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="customer_detail_tree_view" model="ir.ui.view">
+            <field name="name">CustomerDetail</field>
+            <field name="model">customer.detail</field>
+            <field name="arch" type="xml">
+                <tree string="Master">
+                        <field name="name_customer"/>
+                        <field name="customer_address"/>
+                        <field name="product_payment"/>
+                        <field name="delivery_time"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_customer_detail_view" model="ir.actions.act_window">
+            <field name="name">CustomerDetail</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">customer.detail</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem action="action_customer_detail_view" id="menu_customer_detail_id"
+                  parent="menu_shop_keeper_sub_root_id" sequence="8"/>
+
+
+
+
+
+
+     <record id="customer_support_form_view" model="ir.ui.view">
+            <field name="name">CustomerSupport</field>
+            <field name="model">customer.support</field>
+            <field name="arch" type="xml">
+                <form string="Data">
+                <sheet>
+                    <group col="4" colspan="4">
+                        <field name="ref_no" readonly="1"/>
+                        <field name="experience"/>
+                        <field name="rating"/>
+                    </group>
+                         <notebook>
+                        <page string="Details">
+                        <field name="update_details" colspan="4"  nolabel="1" >
+                            <tree editable="bottom">
+                                <field name="name_customer"/>
+                                <field name="customer_address"/>
+                                <field name="product_payment"/>
+                                <field name="delivery_time"/>
+                            </tree>
+                            <form >
+                                <sheet>
+                                    <group>
+                                          <field name="name_customer"/>
+                                          <field name="customer_address"/>
+                                          <field name="product_payment"/>
+                                          <field name="delivery_time"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+                        </page>
+                         </notebook>
+                </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="customer_support_tree_view" model="ir.ui.view">
+            <field name="name">CustomerSupport</field>
+            <field name="model">customer.support</field>
+            <field name="arch" type="xml">
+                <tree string="Master">
+                        <field name="ref_no" readonly="1 "/>
+                        <field name="experience"/>
+                        <field name="rating"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_customer_support_view" model="ir.actions.act_window">
+            <field name="name">CustomerSupport</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">customer.support</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+</odoo>

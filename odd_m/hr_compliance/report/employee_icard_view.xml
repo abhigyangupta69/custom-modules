@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+				<report id="employee_icard_report_id" string="Employee Yellow Designco Icard"
+		            model="wiz.employee.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_employee_icard_designco" /> 
+		            
+		     	<report id="employee_icard_report_lohia_id" string="Employee Lohia Icard"
+		            model="wiz.employee.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_employee_icard_lohia" />
+		            
+		      	<report id="employee_access_report_id" string="Employee Access Icard Packing"
+		            model="wiz.employee.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_employee_access_icard" />   
+		               
+		      	<report id="employee_access_paint_report_id" string="Employee Access Icard Paint"
+		            model="wiz.employee.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_employee_access_icard_paint" /> 
+		            
+	            <report id="employee_access_lacquer_report_id" string="Employee Access Icard Lacquer"
+	            model="wiz.employee.icard" report_type="qweb-pdf"
+	            name="hr_compliance.report_employee_access_icard_lacquer" /> 
+
+				<report id="designco_employee_icard_id" string="Designco Icard"
+		            model="wiz.employee.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_employee_icard_designco_all" /> 
+            
+	            <!-- <report id="employee_access_warehouse_report_id" string="Employee Access Icard Warehouse"
+	            model="wiz.employee.icard" report_type="qweb-pdf"
+	            name="hr_compliance.report_employee_access_icard_warehouse" />  -->      
+	            
+	            
+	             <report id="designco_employee_green_access_icard_id" string="Designco Green Icard"
+		            model="wiz.employee.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_green_access_icard_designco" /> 
+		            
+		            
+		            <report id="designco_employee_orange_access_icard_id" string="Designco Orange Icard"
+		            model="wiz.employee.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_orange_access_icard_designco"/> 
+		            
+	            
+	            
+	            
+	            
+	            
+	            
+	            
+<!--	            ALL CONTRACTOR ICARD REPORT VIEW     -->
+
+				<report id="contractor_designco_icard_report_id" string="Contractor Designco Icard"
+		            model="wiz.contractor.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_contractor_icard_designco" /> 
+		            
+		     	<report id="contractor_lohia_icard_report_id" string="Contractor Lohia Icard"
+		            model="wiz.contractor.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_contractor_icard_lohia" />
+		            
+		      	<report id="contractor_access_packing_report_id" string="Access Icard Packing"
+		            model="wiz.contractor.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_contractor_access_icard_packing" />   
+		               
+		      	<report id="contractor_access_paint_report_id" string="Access Icard Paint"
+		            model="wiz.contractor.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_contractor_access_icard_paint" /> 
+		            
+	            <report id="contractor_access_lacquer_report_id" string="Access Icard Lacquer"
+	            model="wiz.contractor.icard" report_type="qweb-pdf"
+	            name="hr_compliance.report_contractor_access_icard_lacquer" /> 
+
+				<report id="designco_icard_contractor_report_id" string="Yellow Designco Icard"
+		            model="wiz.contractor.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_contractor_icard_designco_all" /> 
+
+				<report id="neem_trainee_icard_report_id" string="Neem Trainee Icard"
+		            model="wiz.contractor.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_neem_trainee_icard" /> 
+		            
+		            
+		            
+		        <report id="designco_contractor_green_access_icard_id" string="Contractor Green Icard"
+		            model="wiz.contractor.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_contractor_green_access_icard_designco" /> 
+		            
+		            
+		          <report id="designco_contractor_orange_access_icard_id" string="Contractor Orange Icard"
+		            model="wiz.contractor.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_contractor_orange_access_icard_designco"/> 
+		            
+		         <report id="designco_neem_green_access_icard_id" string="Neem Green Icard"
+		            model="wiz.contractor.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_neem_green_access_icard_designco" /> 
+		            
+		            
+		          <report id="designco_neem_orange_access_icard_id" string="Neem Orange Icard"
+		            model="wiz.contractor.icard" report_type="qweb-pdf"
+		            name="hr_compliance.report_neem_orange_access_icard_designco"/>        
+
+	            		            
+	</data>
+</openerp>

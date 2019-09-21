@@ -1,0 +1,1751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		
+		
+		<!--	======================= Template for Form12 Report ==================	-->
+										
+		<template id="report_form12_register">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+				<t t-call="report.html_container">
+					<t t-call="report.internal_layout">
+						<t t-foreach="docs" t-as="o">	
+							<div style="border: 1px solid black;">					
+								<div class="page">
+									<table width="100%">
+					  <!--============= ==== ======= ===== ======== ====[[ HEADER ]]== == === == ==== === ====== === == ==== ======= ==== == -->
+		
+				<THEAD>
+					<tr width="100%">
+							<th WIDTH="12%"  colspan="11" style= "border-top: NONE; border-bottom: NONE; border-left: NONE;"> 
+								Name of the Factory or Department
+							</th>
+							<th WIDTH="12%"  colspan="11" style= "border-top: NONE; border-bottom: NONE;">
+									<span t-esc="o.company_id.name"/> <span t-esc="o.company_id.street"/> 
+							</th>							
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top:NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="10%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="26%"  colspan="25" style= "text-align: center;border-top: NONE; border-bottom: NONE;">
+									<B>Form NO. 12</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="9%" colspan="7" style= "border-top: NONE; border-bottom: NONE;">
+								MONTH : <span t-esc="o.month_id.name[0:len(o.month_id.name)-5]"/>
+							</th>
+							<th WIDTH="9%"  colspan="7" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="10%"  colspan="13" style= "border-top: NONE; border-bottom: NONE;">
+								 YEAR : <span t-esc="o.month_id.year_id.name"/>
+							</th>
+						</tr>	
+						<tr width="100%">
+							<th WIDTH="12%"  colspan="11" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;"> 
+							</th>
+							<th WIDTH="12%"  colspan="11" style= "text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;">
+								TIME OF COMMENCEMENT OF WORK
+							</th>							
+							<th WIDTH="4%"  colspan="4" style= "text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+								<B> From</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+								<B> TO</B>
+							</th>
+							<th WIDTH="10%"  colspan="4" style= "border-top: NONE; border-bottom: NONE; border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="26%"  colspan="25" style= "text-align: center;border-top: NONE; border-bottom: NONE;">
+								<B>	(RULE NO 78)</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="9%" colspan="7" style= "text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+								<B>FROM</B>
+							</th>
+							<th WIDTH="9%"  colspan="7" style= "text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+								<B> TO</B>
+							</th>
+							<th WIDTH="16%"  colspan="13" style= "text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000;border-left: 1px solid #000000; border-right: 1px solid #000000;">
+								<B>TIME OF COMPLETION</B>
+							</th>
+						</tr>	
+					<tr width="100%">
+							<th WIDTH="12%"  colspan="11" style= "text-align: LEFT;border-top: 1px solid #000000; border-bottom: NONE; border-left: 1px solid #000000;"> 
+								<B>MONDAY TO FRIDAY</B>	
+							</th>
+							<th WIDTH="12%"  colspan="11" style= "text-align: center;border-top: 1px solid #000000; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B>9:15</B>
+							</th>							
+							<th WIDTH="4%"  colspan="4" style= "text-align: center;border-top: 1px solid #000000; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B> 9:15</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "text-align: center;border-top: 1px solid #000000; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B> 1:00</B>
+							</th>
+							<th WIDTH="10%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="26%"  colspan="25" style= "text-align: center;border-top: NONE; border-bottom: NONE;">
+								<B>	REGISTER OF ADULT WORKER</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="9%" colspan="7" style= "text-align: center;border-top: 1px solid #000000; border-bottom: NONE; border-left: 1px solid #000000;">
+								<B>13:45</B>
+							</th>
+							<th WIDTH="9%"  colspan="7" style= "text-align: center;border-top: 1px solid #000000; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B> 18:00</B>
+							</th>
+							<th WIDTH="16%"  colspan="13" style= "text-align: center;border-top: 1px solid #000000; border-bottom: NONE;border-left: 1px solid #000000;border-right: 1px solid #000000;">
+								<B>18:00</B>
+							</th>
+						</tr>	
+						<tr width="100%">
+							<th WIDTH="12%"  colspan="11" style= "text-align: LEFT;border-top: NONE; border-bottom: NONE; border-left: 1px solid #000000;"> 
+								<B>SATURDAY</B>	
+							</th>
+							<th WIDTH="12%"  colspan="11" style= "border-top: NONE; border-bottom: NONE; border-left: 1px solid #000000;">
+								<B></B>
+							</th>							
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B> </B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B></B>
+							</th>
+							<th WIDTH="10%"  colspan="4" style= "border-top: NONE; border-bottom: NONE; border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="26%"  colspan="25" style= "text-align: center;border-top: NONE; border-bottom: NONE;">
+								<B>	PRESCRIBED UNDER SECTION 62 OF THE ACT</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="9%" colspan="7" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="9%"  colspan="7" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="16%"  colspan="13" style= "border-top: NONE; border-bottom:NONE;border-left: 1px solid #000000;border-right: 1px solid #000000;">
+							</th>
+						</tr>
+						<tr width="100%">
+							<th WIDTH="12%"  colspan="11" style= "text-align: LEFT;border-top: NONE; border-bottom: NONE; border-left: 1px solid #000000;"> 
+								<B>SUNDAY</B>	
+							</th>
+							<th WIDTH="12%"  colspan="11" style= "text-align:center;border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B> WEEKLY OFF</B>
+							</th>							
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B> </B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B></B>
+							</th>
+							<th WIDTH="10%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="26%"  colspan="25" style= "border-top: NONE; border-bottom: NONE;">
+								<B>	</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="9%" colspan="7" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="9%"  colspan="7" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="16%"  colspan="13" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;border-right: 1px solid #000000;">
+							</th>
+						</tr>
+						<tr width="100%">
+							<th WIDTH="12%"  colspan="11" style= "text-align: LEFT;border-top: NONE; border-bottom: 1px solid #000000; border-left: 1px solid #000000;"> 
+								<B>SYSTEM ROTATION OF RELAY</B>	
+							</th>
+							<th WIDTH="12%"  colspan="11" style= "border-top: NONE; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+								<B></B>
+							</th>							
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+								<B> </B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+								<B></B>
+							</th>
+							<th WIDTH="10%"  colspan="4" style= "border-top: NONE; border-bottom: NONE; border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="26%"  colspan="25" style= "border-top: NONE; border-bottom: NONE;">
+								<B>	</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="9%" colspan="7" style= "border-top: NONE; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="9%"  colspan="7" style= "border-top: NONE; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="16%"  colspan="13" style= "border-top: NONE; border-bottom: 1px solid #000000;border-left: 1px solid #000000; border-right: 1px solid #000000;">
+							</th>
+						</tr>
+						<TR WIDTH="100%">
+							<th WIDTH="100%"  colspan="90" STYLE="border-style: double;;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+						</TR>
+						<tr width="100%">
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;"> 
+							</th>
+							<th WIDTH="1%"  colspan="3" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="4%"  colspan="3" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="4%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:12px">	<b> Correspondent to that in Form 11 </b> </font>
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%" colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px s #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;"> 
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%" colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%" colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b> Deduction if Any </b> 
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="4%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="3%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="5%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;">
+							</th>
+						</tr>	
+						
+							<!-- =============================================[[ 9TH ROW ]]=================================-->		
+						 
+						 <tr width="100%">
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<b>S.N.</b>
+							</th>
+							<th WIDTH="4%" colspan="3" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<b>Name of <br/> Adult <br/>Worker</b>
+							</th>
+							<th WIDTH="4%" colspan="3" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<b>Father<br/>Name</b>
+							</th>
+							<th WIDTH="2%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<b>Nature Of Work</b>
+							</th>
+							<th WIDTH="3%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<b>Department</b>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Group <br/> of <br/>Relay</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/>	<b>Shift</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/>	<b>1st</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<BR/><BR/><b>2nd</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<BR/><BR/><b>3rd</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<BR/><BR/><b>4th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/> <b>5th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>6th</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>7th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>8th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>9th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>10th</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>11th</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>12th</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>13th</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>14th</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>15th</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>16th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<BR/><BR/><b>17th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>18th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>19th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>20th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>21st</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>22nd</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>23rd</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>24th</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>25th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>26th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>27th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>28th</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>29th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>30th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>31st</b>
+							</th>														
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Total Number<br/> of <br/> days<br/> Worked</b>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Rate of <br/>Basic wages</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Rate of allow<br/>ance if any</b>
+							</th>
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Total Hours of Over time</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Amount Due</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<b>On Account of Provident Fund</b>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>On Account of Advance</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>FINE</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<B>Actual Wages Paid</B>
+							</th>
+							<th WIDTH="4%" colspan="2"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Total Number OF Weekly  Holiday Lost By The Worker </b>	
+							</th>
+							<th WIDTH="3%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Dates On Which Compen-<BR/>satory<BR/> Holidays  Will Be Given </b>
+							</th>
+							<th WIDTH="5%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Remark Or  Indication <BR/>Showing  That Payment Have<BR/> Been Made Together <BR/>With the Date	</b>		
+							</th>
+						</tr> 
+						 <tr width="100%">
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>1</b>	
+							</th>
+							<th WIDTH="4%" colspan="3" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>2</b>	
+							</th>
+							<th WIDTH="4%" colspan="3" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>3</b>	
+							</th>
+							<th WIDTH="2%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>4</b>	
+							</th>
+							<th WIDTH="3%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>5</b>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>6</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>7</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>8</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>9</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>10</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>11</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>12</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>13</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>14</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>15</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>16</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>17</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>18</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>19</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>20</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>21</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>22</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>23</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>24</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>25</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>26</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>27</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>28</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>29</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>30</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>31</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>32</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>33</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>34</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>35</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>36</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>37</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>38</b>
+							</th>														
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>39</b>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>40</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>41</b>
+							</th>
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>42</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>43</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>44</b>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>45</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>46</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<B>47</B>
+							</th>
+							<th WIDTH="4%" colspan="2"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>48</b>	
+							</th>
+							<th WIDTH="3%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>49 </b>
+							</th>
+							<th WIDTH="5%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>50</b>		
+							</th>
+						</tr> 
+						<TR WIDTH="100%">
+							<th WIDTH="100%"  colspan="90" STYLE="border-style: double;;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+						</TR>
+				</THEAD>
+				<!-- ================================[[ FOOTER ]]=========================================================-->
+						 <tfoot>
+		    				<tr>
+		      					<TH  WIDTH="90%" colspan="80" STYLE="text-align:center;">  
+		      						<B>	NOTE :-<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>	 P- PRESENT <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> A-ABSENT <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>  
+		      					    	W/O - WEEKLY OFF <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> EL- EARNED LEAVE<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>HL- HOLIDAY<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> 
+		      					    	CL- CASUAL LEAVE <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> SL-SICK LEAVE <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> COM- Compensatory Days<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>FW- Factory Work<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><BR/>
+		      					        POW -PRESENT ON WEEK OFF  <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> POH - PRESENT ON HOLIDAY<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>GEN- GENERAL<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><BR/>
+		      					        STF-STAFF <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>GRD A-GUARD A  <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>GRD B-GUARD B <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>GRD C-GUARD C
+		      					    	 </B>	
+		      					</TH>			 						
+		    				</tr>
+		  				</tfoot>
+	
+				<!-- ================================[[ BODY ]]=========================================================-->
+						<TBODY>
+						
+						<tr width="100%" t-foreach="get_data(o.from_date,o.till_date,o.company_id,o.department_id,o.employee_ids)" t-as="line">
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<span t-raw="get_sequence()"/>	
+							</th>
+							<th WIDTH="4%" colspan="3" STYLE="text-align:center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<font style= "font-size:11px"><span t-raw="line[0][0:14]"/></font>
+									<br/>
+									<font style= "font-size:12px"><span t-raw="line[0][14:28]"/></font>
+									<br/>
+									[<font style= "font-size:11px"><span t-raw="line[1]"/></font>]
+							</th>
+							<th WIDTH="3%" colspan="3" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:11px"><span t-raw="line[3][0:12]"/></font>
+									<br/>
+								<font style= "font-size:11px"><span t-raw="line[3][12:24]"/></font>
+							</th>
+							<th WIDTH="2%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:11px"><span t-raw="line[2][0:10]"/></font>
+								<br/>
+								<font style= "font-size:11px"><span t-raw="line[2][10:20]"/></font>
+							</th>
+							<th WIDTH="3%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:11px"><span t-raw="line[4][0:10]"/></font>
+								<br/>
+								<font style= "font-size:11px"><span t-raw="line[4][10:20]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:11px"><span t-raw="line[5]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][0]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][0]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][1]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][1]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][2]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][2]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][3]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][3]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][4]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][4]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][5]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][5]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][6]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"   STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][6]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][7]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][7]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][8]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][8]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][9]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"   STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][9]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][10]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][10]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][11]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"   STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][11]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][12]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"   STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][12]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][13]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][13]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][14]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][14]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][15]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][15]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][16]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][16]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][17]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][17]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][18]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][18]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][19]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][19]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][20]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][20]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][21]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][21]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][22]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][22]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][23]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][23]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][24]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][24]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][25]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][25]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][26]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][26]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][27]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][27]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][28]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][28]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][29]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][29]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][30]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][30]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[7]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="4%" colspan="2"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="3%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="5%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+						</tr> 
+					</TBODY>	
+				</table>
+		</div>
+		</div>
+		</t>
+	</t>
+</t>
+</template>
+
+
+
+
+
+
+<!--                               ===========CONTRACTOR FORM12 REGISTER============                   -->
+
+
+		<!--	======================= Template for Contractor Form12 Report ==================	-->
+										
+		<template id="report_contractor_form12_register">
+			<t t-set="data_report_margin_bottom" t-value="-100"/>
+				<t t-call="report.html_container">
+					<t t-call="report.internal_layout">
+						<t t-foreach="docs" t-as="o">	
+							<div style="border: 1px solid black;">					
+								<div class="page">
+									<table width="100%">
+					  <!--============= ==== ======= ===== ======== ====[[ HEADER ]]== == === == ==== === ====== === == ==== ======= ==== == -->
+		
+				<THEAD>
+					<tr width="100%">
+							<th WIDTH="12%"  colspan="11" style= "border-top: NONE; border-bottom: NONE; border-left: NONE;"> 
+								Name of the Factory or Department
+							</th>
+							<th WIDTH="12%"  colspan="11" style= "border-top: NONE; border-bottom: NONE;">
+									<span t-esc="o.partner_id.name"/> <span t-esc="o.partner_id.street"/> 
+							</th>							
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top:NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="10%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="26%"  colspan="25" style= "text-align: center;border-top: NONE; border-bottom: NONE;">
+									<B>Form NO. 12</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="9%" colspan="7" style= "border-top: NONE; border-bottom: NONE;">
+								MONTH : <span t-esc="o.month_id.name[0:len(o.month_id.name)-5]"/>
+							</th>
+							<th WIDTH="9%"  colspan="7" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="10%"  colspan="13" style= "border-top: NONE; border-bottom: NONE;">
+								 YEAR : <span t-esc="o.month_id.year_id.name"/>
+							</th>
+						</tr>	
+						<tr width="100%">
+							<th WIDTH="12%"  colspan="11" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;"> 
+							</th>
+							<th WIDTH="12%"  colspan="11" style= "text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;">
+								TIME OF COMMENCEMENT OF WORK
+							</th>							
+							<th WIDTH="4%"  colspan="4" style= "text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+								<B> From</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+								<B> TO</B>
+							</th>
+							<th WIDTH="10%"  colspan="4" style= "border-top: NONE; border-bottom: NONE; border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="26%"  colspan="25" style= "text-align: center;border-top: NONE; border-bottom: NONE;">
+								<B>	(RULE NO 78)</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="9%" colspan="7" style= "text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+								<B>FROM</B>
+							</th>
+							<th WIDTH="9%"  colspan="7" style= "text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+								<B> TO</B>
+							</th>
+							<th WIDTH="16%"  colspan="13" style= "text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000;border-left: 1px solid #000000; border-right: 1px solid #000000;">
+								<B>TIME OF COMPLETION</B>
+							</th>
+						</tr>	
+					<tr width="100%">
+							<th WIDTH="12%"  colspan="11" style= "text-align: LEFT;border-top: 1px solid #000000; border-bottom: NONE; border-left: 1px solid #000000;"> 
+								<B>MONDAY TO FRIDAY</B>	
+							</th>
+							<th WIDTH="12%"  colspan="11" style= "text-align: center;border-top: 1px solid #000000; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B>9:15</B>
+							</th>							
+							<th WIDTH="4%"  colspan="4" style= "text-align: center;border-top: 1px solid #000000; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B> 9:15</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "text-align: center;border-top: 1px solid #000000; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B> 1:00</B>
+							</th>
+							<th WIDTH="10%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="26%"  colspan="25" style= "text-align: center;border-top: NONE; border-bottom: NONE;">
+								<B>	REGISTER OF ADULT WORKER</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="9%" colspan="7" style= "text-align: center;border-top: 1px solid #000000; border-bottom: NONE; border-left: 1px solid #000000;">
+								<B>13:45</B>
+							</th>
+							<th WIDTH="9%"  colspan="7" style= "text-align: center;border-top: 1px solid #000000; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B> 18:00</B>
+							</th>
+							<th WIDTH="16%"  colspan="13" style= "text-align: center;border-top: 1px solid #000000; border-bottom: NONE;border-left: 1px solid #000000;border-right: 1px solid #000000;">
+								<B>18:00</B>
+							</th>
+						</tr>	
+						<tr width="100%">
+							<th WIDTH="12%"  colspan="11" style= "text-align: LEFT;border-top: NONE; border-bottom: NONE; border-left: 1px solid #000000;"> 
+								<B>SATURDAY</B>	
+							</th>
+							<th WIDTH="12%"  colspan="11" style= "border-top: NONE; border-bottom: NONE; border-left: 1px solid #000000;">
+								<B></B>
+							</th>							
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B> </B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B></B>
+							</th>
+							<th WIDTH="10%"  colspan="4" style= "border-top: NONE; border-bottom: NONE; border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="26%"  colspan="25" style= "text-align: center;border-top: NONE; border-bottom: NONE;">
+								<B>	PRESCRIBED UNDER SECTION 62 OF THE ACT</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="9%" colspan="7" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="9%"  colspan="7" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="16%"  colspan="13" style= "border-top: NONE; border-bottom:NONE;border-left: 1px solid #000000;border-right: 1px solid #000000;">
+							</th>
+						</tr>
+						<tr width="100%">
+							<th WIDTH="12%"  colspan="11" style= "text-align: LEFT;border-top: NONE; border-bottom: NONE; border-left: 1px solid #000000;"> 
+								<B>SUNDAY</B>	
+							</th>
+							<th WIDTH="12%"  colspan="11" style= "text-align:center;border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B> WEEKLY OFF</B>
+							</th>							
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B> </B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+								<B></B>
+							</th>
+							<th WIDTH="10%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="26%"  colspan="25" style= "border-top: NONE; border-bottom: NONE;">
+								<B>	</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="9%" colspan="7" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="9%"  colspan="7" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="16%"  colspan="13" style= "border-top: NONE; border-bottom: NONE;border-left: 1px solid #000000;border-right: 1px solid #000000;">
+							</th>
+						</tr>
+						<tr width="100%">
+							<th WIDTH="12%"  colspan="11" style= "text-align: LEFT;border-top: NONE; border-bottom: 1px solid #000000; border-left: 1px solid #000000;"> 
+								<B>SYSTEM ROTATION OF RELAY</B>	
+							</th>
+							<th WIDTH="12%"  colspan="11" style= "border-top: NONE; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+								<B></B>
+							</th>							
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+								<B> </B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+								<B></B>
+							</th>
+							<th WIDTH="10%"  colspan="4" style= "border-top: NONE; border-bottom: NONE; border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="26%"  colspan="25" style= "border-top: NONE; border-bottom: NONE;">
+								<B>	</B>
+							</th>
+							<th WIDTH="4%"  colspan="4" style= "border-top: NONE; border-bottom: NONE;">
+							</th>
+							<th WIDTH="9%" colspan="7" style= "border-top: NONE; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="9%"  colspan="7" style= "border-top: NONE; border-bottom: 1px solid #000000;border-left: 1px solid #000000;">
+							</th>
+							<th WIDTH="16%"  colspan="13" style= "border-top: NONE; border-bottom: 1px solid #000000;border-left: 1px solid #000000; border-right: 1px solid #000000;">
+							</th>
+						</tr>
+						<TR WIDTH="100%">
+							<th WIDTH="100%"  colspan="90" STYLE="border-style: double;;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+						</TR>
+						<tr width="100%">
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;"> 
+							</th>
+							<th WIDTH="1%"  colspan="3" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="4%"  colspan="3" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="4%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:12px">	<b> Correspondent to that in Form 11 </b> </font>
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%" colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px s #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;"> 
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%" colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%" colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b> Deduction if Any </b> 
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="1%"  colspan="1" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="4%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="3%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000;">
+							</th>
+							<th WIDTH="5%"  colspan="2" style= "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000;">
+							</th>
+						</tr>	
+						
+							<!-- =============================================[[ 9TH ROW ]]=================================-->		
+						 
+						 <tr width="100%">
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<b>S.N.</b>
+							</th>
+							<th WIDTH="4%" colspan="3" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<b>Name of <br/> Adult <br/>Worker</b>
+							</th>
+							<th WIDTH="4%" colspan="3" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<b>Father<br/>Name</b>
+							</th>
+							<th WIDTH="2%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<b>Nature Of Work</b>
+							</th>
+							<th WIDTH="3%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<b>Department</b>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Group <br/> of <br/>Relay</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/>	<b>Shift</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/>	<b>1st</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<BR/><BR/><b>2nd</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<BR/><BR/><b>3rd</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<BR/><BR/><b>4th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/> <b>5th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>6th</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>7th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>8th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>9th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>10th</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>11th</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>12th</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>13th</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>14th</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>15th</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>16th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<BR/><BR/><b>17th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>18th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>19th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>20th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>21st</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>22nd</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>23rd</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>24th</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>25th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>26th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>27th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>28th</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>29th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>30th</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<BR/><BR/><b>31st</b>
+							</th>														
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Total Number<br/> of <br/> days<br/> Worked</b>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Rate of <br/>Basic wages</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Rate of allow<br/>ance if any</b>
+							</th>
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Total Hours of Over time</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Amount Due</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							<b>On Account of Provident Fund</b>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>On Account of Advance</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>FINE</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<B>Actual Wages Paid</B>
+							</th>
+							<th WIDTH="4%" colspan="2"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Total Number OF Weekly  Holiday Lost By The Worker </b>	
+							</th>
+							<th WIDTH="3%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Dates On Which Compen-<BR/>satory<BR/> Holidays  Will Be Given </b>
+							</th>
+							<th WIDTH="5%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>Remark Or  Indication <BR/>Showing  That Payment Have<BR/> Been Made Together <BR/>With the Date	</b>		
+							</th>
+						</tr> 
+						 <tr width="100%">
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>1</b>	
+							</th>
+							<th WIDTH="4%" colspan="3" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>2</b>	
+							</th>
+							<th WIDTH="4%" colspan="3" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>3</b>	
+							</th>
+							<th WIDTH="2%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>4</b>	
+							</th>
+							<th WIDTH="3%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>5</b>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>6</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>7</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>8</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>9</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>10</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>11</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>12</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>13</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>14</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>15</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>16</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>17</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>18</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>19</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>20</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>21</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>22</b>
+							</th>
+							<th WIDTH="2%" colspan="2"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>23</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>24</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>25</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>26</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>27</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>28</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>29</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>30</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>31</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>32</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>33</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>34</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>35</b>
+							</th>
+							<th WIDTH="2%"  colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>36</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>37</b>
+							</th>
+							<th WIDTH="2%" colspan="2" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>38</b>
+							</th>														
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>39</b>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>40</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>41</b>
+							</th>
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>42</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>43</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>44</b>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>45</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>46</b>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<B>47</B>
+							</th>
+							<th WIDTH="4%" colspan="2"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>48</b>	
+							</th>
+							<th WIDTH="3%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>49 </b>
+							</th>
+							<th WIDTH="5%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<b>50</b>		
+							</th>
+						</tr> 
+						<TR WIDTH="100%">
+							<th WIDTH="100%"  colspan="90" STYLE="border-style: double;;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+						</TR>
+				</THEAD>
+				<!-- ================================[[ FOOTER ]]=========================================================-->
+						 <tfoot>
+		    				<tr>
+		      					<TH  WIDTH="90%" colspan="80" STYLE="text-align:center;">  
+		      						<B>	NOTE :-<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>	 P- PRESENT <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> A-ABSENT <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>  
+		      					    	W/O - WEEKLY OFF <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> EL- EARNED LEAVE<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>HL- HOLIDAY<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> 
+		      					    	CL- CASUAL LEAVE <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> SL-SICK LEAVE <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> COM- Compensatory Days<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> FW- Factory Work<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><BR/>
+		      					        POW -PRESENT ON WEEK OFF  <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]> POH - PRESENT ON HOLIDAY<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>GEN- GENERAL<![CDATA[&nbsp;]]><![CDATA[&nbsp;]]><BR/>
+		      					        STF-STAFF <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>GRD A-GUARD A  <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>GRD B-GUARD B <![CDATA[&nbsp;]]><![CDATA[&nbsp;]]>GRD C-GUARD C
+		      					    	 </B>	
+		      					</TH>			 						
+		    				</tr>
+		  				</tfoot>
+	
+				<!-- ================================[[ BODY ]]=========================================================-->
+						<TBODY>
+						
+						<tr width="100%" t-foreach="get_data(o.from_date,o.till_date,o.partner_id,o.employee_ids)" t-as="line">
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<span t-raw="get_sequence()"/>	
+							</th>
+							<th WIDTH="4%" colspan="3" STYLE="text-align:center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+									<font style= "font-size:11px"><span t-raw="line[0][0:14]"/></font>
+									<br/>
+									<font style= "font-size:12px"><span t-raw="line[0][14:28]"/></font>
+									<br/>
+									[<font style= "font-size:11px"><span t-raw="line[1]"/></font>]
+							</th>
+							<th WIDTH="3%" colspan="3" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:11px"><span t-raw="line[3][0:12]"/></font>
+									<br/>
+								<font style= "font-size:11px"><span t-raw="line[3][12:24]"/></font>
+							</th>
+							<th WIDTH="2%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:11px"><span t-raw="line[2][0:10]"/></font>
+								<br/>
+								<font style= "font-size:11px"><span t-raw="line[2][10:20]"/></font>
+							</th>
+							<th WIDTH="3%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:11px"><span t-raw="line[4][0:10]"/></font>
+								<br/>
+								<font style= "font-size:11px"><span t-raw="line[4][10:20]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:11px"><span t-raw="line[5]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][0]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][0]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][1]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][1]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][2]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][2]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][3]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][3]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][4]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][4]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][5]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][5]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][6]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"   STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][6]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][7]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][7]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][8]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][8]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][9]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"   STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][9]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][10]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][10]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][11]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"   STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][11]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][12]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"   STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][12]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][13]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][13]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][14]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][14]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][15]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][15]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][16]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][16]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][17]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][17]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][18]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][18]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][19]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][19]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][20]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][20]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][21]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][21]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][22]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][22]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][23]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][23]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][24]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][24]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][25]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][25]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][26]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][26]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][27]"/></font>
+							</th>
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][27]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][28]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][28]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][29]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][29]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][30]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center; border-style: double; border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[6][30]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+								<font style= "font-size:13px"><span t-raw="line[7]"/></font>
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%"  colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%" colspan="1"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="1%" colspan="1" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="4%" colspan="2"  STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="3%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+							<th WIDTH="5%" colspan="2" STYLE="text-align: center;border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0.1cm; padding-bottom: 0.1cm; padding-left: 0.1cm; padding-right: 0cm">
+							</th>
+						</tr> 
+					</TBODY>	
+				</table>
+		</div>
+		</div>
+		</t>
+	</t>
+</t>
+</template>
+
+
+		
+	</data>
+</openerp>

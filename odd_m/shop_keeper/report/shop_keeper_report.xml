@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+        <report
+			id="action_report_shipping_details"
+			string="Print Report"
+			model="shipping.details"
+			report_type="qweb-pdf"
+			name="shop_keeper.report_of_shop_keeper"
+			file="shop_keeper.report_of_shop_keeper"
+			print_report_name="'shipping details'"
+            />
+
+		<report
+			id="action_report_customer_detail"
+			string="Print Report"
+			model="customer.detail"
+			report_type="qweb-pdf"
+			name="shop_keeper.report_of_customer_feedback"
+			file="shop_keeper.report_of_customer_feedback"
+			print_report_name="'customer detail'"
+            />
+	</data>
+</odoo>

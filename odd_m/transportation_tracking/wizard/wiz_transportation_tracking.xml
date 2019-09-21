@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <record id="wiz_transportation_tracking_form_view" model="ir.ui.view">
+            <field name="name">wiz.transportation.tracking</field>
+            <field name="model">wiz.transportation.tracking</field>
+            <field name="arch" type="xml">
+                <form string="Form">
+                <sheet>
+                        <group col="4" colspan="1">
+                             <field name="create_date"/>
+                             <field name="move_date"/>
+                            <button type="object" name="print_report" string="Print Report" />
+                        </group>
+                </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="wiz_transportation_tracking_tree_view" model="ir.ui.view">
+            <field name="name">wiz.transportation.tracking</field>
+            <field name="model">wiz.transportation.tracking</field>
+            <field name="arch" type="xml">
+                <tree string="Master">
+                               <field name="create_date"/>
+                               <field name="move_date"/>
+
+                </tree>
+            </field>
+        </record>
+        <record id="action_wiz_transportation_tracking_view" model="ir.actions.act_window">
+            <field name="name">Inner Detail</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wiz.transportation.tracking</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="execute_reasons_form_view" model="ir.ui.view">
+            <field name="name">ExecutorReasons</field>
+            <field name="model">executor.reasons</field>
+            <field name="arch" type="xml">
+                <form string="Execute Reasons">
+                    <sheet>
+                        <group col="2" colspan="2">
+                            <field name="name" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="execute_reasons_tree_view" model="ir.ui.view">
+            <field name="name">ExecutorReasons</field>
+            <field name="model">executor.reasons</field>
+            <field name="arch" type="xml">
+                <tree string="Execute Reasons">
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        <record id="action_execute_reasons_view"  model="ir.actions.act_window">
+            <field name="name">ExecutorReasons</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">executor.reasons</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="execute_reasons_tree_view"/>
+        </record>
+    </data>
+</odoo>

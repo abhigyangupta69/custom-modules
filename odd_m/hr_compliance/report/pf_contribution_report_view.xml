@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		
+         <report id="pf_contribution_report_id" string="PF Contribution"
+            model="wiz.pf.contribution" report_type="qweb-pdf"
+            name="hr_compliance.report_pf_contribution" 
+            file="hr_compliance.report_pf_contribution"
+            menu="False" />
+            
+	</data>
+</openerp>

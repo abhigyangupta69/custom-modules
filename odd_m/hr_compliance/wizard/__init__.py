@@ -1,0 +1,17 @@
+import wiz_employee_compliance
+import wiz_salary
+import wiz_update_ot
+import wiz_create_attendance
+import wiz_salary_report
+import wiz_performance_register
+import wiz_ot_register
+import wiz_daily_performance
+import wiz_employee_card
+import wiz_leave_register
+import wiz_employee_bonus_report
+import wiz_employee_pf_form
+import wiz_form12_register
+import wiz_employee_pf_upload_report
+import wiz_employee_salary_deduction
+import wiz_earn_leave_report
+import wiz_neem_trainee_stipend_register

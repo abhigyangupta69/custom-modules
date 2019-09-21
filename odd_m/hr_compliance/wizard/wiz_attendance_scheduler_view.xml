@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+		<record id="wiz_attendance_form" model="ir.ui.view">
+			<field name="name">wiz.attendance.form</field>
+			<field name="model">wiz.attendance</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form>
+					<group col="4" colspan="2">
+						<field name="name" required="1"/>
+						<field name="end_date" attrs="{'required':[('employee_id','!=',False)]}" />
+					<newline/>
+						<field name="employee_id" string='Name'/>
+						<field name="department_id"/>
+						<field name="company_id" attrs="{'readonly':[('user_id','in',(28,10,12,14,16,18,20,22,26,24))]}"/>
+						<field name="employment_type"/>
+						<field name="start_count"/>
+						<field name="to_count"/>
+						<field name="type" invisible="1"/>
+						<field name="user_id" invisible="1"/>
+					<label string="" colspan="2"/>
+					<newline/>
+					<separator colspan="4"/>
+					</group>
+					<group  col="8" colspan="4">
+						<button name="run_synchro1" string="Run Attendance" type="object" icon="gtk-ok" groups="base.group_compliance_user"/>
+						<button name="run_synchro11" string="Run Ab Attendance" type="object" icon="gtk-ok" groups="base.group_compliance_user"/>
+						<button name="run_synchro2" string="Compute Sunday Punch" type="object" icon="gtk-ok" groups="base.group_compliance_user" confirm="-----------Remember to Run Update OT-----------"/>
+						<button name="run_synchro22" string="Compute Non Sunday Punch" type="object" icon="gtk-ok" groups="base.group_compliance_user" confirm="-----------Remember to Run Update OT-----------"/>
+						<!-- <button name="run_invalid_punch" string="Invalid Attendance" type="object" icon="gtk-ok" groups="base.group_compliance_user"/> -->
+						<button name="earned_leave" string="Earned Leave" type="object" icon="gtk-ok" groups="base.group_compliance_user" confirm="------------Remember to Make Employee Puch of all Units before this-----------!!!"/>
+                         <button name="automatic_leave_posting"  string="Automatic Leave Post" type="object" icon="gtk-ok" groups="base.group_compliance_user" confirm="-----------Remember to Run Make Employee Punch  and Earned Leave  -----------"/>
+<!--					<button name="update_el" string="Update EL" type="object" icon="gtk-ok" groups="base.group_compliance_user"/>-->
+					</group>
+					<group col="4" colspan="4">
+						<button special="cancel" string="Cancel" icon="gtk-cancel" groups="base.group_compliance_manager_scheduler"/>
+						<button name="run_synchro_att" string="Attendance" type="object" icon="gtk-ok" groups="base.group_compliance_manager_scheduler"/>
+						<button name="run_synchro_punch" string="Punch" type="object" icon="gtk-ok" groups="base.group_compliance_manager_scheduler"/>
+						<button name="correct_manual_attendance" string="Complete Punch" type="object" icon="gtk-ok" />
+					</group>
+				</form>
+			</field>
+		</record>
+		
+		<record id="wiz_attendance_action" model="ir.actions.act_window">
+            <field name="name">Attendance Scheduler</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wiz.attendance</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="view_id" ref="wiz_attendance_form"/>
+        </record>
+        
+         <menuitem id="run_process_menu" parent="hr_attendance_main_menu" action="wiz_attendance_action" sequence="4"/>
+	
+	
+	</data>
+</openerp>

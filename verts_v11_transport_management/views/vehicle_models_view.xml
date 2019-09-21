@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="vehicle_models_form_view" model="ir.ui.view">
+            <field name="name">Vehicle Models</field>
+            <field name="model">vehicle.models</field>
+            <field name="arch" type="xml">
+                <form string="Data">
+                    <sheet>
+                        <group col="4" colspan="4">
+                            <field name="model_name" />
+                            <field name="brand_name" />
+                            <field name="standard_kmp" />
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="vehicle_models_tree_view" model="ir.ui.view">
+            <field name="name">Vehicle Models</field>
+            <field name="model">vehicle.models</field>
+            <field name="arch" type="xml">
+                <tree string="Data">
+                    <field name="model_name" />
+                    <field name="brand_name" />
+                    <field name="standard_kmp" />
+                </tree>
+            </field>
+        </record>
+        <record id="action_vehicle_models_view"  model="ir.actions.act_window">
+            <field name="name">Vehicle Models</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vehicle.models</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="vehicle_models_tree_view"/>
+
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+			<report id="daily_register_report_perform_id" string="Daily Performance Register Report"
+		            model="wiz.daily.performance" report_type="qweb-pdf"
+		            name="hr_compliance.report_daily_performance_register" /> 
+
+
+			<report id="daily_performance_register_report_contractor_id" string="Contractor Daily Performance Register Report"
+		            model="wiz.daily.performance.contractor" report_type="qweb-pdf"
+		            name="hr_compliance.report_daily_performance_register_contractor" /> 
+		            
+	</data>
+</openerp>
+	

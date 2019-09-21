@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+
+			<record id="holiday_list_tree_view" model="ir.ui.view">
+				<field name="name">holiday.list.tree</field>
+				<field name="model">holiday.list</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+				<tree string="Holiday">
+					<field name="name"/>
+					<field name="month"/>
+					<field name="year_id"/>
+					<field name="date"/>
+				</tree>
+				</field>
+			</record>
+			
+			
+			<record id="holiday_list_form_view" model="ir.ui.view">
+				<field name="name">holiday.list.form</field>
+				<field name="model">holiday.list</field>
+				<field name="type">form</field>
+				<field name="arch" type="xml">
+				<form string="Holiday" version="8.0">
+					<sheet>
+						<group col="4" colspan="2">
+							<field name="name" select="1"/>
+							<field name="date" select="1"/>
+							<field name="month" select="1"/>
+							<field name="year_id" widget="selection" select="1"/>
+							<field name="holiday_lines" mode="tree" colspan="4" nolabel="1">
+								<tree string="Holidays" editable="bottom">
+								   	<field name="week"/>
+									<field name="name"/>
+									<field name="leave_date"/>
+								</tree>
+							</field>
+							<field name="holiday" invisible="1"/>
+						</group>
+					</sheet>
+				</form>
+				</field>
+			</record>
+			
+			<record id="holiday_action" model="ir.actions.act_window">
+		   		<field name="name">Holiday List</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">holiday.list</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_type">form</field>
+	            <field name="view_id" ref="holiday_list_tree_view"/>  
+            </record>
+ 
+ <!--	   		Employee Menu View  -->
+            
+            <menuitem id="hr_attendance_main_menu1" parent="hr.menu_hr_root" name="Attendance" sequence="1"/>
+            <menuitem id="hr_attendance_main_menu" parent="hr_attendance_main_menu1" name="Employee Attendance" sequence="1"/>
+	   		<menuitem id="holiday_sub_menu_2" parent="hr_attendance_main_menu" name="Holiday" action="holiday_action" sequence="1" />
+	   		
+<!--	   		Contractor Menu View  -->
+            <menuitem id="hr_attendance_main_menu1_contarctor" parent="menu_view_employee_form_contarctor" name="Attendance" sequence="2"/>
+            <menuitem id="hr_attendance_main_menu_contarctor" parent="hr_attendance_main_menu1_contarctor" name="Contractor Attendance" sequence="1"/>
+
+	   		
+	   		<record id="holiday_year_tree_view" model="ir.ui.view">
+				<field name="name">holiday.year.tree</field>
+				<field name="model">holiday.year</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+				<tree string="Holiday">
+					<field name="name"/>
+				</tree>
+				</field>
+			</record>
+			
+			
+			<!-- <record id="view_hr_holidays_inhrt_id" model="ir.ui.view">
+	            <field name="model">hr.holidays</field>
+	            <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
+	            <field name="arch" type="xml">
+	            	<xpath expr="//field[@name='name']" position="before">
+	            		<field name="month" attrs="{'invisible':[('type','=','add')], 'required': [('type', '=', 'remove')]}"/>
+					</xpath>
+	            	<xpath expr="//field[@name='date_from']" position="after">
+	            		<field name="from_date" on_change="onchange_from(employee_id,from_date)" nolabel="1" attrs="{'required':[('type', '=', 'remove')]}" class="oe_inline"/>
+	            	</xpath>
+	            </field>
+	        </record> -->
+	        
+	        <record model="ir.ui.view" id="hr_holidays.edit_holiday_new">
+	            <field name="name">Leave Request</field>
+	            <field name="model">hr.holidays</field>
+	            <field name="arch" type="xml">
+	                <form string="Leave Request">
+	                <field name="can_reset" invisible="1"/>
+	                <field name="type" invisible="1"/>
+	                <header>
+	                    <button string="Confirm" name="confirm" states="draft" type="workflow" class="oe_highlight"/>
+	                    <button string="Approve" name="validate" states="confirm" type="workflow" groups="base.group_hr_user" class="oe_highlight"/>
+	                    <button string="Validate" name="second_validate" states="validate1" type="workflow" groups="base.group_hr_user" class="oe_highlight"/>
+	                    <button string="Refuse" name="refuse" states="confirm,validate,validate1" type="workflow" groups="base.group_hr_user"/>
+	                    <button string="Reset to Draft" name="reset" type="workflow"
+	                            attrs="{'invisible': ['|', ('can_reset', '=', False), ('state', 'not in', ['confirm', 'refuse'])]}"/>
+	                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,validate" statusbar_colors='{"confirm":"blue","validate1":"blue","refuse":"red"}'/>
+	                </header>
+	                <sheet>
+	                    <group>
+	                        <group>
+	                        	<field name="month" attrs="{'invisible':[('type','=','add')], 'required': [('type', '=', 'remove')]}"/>
+	                            <field name="name" attrs="{'readonly':[('state','!=','draft'),('state','!=','confirm')], 'required': [('type', '=', 'add')]}"/>
+	                             <field name="leave_mode" readonly="1"/> 
+	                            <field name="holiday_status_id" context="{'employee_id':employee_id}"/>
+	                                <label for="number_of_days_temp" string="Duration"/>
+	                            <div>
+	                                <group col="4" attrs="{'invisible': [('type', '=', 'add')]}">
+	                                    <field name="date_from" nolabel="1" on_change="onchange_date_from(date_to, date_from)" attrs="{'required':[('type', '=', 'remove')]}" class="oe_inline" invisible="1"/><label string="-" class="oe_inline"/>
+	                                    <field name="from_date" on_change="onchange_from(employee_id,from_date)" nolabel="1" attrs="{'required':[('type', '=', 'remove')]}" class="oe_inline"/>
+	                                    <field name="date_to" nolabel="1" on_change="onchange_date_to(date_to, date_from)"  attrs="{'required':[('type', '=', 'remove')]}" class="oe_inline"/>
+	                                </group>
+	                                <div>
+	                                    <field name="number_of_days_temp" class="oe_inline"/> days
+	                                </div>
+	                            </div>
+	                        </group>
+	                        <group>
+	                        	<field name="employee_id" attrs="{'required':[('holiday_type','=','employee')],'invisible':[('holiday_type','=','category')]}" on_change="onchange_employee(employee_id)" groups="base.group_hr_user"/>
+	                            <field name="holiday_type" on_change="onchange_type(holiday_type)" attrs="{'readonly':[('type', '=', 'remove'),('state','!=','draft')]}" string="Mode" groups="base.group_hr_user" context="{'employee_id':employee_id}" />
+	                            <field name="category_id" attrs="{'required':[('holiday_type','=','category')], 'readonly': [('type', '=', 'remove'),('state','!=','draft'), ('state','!=','confirm')], 'invisible':[('holiday_type','=','employee')]}"/>
+	                            <field name="department_id" attrs="{'readonly':['|', ('type','=','add'),('holiday_type','=','category')],'invisible':[('holiday_type','=','category')]}" groups="base.group_hr_user"/>
+	                        </group>
+	                    </group>
+	                    <field name="notes" nolabel="1" colspan="4" placeholder="Add a reason..." attrs="{'invisible': [('type', '=', 'remove')]}"/>
+	                </sheet>
+	                <div class="oe_chatter">
+	                    <field name="message_follower_ids" widget="mail_followers"/>
+	                    <field name="message_ids" widget="mail_thread"/>
+	                </div>
+	                </form>
+	            </field>
+        	</record>
+	        <menuitem name="Leaves" parent="hr.menu_hr_root" id="hr_holidays.menu_open_ask_holidays" sequence="2"/>
+	        
+			<!-- SEARCH VIEW FOR LEAVE POSTING -->
+				    
+        <record id="hr_holidays.view_hr_holidays_filter" model="ir.ui.view">
+            <field name="name">hr.holidays.filter</field>
+            <field name="model">hr.holidays</field>
+            <field name="arch" type="xml">
+                <search string="Search Leave">
+                    <field name="name"/>
+                    <field name="month"/>
+                    <separator/>
+                    <filter domain="[('state','=','draft')]" string="To Confirm"/>
+                    <filter domain="[('state','in',('confirm','validate1'))]" string="To Approve" name="approve"/>
+                    <filter domain="[('state','=','validate')]" string="Validated" name="validated"/>
+                    <separator/>
+                    <filter name="active_types" string="Active Types" domain="[('holiday_status_id.active', '=', True)]" help="Filters only on allocations and requests that belong to an holiday type that is 'active' (active field is True)"/>
+                    <separator/>
+                    <filter name="year" string="Year"
+                        domain="['|','&amp;',('date_to', '&lt;=', time.strftime('%%Y-12-31')),
+                                             ('date_to', '&gt;=', time.strftime('%%Y-01-01')),
+                                     '&amp;',('date_from', '&lt;=', time.strftime('%%Y-12-31')),
+                                             ('date_from', '&gt;=', time.strftime('%%Y-01-01'))]"
+                        help="Current Year Leaves"/>
+                    <separator/>
+                    <filter string="My Requests" name="my_leaves" domain="[('user_id', '=', uid)]" help="My Leave Requests"/>
+                    <separator/>
+                    <filter string="My Department Leaves" name="my_department_leaves" domain="[('department_id.manager_id.user_id', '=', uid)]"/>
+                    <field name="employee_id"/>
+                    <field name="department_id"/>
+                    <field name="holiday_status_id"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_name" string="Description" context="{'group_by':'name'}"/>
+                        <filter name="group_employee" string="Employee" context="{'group_by':'employee_id'}"/>
+                        <filter name="group_category" string="Category" context="{'group_by':'category_id'}"/>
+                        <filter string="Manager" context="{'group_by':'manager_id'}"/>
+                        <filter name="group_type" string="Type" context="{'group_by':'holiday_status_id'}"/>
+                        <separator/>
+                        <filter name="group_date_from" string="Start Month" context="{'group_by':'date_from:month'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+			    
+	        <!-- TREE VIEW FOR LEAVE POSTING -->
+	        
+	        <record id="leave_post_tree_id" model="ir.ui.view">
+				<field name="name">hr.holidays.tree</field>
+				<field name="model">hr.holidays</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+					<tree editable="top">
+						<field name="employee_id" required='1' on_change="onchange_employee(employee_id)" domain="[('type','=','Employee')]"/>
+						<field name="holiday_status_id" context="{'employee_id':employee_id}" string="Leave Type" on_change="onchange_leave_type(employee_id)" required='1' />
+						<field name="month" required='1'/>
+						<field name="can_reset" invisible="1"/>
+	                	<field name="type" invisible="1"/>
+						<field name="name" invisible="1"/>
+						<field name="date_from" on_change="onchange_date_from(date_to, date_from)" invisible="1"/>
+                        <field name="from_date" on_change="onchange_from(employee_id,from_date)" required='1'/>
+                        <field name="date_to" on_change="onchange_date_to(date_to, date_from)" required='1'/>
+                        <field name="number_of_days_temp"/>
+                        <field name="holiday_type" on_change="onchange_type(holiday_type)" string="Mode" context="{'employee_id':employee_id}" invisible='1' />
+                        <field name="department_id"/>
+                        <field name="leave_mode" readonly="1"/>
+                        <field name="work_type" invisible="1"/>
+                        <button string="Confirm" name="confirm" states="draft" type="workflow"/>
+	                    <button string="Approve" name="validate" states="confirm" type="workflow" class="oe_highlight"/>
+	                    <button string="Validate" name="second_validate" states="validate1" type="workflow" class="oe_highlight"/>
+	                    <button string="Refuse" name="refuse" states="confirm,validate,validate1" type="workflow"/>
+	                    <button string="Reset" name="reset" type="workflow" />
+	                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,validate" statusbar_colors='{"confirm":"blue","validate1":"blue","refuse":"red"}' invisible='1'/>
+					</tree>
+				</field>
+			</record>
+		
+			<record id="leave_post_tree_action" model="ir.actions.act_window">
+	            <field name="name">Earn leave</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">hr.holidays</field>
+	            <field name="view_type">form</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_id" ref="leave_post_tree_id"/>
+	            <field name="domain">[('type','=','remove'),('work_type','=','Employee')]</field>
+	            <field name="context">{'default_type': 'remove',}</field>
+	        </record>
+        
+        <menuitem id="leave_post_tree_menu" name="Leave Posting" parent="hr.menu_hr_configuration" action="leave_post_tree_action" sequence="10"/>
+
+	        <record id="leave_post_tree_id_cont" model="ir.ui.view">
+				<field name="name">hr.holidays.tree</field>
+				<field name="model">hr.holidays</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+					<tree editable="top">
+						<field name="employee_id" required='1' on_change="onchange_employee(employee_id)" domain="[('type','=','Contractor')]"/>
+						<field name="holiday_status_id" context="{'employee_id':employee_id}" string="Leave Type" on_change="onchange_leave_type(employee_id)" required='1' />
+						<field name="month" required='1'/>
+						<field name="can_reset" invisible="1"/>
+	                	<field name="type" invisible="1"/>
+						<field name="name" invisible="1"/>
+						<field name="date_from" on_change="onchange_date_from(date_to, date_from)" invisible="1"/>
+                        <field name="from_date" on_change="onchange_from(employee_id,from_date)" required='1'/>
+                        <field name="date_to" on_change="onchange_date_to(date_to, date_from)" required='1'/>
+                        <field name="number_of_days_temp"/>
+                        <field name="holiday_type" on_change="onchange_type(holiday_type)" string="Mode"  context="{'employee_id':employee_id}" invisible='1' />
+                        <field name="department_id"/>
+                        <field name="work_type" readonly="1"/>
+                        <button string="Confirm" name="confirm" states="draft" type="workflow"/>
+	                    <button string="Approve" name="validate" states="confirm" type="workflow" class="oe_highlight"/>
+	                    <button string="Validate" name="second_validate" states="validate1" type="workflow" class="oe_highlight"/>
+	                    <button string="Refuse" name="refuse" states="confirm,validate,validate1" type="workflow"/>
+	                    <button string="Reset" name="reset" type="workflow" />
+	                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,validate" statusbar_colors='{"confirm":"blue","validate1":"blue","refuse":"red"}' invisible='1'/>
+					</tree>
+				</field>
+			</record>
+
+			<record id="leave_post_tree_action_cont" model="ir.actions.act_window">
+	            <field name="name">Earn leave</field>
+	            <field name="type">ir.actions.act_window</field>
+	            <field name="res_model">hr.holidays</field>
+	            <field name="view_type">form</field>
+	            <field name="view_mode">tree,form</field>
+	            <field name="view_id" ref="leave_post_tree_id_cont"/>
+	            <field name="domain">[('type','=','remove'),('work_type','=','Contractor')]</field>
+	            <field name="context">{'default_type': 'remove',}</field>
+	        </record>
+        
+        <menuitem id="leave_post_tree_menu_cont" name="Leave Posting" parent="sub_menu_res_partner_contractor" action="leave_post_tree_action_cont" sequence="2"/>
+					
+</data>
+</openerp>	   		
